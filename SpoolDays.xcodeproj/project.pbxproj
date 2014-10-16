@@ -14,6 +14,7 @@
 		80A574C319EFDF4100C06CBB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80A574C119EFDF4100C06CBB /* LaunchScreen.xib */; };
 		80A574CF19EFDF4100C06CBB /* SpoolDaysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A574CE19EFDF4100C06CBB /* SpoolDaysTests.swift */; };
 		80A7D33219EFEE00007BB993 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7D33119EFEE00007BB993 /* DateCollectionViewCell.swift */; };
+		80A7D33419F012EA007BB993 /* DateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7D33319F012EA007BB993 /* DateViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,8 @@
 		80A574CD19EFDF4100C06CBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80A574CE19EFDF4100C06CBB /* SpoolDaysTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoolDaysTests.swift; sourceTree = "<group>"; };
 		80A7D33119EFEE00007BB993 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		80A7D33319F012EA007BB993 /* DateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewModel.swift; sourceTree = "<group>"; };
+		80A7D33519F01317007BB993 /* SpoolDays-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpoolDays-Bridging-Header.h"; sourceTree = "<group>"; };
 		C803814E2F0D8A09FC22F0B1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -99,6 +102,8 @@
 				80A574B619EFDF4100C06CBB /* Supporting Files */,
 				8002868319EFE1EE00089835 /* MainViewController.swift */,
 				80A7D33119EFEE00007BB993 /* DateCollectionViewCell.swift */,
+				80A7D33319F012EA007BB993 /* DateViewModel.swift */,
+				80A7D33519F01317007BB993 /* SpoolDays-Bridging-Header.h */,
 			);
 			path = SpoolDays;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 				TargetAttributes = {
 					80A574B219EFDF4100C06CBB = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = LG7S83GR74;
 					};
 					80A574C719EFDF4100C06CBB = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -270,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80A7D33419F012EA007BB993 /* DateViewModel.swift in Sources */,
 				80A574B919EFDF4100C06CBB /* AppDelegate.swift in Sources */,
 				80A7D33219EFEE00007BB993 /* DateCollectionViewCell.swift in Sources */,
 				8002868419EFE1EE00089835 /* MainViewController.swift in Sources */,
@@ -388,9 +395,13 @@
 			baseConfigurationReference = 28ED91F5F3718D86CF27B399 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SpoolDays/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SpoolDays/SpoolDays-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -399,9 +410,12 @@
 			baseConfigurationReference = 51761DB67EF34A17DB7EAEF3 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SpoolDays/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SpoolDays/SpoolDays-Bridging-Header.h";
 			};
 			name = Release;
 		};

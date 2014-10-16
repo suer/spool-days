@@ -1,7 +1,6 @@
 import UIKit
 
 class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
     var collectionView: UICollectionView?
 
     override func viewDidLoad() {
@@ -29,11 +28,14 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        return 10
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = self.collectionView!.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as DateCollectionViewCell
+
+        cell.dateViewModel.title = "Title\(indexPath.row)"
+        cell.dateViewModel.date = NSDate(timeIntervalSinceNow: Double(indexPath.row * 60 * 60 * 24))
         return cell
     }
 
