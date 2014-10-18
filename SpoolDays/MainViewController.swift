@@ -8,6 +8,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         view.backgroundColor = UIColor.whiteColor()
         title = "Spool Days"
         loadCollectionView()
+        loadAddButton()
     }
 
     func loadCollectionView() {
@@ -21,6 +22,14 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView!.dataSource = self
         collectionView!.backgroundColor = UIColor.whiteColor()
         view.addSubview(collectionView!)
+    }
+
+    func loadAddButton() {
+        let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: Selector("addButtonTapped:"))
+        navigationItem.rightBarButtonItem = addButton
+    }
+
+    func addButtonTapped(sender: AnyObject) {
     }
 
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
