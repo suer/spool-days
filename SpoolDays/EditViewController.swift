@@ -90,7 +90,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd"
         cell.detailTextLabel?.text = dateFormatter.stringFromDate(date ?? NSDate())
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         dateViewModel.rac_valuesForKeyPath("date", observer: dateViewModel).subscribeNext({
             obj in
             let date = obj as? NSDate ?? NSDate()
