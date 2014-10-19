@@ -16,6 +16,10 @@
 		80A574CF19EFDF4100C06CBB /* SpoolDaysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A574CE19EFDF4100C06CBB /* SpoolDaysTests.swift */; };
 		80A7D33219EFEE00007BB993 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7D33119EFEE00007BB993 /* DateCollectionViewCell.swift */; };
 		80A7D33419F012EA007BB993 /* DateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7D33319F012EA007BB993 /* DateViewModel.swift */; };
+		80DFB0F719F3D2A100BCF3B1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB0F519F3D2A100BCF3B1 /* Model.xcdatamodeld */; };
+		80DFB11819F3E77400BCF3B1 /* Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11719F3E77400BCF3B1 /* Log.m */; };
+		80DFB11B19F3E77400BCF3B1 /* BaseDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11A19F3E77400BCF3B1 /* BaseDate.m */; };
+		80DFB11D19F3E7C600BCF3B1 /* BaseDateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11C19F3E7C600BCF3B1 /* BaseDateWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,12 @@
 		80A7D33119EFEE00007BB993 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		80A7D33319F012EA007BB993 /* DateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewModel.swift; sourceTree = "<group>"; };
 		80A7D33519F01317007BB993 /* SpoolDays-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpoolDays-Bridging-Header.h"; sourceTree = "<group>"; };
+		80DFB0F619F3D2A100BCF3B1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		80DFB11619F3E77400BCF3B1 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Log.h; path = Models/Log.h; sourceTree = "<group>"; };
+		80DFB11719F3E77400BCF3B1 /* Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Log.m; path = Models/Log.m; sourceTree = "<group>"; };
+		80DFB11919F3E77400BCF3B1 /* BaseDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseDate.h; path = Models/BaseDate.h; sourceTree = "<group>"; };
+		80DFB11A19F3E77400BCF3B1 /* BaseDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseDate.m; path = Models/BaseDate.m; sourceTree = "<group>"; };
+		80DFB11C19F3E7C600BCF3B1 /* BaseDateWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseDateWrapper.swift; path = Models/BaseDateWrapper.swift; sourceTree = "<group>"; };
 		C803814E2F0D8A09FC22F0B1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -98,6 +108,7 @@
 		80A574B519EFDF4100C06CBB /* SpoolDays */ = {
 			isa = PBXGroup;
 			children = (
+				80DFB0F419F3D27B00BCF3B1 /* Models */,
 				80A574B819EFDF4100C06CBB /* AppDelegate.swift */,
 				80A574BF19EFDF4100C06CBB /* Images.xcassets */,
 				80A574C119EFDF4100C06CBB /* LaunchScreen.xib */,
@@ -105,8 +116,8 @@
 				8002868319EFE1EE00089835 /* MainViewController.swift */,
 				80A7D33119EFEE00007BB993 /* DateCollectionViewCell.swift */,
 				80A7D33319F012EA007BB993 /* DateViewModel.swift */,
-				80A7D33519F01317007BB993 /* SpoolDays-Bridging-Header.h */,
 				804E607319F31D5D005BA669 /* EditViewController.swift */,
+				80A7D33519F01317007BB993 /* SpoolDays-Bridging-Header.h */,
 			);
 			path = SpoolDays;
 			sourceTree = "<group>";
@@ -134,6 +145,19 @@
 				80A574CD19EFDF4100C06CBB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		80DFB0F419F3D27B00BCF3B1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				80DFB0F519F3D2A100BCF3B1 /* Model.xcdatamodeld */,
+				80DFB11919F3E77400BCF3B1 /* BaseDate.h */,
+				80DFB11A19F3E77400BCF3B1 /* BaseDate.m */,
+				80DFB11619F3E77400BCF3B1 /* Log.h */,
+				80DFB11719F3E77400BCF3B1 /* Log.m */,
+				80DFB11C19F3E7C600BCF3B1 /* BaseDateWrapper.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		C9DD4CF9193C1C7BCB6EC7B2 /* Frameworks */ = {
@@ -279,11 +303,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80DFB11819F3E77400BCF3B1 /* Log.m in Sources */,
 				804E607419F31D5D005BA669 /* EditViewController.swift in Sources */,
 				80A7D33419F012EA007BB993 /* DateViewModel.swift in Sources */,
 				80A574B919EFDF4100C06CBB /* AppDelegate.swift in Sources */,
+				80DFB11D19F3E7C600BCF3B1 /* BaseDateWrapper.swift in Sources */,
 				80A7D33219EFEE00007BB993 /* DateCollectionViewCell.swift in Sources */,
 				8002868419EFE1EE00089835 /* MainViewController.swift in Sources */,
+				80DFB11B19F3E77400BCF3B1 /* BaseDate.m in Sources */,
+				80DFB0F719F3D2A100BCF3B1 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +516,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		80DFB0F519F3D2A100BCF3B1 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				80DFB0F619F3D2A100BCF3B1 /* Model.xcdatamodel */,
+			);
+			currentVersion = 80DFB0F619F3D2A100BCF3B1 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = Models/Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 80A574AB19EFDF4100C06CBB /* Project object */;
 }

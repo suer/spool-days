@@ -47,6 +47,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func saveButtonTapped(sender: AnyObject) {
+        BaseDateWrapper.create(dateViewModel.title ?? "", date: dateViewModel.date ?? NSDate())
         dismissViewControllerAnimated(true, completion: nil)
     }
 
@@ -56,6 +57,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         textView!.layer.borderWidth = 1
         textView!.layer.borderColor = UIColor(white: 0.5, alpha: 0.5).CGColor
         view.addSubview(textView!)
+
+        textView!.rac_textSignal().subscribeNext({
+            text in
+            self.dateViewModel.title = text as? String
+        })
     }
 
     func loadTableView() {
@@ -80,11 +86,17 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
         cell.textLabel?.text = "Date"
-        let date = NSDate()
+        let date = dateViewModel.date
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd"
-        cell.detailTextLabel?.text = dateFormatter.stringFromDate(date)
+        cell.detailTextLabel?.text = dateFormatter.stringFromDate(date ?? NSDate())
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        dateViewModel.rac_valuesForKeyPath("date", observer: dateViewModel).subscribeNext({
+            obj in
+            let date = obj as? NSDate ?? NSDate()
+            cell.detailTextLabel?.text = dateFormatter.stringFromDate(date)
+            return
+        })
         return cell
     }
 
