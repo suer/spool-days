@@ -1,6 +1,6 @@
 import UIKit
 
-class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
 
     var textView: UITextView?
     let dateViewModel: DateViewModel
@@ -58,6 +58,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         textView!.text = dateViewModel.title
         textView!.layer.borderWidth = 1
         textView!.layer.borderColor = UIColor(white: 0.5, alpha: 0.5).CGColor
+        textView!.delegate = self
         view.addSubview(textView!)
 
         textView!.rac_textSignal().subscribeNext({
@@ -66,10 +67,24 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         })
     }
 
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        datePicker!.hidden = true
+        return true
+    }
+
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        for v in view.subviews {
+            if !(v is UITextView) {
+                textView!.resignFirstResponder()
+            }
+        }
+    }
+
     func loadDatePicker() {
         datePicker = UIDatePicker(frame: CGRectMake(0, textViewHeight + textViewHeight, view.bounds.width, 200))
         datePicker!.datePickerMode = UIDatePickerMode.Date
         datePicker!.addTarget(self, action: Selector("datePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        datePicker!.hidden = true
         view.addSubview(datePicker!)
     }
 
@@ -111,6 +126,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             return
         })
         return cell
+    }
+
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        datePicker!.hidden = false
+        textView!.resignFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
