@@ -30,6 +30,10 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
 
     func addButtonTapped(sender: AnyObject) {
+        let editViewController = EditViewController(dateViewModel: DateViewModel())
+        let navigationController = UINavigationController(rootViewController: editViewController)
+        navigationController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        presentViewController(navigationController, animated: true, completion: nil)
     }
 
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {

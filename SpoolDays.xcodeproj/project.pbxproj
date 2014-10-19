@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		55AA9C5EE09150BA7640BF8D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C803814E2F0D8A09FC22F0B1 /* libPods.a */; };
 		8002868419EFE1EE00089835 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002868319EFE1EE00089835 /* MainViewController.swift */; };
+		804E607419F31D5D005BA669 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E607319F31D5D005BA669 /* EditViewController.swift */; };
 		80A574B919EFDF4100C06CBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A574B819EFDF4100C06CBB /* AppDelegate.swift */; };
 		80A574C019EFDF4100C06CBB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80A574BF19EFDF4100C06CBB /* Images.xcassets */; };
 		80A574C319EFDF4100C06CBB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80A574C119EFDF4100C06CBB /* LaunchScreen.xib */; };
@@ -31,6 +32,7 @@
 		28ED91F5F3718D86CF27B399 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		51761DB67EF34A17DB7EAEF3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8002868319EFE1EE00089835 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		804E607319F31D5D005BA669 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		80A574B319EFDF4100C06CBB /* SpoolDays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpoolDays.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80A574B719EFDF4100C06CBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80A574B819EFDF4100C06CBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				80A7D33119EFEE00007BB993 /* DateCollectionViewCell.swift */,
 				80A7D33319F012EA007BB993 /* DateViewModel.swift */,
 				80A7D33519F01317007BB993 /* SpoolDays-Bridging-Header.h */,
+				804E607319F31D5D005BA669 /* EditViewController.swift */,
 			);
 			path = SpoolDays;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				804E607419F31D5D005BA669 /* EditViewController.swift in Sources */,
 				80A7D33419F012EA007BB993 /* DateViewModel.swift in Sources */,
 				80A574B919EFDF4100C06CBB /* AppDelegate.swift in Sources */,
 				80A7D33219EFEE00007BB993 /* DateCollectionViewCell.swift in Sources */,
