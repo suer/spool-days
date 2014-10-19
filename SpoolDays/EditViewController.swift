@@ -5,6 +5,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var textView: UITextView?
     let dateViewModel: DateViewModel
     var tableView: UITableView?
+    var datePicker: UIDatePicker?
 
     let textViewHeight = CGFloat(150.0)
     let cellHeight = CGFloat(50.0)
@@ -30,6 +31,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         loadSaveButton()
         loadTextView()
         loadTableView()
+        loadDatePicker()
     }
 
     func loadCancelButton() {
@@ -64,6 +66,17 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         })
     }
 
+    func loadDatePicker() {
+        datePicker = UIDatePicker(frame: CGRectMake(0, textViewHeight + textViewHeight, view.bounds.width, 200))
+        datePicker!.datePickerMode = UIDatePickerMode.Date
+        datePicker!.addTarget(self, action: Selector("datePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        view.addSubview(datePicker!)
+    }
+
+    func datePickerValueChanged(datePicker: UIDatePicker) {
+        dateViewModel.date = datePicker.date
+    }
+
     func loadTableView() {
         tableView = UITableView(frame: CGRectMake(0, textViewHeight, view.bounds.width, cellHeight))
         tableView!.delegate = self
@@ -88,7 +101,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.textLabel?.text = "Date"
         let date = dateViewModel.date
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd"
+        dateFormatter.timeStyle = .NoStyle
+        dateFormatter.dateStyle = .ShortStyle
         cell.detailTextLabel?.text = dateFormatter.stringFromDate(date ?? NSDate())
         dateViewModel.rac_valuesForKeyPath("date", observer: dateViewModel).subscribeNext({
             obj in
