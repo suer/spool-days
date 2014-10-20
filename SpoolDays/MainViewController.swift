@@ -1,7 +1,7 @@
 import UIKit
 
-class MainViewController: UIViewController, UICollectionViewDelegate {
-    var collectionView: UICollectionView?
+class MainViewController: UIViewController, UITableViewDelegate {
+    var tableView: UITableView?
     let datesViewModel = DatesViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,16 +21,15 @@ class MainViewController: UIViewController, UICollectionViewDelegate {
         let width = (view.bounds.width - 30) / 3
         layout.itemSize = CGSize(width: width, height: width)
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
-        collectionView!.registerClass(DateCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
-        collectionView!.delegate = self
-        collectionView!.dataSource = datesViewModel
-        collectionView!.backgroundColor = UIColor.whiteColor()
-        view.addSubview(collectionView!)
+        tableView = UITableView(frame: view.bounds)
+        tableView!.delegate = self
+        tableView!.dataSource = datesViewModel
+        tableView!.backgroundColor = UIColor.whiteColor()
+        view.addSubview(tableView!)
 
         datesViewModel.rac_valuesForKeyPath("dates", observer: datesViewModel).subscribeNext({
             obj in
-            self.collectionView!.reloadData()
+            self.tableView!.reloadData()
         })
     }
 
