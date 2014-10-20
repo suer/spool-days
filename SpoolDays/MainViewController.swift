@@ -39,7 +39,16 @@ class MainViewController: UIViewController, UITableViewDelegate {
     }
 
     func addButtonTapped(sender: AnyObject) {
-        let editViewController = EditViewController(dateViewModel: DateViewModel())
+        showEditView(DateViewModel(baseDate: nil))
+    }
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as DateTableViewCell
+        showEditView(cell.dateViewModel)
+    }
+
+    func showEditView(dateViewModel: DateViewModel) {
+        let editViewController = EditViewController(dateViewModel: dateViewModel)
         let navigationController = UINavigationController(rootViewController: editViewController)
         navigationController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         presentViewController(navigationController, animated: true, completion: nil)

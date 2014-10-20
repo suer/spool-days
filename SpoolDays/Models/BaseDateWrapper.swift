@@ -1,4 +1,11 @@
-class BaseDateWrapper {
+class BaseDateWrapper: NSObject {
+    let baseDate: BaseDate
+
+    init(baseDate: BaseDate) {
+        self.baseDate = baseDate
+        super.init()
+    }
+
     class func create(title: String, date: NSDate) {
         let baseDate = BaseDate.MR_createEntity() as BaseDate
         baseDate.title = title
@@ -10,6 +17,12 @@ class BaseDateWrapper {
         log.baseDate = baseDate
         log.event = "create"
 
+        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+    }
+
+    func update(#title: String, date: NSDate) {
+        baseDate.title = title
+        baseDate.date = date
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
     }
 }

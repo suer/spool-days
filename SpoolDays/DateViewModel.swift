@@ -1,8 +1,27 @@
 class DateViewModel: RVMViewModel {
-    dynamic var date: NSDate?
-    dynamic var title: String?
+    var baseDate: BaseDate?
+    let valueChangeSignal = RACSubject()
 
-    override init() {
+    init(baseDate: BaseDate?) {
+        self.baseDate = baseDate
         super.init()
+    }
+
+    func getTitle() -> String? {
+        return baseDate?.title
+    }
+
+    func getDate() -> NSDate? {
+        return baseDate?.date
+    }
+
+    func update(#title: String, date: NSDate) {
+        if baseDate == nil {
+            baseDate = BaseDate.MR_createEntity() as BaseDate?
+        }
+        BaseDateWrapper(baseDate: baseDate!).update(title: title, date: date)
+        baseDate?.title = title
+        baseDate?.date = date
+        valueChangeSignal.sendNext(self)
     }
 }

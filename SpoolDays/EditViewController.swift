@@ -7,6 +7,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var tableView: UITableView?
     var datePicker: UIDatePicker?
 
+    var titleString: String
+    var date: NSDate
+
     let textViewHeight = CGFloat(150.0)
     let cellHeight = CGFloat(50.0)
 
@@ -16,6 +19,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, dateViewModel: DateViewModel) {
         self.dateViewModel = dateViewModel
+        self.titleString = dateViewModel.baseDate?.title ?? ""
+        self.date = dateViewModel.baseDate?.date ?? NSDate()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
@@ -49,13 +54,13 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func saveButtonTapped(sender: AnyObject) {
-        BaseDateWrapper.create(dateViewModel.title ?? "", date: dateViewModel.date ?? NSDate())
+        dateViewModel.update(title: titleString, date: date)
         dismissViewControllerAnimated(true, completion: nil)
     }
 
     func loadTextView() {
         textView = UITextView(frame: CGRectMake(0, 0, view.bounds.width, textViewHeight))
-        textView!.text = dateViewModel.title
+        textView!.text = titleString
         textView!.layer.borderWidth = 1
         textView!.layer.borderColor = UIColor(white: 0.5, alpha: 0.5).CGColor
         textView!.delegate = self
@@ -63,7 +68,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         textView!.rac_textSignal().subscribeNext({
             text in
-            self.dateViewModel.title = text as? String
+            self.titleString = text as? String ?? ""
         })
     }
 
@@ -89,7 +94,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func datePickerValueChanged(datePicker: UIDatePicker) {
-        dateViewModel.date = datePicker.date
+        date = datePicker.date
     }
 
     func loadTableView() {
@@ -114,7 +119,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
         cell.textLabel?.text = "Date"
-        let date = dateViewModel.date
+        let date = dateViewModel.baseDate?.date ?? NSDate()
         let dateFormatter = NSDateFormatter()
         dateFormatter.timeStyle = .NoStyle
         dateFormatter.dateStyle = .ShortStyle

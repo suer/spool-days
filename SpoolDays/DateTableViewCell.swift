@@ -3,40 +3,31 @@ import UIKit
 class DateTableViewCell: UITableViewCell {
     var dateViewModel: DateViewModel
 
-    init(reuseIdentifier: String?) {
-        dateViewModel = DateViewModel()
+    init(reuseIdentifier: String?, dateViewModel: DateViewModel) {
+        self.dateViewModel = dateViewModel
         super.init(style: UITableViewCellStyle.Value1, reuseIdentifier: reuseIdentifier)
-        loadCountLabel()
-        loadTitleLabel()
+        setupHandler()
     }
 
     required init(coder aDecoder: NSCoder) {
-        dateViewModel = DateViewModel()
-        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
     }
 
-    func loadCountLabel() {
-        dateViewModel.rac_valuesForKeyPath("date", observer: dateViewModel).subscribeNext({
+    private func setupHandler() {
+        dateViewModel.rac_valuesForKeyPath("baseDate", observer: dateViewModel).subscribeNext({
             obj in
-            if obj == nil {
-                return
-            }
-            let date = obj as NSDate
-            let dateInterval = Int(date.timeIntervalSinceNow / 60 / 60 / 24)
-            self.detailTextLabel?.text = "\(-dateInterval)"
-            return
+            self.updateLabels()
+        })
+        dateViewModel.valueChangeSignal.subscribeNext({
+            obj in
+            self.updateLabels()
         })
     }
 
-    func loadTitleLabel() {
-        dateViewModel.rac_valuesForKeyPath("title", observer: dateViewModel).subscribeNext({
-            obj in
-            if obj == nil {
-                return
-            }
-            let title = obj as String
-            self.textLabel?.text = title
-            return
-        })
+    private func updateLabels() {
+        textLabel?.text = dateViewModel.baseDate?.title
+        let date = dateViewModel.baseDate?.date ?? NSDate()
+        let dateInterval = Int(date.timeIntervalSinceNow / 60 / 60 / 24)
+        detailTextLabel?.text = "\(-dateInterval)"
     }
 }

@@ -10,9 +10,7 @@ class DatesViewModel: RVMViewModel, UITableViewDataSource  {
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as? DateTableViewCell ?? DateTableViewCell(reuseIdentifier: "Cell")
-        cell.dateViewModel.title = dates[indexPath.row].title
-        cell.dateViewModel.date = dates[indexPath.row].date
-        return cell
+        let dateViewModel = DateViewModel(baseDate: dates[indexPath.row])
+        return tableView.dequeueReusableCellWithIdentifier("Cell") as? DateTableViewCell ?? DateTableViewCell(reuseIdentifier: "Cell", dateViewModel: dateViewModel)
     }
 }
