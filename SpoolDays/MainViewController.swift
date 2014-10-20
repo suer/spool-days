@@ -1,8 +1,8 @@
 import UIKit
 
-class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class MainViewController: UIViewController, UICollectionViewDelegate {
     var collectionView: UICollectionView?
-
+    let datesViewModel = DatesViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
@@ -11,6 +11,11 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         loadAddButton()
     }
 
+    override func viewWillAppear(animated: Bool) {
+        datesViewModel.fetch()
+        super.viewWillAppear(animated)
+    }
+    
     func loadCollectionView() {
         let layout = UICollectionViewFlowLayout()
         let width = (view.bounds.width - 30) / 3
@@ -19,9 +24,14 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
         collectionView!.registerClass(DateCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView!.delegate = self
-        collectionView!.dataSource = self
+        collectionView!.dataSource = datesViewModel
         collectionView!.backgroundColor = UIColor.whiteColor()
         view.addSubview(collectionView!)
+
+        datesViewModel.rac_valuesForKeyPath("dates", observer: datesViewModel).subscribeNext({
+            obj in
+            self.collectionView!.reloadData()
+        })
     }
 
     func loadAddButton() {
@@ -34,22 +44,6 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let navigationController = UINavigationController(rootViewController: editViewController)
         navigationController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         presentViewController(navigationController, animated: true, completion: nil)
-    }
-
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = self.collectionView!.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as DateCollectionViewCell
-
-        cell.dateViewModel.title = "Title\(indexPath.row)"
-        cell.dateViewModel.date = NSDate(timeIntervalSinceNow: Double(indexPath.row * 60 * 60 * 24))
-        return cell
     }
 
     override func didReceiveMemoryWarning() {

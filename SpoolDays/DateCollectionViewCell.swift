@@ -26,7 +26,8 @@ class DateCollectionViewCell: UICollectionViewCell {
                 return
             }
             let date = obj as NSDate
-            countLabel.text = "\(Int(date.timeIntervalSinceNow / 60 / 60 / 24))"
+            let dateInterval = Int(date.timeIntervalSinceNow / 60 / 60 / 24)
+            countLabel.text = "\(-dateInterval)"
             return
         })
     }

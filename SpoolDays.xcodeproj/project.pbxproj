@@ -20,6 +20,7 @@
 		80DFB11819F3E77400BCF3B1 /* Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11719F3E77400BCF3B1 /* Log.m */; };
 		80DFB11B19F3E77400BCF3B1 /* BaseDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11A19F3E77400BCF3B1 /* BaseDate.m */; };
 		80DFB11D19F3E7C600BCF3B1 /* BaseDateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11C19F3E7C600BCF3B1 /* BaseDateWrapper.swift */; };
+		80DFB11F19F5427200BCF3B1 /* DatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		80DFB11919F3E77400BCF3B1 /* BaseDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseDate.h; path = Models/BaseDate.h; sourceTree = "<group>"; };
 		80DFB11A19F3E77400BCF3B1 /* BaseDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseDate.m; path = Models/BaseDate.m; sourceTree = "<group>"; };
 		80DFB11C19F3E7C600BCF3B1 /* BaseDateWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseDateWrapper.swift; path = Models/BaseDateWrapper.swift; sourceTree = "<group>"; };
+		80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesViewModel.swift; sourceTree = "<group>"; };
 		C803814E2F0D8A09FC22F0B1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 				80A574B619EFDF4100C06CBB /* Supporting Files */,
 				8002868319EFE1EE00089835 /* MainViewController.swift */,
 				80A7D33119EFEE00007BB993 /* DateCollectionViewCell.swift */,
+				80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */,
 				80A7D33319F012EA007BB993 /* DateViewModel.swift */,
 				804E607319F31D5D005BA669 /* EditViewController.swift */,
 				80A7D33519F01317007BB993 /* SpoolDays-Bridging-Header.h */,
@@ -303,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80DFB11F19F5427200BCF3B1 /* DatesViewModel.swift in Sources */,
 				80DFB11819F3E77400BCF3B1 /* Log.m in Sources */,
 				804E607419F31D5D005BA669 /* EditViewController.swift in Sources */,
 				80A7D33419F012EA007BB993 /* DateViewModel.swift in Sources */,
