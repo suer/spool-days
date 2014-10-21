@@ -25,4 +25,9 @@ class BaseDateWrapper: NSObject {
         baseDate.date = date
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
     }
+
+    func delete() {
+        baseDate.MR_deleteEntity()
+        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+    }
 }

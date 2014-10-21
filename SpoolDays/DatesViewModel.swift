@@ -1,5 +1,6 @@
 class DatesViewModel: RVMViewModel, UITableViewDataSource  {
     dynamic var dates: [BaseDate] = []
+    let itemChangedSignal = RACSubject()
 
     func fetch() {
         dates = BaseDate.MR_findAllSortedBy("sort", ascending: true) as [BaseDate]
@@ -11,6 +12,14 @@ class DatesViewModel: RVMViewModel, UITableViewDataSource  {
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let dateViewModel = DateViewModel(baseDate: dates[indexPath.row])
-        return tableView.dequeueReusableCellWithIdentifier("Cell") as? DateTableViewCell ?? DateTableViewCell(reuseIdentifier: "Cell", dateViewModel: dateViewModel)
+        return DateTableViewCell(reuseIdentifier: "Cell", dateViewModel: dateViewModel)
+    }
+
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            BaseDateWrapper(baseDate: dates[indexPath.row]).delete()
+            fetch()
+            itemChangedSignal.sendNext(RowsChangeEvent(indexPath: indexPath, newIndexPath: nil, eventType: RowsChangeEvent.EventType.Delete))
+        }
     }
 }

@@ -7,7 +7,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
         title = "Spool Days"
-        loadCollectionView()
+        loadTableView()
         loadAddButton()
     }
 
@@ -16,7 +16,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         super.viewWillAppear(animated)
     }
     
-    func loadCollectionView() {
+    func loadTableView() {
         let layout = UICollectionViewFlowLayout()
         let width = (view.bounds.width - 30) / 3
         layout.itemSize = CGSize(width: width, height: width)
@@ -27,8 +27,16 @@ class MainViewController: UIViewController, UITableViewDelegate {
         tableView!.backgroundColor = UIColor.whiteColor()
         view.addSubview(tableView!)
 
-        datesViewModel.rac_valuesForKeyPath("dates", observer: datesViewModel).subscribeNext({
+        datesViewModel.itemChangedSignal.subscribeNext({
             obj in
+            let event = obj as RowsChangeEvent
+            switch(event.eventType) {
+            case .Delete:
+                self.tableView!.deleteRowsAtIndexPaths([event.indexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
+                break
+            default:
+                break
+            }
             self.tableView!.reloadData()
         })
     }
@@ -39,7 +47,8 @@ class MainViewController: UIViewController, UITableViewDelegate {
     }
 
     func addButtonTapped(sender: AnyObject) {
-        showEditView(DateViewModel(baseDate: nil))
+        let dateViewModel = DateViewModel(baseDate: nil)
+        showEditView(dateViewModel)
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -48,6 +57,12 @@ class MainViewController: UIViewController, UITableViewDelegate {
     }
 
     func showEditView(dateViewModel: DateViewModel) {
+        dateViewModel.valueChangeSignal.subscribeNext({
+            obj in
+            self.tableView?.reloadData()
+            return
+        })
+
         let editViewController = EditViewController(dateViewModel: dateViewModel)
         let navigationController = UINavigationController(rootViewController: editViewController)
         navigationController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
