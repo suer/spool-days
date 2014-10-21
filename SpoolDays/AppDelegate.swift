@@ -48,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
+        updateBadge({result in return})
     }
 
     func applicationWillEnterForeground(application: UIApplication) {

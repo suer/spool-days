@@ -65,6 +65,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     func loadTextView() {
         textView = UITextView(frame: CGRectMake(0, 0, view.bounds.width, textViewHeight))
         textView!.text = titleString
+        textView!.font = UIFont.systemFontOfSize(16)
         textView!.layer.borderWidth = 1
         textView!.layer.borderColor = UIColor(white: 0.5, alpha: 0.5).CGColor
         textView!.delegate = self
