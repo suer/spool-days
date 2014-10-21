@@ -55,7 +55,6 @@ class MainViewController: UIViewController, UITableViewDelegate {
     }
 
     func loadEditButton() {
-//        let editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: Selector("editButtonTapped:"))
         let editButton = UIBarButtonItem()
         editButton.title = "Edit"
         editButton.rac_command = RACCommand(signalBlock: {
