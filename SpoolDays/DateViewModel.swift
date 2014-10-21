@@ -17,11 +17,14 @@ class DateViewModel: RVMViewModel {
 
     func update(#title: String, date: NSDate) {
         if baseDate == nil {
+            let sort = BaseDate.MR_numberOfEntities()
             baseDate = BaseDate.MR_createEntity() as BaseDate?
+            baseDate?.sort = sort
         }
         BaseDateWrapper(baseDate: baseDate!).update(title: title, date: date)
         baseDate?.title = title
         baseDate?.date = date
+
         valueChangeSignal.sendNext(self)
     }
 }

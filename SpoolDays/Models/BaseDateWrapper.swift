@@ -10,6 +10,7 @@ class BaseDateWrapper: NSObject {
         let baseDate = BaseDate.MR_createEntity() as BaseDate
         baseDate.title = title
         baseDate.date = date
+        baseDate.sort = BaseDate.MR_numberOfEntities()
         
         let log = Log.MR_createEntity() as Log
         log.date = date
@@ -23,6 +24,28 @@ class BaseDateWrapper: NSObject {
     func update(#title: String, date: NSDate) {
         baseDate.title = title
         baseDate.date = date
+
+        let log = Log.MR_createEntity() as Log
+        log.date = date
+        log.duration = 0
+        log.baseDate = baseDate
+        log.event = "edit"
+
+        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+    }
+
+    class func move(#fromIndex: Int, toIndex: Int) {
+        let dates = BaseDate.MR_findAllSortedBy("sort", ascending: true) as [BaseDate]
+        dates[fromIndex].sort = toIndex
+        if (fromIndex < toIndex) {
+            for var i = fromIndex + 1; i <= toIndex; i++ {
+                dates[i].sort = dates[i].sort - 1
+            }
+        } else {
+            for var i = toIndex; i < fromIndex; i++ {
+                dates[i].sort = dates[i].sort + 1
+            }
+        }
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
     }
 

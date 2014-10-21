@@ -9,6 +9,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         title = "Spool Days"
         loadTableView()
         loadAddButton()
+        loadEditButton()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -34,6 +35,8 @@ class MainViewController: UIViewController, UITableViewDelegate {
             case .Delete:
                 self.tableView!.deleteRowsAtIndexPaths([event.indexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
                 break
+            case .Move:
+                break
             default:
                 break
             }
@@ -49,6 +52,27 @@ class MainViewController: UIViewController, UITableViewDelegate {
     func addButtonTapped(sender: AnyObject) {
         let dateViewModel = DateViewModel(baseDate: nil)
         showEditView(dateViewModel)
+    }
+
+    func loadEditButton() {
+//        let editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: Selector("editButtonTapped:"))
+        let editButton = UIBarButtonItem()
+        editButton.title = "Edit"
+        editButton.rac_command = RACCommand(signalBlock: {
+            obj in
+            self.tableView!.setEditing(!self.tableView!.editing, animated: true)
+            if (self.tableView!.editing) {
+                editButton.title = "Finish"
+            } else {
+                editButton.title = "Edit"
+            }
+            return RACSignal.empty()
+        })
+        navigationItem.leftBarButtonItem = editButton
+    }
+
+    func editButtonTapped(sender: AnyObject) {
+        tableView!.setEditing(!tableView!.editing, animated: true)
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

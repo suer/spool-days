@@ -22,4 +22,14 @@ class DatesViewModel: RVMViewModel, UITableViewDataSource  {
             itemChangedSignal.sendNext(RowsChangeEvent(indexPath: indexPath, newIndexPath: nil, eventType: RowsChangeEvent.EventType.Delete))
         }
     }
+
+    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+        BaseDateWrapper.move(fromIndex: fromIndexPath.row, toIndex: toIndexPath.row)
+        fetch()
+        itemChangedSignal.sendNext(RowsChangeEvent(indexPath: fromIndexPath, newIndexPath: toIndexPath, eventType: RowsChangeEvent.EventType.Move))
+    }
 }
