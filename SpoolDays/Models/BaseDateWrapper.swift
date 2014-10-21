@@ -30,4 +30,8 @@ class BaseDateWrapper: NSObject {
         baseDate.MR_deleteEntity()
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
     }
+
+    class func first() -> BaseDate? {
+        return BaseDate.MR_findFirstOrderedByAttribute("sort", ascending: true) as? BaseDate
+    }
 }

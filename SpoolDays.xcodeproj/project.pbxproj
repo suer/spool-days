@@ -226,6 +226,11 @@
 					80A574B219EFDF4100C06CBB = {
 						CreatedOnToolsVersion = 6.0.1;
 						DevelopmentTeam = LG7S83GR74;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					80A574C719EFDF4100C06CBB = {
 						CreatedOnToolsVersion = 6.0.1;
