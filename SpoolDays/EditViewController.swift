@@ -39,6 +39,10 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         loadDatePicker()
     }
 
+    override func viewWillAppear(animated: Bool) {
+        textView!.becomeFirstResponder()
+    }
+
     func loadCancelButton() {
         let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("cancelButtonTapped:"))
         navigationItem.leftBarButtonItem = cancelButton
