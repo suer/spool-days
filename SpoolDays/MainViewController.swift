@@ -14,6 +14,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
 
     override func viewWillAppear(animated: Bool) {
         datesViewModel.fetch()
+        tableView!.reloadData()
         super.viewWillAppear(animated)
     }
     
