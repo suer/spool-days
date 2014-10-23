@@ -123,7 +123,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
-        cell.textLabel?.text = "Date"
+        cell.textLabel.text = "Date"
         let date = dateViewModel.baseDate?.date ?? NSDate()
         let dateFormatter = NSDateFormatter()
         dateFormatter.timeStyle = .NoStyle

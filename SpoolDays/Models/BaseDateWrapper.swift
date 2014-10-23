@@ -39,11 +39,11 @@ class BaseDateWrapper: NSObject {
         dates[fromIndex].sort = toIndex
         if (fromIndex < toIndex) {
             for var i = fromIndex + 1; i <= toIndex; i++ {
-                dates[i].sort = dates[i].sort - 1
+                dates[i].sort = Int(dates[i].sort) - 1
             }
         } else {
             for var i = toIndex; i < fromIndex; i++ {
-                dates[i].sort = dates[i].sort + 1
+                dates[i].sort = Int(dates[i].sort) + 1
             }
         }
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()

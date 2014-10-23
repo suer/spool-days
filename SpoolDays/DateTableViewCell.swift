@@ -25,7 +25,7 @@ class DateTableViewCell: UITableViewCell {
     }
 
     private func updateLabels() {
-        textLabel?.text = dateViewModel.baseDate?.title
+        textLabel.text = dateViewModel.baseDate?.title
         let date = dateViewModel.baseDate?.date ?? NSDate()
         let dateInterval = Int(date.timeIntervalSinceNow / 60 / 60 / 24)
         detailTextLabel?.text = "\(-dateInterval)"
