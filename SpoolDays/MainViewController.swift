@@ -19,10 +19,6 @@ class MainViewController: UIViewController, UITableViewDelegate {
     }
     
     func loadTableView() {
-        let layout = UICollectionViewFlowLayout()
-        let width = (view.bounds.width - 30) / 3
-        layout.itemSize = CGSize(width: width, height: width)
-        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         tableView = UITableView(frame: view.bounds)
         tableView!.delegate = self
         tableView!.dataSource = datesViewModel
