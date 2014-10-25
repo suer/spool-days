@@ -96,6 +96,15 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         datePicker!.addTarget(self, action: Selector("datePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
         datePicker!.hidden = true
         view.addSubview(datePicker!)
+        datePicker!.rac_valuesForKeyPath("hidden", observer: datePicker!).subscribeNext({
+            obj in
+            let date = self.dateViewModel.baseDate?.date ?? NSDate()
+            if let hidden = obj as? Bool {
+                if !hidden {
+                    self.datePicker!.setDate(date, animated: false)
+                }
+            }
+        })
     }
 
     func datePickerValueChanged(datePicker: UIDatePicker) {
