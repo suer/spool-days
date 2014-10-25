@@ -39,8 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             completionHandler(UIBackgroundFetchResult.Failed)
             return
         }
-        let dateInterval = abs(Int(baseDate!.date.timeIntervalSinceNow / 60 / 60 / 24))
-        UIApplication.sharedApplication().applicationIconBadgeNumber = dateInterval
+
+        UIApplication.sharedApplication().applicationIconBadgeNumber = BaseDateWrapper(baseDate: baseDate!).dateInterval()
         completionHandler(UIBackgroundFetchResult.NewData)
     }
 

@@ -57,4 +57,11 @@ class BaseDateWrapper: NSObject {
     class func first() -> BaseDate? {
         return BaseDate.MR_findFirstOrderedByAttribute("sort", ascending: true) as? BaseDate
     }
+
+    func dateInterval() -> Int {
+        let localDate = baseDate.date
+        let timezoneInterval = -NSTimeZone.systemTimeZone().secondsFromGMTForDate(localDate)
+        localDate.dateByAddingTimeInterval(NSTimeInterval(timezoneInterval))
+        return abs(Int(localDate.timeIntervalSinceNow / 60 / 60 / 24))
+    }
 }
