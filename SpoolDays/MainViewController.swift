@@ -8,14 +8,15 @@ class MainViewController: UIViewController, UITableViewDelegate {
         view.backgroundColor = UIColor.whiteColor()
         title = "Spool Days"
         loadTableView()
-        loadAddButton()
         loadEditButton()
+        loadToolbar()
     }
 
     override func viewWillAppear(animated: Bool) {
         datesViewModel.fetch()
         setSharedDefaults(datesViewModel)
         tableView!.reloadData()
+        navigationController?.toolbarHidden = false
         super.viewWillAppear(animated)
     }
 
@@ -52,16 +53,6 @@ class MainViewController: UIViewController, UITableViewDelegate {
         })
     }
 
-    func loadAddButton() {
-        let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: Selector("addButtonTapped:"))
-        navigationItem.rightBarButtonItem = addButton
-    }
-
-    func addButtonTapped(sender: AnyObject) {
-        let dateViewModel = DateViewModel(baseDate: nil)
-        showEditView(dateViewModel)
-    }
-
     func loadEditButton() {
         let editButton = UIBarButtonItem()
         editButton.title = "Edit"
@@ -75,11 +66,22 @@ class MainViewController: UIViewController, UITableViewDelegate {
             }
             return RACSignal.empty()
         })
-        navigationItem.leftBarButtonItem = editButton
+        navigationItem.rightBarButtonItem = editButton
     }
 
     func editButtonTapped(sender: AnyObject) {
         tableView!.setEditing(!tableView!.editing, animated: true)
+    }
+
+    func loadToolbar() {
+        let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: Selector("addButtonTapped:"))
+        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        toolbarItems = [spacer, addButton]
+    }
+
+    func addButtonTapped(sender: AnyObject) {
+        let dateViewModel = DateViewModel(baseDate: nil)
+        showEditView(dateViewModel)
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
