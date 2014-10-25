@@ -62,6 +62,6 @@ class BaseDateWrapper: NSObject {
         let localDate = baseDate.date
         let timezoneInterval = -NSTimeZone.systemTimeZone().secondsFromGMTForDate(localDate)
         localDate.dateByAddingTimeInterval(NSTimeInterval(timezoneInterval))
-        return abs(Int(localDate.timeIntervalSinceNow / 60 / 60 / 24))
+        return -Int(localDate.timeIntervalSinceNow / 60 / 60 / 24)
     }
 }

@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return
         }
 
-        UIApplication.sharedApplication().applicationIconBadgeNumber = BaseDateWrapper(baseDate: baseDate!).dateInterval()
+        UIApplication.sharedApplication().applicationIconBadgeNumber = abs(BaseDateWrapper(baseDate: baseDate!).dateInterval())
         completionHandler(UIBackgroundFetchResult.NewData)
     }
 

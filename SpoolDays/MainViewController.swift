@@ -14,10 +14,23 @@ class MainViewController: UIViewController, UITableViewDelegate {
 
     override func viewWillAppear(animated: Bool) {
         datesViewModel.fetch()
+        setSharedDefaults(datesViewModel)
         tableView!.reloadData()
         super.viewWillAppear(animated)
     }
-    
+
+    func setSharedDefaults(datesViewModel: DatesViewModel) {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let list = datesViewModel.dates.map({
+            (baseDate) -> Dictionary<String, AnyObject> in
+            return ["title": baseDate.title, "date": dateFormatter.stringFromDate(baseDate.date)]
+        })
+        let sharedDefaults = NSUserDefaults(suiteName: "group.org.codefirst.SpoolDaysExtension")
+        sharedDefaults?.setObject(list, forKey: "dates")
+        sharedDefaults?.synchronize()
+    }
+
     func loadTableView() {
         tableView = UITableView(frame: view.bounds)
         tableView!.delegate = self
