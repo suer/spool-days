@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		55AA9C5EE09150BA7640BF8D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C803814E2F0D8A09FC22F0B1 /* libPods.a */; };
 		8002868419EFE1EE00089835 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002868319EFE1EE00089835 /* MainViewController.swift */; };
+		802225F619FB058F00330227 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 802225F519FB058F00330227 /* NotificationCenter.framework */; };
+		802225FB19FB058F00330227 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802225FA19FB058F00330227 /* TodayViewController.swift */; };
+		802225FD19FB058F00330227 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 802225FC19FB058F00330227 /* MainInterface.storyboard */; };
+		8022260019FB058F00330227 /* SpoolDaysTodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 802225F419FB058F00330227 /* SpoolDaysTodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		804E607419F31D5D005BA669 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E607319F31D5D005BA669 /* EditViewController.swift */; };
 		80A574B919EFDF4100C06CBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A574B819EFDF4100C06CBB /* AppDelegate.swift */; };
 		80A574C019EFDF4100C06CBB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80A574BF19EFDF4100C06CBB /* Images.xcassets */; };
@@ -25,6 +29,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		802225FE19FB058F00330227 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 80A574AB19EFDF4100C06CBB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 802225F319FB058F00330227;
+			remoteInfo = SpoolDaysTodayExtension;
+		};
 		80A574C919EFDF4100C06CBB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 80A574AB19EFDF4100C06CBB /* Project object */;
@@ -34,10 +45,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8022260419FB058F00330227 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8022260019FB058F00330227 /* SpoolDaysTodayExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		28ED91F5F3718D86CF27B399 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		51761DB67EF34A17DB7EAEF3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8002868319EFE1EE00089835 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		802225F419FB058F00330227 /* SpoolDaysTodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SpoolDaysTodayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		802225F519FB058F00330227 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		802225F919FB058F00330227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		802225FA19FB058F00330227 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		802225FC19FB058F00330227 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		8022260519FB086900330227 /* SpoolDaysTodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SpoolDaysTodayExtension.entitlements; sourceTree = "<group>"; };
+		8022260619FB3AE600330227 /* SpoolDays.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SpoolDays.entitlements; sourceTree = "<group>"; };
 		804E607319F31D5D005BA669 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		80A574B319EFDF4100C06CBB /* SpoolDays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpoolDays.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80A574B719EFDF4100C06CBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,6 +94,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		802225F119FB058F00330227 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				802225F619FB058F00330227 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		80A574B019EFDF4100C06CBB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -89,11 +129,31 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		802225F719FB058F00330227 /* SpoolDaysTodayExtension */ = {
+			isa = PBXGroup;
+			children = (
+				8022260519FB086900330227 /* SpoolDaysTodayExtension.entitlements */,
+				802225FA19FB058F00330227 /* TodayViewController.swift */,
+				802225FC19FB058F00330227 /* MainInterface.storyboard */,
+				802225F819FB058F00330227 /* Supporting Files */,
+			);
+			path = SpoolDaysTodayExtension;
+			sourceTree = "<group>";
+		};
+		802225F819FB058F00330227 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				802225F919FB058F00330227 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		80A574AA19EFDF4100C06CBB = {
 			isa = PBXGroup;
 			children = (
 				80A574B519EFDF4100C06CBB /* SpoolDays */,
 				80A574CB19EFDF4100C06CBB /* SpoolDaysTests */,
+				802225F719FB058F00330227 /* SpoolDaysTodayExtension */,
 				80A574B419EFDF4100C06CBB /* Products */,
 				25B400074D2DA20BF8724D18 /* Pods */,
 				C9DD4CF9193C1C7BCB6EC7B2 /* Frameworks */,
@@ -105,6 +165,7 @@
 			children = (
 				80A574B319EFDF4100C06CBB /* SpoolDays.app */,
 				80A574C819EFDF4100C06CBB /* SpoolDaysTests.xctest */,
+				802225F419FB058F00330227 /* SpoolDaysTodayExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,6 +173,7 @@
 		80A574B519EFDF4100C06CBB /* SpoolDays */ = {
 			isa = PBXGroup;
 			children = (
+				8022260619FB3AE600330227 /* SpoolDays.entitlements */,
 				80DFB0F419F3D27B00BCF3B1 /* Models */,
 				80A574B819EFDF4100C06CBB /* AppDelegate.swift */,
 				80A574BF19EFDF4100C06CBB /* Images.xcassets */,
@@ -170,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				C803814E2F0D8A09FC22F0B1 /* libPods.a */,
+				802225F519FB058F00330227 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -177,6 +240,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		802225F319FB058F00330227 /* SpoolDaysTodayExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8022260119FB058F00330227 /* Build configuration list for PBXNativeTarget "SpoolDaysTodayExtension" */;
+			buildPhases = (
+				802225F019FB058F00330227 /* Sources */,
+				802225F119FB058F00330227 /* Frameworks */,
+				802225F219FB058F00330227 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpoolDaysTodayExtension;
+			productName = SpoolDaysTodayExtension;
+			productReference = 802225F419FB058F00330227 /* SpoolDaysTodayExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		80A574B219EFDF4100C06CBB /* SpoolDays */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 80A574D219EFDF4100C06CBB /* Build configuration list for PBXNativeTarget "SpoolDays" */;
@@ -186,10 +266,12 @@
 				80A574B019EFDF4100C06CBB /* Frameworks */,
 				80A574B119EFDF4100C06CBB /* Resources */,
 				56F867F36975D648759ABE98 /* Copy Pods Resources */,
+				8022260419FB058F00330227 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				802225FF19FB058F00330227 /* PBXTargetDependency */,
 			);
 			name = SpoolDays;
 			productName = SpoolDays;
@@ -223,10 +305,22 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = codefirst.org;
 				TargetAttributes = {
+					802225F319FB058F00330227 = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = LG7S83GR74;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					80A574B219EFDF4100C06CBB = {
 						CreatedOnToolsVersion = 6.0.1;
 						DevelopmentTeam = LG7S83GR74;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
@@ -253,11 +347,20 @@
 			targets = (
 				80A574B219EFDF4100C06CBB /* SpoolDays */,
 				80A574C719EFDF4100C06CBB /* SpoolDaysTests */,
+				802225F319FB058F00330227 /* SpoolDaysTodayExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		802225F219FB058F00330227 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				802225FD19FB058F00330227 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		80A574B119EFDF4100C06CBB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -310,6 +413,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		802225F019FB058F00330227 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				802225FB19FB058F00330227 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		80A574AF19EFDF4100C06CBB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -339,6 +450,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		802225FF19FB058F00330227 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 802225F319FB058F00330227 /* SpoolDaysTodayExtension */;
+			targetProxy = 802225FE19FB058F00330227 /* PBXContainerItemProxy */;
+		};
 		80A574CA19EFDF4100C06CBB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 80A574B219EFDF4100C06CBB /* SpoolDays */;
@@ -358,6 +474,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8022260219FB058F00330227 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SpoolDaysTodayExtension/SpoolDaysTodayExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SpoolDaysTodayExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		8022260319FB058F00330227 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SpoolDaysTodayExtension/SpoolDaysTodayExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = SpoolDaysTodayExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		80A574D019EFDF4100C06CBB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -441,10 +587,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SpoolDays/SpoolDays.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SpoolDays/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SpoolDays/SpoolDays-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -456,10 +606,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SpoolDays/SpoolDays.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SpoolDays/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SpoolDays/SpoolDays-Bridging-Header.h";
 			};
 			name = Release;
@@ -501,6 +655,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8022260119FB058F00330227 /* Build configuration list for PBXNativeTarget "SpoolDaysTodayExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8022260219FB058F00330227 /* Debug */,
+				8022260319FB058F00330227 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		80A574AE19EFDF4100C06CBB /* Build configuration list for PBXProject "SpoolDays" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
