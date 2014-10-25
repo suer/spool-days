@@ -118,16 +118,17 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func todayButtonTapped(sender: AnyObject) {
         datePicker!.date = NSDate()
+        datePickerValueChanged(datePicker!)
     }
 
     func datePickerValueChanged(datePicker: UIDatePicker) {
         date = datePicker.date
-        if let cell = tableView!.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) {
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.timeStyle = .NoStyle
-            dateFormatter.dateStyle = .ShortStyle
-            cell.detailTextLabel?.text = dateFormatter.stringFromDate(date)
-        }
+
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.timeStyle = .NoStyle
+        dateFormatter.dateStyle = .ShortStyle
+        let cell = tableView!.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))
+        cell!.detailTextLabel?.text = dateFormatter.stringFromDate(date)
     }
 
     func loadTableView() {
