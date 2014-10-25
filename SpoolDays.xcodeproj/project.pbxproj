@@ -14,6 +14,8 @@
 		802225FD19FB058F00330227 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 802225FC19FB058F00330227 /* MainInterface.storyboard */; };
 		8022260019FB058F00330227 /* SpoolDaysTodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 802225F419FB058F00330227 /* SpoolDaysTodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		804E607419F31D5D005BA669 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E607319F31D5D005BA669 /* EditViewController.swift */; };
+		8057D9E919FBEB8A00AB18DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8057D9EB19FBEB8A00AB18DF /* Localizable.strings */; };
+		8057D9EE19FBEDCB00AB18DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8057D9EB19FBEB8A00AB18DF /* Localizable.strings */; };
 		80A574B919EFDF4100C06CBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A574B819EFDF4100C06CBB /* AppDelegate.swift */; };
 		80A574C019EFDF4100C06CBB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80A574BF19EFDF4100C06CBB /* Images.xcassets */; };
 		80A574C319EFDF4100C06CBB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80A574C119EFDF4100C06CBB /* LaunchScreen.xib */; };
@@ -71,6 +73,8 @@
 		8022260519FB086900330227 /* SpoolDaysTodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SpoolDaysTodayExtension.entitlements; sourceTree = "<group>"; };
 		8022260619FB3AE600330227 /* SpoolDays.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SpoolDays.entitlements; sourceTree = "<group>"; };
 		804E607319F31D5D005BA669 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		8057D9EA19FBEB8A00AB18DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8057D9EC19FBEBB400AB18DF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		80A574B319EFDF4100C06CBB /* SpoolDays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpoolDays.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80A574B719EFDF4100C06CBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80A574B819EFDF4100C06CBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 				804E607319F31D5D005BA669 /* EditViewController.swift */,
 				80DFB12019F6902300BCF3B1 /* RowsChangeEvent.swift */,
 				80A7D33519F01317007BB993 /* SpoolDays-Bridging-Header.h */,
+				8057D9EB19FBEB8A00AB18DF /* Localizable.strings */,
 			);
 			path = SpoolDays;
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 80A574AA19EFDF4100C06CBB;
 			productRefGroup = 80A574B419EFDF4100C06CBB /* Products */;
@@ -358,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				802225FD19FB058F00330227 /* MainInterface.storyboard in Resources */,
+				8057D9EE19FBEDCB00AB18DF /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80A574C319EFDF4100C06CBB /* LaunchScreen.xib in Resources */,
+				8057D9E919FBEB8A00AB18DF /* Localizable.strings in Resources */,
 				80A574C019EFDF4100C06CBB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,6 +471,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		8057D9EB19FBEB8A00AB18DF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8057D9EA19FBEB8A00AB18DF /* en */,
+				8057D9EC19FBEBB400AB18DF /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		80A574C119EFDF4100C06CBB /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -44,7 +44,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         let date = dateFormatter.dateFromString(dates[indexPath.row]["date"]!)!
         let timezoneInterval = -NSTimeZone.systemTimeZone().secondsFromGMTForDate(date)
         date.dateByAddingTimeInterval(NSTimeInterval(timezoneInterval))
-        cell.detailTextLabel?.text = "\(-Int(date.timeIntervalSinceNow / 60 / 60 / 24)) days"
+        cell.detailTextLabel?.text = "\(-Int(date.timeIntervalSinceNow / 60 / 60 / 24)) " + NSLocalizedString("Days", comment: "")
         cell.detailTextLabel?.textColor = UIColor.whiteColor()
         return cell
     }

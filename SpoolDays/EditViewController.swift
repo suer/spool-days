@@ -48,7 +48,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func loadCancelButton() {
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("cancelButtonTapped:"))
+        let cancelButton = UIBarButtonItem(title: NSLocalizedString("Cancel", comment: ""), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("cancelButtonTapped:"))
         navigationItem.leftBarButtonItem = cancelButton
     }
 
@@ -57,7 +57,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func loadSaveButton() {
-        let saveButton = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("saveButtonTapped:"))
+        let saveButton = UIBarButtonItem(title: NSLocalizedString("Save", comment: ""), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("saveButtonTapped:"))
         navigationItem.rightBarButtonItem = saveButton
     }
 
@@ -69,7 +69,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     func loadTextField() {
         textField = UITextField(frame: CGRectMake(0, 0, view.bounds.width, textFieldHeight))
         textField!.text = titleString
-        textField!.placeholder = "Title"
+        textField!.placeholder = NSLocalizedString("Title", comment: "")
         textField!.font = UIFont.systemFontOfSize(16)
         textField!.leftView = UIView(frame: CGRectMake(0, 0, 15, textField!.frame.size.height))
         textField!.leftViewMode = UITextFieldViewMode.Always
@@ -111,7 +111,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         toolbar.tintColor = nil
         toolbar.sizeToFit()
         let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        let todayButton = UIBarButtonItem(title: "Today", style: UIBarButtonItemStyle.Plain, target: self, action: "todayButtonTapped:")
+        let todayButton = UIBarButtonItem(title: NSLocalizedString("Today", comment: ""), style: UIBarButtonItemStyle.Plain, target: self, action: "todayButtonTapped:")
         toolbar.setItems([spacer, todayButton], animated: false)
         return toolbar
     }
@@ -152,7 +152,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
-        cell.textLabel.text = "Date"
+        cell.textLabel.text = NSLocalizedString("Date", comment: "")
         let date = dateViewModel.baseDate?.date ?? NSDate()
         let dateFormatter = NSDateFormatter()
         dateFormatter.timeStyle = .NoStyle
