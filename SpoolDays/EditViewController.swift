@@ -111,13 +111,13 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         toolbar.tintColor = nil
         toolbar.sizeToFit()
         let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: Selector("doneButtonTapped:"))
-        toolbar.setItems([spacer, doneButton], animated: false)
+        let todayButton = UIBarButtonItem(title: "Today", style: UIBarButtonItemStyle.Plain, target: self, action: "todayButtonTapped:")
+        toolbar.setItems([spacer, todayButton], animated: false)
         return toolbar
     }
 
-    func doneButtonTapped(sender: AnyObject) {
-        invisibleDateTextField!.resignFirstResponder()
+    func todayButtonTapped(sender: AnyObject) {
+        datePicker!.date = NSDate()
     }
 
     func datePickerValueChanged(datePicker: UIDatePicker) {
