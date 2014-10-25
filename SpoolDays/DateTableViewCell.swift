@@ -29,7 +29,7 @@ class DateTableViewCell: SWTableViewCell {
         if let baseDate = dateViewModel.baseDate {
             textLabel.text = baseDate.title
             let dateInterval = BaseDateWrapper(baseDate: baseDate).dateInterval()
-            detailTextLabel?.text = "\(-dateInterval)"
+            detailTextLabel?.text = "\(dateInterval)"
         }
     }
 

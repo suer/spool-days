@@ -19,7 +19,6 @@ class DateViewModel: RVMViewModel {
         if baseDate == nil {
             return
         }
-        println(NSDate())
         baseDate?.date = NSDate()
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
     }

@@ -5,6 +5,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var textField: UITextField?
     let dateViewModel: DateViewModel
     var tableView: UITableView?
+    var invisibleDateTextField: UITextField?
     var datePicker: UIDatePicker?
 
     var titleString: String
@@ -12,6 +13,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     let textFieldHeight = CGFloat(50.0)
     let cellHeight = CGFloat(50.0)
+    let datePickerHeight = CGFloat(300.0)
 
     convenience init (dateViewModel: DateViewModel) {
         self.init(nibName: nil, bundle: nil, dateViewModel: dateViewModel)
@@ -36,9 +38,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         loadCancelButton()
         loadSaveButton()
-        loadTextField()
         loadTableView()
         loadDatePicker()
+        loadTextField()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -83,40 +85,49 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        datePicker!.hidden = true
         return true
     }
 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        for v in view.subviews {
-            if !(v is UITextField) {
-                textField!.resignFirstResponder()
-            }
-            if !(v is UIDatePicker) {
-                datePicker!.hidden = true
-            }
-        }
+        textField!.resignFirstResponder()
+        invisibleDateTextField!.resignFirstResponder()
     }
 
     func loadDatePicker() {
-        datePicker = UIDatePicker(frame: CGRectMake(0, textFieldHeight + textFieldHeight, view.bounds.width, 200))
+        datePicker = UIDatePicker(frame: CGRectMake(0, view.bounds.height - datePickerHeight, view.bounds.width, datePickerHeight))
         datePicker!.datePickerMode = UIDatePickerMode.Date
         datePicker!.addTarget(self, action: Selector("datePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
-        datePicker!.hidden = true
-        view.addSubview(datePicker!)
-        datePicker!.rac_valuesForKeyPath("hidden", observer: datePicker!).subscribeNext({
-            obj in
-            let date = self.dateViewModel.baseDate?.date ?? NSDate()
-            if let hidden = obj as? Bool {
-                if !hidden {
-                    self.datePicker!.setDate(date, animated: false)
-                }
-            }
-        })
+
+        invisibleDateTextField = UITextField(frame: CGRectMake(0, 0, 0, 0));
+        invisibleDateTextField!.inputView = datePicker
+        invisibleDateTextField!.inputAccessoryView = datePickerToolBar()
+        view.addSubview(invisibleDateTextField!)
+    }
+
+    func datePickerToolBar() -> UIToolbar {
+        let toolbar = UIToolbar()
+        toolbar.barStyle = UIBarStyle.Default
+        toolbar.translucent = true
+        toolbar.tintColor = nil
+        toolbar.sizeToFit()
+        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: Selector("doneButtonTapped:"))
+        toolbar.setItems([spacer, doneButton], animated: false)
+        return toolbar
+    }
+
+    func doneButtonTapped(sender: AnyObject) {
+        invisibleDateTextField!.resignFirstResponder()
     }
 
     func datePickerValueChanged(datePicker: UIDatePicker) {
         date = datePicker.date
+        if let cell = tableView!.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) {
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.timeStyle = .NoStyle
+            dateFormatter.dateStyle = .ShortStyle
+            cell.detailTextLabel?.text = dateFormatter.stringFromDate(date)
+        }
     }
 
     func loadTableView() {
@@ -146,18 +157,13 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         dateFormatter.timeStyle = .NoStyle
         dateFormatter.dateStyle = .ShortStyle
         cell.detailTextLabel?.text = dateFormatter.stringFromDate(date ?? NSDate())
-        dateViewModel.rac_valuesForKeyPath("date", observer: dateViewModel).subscribeNext({
-            obj in
-            let date = obj as? NSDate ?? NSDate()
-            cell.detailTextLabel?.text = dateFormatter.stringFromDate(date)
-            return
-        })
         return cell
     }
 
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        datePicker!.hidden = false
         textField!.resignFirstResponder()
+        invisibleDateTextField!.becomeFirstResponder()
+        datePicker!.setDate(date, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
