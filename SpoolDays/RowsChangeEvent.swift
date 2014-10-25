@@ -1,6 +1,6 @@
 class RowsChangeEvent {
     enum EventType {
-        case Delete, Move
+        case Delete, Move, ResetDate
     }
     var indexPath: NSIndexPath?
     var newIndexPath: NSIndexPath?

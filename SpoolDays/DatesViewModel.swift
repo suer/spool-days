@@ -1,4 +1,4 @@
-class DatesViewModel: RVMViewModel, UITableViewDataSource  {
+class DatesViewModel: RVMViewModel, UITableViewDataSource, SWTableViewCellDelegate {
     dynamic var dates: [BaseDate] = []
     let itemChangedSignal = RACSubject()
 
@@ -12,7 +12,9 @@ class DatesViewModel: RVMViewModel, UITableViewDataSource  {
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let dateViewModel = DateViewModel(baseDate: dates[indexPath.row])
-        return DateTableViewCell(reuseIdentifier: "Cell", dateViewModel: dateViewModel)
+        let cell = DateTableViewCell(reuseIdentifier: "Cell", dateViewModel: dateViewModel)
+        cell.delegate = self
+        return cell
     }
 
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -31,5 +33,12 @@ class DatesViewModel: RVMViewModel, UITableViewDataSource  {
         BaseDateWrapper.move(fromIndex: fromIndexPath.row, toIndex: toIndexPath.row)
         fetch()
         itemChangedSignal.sendNext(RowsChangeEvent(indexPath: fromIndexPath, newIndexPath: toIndexPath, eventType: RowsChangeEvent.EventType.Move))
+    }
+
+    func swipeableTableViewCell(cell: SWTableViewCell, didTriggerLeftUtilityButtonWithIndex index: NSInteger) {
+        if let dateCell = cell as? DateTableViewCell {
+            dateCell.dateViewModel.resetDate()
+            itemChangedSignal.sendNext(RowsChangeEvent(indexPath: nil, newIndexPath: nil, eventType: RowsChangeEvent.EventType.ResetDate))
+        }
     }
 }

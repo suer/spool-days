@@ -1,12 +1,13 @@
 import UIKit
 
-class DateTableViewCell: UITableViewCell {
+class DateTableViewCell: SWTableViewCell {
     var dateViewModel: DateViewModel
 
     init(reuseIdentifier: String?, dateViewModel: DateViewModel) {
         self.dateViewModel = dateViewModel
         super.init(style: UITableViewCellStyle.Value1, reuseIdentifier: reuseIdentifier)
         setupHandler()
+        loadButtons()
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -30,5 +31,11 @@ class DateTableViewCell: UITableViewCell {
             let dateInterval = BaseDateWrapper(baseDate: baseDate).dateInterval()
             detailTextLabel?.text = "\(-dateInterval)"
         }
+    }
+
+    private func loadButtons() {
+        let leftButtons = NSMutableArray()
+        leftButtons.sw_addUtilityButtonWithColor(UIColor(red: 0.07, green: 0.75, blue: 0.16, alpha: 1.0), title: "Reset")
+        leftUtilityButtons = leftButtons
     }
 }

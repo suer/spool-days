@@ -32,8 +32,6 @@ class MainViewController: UIViewController, UITableViewDelegate {
             case .Delete:
                 self.tableView!.deleteRowsAtIndexPaths([event.indexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
                 break
-            case .Move:
-                break
             default:
                 break
             }

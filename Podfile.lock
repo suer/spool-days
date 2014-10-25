@@ -1,5 +1,4 @@
 PODS:
-  - FontAwesome-iOS (0.0.4)
   - MagicalRecord (2.2):
     - MagicalRecord/Core
   - MagicalRecord/Core (2.2)
@@ -12,17 +11,18 @@ PODS:
     - ReactiveCocoa/Core
   - ReactiveViewModel (0.2):
     - ReactiveCocoa (~> 2.1)
+  - SWTableViewCell (0.3.5)
 
 DEPENDENCIES:
-  - FontAwesome-iOS
   - MagicalRecord
   - ReactiveCocoa
   - ReactiveViewModel
+  - SWTableViewCell
 
 SPEC CHECKSUMS:
-  FontAwesome-iOS: 0c39b9f5d4687d36cf8958f61295c2b7960a7308
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
   ReactiveCocoa: dca75777b9d18990c8714a3a6f2149f29b4d1462
   ReactiveViewModel: 78387196df2e7535bb2776c41df15dbb17300f8a
+  SWTableViewCell: da159b491b1253446ffbcabcfa94e6a4c94bf04b
 
-COCOAPODS: 0.34.2
+COCOAPODS: 0.34.4
