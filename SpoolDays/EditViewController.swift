@@ -1,8 +1,8 @@
 import UIKit
 
-class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
+class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
-    var textView: UITextView?
+    var textField: UITextField?
     let dateViewModel: DateViewModel
     var tableView: UITableView?
     var datePicker: UIDatePicker?
@@ -10,7 +10,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var titleString: String
     var date: NSDate
 
-    let textViewHeight = CGFloat(150.0)
+    let textFieldHeight = CGFloat(50.0)
     let cellHeight = CGFloat(50.0)
 
     convenience init (dateViewModel: DateViewModel) {
@@ -31,16 +31,18 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
+        edgesForExtendedLayout = UIRectEdge.None
+        automaticallyAdjustsScrollViewInsets = false
 
         loadCancelButton()
         loadSaveButton()
-        loadTextView()
+        loadTextField()
         loadTableView()
         loadDatePicker()
     }
 
     override func viewWillAppear(animated: Bool) {
-        textView!.becomeFirstResponder()
+        textField!.becomeFirstResponder()
     }
 
     func loadCancelButton() {
@@ -62,36 +64,42 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         dismissViewControllerAnimated(true, completion: nil)
     }
 
-    func loadTextView() {
-        textView = UITextView(frame: CGRectMake(0, 0, view.bounds.width, textViewHeight))
-        textView!.text = titleString
-        textView!.font = UIFont.systemFontOfSize(16)
-        textView!.layer.borderWidth = 1
-        textView!.layer.borderColor = UIColor(white: 0.5, alpha: 0.5).CGColor
-        textView!.delegate = self
-        view.addSubview(textView!)
+    func loadTextField() {
+        textField = UITextField(frame: CGRectMake(0, 0, view.bounds.width, textFieldHeight))
+        textField!.text = titleString
+        textField!.placeholder = "Title"
+        textField!.font = UIFont.systemFontOfSize(16)
+        textField!.leftView = UIView(frame: CGRectMake(0, 0, 15, textField!.frame.size.height))
+        textField!.leftViewMode = UITextFieldViewMode.Always
+        textField!.layer.borderWidth = 1
+        textField!.layer.borderColor = UIColor(white: 0.5, alpha: 0.5).CGColor
+        textField!.delegate = self
+        view.addSubview(textField!)
 
-        textView!.rac_textSignal().subscribeNext({
+        textField!.rac_textSignal().subscribeNext({
             text in
             self.titleString = text as? String ?? ""
         })
     }
 
-    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         datePicker!.hidden = true
         return true
     }
 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         for v in view.subviews {
-            if !(v is UITextView) {
-                textView!.resignFirstResponder()
+            if !(v is UITextField) {
+                textField!.resignFirstResponder()
+            }
+            if !(v is UIDatePicker) {
+                datePicker!.hidden = true
             }
         }
     }
 
     func loadDatePicker() {
-        datePicker = UIDatePicker(frame: CGRectMake(0, textViewHeight + textViewHeight, view.bounds.width, 200))
+        datePicker = UIDatePicker(frame: CGRectMake(0, textFieldHeight + textFieldHeight, view.bounds.width, 200))
         datePicker!.datePickerMode = UIDatePickerMode.Date
         datePicker!.addTarget(self, action: Selector("datePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
         datePicker!.hidden = true
@@ -112,7 +120,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func loadTableView() {
-        tableView = UITableView(frame: CGRectMake(0, textViewHeight, view.bounds.width, cellHeight))
+        tableView = UITableView(frame: CGRectMake(0, textFieldHeight, view.bounds.width, cellHeight))
         tableView!.delegate = self
         tableView!.dataSource = self
         view.addSubview(tableView!)
@@ -149,7 +157,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         datePicker!.hidden = false
-        textView!.resignFirstResponder()
+        textField!.resignFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
