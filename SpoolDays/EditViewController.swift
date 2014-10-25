@@ -161,6 +161,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         textField!.resignFirstResponder()
         invisibleDateTextField!.becomeFirstResponder()
         datePicker!.setDate(date, animated: false)
