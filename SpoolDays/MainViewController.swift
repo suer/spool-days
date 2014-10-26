@@ -63,6 +63,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
                 editButton.title = "Finish"
             } else {
                 editButton.title = "Edit"
+                self.setSharedDefaults(self.datesViewModel)
             }
             return RACSignal.empty()
         })
@@ -82,11 +83,13 @@ class MainViewController: UIViewController, UITableViewDelegate {
     func addButtonTapped(sender: AnyObject) {
         let dateViewModel = DateViewModel(baseDate: nil)
         showEditView(dateViewModel)
+        setSharedDefaults(datesViewModel)
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as DateTableViewCell
         showEditView(cell.dateViewModel)
+        setSharedDefaults(datesViewModel)
     }
 
     func showEditView(dateViewModel: DateViewModel) {
