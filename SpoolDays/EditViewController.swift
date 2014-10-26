@@ -110,9 +110,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         toolbar.translucent = true
         toolbar.tintColor = nil
         toolbar.sizeToFit()
-        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
         let todayButton = UIBarButtonItem(title: NSLocalizedString("Today", comment: ""), style: UIBarButtonItemStyle.Plain, target: self, action: "todayButtonTapped:")
-        toolbar.setItems([spacer, todayButton], animated: false)
+        toolbar.setItems([todayButton], animated: false)
         return toolbar
     }
 
