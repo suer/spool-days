@@ -58,6 +58,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         return sharedDefaults?.objectForKey("dates") as? [Dictionary<String, String>] ?? []
     }
 
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        extensionContext?.openURL(NSURL(string: "spooldays://")!, completionHandler: nil)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
