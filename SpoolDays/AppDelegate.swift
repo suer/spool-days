@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.rootViewController = navigationController
         registerNotification(application)
         UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
-
+        setupStyle()
         return true
     }
 
@@ -26,6 +26,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             application.registerForRemoteNotificationTypes(UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound | UIRemoteNotificationType.Alert)
         }
+    }
+
+    private func setupStyle() {
+        UINavigationBar.appearance().barTintColor = ThemeColor.baseColor()
+        UINavigationBar.appearance().tintColor = ThemeColor.baseTextColor()
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSForegroundColorAttributeName: ThemeColor.baseTextColor()
+        ]
+        UITabBar.appearance().barTintColor = ThemeColor.baseColor()
+        UITabBar.appearance().tintColor = ThemeColor.baseTextColor()
+        UITabBarItem.appearance().setTitleTextAttributes([
+            NSForegroundColorAttributeName: ThemeColor.baseTextColor()
+            ], forState: UIControlState.Selected)
+
+        UITableViewCell.appearance().separatorInset = UIEdgeInsetsZero
     }
 
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
