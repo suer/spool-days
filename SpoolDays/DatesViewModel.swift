@@ -20,7 +20,6 @@ class DatesViewModel: RVMViewModel, UITableViewDataSource, SWTableViewCellDelega
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             BaseDateWrapper(baseDate: dates[indexPath.row]).delete()
-            fetch()
             itemChangedSignal.sendNext(RowsChangeEvent(indexPath: indexPath, newIndexPath: nil, eventType: RowsChangeEvent.EventType.Delete))
         }
     }
@@ -31,7 +30,6 @@ class DatesViewModel: RVMViewModel, UITableViewDataSource, SWTableViewCellDelega
 
     func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
         BaseDateWrapper.move(fromIndex: fromIndexPath.row, toIndex: toIndexPath.row)
-        fetch()
         itemChangedSignal.sendNext(RowsChangeEvent(indexPath: fromIndexPath, newIndexPath: toIndexPath, eventType: RowsChangeEvent.EventType.Move))
     }
 

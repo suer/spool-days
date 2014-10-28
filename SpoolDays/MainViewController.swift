@@ -10,16 +10,34 @@ class MainViewController: UIViewController, UITableViewDelegate {
         loadTableView()
         loadEditButton()
         loadToolbar()
+        addNotificationCenterObserver()
     }
 
     override func viewWillAppear(animated: Bool) {
-        datesViewModel.fetch()
-        setSharedDefaults(datesViewModel)
-        tableView!.reloadData()
+        reload()
         navigationController?.toolbarHidden = false
         super.viewWillAppear(animated)
     }
 
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+
+    private func addNotificationCenterObserver() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationDidBecomeActive:"), name: UIApplicationDidBecomeActiveNotification, object: nil)
+    }
+
+    func applicationDidBecomeActive(notification: NSNotification) {
+        if (tableView != nil) {
+            reload()
+        }
+    }
+
+    private func reload() {
+        datesViewModel.fetch()
+        setSharedDefaults(datesViewModel)
+        tableView!.reloadData()
+    }
     func setSharedDefaults(datesViewModel: DatesViewModel) {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -49,7 +67,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
             default:
                 break
             }
-            self.tableView!.reloadData()
+            self.reload()
         })
     }
 
