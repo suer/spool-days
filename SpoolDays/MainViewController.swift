@@ -73,14 +73,14 @@ class MainViewController: UIViewController, UITableViewDelegate {
 
     func loadEditButton() {
         let editButton = UIBarButtonItem()
-        editButton.title = "Edit"
+        editButton.title = NSLocalizedString("Edit", comment: "")
         editButton.rac_command = RACCommand(signalBlock: {
             obj in
             self.tableView!.setEditing(!self.tableView!.editing, animated: true)
             if (self.tableView!.editing) {
-                editButton.title = "Finish"
+                editButton.title = NSLocalizedString("Finish", comment: "")
             } else {
-                editButton.title = "Edit"
+                editButton.title = NSLocalizedString("Edit", comment: "")
                 self.setSharedDefaults(self.datesViewModel)
             }
             return RACSignal.empty()
