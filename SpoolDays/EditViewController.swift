@@ -13,6 +13,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     let textFieldHeight = CGFloat(50.0)
     let cellHeight = CGFloat(50.0)
+    let showLogButtonHeight = CGFloat(50.0)
     let datePickerHeight = CGFloat(300.0)
 
     convenience init (dateViewModel: DateViewModel) {
@@ -41,6 +42,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         loadTableView()
         loadDatePicker()
         loadTextField()
+        loadShowLogButton()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -81,6 +83,20 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         textField!.rac_textSignal().subscribeNext({
             text in
             self.titleString = text as? String ?? ""
+        })
+    }
+
+    func loadShowLogButton() {
+        let button = UIButton(frame: CGRectMake(0, textFieldHeight + cellHeight, view.bounds.width, showLogButtonHeight))
+        button.setTitle(NSLocalizedString("Show History", comment: ""), forState: UIControlState.Normal)
+        button.setTitleColor(UIColor(white: 0.5, alpha: 1.0), forState: UIControlState.Normal)
+        button.setTitleColor(UIColor(white: 0.7, alpha: 1.0), forState: UIControlState.Highlighted)
+        view.addSubview(button)
+
+        button.rac_command = RACCommand(signalBlock: {
+            obj in
+            self.navigationController?.pushViewController(HistoryTableViewController(dateViewModel: self.dateViewModel), animated: true)
+            return RACSignal.empty()
         })
     }
 
