@@ -1,6 +1,5 @@
 class DateViewModel: RVMViewModel {
     var baseDate: BaseDate?
-    let valueChangeSignal = RACSubject()
 
     init(baseDate: BaseDate?) {
         self.baseDate = baseDate
@@ -19,20 +18,13 @@ class DateViewModel: RVMViewModel {
         if baseDate == nil {
             return
         }
-        baseDate?.date = NSDate()
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+        BaseDateWrapper(baseDate: baseDate!).reset()
     }
 
     func update(#title: String, date: NSDate) {
         if baseDate == nil {
-            let sort = BaseDate.MR_numberOfEntities()
-            baseDate = BaseDate.MR_createEntity() as BaseDate?
-            baseDate?.sort = sort
+            baseDate = BaseDateWrapper.createEmptyBaseDate()
         }
         BaseDateWrapper(baseDate: baseDate!).update(title: title, date: date)
-        baseDate?.title = title
-        baseDate?.date = date
-
-        valueChangeSignal.sendNext(self)
     }
 }

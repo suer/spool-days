@@ -38,6 +38,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         setSharedDefaults(datesViewModel)
         tableView!.reloadData()
     }
+
     func setSharedDefaults(datesViewModel: DatesViewModel) {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -111,12 +112,6 @@ class MainViewController: UIViewController, UITableViewDelegate {
     }
 
     func showEditView(dateViewModel: DateViewModel) {
-        dateViewModel.valueChangeSignal.subscribeNext({
-            obj in
-            self.tableView?.reloadData()
-            return
-        })
-
         let editViewController = EditViewController(dateViewModel: dateViewModel)
         let navigationController = UINavigationController(rootViewController: editViewController)
         navigationController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical

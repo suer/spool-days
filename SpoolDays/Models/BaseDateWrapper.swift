@@ -21,6 +21,13 @@ class BaseDateWrapper: NSObject {
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
     }
 
+    class func createEmptyBaseDate() -> BaseDate? {
+        let sort = BaseDate.MR_numberOfEntities()
+        let baseDate = BaseDate.MR_createEntity() as BaseDate?
+        baseDate?.sort = sort
+        return baseDate
+    }
+
     func update(#title: String, date: NSDate) {
         baseDate.title = title
         baseDate.date = date
@@ -51,6 +58,11 @@ class BaseDateWrapper: NSObject {
 
     func delete() {
         baseDate.MR_deleteEntity()
+        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+    }
+
+    func reset() {
+        baseDate.date = NSDate()
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
     }
 

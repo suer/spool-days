@@ -19,10 +19,6 @@ class DateTableViewCell: SWTableViewCell {
             obj in
             self.updateLabels()
         })
-        dateViewModel.valueChangeSignal.subscribeNext({
-            obj in
-            self.updateLabels()
-        })
     }
 
     private func updateLabels() {
