@@ -29,14 +29,16 @@ class BaseDateWrapper: NSObject {
     }
 
     func update(#title: String, date: NSDate) {
+        if !baseDate.date.isEqualToDate(date) {
+            let log = Log.MR_createEntity() as Log
+            log.date = baseDate.date
+            log.duration = dateInterval()
+            log.baseDate = baseDate
+            log.event = "edit"
+        }
+
         baseDate.title = title
         baseDate.date = date
-
-        let log = Log.MR_createEntity() as Log
-        log.date = date
-        log.duration = 0
-        log.baseDate = baseDate
-        log.event = "edit"
 
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
     }
@@ -62,6 +64,12 @@ class BaseDateWrapper: NSObject {
     }
 
     func reset() {
+        let log = Log.MR_createEntity() as Log
+        log.date = baseDate.date
+        log.duration = dateInterval()
+        log.baseDate = baseDate
+        log.event = "reset"
+
         baseDate.date = NSDate()
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
     }
