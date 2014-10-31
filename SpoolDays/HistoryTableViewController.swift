@@ -20,7 +20,7 @@ class HistoryTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = NSLocalizedString("History", comment: "")
+        title = NSLocalizedString("Reset History", comment: "")
         historyViewModel.fetch()
         tableView.reloadData()
     }
@@ -39,11 +39,12 @@ class HistoryTableViewController: UITableViewController {
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
+        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
         let log = historyViewModel.logs[indexPath.row]
-        cell.textLabel.text = log.event
         let dateFormatter = NSDateFormatter()
-        cell.detailTextLabel?.text = "\(log.duration)"
+        dateFormatter.timeStyle = .NoStyle
+        dateFormatter.dateStyle = .ShortStyle
+        cell.textLabel.text = dateFormatter.stringFromDate(log.date)
         return cell
     }
 }

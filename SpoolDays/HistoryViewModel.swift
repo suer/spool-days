@@ -7,6 +7,6 @@ class HistoryViewModel: RVMViewModel {
     }
 
     func fetch() {
-        logs = LogWrapper.findByBaseDate(baseDate)
+        logs = LogWrapper.findResetLogsByBaseDate(baseDate)
     }
 }

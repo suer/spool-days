@@ -65,7 +65,7 @@ class BaseDateWrapper: NSObject {
 
     func reset() {
         let log = Log.MR_createEntity() as Log
-        log.date = baseDate.date
+        log.date = NSDate()
         log.duration = dateInterval()
         log.baseDate = baseDate
         log.event = "reset"

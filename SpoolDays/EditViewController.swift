@@ -88,7 +88,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func loadShowLogButton() {
         let button = UIButton(frame: CGRectMake(0, textFieldHeight + cellHeight, view.bounds.width, showLogButtonHeight))
-        button.setTitle(NSLocalizedString("Show History", comment: ""), forState: UIControlState.Normal)
+        button.setTitle(NSLocalizedString("Show Reset History", comment: ""), forState: UIControlState.Normal)
         button.setTitleColor(UIColor(white: 0.5, alpha: 1.0), forState: UIControlState.Normal)
         button.setTitleColor(UIColor(white: 0.7, alpha: 1.0), forState: UIControlState.Highlighted)
         view.addSubview(button)
