@@ -29,7 +29,7 @@ class BaseDateWrapper: NSObject {
     }
 
     func update(#title: String, date: NSDate) {
-        if !baseDate.date.isEqualToDate(date) {
+        if baseDate.date != nil && !baseDate.date.isEqualToDate(date) {
             let log = Log.MR_createEntity() as Log
             log.date = baseDate.date
             log.duration = dateInterval()
