@@ -44,16 +44,26 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
+
         cell.textLabel.text = dates[indexPath.row]["title"]
         cell.textLabel.textColor = UIColor.whiteColor()
+
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let date = dateFormatter.dateFromString(dates[indexPath.row]["date"]!)!
-        let timezoneInterval = -NSTimeZone.systemTimeZone().secondsFromGMTForDate(date)
-        date.dateByAddingTimeInterval(NSTimeInterval(timezoneInterval))
-        cell.detailTextLabel?.text = "\(-Int(date.timeIntervalSinceNow / 60 / 60 / 24)) " + NSLocalizedString("Days", comment: "")
+        cell.detailTextLabel?.text = "\(dateInterval(fromDate: date, toDate: NSDate())) " + NSLocalizedString("Days", comment: "")
         cell.detailTextLabel?.textColor = UIColor.whiteColor()
+
         return cell
+    }
+
+    func dateInterval(#fromDate: NSDate, toDate: NSDate) -> Int {
+        let unit = NSCalendarUnit.YearCalendarUnit | NSCalendarUnit.MonthCalendarUnit | NSCalendarUnit.DayCalendarUnit
+        let calendar = NSCalendar(identifier: NSGregorianCalendar) ?? NSCalendar()
+        let fromComponent = calendar.dateFromComponents(calendar.components(unit, fromDate: fromDate))
+        let toComponent = calendar.dateFromComponents(calendar.components(unit, fromDate: toDate))
+        let components = calendar.components(NSCalendarUnit.DayCalendarUnit, fromDate: fromComponent!, toDate: toComponent!, options: nil)
+        return components.day
     }
 
     func userDefaultsDidChange(notification: NSNotification) {
