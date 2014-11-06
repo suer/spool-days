@@ -8,4 +8,8 @@ class LogWrapper: NSObject {
         let predicate = NSPredicate(format: "baseDate = %@ and event = %@", baseDate, "reset")
         return Log.MR_findAllSortedBy("date", ascending: false, withPredicate: predicate) as [Log]
     }
+
+    func dateString() -> String {
+        return Calendar(date: log.date).dateString()
+    }
 }

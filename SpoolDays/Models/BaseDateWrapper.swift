@@ -79,11 +79,6 @@ class BaseDateWrapper: NSObject {
     }
 
     func dateInterval() -> Int {
-        let unit = NSCalendarUnit.YearCalendarUnit | NSCalendarUnit.MonthCalendarUnit | NSCalendarUnit.DayCalendarUnit
-        let calendar = NSCalendar(identifier: NSGregorianCalendar) ?? NSCalendar()
-        let fromComponent = calendar.dateFromComponents(calendar.components(unit, fromDate: baseDate.date)) ?? NSDate()
-        let toComponent = calendar.dateFromComponents(calendar.components(unit, fromDate: NSDate())) ?? NSDate()
-        let components = calendar.components(NSCalendarUnit.DayCalendarUnit, fromDate: fromComponent, toDate: toComponent, options: nil)
-        return components.day
+        return Calendar(date: baseDate.date).dateIntervalFromNow()
     }
 }
