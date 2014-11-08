@@ -26,11 +26,11 @@ class HistoryTableViewController: UITableViewController {
         tableView.reloadData()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
 }
