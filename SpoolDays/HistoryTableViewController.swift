@@ -12,6 +12,7 @@ class HistoryTableViewController: UITableViewController {
         self.dateViewModel = dateViewModel
         self.historyViewModel = HistoryViewModel(baseDate: dateViewModel.baseDate!)
         super.init(nibName: nil, bundle: nil)
+        tableView.dataSource = historyViewModel
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -31,17 +32,5 @@ class HistoryTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return historyViewModel.logs.count
-    }
-
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let log = historyViewModel.logs[indexPath.row]
-        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
-        cell.textLabel.text = LogWrapper(log: log).dateString()
-        return cell
     }
 }
