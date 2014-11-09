@@ -20,6 +20,7 @@ class DatesViewModel: RVMViewModel, UITableViewDataSource, SWTableViewCellDelega
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             BaseDateWrapper(baseDate: dates[indexPath.row]).delete()
+            fetch()
             itemChangedSignal.sendNext(RowsChangeEvent(indexPath: indexPath, newIndexPath: nil, eventType: RowsChangeEvent.EventType.Delete))
         }
     }
