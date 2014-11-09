@@ -37,7 +37,7 @@ class DatesViewModel: RVMViewModel, UITableViewDataSource, SWTableViewCellDelega
     func swipeableTableViewCell(cell: SWTableViewCell, didTriggerLeftUtilityButtonWithIndex index: NSInteger) {
         if let dateCell = cell as? DateTableViewCell {
             dateCell.dateViewModel.resetDate()
-            itemChangedSignal.sendNext(RowsChangeEvent(indexPath: nil, newIndexPath: nil, eventType: RowsChangeEvent.EventType.ResetDate))
+            itemChangedSignal.sendNext(RowsChangeEvent(indexPath: NSIndexPath(forRow: index, inSection: 0), newIndexPath: nil, eventType: RowsChangeEvent.EventType.ResetDate))
         }
     }
 }
