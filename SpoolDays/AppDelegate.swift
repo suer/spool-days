@@ -41,6 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ], forState: UIControlState.Selected)
 
         UITableViewCell.appearance().separatorInset = UIEdgeInsetsZero
+
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
     }
 
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
