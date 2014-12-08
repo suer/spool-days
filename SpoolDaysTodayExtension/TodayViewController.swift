@@ -45,8 +45,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
 
-        cell.textLabel.text = dates[indexPath.row]["title"]
-        cell.textLabel.textColor = UIColor.whiteColor()
+        cell.textLabel?.text = dates[indexPath.row]["title"]
+        cell.textLabel?.textColor = UIColor.whiteColor()
 
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"

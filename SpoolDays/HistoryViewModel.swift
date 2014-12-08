@@ -17,7 +17,7 @@ class HistoryViewModel: RVMViewModel, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let log = logs[indexPath.row]
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
-        cell.textLabel.text = LogWrapper(log: log).dateString()
+        cell.textLabel?.text = LogWrapper(log: log).dateString()
         return cell
     }
 }

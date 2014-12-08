@@ -163,7 +163,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
-        cell.textLabel.text = NSLocalizedString("Date", comment: "")
+        cell.textLabel?.text = NSLocalizedString("Date", comment: "")
         cell.detailTextLabel?.text = Calendar(date: dateViewModel.baseDate?.date ?? NSDate()).dateString()
         return cell
     }
