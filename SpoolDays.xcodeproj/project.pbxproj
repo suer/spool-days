@@ -21,6 +21,9 @@
 		8059A9001A02925D00A9958B /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059A8FF1A02925D00A9958B /* HistoryViewModel.swift */; };
 		8059A9021A03C11F00A9958B /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059A9011A03C11F00A9958B /* HistoryTableViewController.swift */; };
 		8075F9DC19FE01DD00443983 /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8075F9DB19FE01DD00443983 /* ThemeColor.swift */; };
+		807DC5381A39BFED00F197AF /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807DC5371A39BFED00F197AF /* HistoryTableViewCell.swift */; };
+		807DC53A1A39C13C00F197AF /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807DC5391A39C13C00F197AF /* DatePicker.swift */; };
+		807DC53C1A39D1BE00F197AF /* InvisibleDateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807DC53B1A39D1BE00F197AF /* InvisibleDateTextField.swift */; };
 		80A574B919EFDF4100C06CBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A574B819EFDF4100C06CBB /* AppDelegate.swift */; };
 		80A574C019EFDF4100C06CBB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80A574BF19EFDF4100C06CBB /* Images.xcassets */; };
 		80A574C319EFDF4100C06CBB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80A574C119EFDF4100C06CBB /* LaunchScreen.xib */; };
@@ -85,6 +88,9 @@
 		8059A8FF1A02925D00A9958B /* HistoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		8059A9011A03C11F00A9958B /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		8075F9DB19FE01DD00443983 /* ThemeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
+		807DC5371A39BFED00F197AF /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		807DC5391A39C13C00F197AF /* DatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
+		807DC53B1A39D1BE00F197AF /* InvisibleDateTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvisibleDateTextField.swift; sourceTree = "<group>"; };
 		80A574B319EFDF4100C06CBB /* SpoolDays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpoolDays.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80A574B719EFDF4100C06CBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80A574B819EFDF4100C06CBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -201,10 +207,13 @@
 				80DFB12019F6902300BCF3B1 /* RowsChangeEvent.swift */,
 				8059A9011A03C11F00A9958B /* HistoryTableViewController.swift */,
 				8059A8FF1A02925D00A9958B /* HistoryViewModel.swift */,
+				807DC5371A39BFED00F197AF /* HistoryTableViewCell.swift */,
 				80A7D33519F01317007BB993 /* SpoolDays-Bridging-Header.h */,
 				8057D9EB19FBEB8A00AB18DF /* Localizable.strings */,
 				8075F9DB19FE01DD00443983 /* ThemeColor.swift */,
 				80404BDC1A0BA76A00FD835F /* Calendar.swift */,
+				807DC5391A39C13C00F197AF /* DatePicker.swift */,
+				807DC53B1A39D1BE00F197AF /* InvisibleDateTextField.swift */,
 			);
 			path = SpoolDays;
 			sourceTree = "<group>";
@@ -457,13 +466,16 @@
 				80A7D33419F012EA007BB993 /* DateViewModel.swift in Sources */,
 				8075F9DC19FE01DD00443983 /* ThemeColor.swift in Sources */,
 				80A574B919EFDF4100C06CBB /* AppDelegate.swift in Sources */,
+				807DC5381A39BFED00F197AF /* HistoryTableViewCell.swift in Sources */,
 				80DFB11D19F3E7C600BCF3B1 /* BaseDateWrapper.swift in Sources */,
 				80A7D33219EFEE00007BB993 /* DateTableViewCell.swift in Sources */,
 				8059A9001A02925D00A9958B /* HistoryViewModel.swift in Sources */,
 				8002868419EFE1EE00089835 /* MainViewController.swift in Sources */,
+				807DC53C1A39D1BE00F197AF /* InvisibleDateTextField.swift in Sources */,
 				80DFB11B19F3E77400BCF3B1 /* BaseDate.m in Sources */,
 				80DFB0F719F3D2A100BCF3B1 /* Model.xcdatamodeld in Sources */,
 				8059A9021A03C11F00A9958B /* HistoryTableViewController.swift in Sources */,
+				807DC53A1A39C13C00F197AF /* DatePicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

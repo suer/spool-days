@@ -6,7 +6,7 @@ class LogWrapper: NSObject {
 
     class func findResetLogsByBaseDate(baseDate: BaseDate) -> [Log] {
         let predicate = NSPredicate(format: "baseDate = %@ and event = %@", baseDate, "reset")
-        return Log.MR_findAllSortedBy("date", ascending: false, withPredicate: predicate) as [Log]
+        return Log.MR_findAllSortedBy("_pk", ascending: false, withPredicate: predicate) as [Log]
     }
 
     func dateString() -> String {

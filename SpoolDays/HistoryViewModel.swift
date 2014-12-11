@@ -10,14 +10,23 @@ class HistoryViewModel: RVMViewModel, UITableViewDataSource {
         logs = LogWrapper.findResetLogsByBaseDate(baseDate)
     }
 
+    func save() {
+        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+    }
+
+    func rollback() {
+        NSManagedObjectContext.MR_defaultContext().rollback()
+    }
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return logs.count
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let log = logs[indexPath.row]
-        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
+        let cell = HistoryTableViewCell(log: log)
         cell.textLabel?.text = LogWrapper(log: log).dateString()
+        log.addObserver(cell, forKeyPath: "date", options: .New, context: nil)
         return cell
     }
 }

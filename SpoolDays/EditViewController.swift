@@ -5,8 +5,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var textField: UITextField?
     let dateViewModel: DateViewModel
     var tableView: UITableView?
-    var invisibleDateTextField: UITextField?
-    var datePicker: UIDatePicker?
+    var invisibleDateTextField: InvisibleDateTextField?
+    var datePicker: DatePicker?
 
     var titleString: String
     var date: NSDate
@@ -14,7 +14,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     let textFieldHeight = CGFloat(50.0)
     let cellHeight = CGFloat(50.0)
     let showLogButtonHeight = CGFloat(50.0)
-    let datePickerHeight = CGFloat(300.0)
 
     convenience init (dateViewModel: DateViewModel) {
         self.init(nibName: nil, bundle: nil, dateViewModel: dateViewModel)
@@ -95,7 +94,10 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         button.rac_command = RACCommand(signalBlock: {
             obj in
-            self.navigationController?.pushViewController(HistoryTableViewController(dateViewModel: self.dateViewModel), animated: true)
+            let controller = HistoryTableViewController(dateViewModel: self.dateViewModel)
+            let navigationController = UINavigationController(rootViewController: controller)
+            navigationController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+            self.presentViewController(navigationController, animated: true, completion: nil)
             return RACSignal.empty()
         })
     }
@@ -110,36 +112,16 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func loadDatePicker() {
-        datePicker = UIDatePicker(frame: CGRectMake(0, view.bounds.height - datePickerHeight, view.bounds.width, datePickerHeight))
-        datePicker!.datePickerMode = UIDatePickerMode.Date
-        datePicker!.addTarget(self, action: Selector("datePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        datePicker = DatePicker(valueChanged: {
+            d in
+            self.date = d
+            let cell = self.tableView!.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))
+            cell!.detailTextLabel?.text = Calendar(date: d).dateString()
 
-        invisibleDateTextField = UITextField(frame: CGRectMake(0, 0, 0, 0));
-        invisibleDateTextField!.inputView = datePicker
-        invisibleDateTextField!.inputAccessoryView = datePickerToolBar()
+        })
+
+        invisibleDateTextField = InvisibleDateTextField(datePicker: datePicker!);
         view.addSubview(invisibleDateTextField!)
-    }
-
-    func datePickerToolBar() -> UIToolbar {
-        let toolbar = UIToolbar()
-        toolbar.barStyle = UIBarStyle.Default
-        toolbar.translucent = true
-        toolbar.tintColor = nil
-        toolbar.sizeToFit()
-        let todayButton = UIBarButtonItem(title: NSLocalizedString("Today", comment: ""), style: UIBarButtonItemStyle.Plain, target: self, action: "todayButtonTapped:")
-        toolbar.setItems([todayButton], animated: false)
-        return toolbar
-    }
-
-    func todayButtonTapped(sender: AnyObject) {
-        datePicker!.date = NSDate()
-        datePickerValueChanged(datePicker!)
-    }
-
-    func datePickerValueChanged(datePicker: UIDatePicker) {
-        date = datePicker.date
-        let cell = tableView!.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))
-        cell!.detailTextLabel?.text = Calendar(date: date).dateString()
     }
 
     func loadTableView() {
