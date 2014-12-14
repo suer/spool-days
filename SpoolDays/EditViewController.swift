@@ -41,7 +41,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         loadTableView()
         loadDatePicker()
         loadTextField()
-        loadShowLogButton()
+        if dateViewModel.baseDate != nil {
+            loadShowLogButton()
+        }
     }
 
     override func viewWillAppear(animated: Bool) {

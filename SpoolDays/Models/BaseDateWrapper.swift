@@ -6,12 +6,14 @@ class BaseDateWrapper: NSObject {
         super.init()
     }
 
-    class func create(title: String, date: NSDate) {
-        let baseDate = BaseDate.MR_createEntity() as BaseDate
-        baseDate.title = title
-        baseDate.date = date
-        baseDate.sort = BaseDate.MR_numberOfEntities()
-        
+    class func createBaseDate(title: String) -> BaseDate? {
+        let date = NSDate()
+        let sort = BaseDate.MR_numberOfEntities()
+        let baseDate = BaseDate.MR_createEntity() as BaseDate?
+        baseDate?.sort = sort
+        baseDate?.date = date
+        baseDate?.title = title
+
         let log = Log.MR_createEntity() as Log
         log.date = date
         log.duration = 0
@@ -19,12 +21,7 @@ class BaseDateWrapper: NSObject {
         log.event = "create"
 
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
-    }
 
-    class func createEmptyBaseDate() -> BaseDate? {
-        let sort = BaseDate.MR_numberOfEntities()
-        let baseDate = BaseDate.MR_createEntity() as BaseDate?
-        baseDate?.sort = sort
         return baseDate
     }
 
