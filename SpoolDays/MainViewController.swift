@@ -63,13 +63,36 @@ class MainViewController: UIViewController, UITableViewDelegate {
             let event = obj as RowsChangeEvent
             switch(event.eventType) {
             case .Delete:
-                self.tableView!.deleteRowsAtIndexPaths([event.indexPath!], withRowAnimation: UITableViewRowAnimation.Fade)
+                self.deleteDate(event.indexPath!)
                 break
             default:
                 break
             }
             self.reload()
         })
+    }
+
+    private func deleteDate(indexPath: NSIndexPath) {
+        let title = NSLocalizedString("Confirmation", comment: "")
+        let message = NSLocalizedString("Are you sure you want to delete?", comment: "")
+        let yes = NSLocalizedString("Yes", comment: "")
+        let no = NSLocalizedString("No", comment: "")
+        let delegate = DeleteConfirmationDelegate(indexPath: indexPath, datesViewModel: datesViewModel, tableView: tableView!)
+        if NSClassFromString("UIAlertController") == nil {
+            // iOS7
+            let alert = UIAlertView(title: title, message: message, delegate: delegate, cancelButtonTitle: no, otherButtonTitles: yes)
+            alert.show()
+            return
+        }
+
+        // iOS8
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: no, style: .Default, handler: nil))
+        alertController.addAction(UIAlertAction(title: yes, style: .Default, handler: {
+            action in
+            delegate.deleteBaseDate()
+        }))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 
     func loadEditButton() {

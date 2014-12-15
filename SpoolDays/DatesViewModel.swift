@@ -6,6 +6,11 @@ class DatesViewModel: RVMViewModel, UITableViewDataSource, SWTableViewCellDelega
         dates = BaseDate.MR_findAllSortedBy("sort", ascending: true) as [BaseDate]
     }
 
+    func deleteDate(indexPath: NSIndexPath) {
+        BaseDateWrapper(baseDate: dates[indexPath.row]).delete()
+        fetch()
+    }
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dates.count
     }
@@ -19,8 +24,6 @@ class DatesViewModel: RVMViewModel, UITableViewDataSource, SWTableViewCellDelega
 
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            BaseDateWrapper(baseDate: dates[indexPath.row]).delete()
-            fetch()
             itemChangedSignal.sendNext(RowsChangeEvent(indexPath: indexPath, newIndexPath: nil, eventType: RowsChangeEvent.EventType.Delete))
         }
     }
