@@ -50,6 +50,14 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         textField!.becomeFirstResponder()
     }
 
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        textField!.resignFirstResponder()
+        invisibleDateTextField!.resignFirstResponder()
+    }
+
+
+    // MARK: cancel button
+
     func loadCancelButton() {
         let cancelButton = UIBarButtonItem(title: NSLocalizedString("Cancel", comment: ""), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("cancelButtonTapped:"))
         navigationItem.leftBarButtonItem = cancelButton
@@ -58,6 +66,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     func cancelButtonTapped(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+
+    // MARK: save button
 
     func loadSaveButton() {
         let saveButton = UIBarButtonItem(title: NSLocalizedString("Save", comment: ""), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("saveButtonTapped:"))
@@ -68,6 +78,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         dateViewModel.update(title: titleString, date: date)
         dismissViewControllerAnimated(true, completion: nil)
     }
+
+    // MARK: text field
 
     func loadTextField() {
         textField = UITextField(frame: CGRectMake(0, 0, view.bounds.width, textFieldHeight))
@@ -87,6 +99,12 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         })
     }
 
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        return true
+    }
+
+    // MARK: show log button
+
     func loadShowLogButton() {
         let button = UIButton(frame: CGRectMake(0, textFieldHeight + cellHeight, view.bounds.width, showLogButtonHeight))
         button.setTitle(NSLocalizedString("Show Reset History", comment: ""), forState: UIControlState.Normal)
@@ -104,14 +122,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         })
     }
 
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        return true
-    }
-
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        textField!.resignFirstResponder()
-        invisibleDateTextField!.resignFirstResponder()
-    }
+    // MARK: date picker
 
     func loadDatePicker() {
         datePicker = DatePicker(valueChanged: {
@@ -125,6 +136,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         invisibleDateTextField = InvisibleDateTextField(datePicker: datePicker!);
         view.addSubview(invisibleDateTextField!)
     }
+
+    // MARK: table view
 
     func loadTableView() {
         tableView = UITableView(frame: CGRectMake(0, textFieldHeight, view.bounds.width, cellHeight))
@@ -157,9 +170,5 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         textField!.resignFirstResponder()
         invisibleDateTextField!.becomeFirstResponder()
         datePicker!.setDate(date, animated: false)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 }
