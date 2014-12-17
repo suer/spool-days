@@ -11,18 +11,21 @@ PODS:
     - ReactiveCocoa/Core
   - ReactiveViewModel (0.2):
     - ReactiveCocoa (~> 2.1)
+  - RSDayFlow (0.7.3)
   - SWTableViewCell (0.3.5)
 
 DEPENDENCIES:
   - MagicalRecord
   - ReactiveCocoa
   - ReactiveViewModel
+  - RSDayFlow
   - SWTableViewCell
 
 SPEC CHECKSUMS:
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
   ReactiveCocoa: dca75777b9d18990c8714a3a6f2149f29b4d1462
   ReactiveViewModel: 78387196df2e7535bb2776c41df15dbb17300f8a
+  RSDayFlow: 06e3efb0115c1409c455e548570c5ec76d9c575b
   SWTableViewCell: da159b491b1253446ffbcabcfa94e6a4c94bf04b
 
 COCOAPODS: 0.34.4

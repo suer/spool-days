@@ -5,11 +5,15 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var textField: UITextField?
     let dateViewModel: DateViewModel
     var tableView: UITableView?
-    var invisibleDateTextField: InvisibleDateTextField?
-    var datePicker: DatePicker?
 
     var titleString: String
-    var date: NSDate
+    var date: NSDate {
+        didSet {
+            if let cell = tableView?.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) {
+                cell.detailTextLabel?.text = Calendar(date: date).dateString()
+            }
+        }
+    }
 
     let textFieldHeight = CGFloat(50.0)
     let cellHeight = CGFloat(50.0)
@@ -39,7 +43,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         loadCancelButton()
         loadSaveButton()
         loadTableView()
-        loadDatePicker()
         loadTextField()
         if dateViewModel.baseDate != nil {
             loadShowLogButton()
@@ -52,9 +55,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         textField!.resignFirstResponder()
-        invisibleDateTextField!.resignFirstResponder()
     }
-
 
     // MARK: cancel button
 
@@ -122,21 +123,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         })
     }
 
-    // MARK: date picker
-
-    func loadDatePicker() {
-        datePicker = DatePicker(valueChanged: {
-            d in
-            self.date = d
-            let cell = self.tableView!.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))
-            cell!.detailTextLabel?.text = Calendar(date: d).dateString()
-
-        })
-
-        invisibleDateTextField = InvisibleDateTextField(datePicker: datePicker!);
-        view.addSubview(invisibleDateTextField!)
-    }
-
     // MARK: table view
 
     func loadTableView() {
@@ -168,7 +154,12 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         textField!.resignFirstResponder()
-        invisibleDateTextField!.becomeFirstResponder()
-        datePicker!.setDate(date, animated: false)
+        let controller = DatePickerViewController(initialDate: date, {
+            date in
+            self.date = date
+        })
+        let navigationController = UINavigationController(rootViewController: controller)
+        navigationController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        presentViewController(navigationController, animated: true, completion: nil)
     }
 }

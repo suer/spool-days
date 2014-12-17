@@ -28,7 +28,6 @@ class HistoryViewModel: RVMViewModel, UITableViewDataSource {
         let logWrapper = LogWrapper(log: log)
         cell.textLabel?.text = logWrapper.dateString()
         cell.detailTextLabel?.text = logWrapper.eventString()
-        log.addObserver(cell, forKeyPath: "date", options: .New, context: nil)
         return cell
     }
 }

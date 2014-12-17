@@ -3,9 +3,6 @@ import UIKit
 class HistoryTableViewController: UITableViewController {
     let historyViewModel: HistoryViewModel
     let dateViewModel: DateViewModel
-    var invisibleDateTextField: InvisibleDateTextField?
-    var datePicker: DatePicker?
-    var selectedCell: HistoryTableViewCell?
 
     convenience init(dateViewModel: DateViewModel) {
         self.init(nibName: nil, bundle: nil, dateViewModel: dateViewModel)
@@ -27,21 +24,8 @@ class HistoryTableViewController: UITableViewController {
         title = NSLocalizedString("Reset History", comment: "")
         historyViewModel.fetch()
         tableView.reloadData()
-        loadDatePicker()
         loadCancelButton()
         loadSaveButton()
-    }
-
-    func loadDatePicker() {
-        datePicker = DatePicker({
-            date in
-            if let cell = self.selectedCell {
-                cell.log.date = date
-            }
-        })
-
-        invisibleDateTextField = InvisibleDateTextField(datePicker: datePicker!);
-        view.addSubview(invisibleDateTextField!)
     }
 
     func loadCancelButton() {
@@ -63,14 +47,14 @@ class HistoryTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let cell = tableView.cellForRowAtIndexPath(indexPath) as? HistoryTableViewCell {
-            selectedCell = cell
-            invisibleDateTextField!.becomeFirstResponder()
-            datePicker!.setDate(cell.log.date, animated: false)
+            let controller = DatePickerViewController(initialDate: cell.log.date, {
+                date in
+                cell.log.date = date
+                self.tableView.reloadData()
+            })
+            let navigationController = UINavigationController(rootViewController: controller)
+            navigationController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+            presentViewController(navigationController, animated: true, completion: nil)
         }
-        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 }
