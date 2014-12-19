@@ -18,14 +18,18 @@ DEPENDENCIES:
   - MagicalRecord
   - ReactiveCocoa
   - ReactiveViewModel
-  - RSDayFlow
+  - RSDayFlow (from `https://github.com/suer/RSDayFlow.git`)
   - SWTableViewCell
+
+EXTERNAL SOURCES:
+  RSDayFlow:
+    :git: https://github.com/suer/RSDayFlow.git
 
 SPEC CHECKSUMS:
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
   ReactiveCocoa: dca75777b9d18990c8714a3a6f2149f29b4d1462
   ReactiveViewModel: 78387196df2e7535bb2776c41df15dbb17300f8a
-  RSDayFlow: 06e3efb0115c1409c455e548570c5ec76d9c575b
+  RSDayFlow: c4d545142a80e92949caa04abc23a5cc4ff42a32
   SWTableViewCell: da159b491b1253446ffbcabcfa94e6a4c94bf04b
 
 COCOAPODS: 0.34.4
