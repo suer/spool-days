@@ -7,6 +7,7 @@ pod 'ReactiveCocoa'
 pod 'ReactiveViewModel'
 pod 'SWTableViewCell'
 pod 'RSDayFlow', :git => 'https://github.com/suer/RSDayFlow.git'
+pod 'RMUniversalAlert'
 
 post_install do | installer |
   require 'fileutils'

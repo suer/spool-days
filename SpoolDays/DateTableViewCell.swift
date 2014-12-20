@@ -21,6 +21,10 @@ class DateTableViewCell: SWTableViewCell {
         })
     }
 
+    func resetDate() {
+        dateViewModel.resetDate()
+    }
+
     private func updateLabels() {
         if let baseDate = dateViewModel.baseDate {
             textLabel?.text = baseDate.title

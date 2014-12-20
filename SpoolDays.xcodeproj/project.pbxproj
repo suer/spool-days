@@ -14,7 +14,6 @@
 		802225FB19FB058F00330227 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802225FA19FB058F00330227 /* TodayViewController.swift */; };
 		802225FD19FB058F00330227 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 802225FC19FB058F00330227 /* MainInterface.storyboard */; };
 		8022260019FB058F00330227 /* SpoolDaysTodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 802225F419FB058F00330227 /* SpoolDaysTodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		80254DC71A3DAE1A002AF8DE /* DeleteConfirmationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80254DC61A3DAE1A002AF8DE /* DeleteConfirmationDelegate.swift */; };
 		80404BDD1A0BA76A00FD835F /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80404BDC1A0BA76A00FD835F /* Calendar.swift */; };
 		804E607419F31D5D005BA669 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E607319F31D5D005BA669 /* EditViewController.swift */; };
 		8057D9E919FBEB8A00AB18DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8057D9EB19FBEB8A00AB18DF /* Localizable.strings */; };
@@ -36,7 +35,6 @@
 		80DFB11B19F3E77400BCF3B1 /* BaseDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11A19F3E77400BCF3B1 /* BaseDate.m */; };
 		80DFB11D19F3E7C600BCF3B1 /* BaseDateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11C19F3E7C600BCF3B1 /* BaseDateWrapper.swift */; };
 		80DFB11F19F5427200BCF3B1 /* DatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */; };
-		80DFB12119F6902300BCF3B1 /* RowsChangeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB12019F6902300BCF3B1 /* RowsChangeEvent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +80,6 @@
 		802225FC19FB058F00330227 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		8022260519FB086900330227 /* SpoolDaysTodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SpoolDaysTodayExtension.entitlements; sourceTree = "<group>"; };
 		8022260619FB3AE600330227 /* SpoolDays.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SpoolDays.entitlements; sourceTree = "<group>"; };
-		80254DC61A3DAE1A002AF8DE /* DeleteConfirmationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteConfirmationDelegate.swift; sourceTree = "<group>"; };
 		80404BDC1A0BA76A00FD835F /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		804E607319F31D5D005BA669 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		8057D9EA19FBEB8A00AB18DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -111,7 +108,6 @@
 		80DFB11A19F3E77400BCF3B1 /* BaseDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseDate.m; path = Models/BaseDate.m; sourceTree = "<group>"; };
 		80DFB11C19F3E7C600BCF3B1 /* BaseDateWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseDateWrapper.swift; path = Models/BaseDateWrapper.swift; sourceTree = "<group>"; };
 		80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesViewModel.swift; sourceTree = "<group>"; };
-		80DFB12019F6902300BCF3B1 /* RowsChangeEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RowsChangeEvent.swift; sourceTree = "<group>"; };
 		C803814E2F0D8A09FC22F0B1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -206,7 +202,6 @@
 				80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */,
 				80A7D33319F012EA007BB993 /* DateViewModel.swift */,
 				804E607319F31D5D005BA669 /* EditViewController.swift */,
-				80DFB12019F6902300BCF3B1 /* RowsChangeEvent.swift */,
 				8059A9011A03C11F00A9958B /* HistoryTableViewController.swift */,
 				8059A8FF1A02925D00A9958B /* HistoryViewModel.swift */,
 				807DC5371A39BFED00F197AF /* HistoryTableViewCell.swift */,
@@ -215,7 +210,6 @@
 				8075F9DB19FE01DD00443983 /* ThemeColor.swift */,
 				80404BDC1A0BA76A00FD835F /* Calendar.swift */,
 				807DC5391A39C13C00F197AF /* DatePickerViewController.swift */,
-				80254DC61A3DAE1A002AF8DE /* DeleteConfirmationDelegate.swift */,
 				800D5FF51A455F9800F86EC5 /* Settings.bundle */,
 			);
 			path = SpoolDays;
@@ -480,14 +474,12 @@
 				8059A8FE1A028D8500A9958B /* LogWrapper.swift in Sources */,
 				80404BDD1A0BA76A00FD835F /* Calendar.swift in Sources */,
 				804E607419F31D5D005BA669 /* EditViewController.swift in Sources */,
-				80DFB12119F6902300BCF3B1 /* RowsChangeEvent.swift in Sources */,
 				80A7D33419F012EA007BB993 /* DateViewModel.swift in Sources */,
 				8075F9DC19FE01DD00443983 /* ThemeColor.swift in Sources */,
 				80A574B919EFDF4100C06CBB /* AppDelegate.swift in Sources */,
 				807DC5381A39BFED00F197AF /* HistoryTableViewCell.swift in Sources */,
 				80DFB11D19F3E7C600BCF3B1 /* BaseDateWrapper.swift in Sources */,
 				80A7D33219EFEE00007BB993 /* DateTableViewCell.swift in Sources */,
-				80254DC71A3DAE1A002AF8DE /* DeleteConfirmationDelegate.swift in Sources */,
 				8059A9001A02925D00A9958B /* HistoryViewModel.swift in Sources */,
 				8002868419EFE1EE00089835 /* MainViewController.swift in Sources */,
 				80DFB11B19F3E77400BCF3B1 /* BaseDate.m in Sources */,

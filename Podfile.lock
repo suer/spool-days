@@ -11,13 +11,26 @@ PODS:
     - ReactiveCocoa/Core
   - ReactiveViewModel (0.2):
     - ReactiveCocoa (~> 2.1)
+  - RMUniversalAlert (0.1):
+    - RMUniversalAlert/Core
+    - UIActionSheet+Blocks
+    - UIAlertController+Blocks
+    - UIAlertView+Blocks
+  - RMUniversalAlert/Core (0.1):
+    - UIActionSheet+Blocks
+    - UIAlertController+Blocks
+    - UIAlertView+Blocks
   - RSDayFlow (0.7.3)
   - SWTableViewCell (0.3.5)
+  - UIActionSheet+Blocks (0.8.1)
+  - UIAlertController+Blocks (0.4)
+  - UIAlertView+Blocks (0.8.1)
 
 DEPENDENCIES:
   - MagicalRecord
   - ReactiveCocoa
   - ReactiveViewModel
+  - RMUniversalAlert
   - RSDayFlow (from `https://github.com/suer/RSDayFlow.git`)
   - SWTableViewCell
 
@@ -29,7 +42,11 @@ SPEC CHECKSUMS:
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
   ReactiveCocoa: dca75777b9d18990c8714a3a6f2149f29b4d1462
   ReactiveViewModel: 78387196df2e7535bb2776c41df15dbb17300f8a
+  RMUniversalAlert: e574e1166e45d2d4377b28b6c8598faecb2837d8
   RSDayFlow: c4d545142a80e92949caa04abc23a5cc4ff42a32
   SWTableViewCell: da159b491b1253446ffbcabcfa94e6a4c94bf04b
+  UIActionSheet+Blocks: c8b9c02f3d08964e8f7a4202f004a639c15eab80
+  UIAlertController+Blocks: e9580fc6b1db86534c61c6822799753228a10bf2
+  UIAlertView+Blocks: 0b749f1f7bd5131ff2233b30a406c1585a7171b2
 
 COCOAPODS: 0.34.4

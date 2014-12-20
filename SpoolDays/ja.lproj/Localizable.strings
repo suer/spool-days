@@ -18,5 +18,6 @@
 
 "Confirmation" = "確認";
 "Are you sure you want to delete?" = "削除します。よろしいですか?";
+"Are you sure you want to reset date?" = "日付をリセットします。よろしいですか?";
 "Yes" = "はい";
 "No" = "いいえ";

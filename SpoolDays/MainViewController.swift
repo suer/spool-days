@@ -1,6 +1,6 @@
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDelegate {
+class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate {
     var tableView: UITableView?
     let datesViewModel = DatesViewModel()
     override func viewDidLoad() {
@@ -51,50 +51,6 @@ class MainViewController: UIViewController, UITableViewDelegate {
         sharedDefaults?.synchronize()
     }
 
-    func loadTableView() {
-        tableView = UITableView(frame: view.bounds)
-        tableView!.delegate = self
-        tableView!.dataSource = datesViewModel
-        tableView!.backgroundColor = UIColor.whiteColor()
-        view.addSubview(tableView!)
-
-        datesViewModel.itemChangedSignal.subscribeNext({
-            obj in
-            let event = obj as RowsChangeEvent
-            switch(event.eventType) {
-            case .Delete:
-                self.deleteDate(event.indexPath!)
-                break
-            default:
-                break
-            }
-            self.reload()
-        })
-    }
-
-    private func deleteDate(indexPath: NSIndexPath) {
-        let title = NSLocalizedString("Confirmation", comment: "")
-        let message = NSLocalizedString("Are you sure you want to delete?", comment: "")
-        let yes = NSLocalizedString("Yes", comment: "")
-        let no = NSLocalizedString("No", comment: "")
-        let delegate = DeleteConfirmationDelegate(indexPath: indexPath, datesViewModel: datesViewModel, tableView: tableView!)
-        if NSClassFromString("UIAlertController") == nil {
-            // iOS7
-            let alert = UIAlertView(title: title, message: message, delegate: delegate, cancelButtonTitle: no, otherButtonTitles: yes)
-            alert.show()
-            return
-        }
-
-        // iOS8
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        alertController.addAction(UIAlertAction(title: no, style: .Default, handler: nil))
-        alertController.addAction(UIAlertAction(title: yes, style: .Default, handler: {
-            action in
-            delegate.deleteBaseDate()
-        }))
-        self.presentViewController(alertController, animated: true, completion: nil)
-    }
-
     func loadEditButton() {
         let editButton = UIBarButtonItem()
         editButton.title = NSLocalizedString("Edit", comment: "")
@@ -128,6 +84,85 @@ class MainViewController: UIViewController, UITableViewDelegate {
         setSharedDefaults(datesViewModel)
     }
 
+    // MARK: table view
+
+    func loadTableView() {
+        tableView = UITableView(frame: view.bounds)
+        tableView!.delegate = self
+        tableView!.dataSource = self
+        tableView!.backgroundColor = UIColor.whiteColor()
+        view.addSubview(tableView!)
+    }
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return datesViewModel.dates.count
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let dateViewModel = DateViewModel(baseDate: datesViewModel.dates[indexPath.row])
+        let cell = DateTableViewCell(reuseIdentifier: "Cell", dateViewModel: dateViewModel)
+        cell.delegate = self
+        return cell
+    }
+
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            deleteDate(indexPath)
+        }
+    }
+
+    private func deleteDate(indexPath: NSIndexPath) {
+        let title = NSLocalizedString("Confirmation", comment: "")
+        let message = NSLocalizedString("Are you sure you want to delete?", comment: "")
+        let yes = NSLocalizedString("Yes", comment: "")
+        let no = NSLocalizedString("No", comment: "")
+        RMUniversalAlert.showAlertInViewController(self, withTitle: title, message: message, cancelButtonTitle: no, destructiveButtonTitle: nil, otherButtonTitles: [yes], tapBlock: {
+            buttonIndex in
+            switch buttonIndex {
+            case UIAlertControllerBlocksFirstOtherButtonIndex:
+                self.datesViewModel.deleteDate(indexPath)
+                self.tableView!.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            default:
+                break
+            }
+        })
+    }
+
+    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+        BaseDateWrapper.move(fromIndex: fromIndexPath.row, toIndex: toIndexPath.row)
+    }
+
+    func swipeableTableViewCell(cell: SWTableViewCell, didTriggerLeftUtilityButtonWithIndex index: NSInteger) {
+        if index != 0 {
+            return
+        }
+
+        if let dateCell = cell as? DateTableViewCell {
+            resetDate(dateCell)
+        }
+    }
+
+    private func resetDate(cell: DateTableViewCell) {
+        let title = NSLocalizedString("Confirmation", comment: "")
+        let message = NSLocalizedString("Are you sure you want to reset date?", comment: "")
+        let yes = NSLocalizedString("Yes", comment: "")
+        let no = NSLocalizedString("No", comment: "")
+        RMUniversalAlert.showAlertInViewController(self, withTitle: title, message: message, cancelButtonTitle: no, destructiveButtonTitle: nil, otherButtonTitles: [yes], tapBlock: {
+            buttonIndex in
+            switch buttonIndex {
+            case UIAlertControllerBlocksFirstOtherButtonIndex:
+                cell.resetDate()
+                self.tableView!.reloadData()
+            default:
+                break
+            }
+        })
+    }
+
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as DateTableViewCell
         showEditView(cell.dateViewModel)
@@ -139,9 +174,5 @@ class MainViewController: UIViewController, UITableViewDelegate {
         let navigationController = UINavigationController(rootViewController: editViewController)
         navigationController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         presentViewController(navigationController, animated: true, completion: nil)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 }
