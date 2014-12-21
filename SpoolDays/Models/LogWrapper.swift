@@ -13,6 +13,10 @@ class LogWrapper: NSObject {
         return Calendar(date: log.date).dateString()
     }
 
+    func delete() {
+        log.MR_deleteEntity()
+    }
+
     func eventString() -> String {
         switch(log.event) {
         case "create":
