@@ -6,3 +6,4 @@ preference.plist
 *.ipa
 *.app.dSYM.zip
 certs/
+SpoolDays/preference.plist

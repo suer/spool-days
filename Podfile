@@ -8,6 +8,7 @@ pod 'ReactiveViewModel'
 pod 'SWTableViewCell'
 pod 'RSDayFlow', :git => 'https://github.com/suer/RSDayFlow.git'
 pod 'RMUniversalAlert'
+pod 'SplunkMint-iOS'
 
 post_install do | installer |
   require 'fileutils'

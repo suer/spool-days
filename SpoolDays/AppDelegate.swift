@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.addSubview(navigationController.view)
         window!.rootViewController = navigationController
         registerNotification(application)
+        startMintSession()
         UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         setupStyle()
         return true
@@ -25,6 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.registerForRemoteNotifications()
         } else {
             application.registerForRemoteNotificationTypes(UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound | UIRemoteNotificationType.Alert)
+        }
+    }
+
+    private func startMintSession() {
+        let apiKey = Preference().mintAPIKey
+        if !apiKey.isEmpty {
+            Mint.sharedInstance().initAndStartSession(apiKey)
         }
     }
 

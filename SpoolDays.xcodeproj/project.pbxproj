@@ -10,6 +10,8 @@
 		55AA9C5EE09150BA7640BF8D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C803814E2F0D8A09FC22F0B1 /* libPods.a */; };
 		8002868419EFE1EE00089835 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002868319EFE1EE00089835 /* MainViewController.swift */; };
 		800D5FF61A455F9800F86EC5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 800D5FF51A455F9800F86EC5 /* Settings.bundle */; };
+		801502A11A48F168000E3FD6 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801502A01A48F168000E3FD6 /* Preference.swift */; };
+		801502A31A48F1AA000E3FD6 /* preference.plist in Resources */ = {isa = PBXBuildFile; fileRef = 801502A21A48F1AA000E3FD6 /* preference.plist */; };
 		802225F619FB058F00330227 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 802225F519FB058F00330227 /* NotificationCenter.framework */; };
 		802225FB19FB058F00330227 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802225FA19FB058F00330227 /* TodayViewController.swift */; };
 		802225FD19FB058F00330227 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 802225FC19FB058F00330227 /* MainInterface.storyboard */; };
@@ -73,6 +75,8 @@
 		51761DB67EF34A17DB7EAEF3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8002868319EFE1EE00089835 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		800D5FF51A455F9800F86EC5 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		801502A01A48F168000E3FD6 /* Preference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
+		801502A21A48F1AA000E3FD6 /* preference.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = preference.plist; sourceTree = "<group>"; };
 		802225F419FB058F00330227 /* SpoolDaysTodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SpoolDaysTodayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		802225F519FB058F00330227 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		802225F919FB058F00330227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -211,6 +215,8 @@
 				80404BDC1A0BA76A00FD835F /* Calendar.swift */,
 				807DC5391A39C13C00F197AF /* DatePickerViewController.swift */,
 				800D5FF51A455F9800F86EC5 /* Settings.bundle */,
+				801502A01A48F168000E3FD6 /* Preference.swift */,
+				801502A21A48F1AA000E3FD6 /* preference.plist */,
 			);
 			path = SpoolDays;
 			sourceTree = "<group>";
@@ -395,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				800D5FF61A455F9800F86EC5 /* Settings.bundle in Resources */,
+				801502A31A48F1AA000E3FD6 /* preference.plist in Resources */,
 				80A574C319EFDF4100C06CBB /* LaunchScreen.xib in Resources */,
 				8057D9E919FBEB8A00AB18DF /* Localizable.strings in Resources */,
 				80A574C019EFDF4100C06CBB /* Images.xcassets in Resources */,
@@ -485,6 +492,7 @@
 				80DFB11B19F3E77400BCF3B1 /* BaseDate.m in Sources */,
 				80DFB0F719F3D2A100BCF3B1 /* Model.xcdatamodeld in Sources */,
 				8059A9021A03C11F00A9958B /* HistoryTableViewController.swift in Sources */,
+				801502A11A48F168000E3FD6 /* Preference.swift in Sources */,
 				807DC53A1A39C13C00F197AF /* DatePickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
