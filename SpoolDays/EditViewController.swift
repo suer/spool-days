@@ -44,9 +44,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         loadSaveButton()
         loadTableView()
         loadTextField()
-        if dateViewModel.baseDate != nil {
-            loadShowLogButton()
-        }
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -102,25 +99,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         return true
-    }
-
-    // MARK: show log button
-
-    func loadShowLogButton() {
-        let button = UIButton(frame: CGRectMake(0, textFieldHeight + cellHeight, view.bounds.width, showLogButtonHeight))
-        button.setTitle(NSLocalizedString("Show Reset History", comment: ""), forState: UIControlState.Normal)
-        button.setTitleColor(ThemeColor.linkColor(), forState: UIControlState.Normal)
-        button.setTitleColor(UIColor(white: 0.7, alpha: 1.0), forState: UIControlState.Highlighted)
-        view.addSubview(button)
-
-        button.rac_command = RACCommand(signalBlock: {
-            obj in
-            let controller = HistoryTableViewController(dateViewModel: self.dateViewModel)
-            let navigationController = UINavigationController(rootViewController: controller)
-            navigationController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
-            self.presentViewController(navigationController, animated: true, completion: nil)
-            return RACSignal.empty()
-        })
     }
 
     // MARK: table view
