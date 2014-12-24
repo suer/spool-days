@@ -23,9 +23,13 @@ class DateViewModel: RVMViewModel {
 
     func update(#title: String, date: NSDate) {
         if baseDate == nil {
-            BaseDateWrapper.createBaseDate(title)
+            BaseDateWrapper.createBaseDate(title, date: date)
         } else {
             BaseDateWrapper(baseDate: baseDate!).update(title: title, date: date)
         }
+    }
+
+    func deleteDate() {
+        BaseDateWrapper(baseDate: baseDate!).delete()
     }
 }

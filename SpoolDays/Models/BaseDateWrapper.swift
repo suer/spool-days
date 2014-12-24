@@ -6,8 +6,7 @@ class BaseDateWrapper: NSObject {
         super.init()
     }
 
-    class func createBaseDate(title: String) -> BaseDate? {
-        let date = NSDate()
+    class func createBaseDate(title: String, date: NSDate) -> BaseDate? {
         let maxSort = BaseDate.MR_aggregateOperation("max:", onAttribute: "sort", withPredicate: NSPredicate(value: true)).integerValue
         let baseDate = BaseDate.MR_createEntity() as BaseDate?
         baseDate?.sort = maxSort + 1

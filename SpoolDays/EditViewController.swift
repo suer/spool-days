@@ -44,6 +44,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         loadSaveButton()
         loadTableView()
         loadTextField()
+        loadDeleteButon()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -139,5 +140,41 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         let navigationController = UINavigationController(rootViewController: controller)
         navigationController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         presentViewController(navigationController, animated: true, completion: nil)
+    }
+
+    // MARK: delete button
+
+    func loadDeleteButon() {
+        if dateViewModel.baseDate == nil {
+            return
+        }
+        let deleteButton = UIButton(frame: CGRectMake(0, cellHeight * 3, view.bounds.width, cellHeight))
+        deleteButton.backgroundColor = ThemeColor.deleteColor()
+        deleteButton.setTitle(NSLocalizedString("Delete", comment: ""), forState: .Normal)
+        deleteButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        view.addSubview(deleteButton)
+
+        deleteButton.addTarget(self, action: Selector("deleteButtonTapped"), forControlEvents: .TouchUpInside)
+    }
+
+    func deleteButtonTapped() {
+        RMUniversalAlert.showAlertInViewController(self,
+            withTitle: NSLocalizedString("Are you sure you want to delete?", comment: ""),
+            message: nil,
+            cancelButtonTitle: NSLocalizedString("Cancel", comment: ""),
+            destructiveButtonTitle: nil,
+            otherButtonTitles: [NSLocalizedString("YES", comment: "")],
+            tapBlock: {
+                index in
+                switch index {
+                case UIAlertControllerBlocksFirstOtherButtonIndex:
+                    self.dateViewModel.deleteDate()
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    break
+                default:
+                    break
+                }
+                return
+        })
     }
 }

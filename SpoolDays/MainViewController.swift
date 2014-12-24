@@ -176,16 +176,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 switch index {
                 case UIAlertControllerBlocksFirstOtherButtonIndex:
                     self.showEditView(cell.dateViewModel)
-                    break
                 case UIAlertControllerBlocksFirstOtherButtonIndex + 1:
                     self.resetDate(cell)
-                    break
                 case UIAlertControllerBlocksFirstOtherButtonIndex + 2:
                     self.showHistoryView(cell.dateViewModel)
-                    break
                 default:
                     break
                 }
+                tableView.deselectRowAtIndexPath(indexPath, animated: true)
                 return
         })
         setSharedDefaults(datesViewModel)
