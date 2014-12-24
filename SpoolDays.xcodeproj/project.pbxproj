@@ -12,7 +12,6 @@
 		800D5FF61A455F9800F86EC5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 800D5FF51A455F9800F86EC5 /* Settings.bundle */; };
 		801502A11A48F168000E3FD6 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801502A01A48F168000E3FD6 /* Preference.swift */; };
 		801502A31A48F1AA000E3FD6 /* preference.plist in Resources */ = {isa = PBXBuildFile; fileRef = 801502A21A48F1AA000E3FD6 /* preference.plist */; };
-		801502A51A493D7D000E3FD6 /* DateMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801502A41A493D7D000E3FD6 /* DateMenuViewController.swift */; };
 		802225F619FB058F00330227 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 802225F519FB058F00330227 /* NotificationCenter.framework */; };
 		802225FB19FB058F00330227 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802225FA19FB058F00330227 /* TodayViewController.swift */; };
 		802225FD19FB058F00330227 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 802225FC19FB058F00330227 /* MainInterface.storyboard */; };
@@ -78,7 +77,6 @@
 		800D5FF51A455F9800F86EC5 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		801502A01A48F168000E3FD6 /* Preference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		801502A21A48F1AA000E3FD6 /* preference.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = preference.plist; sourceTree = "<group>"; };
-		801502A41A493D7D000E3FD6 /* DateMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateMenuViewController.swift; sourceTree = "<group>"; };
 		802225F419FB058F00330227 /* SpoolDaysTodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SpoolDaysTodayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		802225F519FB058F00330227 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		802225F919FB058F00330227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -207,7 +205,6 @@
 				80A7D33119EFEE00007BB993 /* DateTableViewCell.swift */,
 				80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */,
 				80A7D33319F012EA007BB993 /* DateViewModel.swift */,
-				801502A41A493D7D000E3FD6 /* DateMenuViewController.swift */,
 				804E607319F31D5D005BA669 /* EditViewController.swift */,
 				8059A9011A03C11F00A9958B /* HistoryTableViewController.swift */,
 				8059A8FF1A02925D00A9958B /* HistoryViewModel.swift */,
@@ -490,7 +487,6 @@
 				807DC5381A39BFED00F197AF /* HistoryTableViewCell.swift in Sources */,
 				80DFB11D19F3E7C600BCF3B1 /* BaseDateWrapper.swift in Sources */,
 				80A7D33219EFEE00007BB993 /* DateTableViewCell.swift in Sources */,
-				801502A51A493D7D000E3FD6 /* DateMenuViewController.swift in Sources */,
 				8059A9001A02925D00A9958B /* HistoryViewModel.swift in Sources */,
 				8002868419EFE1EE00089835 /* MainViewController.swift in Sources */,
 				80DFB11B19F3E77400BCF3B1 /* BaseDate.m in Sources */,

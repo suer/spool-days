@@ -165,28 +165,29 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as DateTableViewCell
-        let menuController = DateMenuViewController(callback: {
-            selectedIndex in
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
-
-            switch selectedIndex {
-            case 0:
-                self.showEditView(cell.dateViewModel)
-                break
-            case 1:
-                self.resetDate(cell)
-                break
-            case 2:
-                self.showHistoryView(cell.dateViewModel)
-                break
-            default:
-                break
-            }
-            return
+        RMUniversalAlert.showActionSheetInViewController(self,
+            withTitle: nil,
+            message: nil,
+            cancelButtonTitle: NSLocalizedString("Cancel", comment: ""),
+            destructiveButtonTitle: nil,
+            otherButtonTitles: [NSLocalizedString("Edit", comment: ""), NSLocalizedString("Reset", comment: ""), NSLocalizedString("History", comment: "")],
+            tapBlock: {
+                index in
+                switch index {
+                case UIAlertControllerBlocksFirstOtherButtonIndex:
+                    self.showEditView(cell.dateViewModel)
+                    break
+                case UIAlertControllerBlocksFirstOtherButtonIndex + 1:
+                    self.resetDate(cell)
+                    break
+                case UIAlertControllerBlocksFirstOtherButtonIndex + 2:
+                    self.showHistoryView(cell.dateViewModel)
+                    break
+                default:
+                    break
+                }
+                return
         })
-        menuController.modalPresentationStyle = .OverCurrentContext
-        menuController.modalTransitionStyle = .CrossDissolve
-        presentViewController(menuController, animated: true, completion: nil)
         setSharedDefaults(datesViewModel)
     }
 
