@@ -189,16 +189,16 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         setSharedDefaults(datesViewModel)
     }
 
-    func showEditView(dateViewModel: DateViewModel) {
-        let editViewController = EditViewController(dateViewModel: dateViewModel)
-        let navigationController = UINavigationController(rootViewController: editViewController)
-        navigationController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
-        presentViewController(navigationController, animated: true, completion: nil)
+    private func showEditView(dateViewModel: DateViewModel) {
+        presentModalViewController(EditViewController(dateViewModel: dateViewModel))
     }
 
-    func showHistoryView(dateViewModel: DateViewModel) {
-        let historyViewController = HistoryTableViewController(dateViewModel: dateViewModel)
-        let navigationController = UINavigationController(rootViewController: historyViewController)
+    private func showHistoryView(dateViewModel: DateViewModel) {
+        presentModalViewController(HistoryTableViewController(dateViewModel: dateViewModel))
+    }
+
+    private func presentModalViewController(controller: UIViewController) {
+        let navigationController = UINavigationController(rootViewController: controller)
         navigationController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         presentViewController(navigationController, animated: true, completion: nil)
     }
