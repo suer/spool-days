@@ -92,10 +92,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         textField!.delegate = self
         view.addSubview(textField!)
 
-        textField!.rac_textSignal().subscribeNext({
-            text in
-            self.titleString = text as? String ?? ""
-        })
+        textField!.addTarget(self, action: Selector("textChanged:"), forControlEvents: .EditingChanged)
+    }
+
+    func textChanged(textField: UITextField) {
+        self.titleString = textField.text
     }
 
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {

@@ -1,4 +1,4 @@
-class DatesViewModel: RVMViewModel {
+class DatesViewModel: NSObject {
     dynamic var dates: [BaseDate] = []
 
     func fetch() {

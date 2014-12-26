@@ -1,5 +1,5 @@
-class DateViewModel: RVMViewModel {
-    var baseDate: BaseDate?
+class DateViewModel: NSObject {
+    dynamic var baseDate: BaseDate?
 
     init(baseDate: BaseDate?) {
         self.baseDate = baseDate

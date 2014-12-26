@@ -1,5 +1,5 @@
-class HistoryViewModel: RVMViewModel {
-    var logs: [Log]
+class HistoryViewModel: NSObject {
+    dynamic var logs: [Log]
     let baseDate: BaseDate
     init(baseDate: BaseDate) {
         self.logs = []

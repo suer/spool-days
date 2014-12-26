@@ -8,6 +8,7 @@ class DateTableViewCell: SWTableViewCell {
         super.init(style: UITableViewCellStyle.Value1, reuseIdentifier: reuseIdentifier)
         setupHandler()
         loadButtons()
+        updateLabels()
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -15,10 +16,13 @@ class DateTableViewCell: SWTableViewCell {
     }
 
     private func setupHandler() {
-        dateViewModel.rac_valuesForKeyPath("baseDate", observer: dateViewModel).subscribeNext({
-            obj in
-            self.updateLabels()
-        })
+        dateViewModel.addObserver(self, forKeyPath: "baseDate", options: .New, context: nil)
+    }
+
+    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
+        if keyPath == "baseDate" {
+            updateLabels()
+        }
     }
 
     func resetDate() {

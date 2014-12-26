@@ -52,24 +52,18 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func loadEditButton() {
-        let editButton = UIBarButtonItem()
-        editButton.title = NSLocalizedString("Edit", comment: "")
-        editButton.rac_command = RACCommand(signalBlock: {
-            obj in
-            self.tableView!.setEditing(!self.tableView!.editing, animated: true)
-            if (self.tableView!.editing) {
-                editButton.title = NSLocalizedString("Finish", comment: "")
-            } else {
-                editButton.title = NSLocalizedString("Edit", comment: "")
-                self.setSharedDefaults(self.datesViewModel)
-            }
-            return RACSignal.empty()
-        })
+        let editButton = UIBarButtonItem(title: NSLocalizedString("Edit", comment: ""), style: .Plain, target: self, action: Selector("editButtonTapped:"))
         navigationItem.rightBarButtonItem = editButton
     }
 
-    func editButtonTapped(sender: AnyObject) {
-        tableView!.setEditing(!tableView!.editing, animated: true)
+    func editButtonTapped(button: UIBarButtonItem) {
+        self.tableView!.setEditing(!tableView!.editing, animated: true)
+        if (tableView!.editing) {
+            button.title = NSLocalizedString("Finish", comment: "")
+        } else {
+            button.title = NSLocalizedString("Edit", comment: "")
+            setSharedDefaults(datesViewModel)
+        }
     }
 
     func loadToolbar() {
