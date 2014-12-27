@@ -6,23 +6,12 @@ class DateTableViewCell: SWTableViewCell {
     init(reuseIdentifier: String?, dateViewModel: DateViewModel) {
         self.dateViewModel = dateViewModel
         super.init(style: UITableViewCellStyle.Value1, reuseIdentifier: reuseIdentifier)
-        setupHandler()
         loadButtons()
         updateLabels()
     }
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    private func setupHandler() {
-        dateViewModel.addObserver(self, forKeyPath: "baseDate", options: .New, context: nil)
-    }
-
-    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
-        if keyPath == "baseDate" {
-            updateLabels()
-        }
     }
 
     func resetDate() {

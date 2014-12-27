@@ -1,13 +1,11 @@
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate {
-    var tableView: UITableView?
+class MainViewController: UITableViewController, SWTableViewCellDelegate {
     let datesViewModel = DatesViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
         title = "Spool Days"
-        loadTableView()
         loadEditButton()
         loadToolbar()
         addNotificationCenterObserver()
@@ -28,15 +26,17 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func applicationDidBecomeActive(notification: NSNotification) {
-        if (tableView != nil) {
-            reload()
-        }
+        reload()
     }
 
     private func reload() {
-        datesViewModel.fetch()
-        setSharedDefaults(datesViewModel)
-        tableView!.reloadData()
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), {
+            dispatch_async(dispatch_get_main_queue(),{
+                self.datesViewModel.fetch()
+                self.setSharedDefaults(self.datesViewModel)
+                self.tableView.reloadData()
+            })
+        })
     }
 
     func setSharedDefaults(datesViewModel: DatesViewModel) {
@@ -57,8 +57,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func editButtonTapped(button: UIBarButtonItem) {
-        self.tableView!.setEditing(!tableView!.editing, animated: true)
-        if (tableView!.editing) {
+        self.tableView.setEditing(!tableView.editing, animated: true)
+        if (tableView.editing) {
             button.title = NSLocalizedString("Finish", comment: "")
         } else {
             button.title = NSLocalizedString("Edit", comment: "")
@@ -80,26 +80,18 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     // MARK: table view
 
-    func loadTableView() {
-        tableView = UITableView(frame: view.bounds)
-        tableView!.delegate = self
-        tableView!.dataSource = self
-        tableView!.backgroundColor = UIColor.whiteColor()
-        view.addSubview(tableView!)
-    }
-
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return datesViewModel.dates.count
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let dateViewModel = DateViewModel(baseDate: datesViewModel.dates[indexPath.row])
         let cell = DateTableViewCell(reuseIdentifier: "Cell", dateViewModel: dateViewModel)
         cell.delegate = self
         return cell
     }
 
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             deleteDate(indexPath)
         }
@@ -115,18 +107,18 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             switch buttonIndex {
             case UIAlertControllerBlocksFirstOtherButtonIndex:
                 self.datesViewModel.deleteDate(indexPath)
-                self.tableView!.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             default:
                 break
             }
         })
     }
 
-    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
 
-    func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
         BaseDateWrapper.move(fromIndex: fromIndexPath.row, toIndex: toIndexPath.row)
     }
 
@@ -150,14 +142,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             switch buttonIndex {
             case UIAlertControllerBlocksFirstOtherButtonIndex:
                 cell.resetDate()
-                self.tableView!.reloadData()
+                self.reload()
             default:
                 break
             }
         })
     }
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as DateTableViewCell
         RMUniversalAlert.showActionSheetInViewController(self,
             withTitle: nil,
