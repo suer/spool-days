@@ -138,9 +138,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             date in
             self.date = date
         })
-        let navigationController = UINavigationController(rootViewController: controller)
-        navigationController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
-        presentViewController(navigationController, animated: true, completion: nil)
+        ModalViewController(baseController: self).presentModalViewController(controller)
     }
 
     // MARK: delete button

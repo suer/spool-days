@@ -90,9 +90,7 @@ class HistoryTableViewController: UITableViewController {
                 cell.log.date = date
                 self.tableView.reloadData()
             })
-            let navigationController = UINavigationController(rootViewController: controller)
-            navigationController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
-            presentViewController(navigationController, animated: true, completion: nil)
+            ModalViewController(baseController: self).presentModalViewController(controller)
         }
     }
 }

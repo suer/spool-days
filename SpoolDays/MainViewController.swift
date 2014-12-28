@@ -176,16 +176,10 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
     }
 
     private func showEditView(dateViewModel: DateViewModel) {
-        presentModalViewController(EditViewController(dateViewModel: dateViewModel))
+        ModalViewController(baseController: self).presentModalViewController(EditViewController(dateViewModel: dateViewModel))
     }
 
     private func showHistoryView(dateViewModel: DateViewModel) {
-        presentModalViewController(HistoryTableViewController(dateViewModel: dateViewModel))
-    }
-
-    private func presentModalViewController(controller: UIViewController) {
-        let navigationController = UINavigationController(rootViewController: controller)
-        navigationController.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
-        presentViewController(navigationController, animated: true, completion: nil)
+        ModalViewController(baseController: self).presentModalViewController(HistoryTableViewController(dateViewModel: dateViewModel))
     }
 }
