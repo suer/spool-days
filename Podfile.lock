@@ -1,9 +1,9 @@
 PODS:
   - MagicalRecord (2.2):
-    - MagicalRecord/Core
+    - MagicalRecord/Core (= 2.2)
   - MagicalRecord/Core (2.2)
   - RMUniversalAlert (0.1):
-    - RMUniversalAlert/Core
+    - RMUniversalAlert/Core (= 0.1)
     - UIActionSheet+Blocks
     - UIAlertController+Blocks
     - UIAlertView+Blocks
@@ -29,6 +29,11 @@ EXTERNAL SOURCES:
   RSDayFlow:
     :git: https://github.com/suer/RSDayFlow.git
 
+CHECKOUT OPTIONS:
+  RSDayFlow:
+    :commit: c731f447a8cfe0015a42ee5ce0f01de1f987cae0
+    :git: https://github.com/suer/RSDayFlow.git
+
 SPEC CHECKSUMS:
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
   RMUniversalAlert: e574e1166e45d2d4377b28b6c8598faecb2837d8
@@ -39,4 +44,4 @@ SPEC CHECKSUMS:
   UIAlertController+Blocks: 0ffd52ca8c54fb9b648f841a0ba3e9b16ec09b73
   UIAlertView+Blocks: 0b749f1f7bd5131ff2233b30a406c1585a7171b2
 
-COCOAPODS: 0.34.4
+COCOAPODS: 0.35.0

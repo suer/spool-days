@@ -151,13 +151,14 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as DateTableViewCell
+        let cancelButtonTitle = NSLocalizedString("Cancel", comment: "")
+        let otherButtonTitles = [NSLocalizedString("Edit", comment: ""), NSLocalizedString("Reset", comment: ""),NSLocalizedString("History", comment: "")]
         RMUniversalAlert.showActionSheetInViewController(self,
             withTitle: nil,
             message: nil,
-            cancelButtonTitle: NSLocalizedString("Cancel", comment: ""),
+            cancelButtonTitle: cancelButtonTitle,
             destructiveButtonTitle: nil,
-            otherButtonTitles: [NSLocalizedString("Edit", comment: ""), NSLocalizedString("Reset", comment: ""), NSLocalizedString("History", comment: "")],
-            tapBlock: {
+            otherButtonTitles: otherButtonTitles) {
                 index in
                 switch index {
                 case UIAlertControllerBlocksFirstOtherButtonIndex:
@@ -171,7 +172,7 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
                 }
                 tableView.deselectRowAtIndexPath(indexPath, animated: true)
                 return
-        })
+        }
         setSharedDefaults(datesViewModel)
     }
 

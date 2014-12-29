@@ -3,14 +3,13 @@ import UIKit
 class DatePickerViewController: UIViewController, RSDFDatePickerViewDelegate {
     var datePicker: RSDFDatePickerView?
     var initialDate: NSDate
-    let onSelected: (NSDate) -> ()
+    var onSelected: ((NSDate) -> ())?
 
-    init(initialDate: NSDate, onSelected: (NSDate) -> ()) {
+    init(initialDate: NSDate) {
         self.initialDate = initialDate
-        self.onSelected = onSelected
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -35,7 +34,9 @@ class DatePickerViewController: UIViewController, RSDFDatePickerViewDelegate {
 
     func datePickerView(view: RSDFDatePickerView!, didSelectDate date: NSDate!) {
         dismissViewControllerAnimated(true, completion: {
-            self.onSelected(date)
+            if let selected = self.onSelected {
+                selected(date)
+            }
             return
         })
     }

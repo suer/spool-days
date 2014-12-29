@@ -85,11 +85,12 @@ class HistoryTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let cell = tableView.cellForRowAtIndexPath(indexPath) as? HistoryTableViewCell {
-            let controller = DatePickerViewController(initialDate: cell.log.date, {
+            let controller = DatePickerViewController(initialDate: cell.log.date)
+            controller.onSelected = {
                 date in
                 cell.log.date = date
                 self.tableView.reloadData()
-            })
+            }
             ModalViewController(baseController: self).presentModalViewController(controller)
         }
     }

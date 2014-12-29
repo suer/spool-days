@@ -134,10 +134,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         textField!.resignFirstResponder()
-        let controller = DatePickerViewController(initialDate: date, {
+        let controller = DatePickerViewController(initialDate: date)
+        controller.onSelected = {
             date in
             self.date = date
-        })
+        }
         ModalViewController(baseController: self).presentModalViewController(controller)
     }
 
