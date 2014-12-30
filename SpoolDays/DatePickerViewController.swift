@@ -39,6 +39,12 @@ class DatePickerViewController: UIViewController, RSDFDatePickerViewDelegate {
             }
             return
         })
+        dismissViewControllerAnimated(true) {
+            if let selected = self.onSelected {
+                selected(date)
+            }
+            return
+        }
     }
 
     func loadCancelButton() {
