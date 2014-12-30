@@ -163,7 +163,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             message: nil,
             cancelButtonTitle: NSLocalizedString("Cancel", comment: ""),
             destructiveButtonTitle: nil,
-            otherButtonTitles: [NSLocalizedString("YES", comment: "")],
+            otherButtonTitles: [NSLocalizedString("Yes", comment: "")],
             tapBlock: {
                 index in
                 switch index {
