@@ -11,6 +11,10 @@ class ThemeColor: NSObject {
         return colorByRGB(red: 38, green: 108, blue: 232, alpha: 255)
     }
 
+    class func resetColor() -> UIColor {
+        return colorByRGB(red: 18, green: 191, blue: 41, alpha: 255)
+    }
+
     class func deleteColor() -> UIColor {
         return colorByRGB(red: 211, green: 56, blue: 28, alpha: 255)
     }

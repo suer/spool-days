@@ -28,7 +28,7 @@ class DateTableViewCell: SWTableViewCell {
 
     private func loadButtons() {
         let leftButtons = NSMutableArray()
-        leftButtons.sw_addUtilityButtonWithColor(UIColor(red: 0.07, green: 0.75, blue: 0.16, alpha: 1.0), title: NSLocalizedString("Reset", comment: ""))
+        leftButtons.sw_addUtilityButtonWithColor(ThemeColor.resetColor(), title: NSLocalizedString("Reset", comment: ""))
         leftUtilityButtons = leftButtons
     }
 }
