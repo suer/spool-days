@@ -8,6 +8,7 @@
 
 "Create" = "作成";
 "Reset" = "リセット";
+"History" = "履歴";
 
 "Edit" = "編集";
 "Finish" = "終了";
@@ -19,3 +20,5 @@
 "Are you sure you want to reset date?" = "日付をリセットします。よろしいですか?";
 "Yes" = "はい";
 "No" = "いいえ";
+
+"Delete" = "削除";

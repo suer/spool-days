@@ -8,6 +8,7 @@
 
 "Create" = "Create";
 "Reset" = "Reset";
+"History" = "History";
 
 "Edit" = "Edit";
 "Finish" = "Finish";
@@ -19,3 +20,5 @@
 "Are you sure you want to reset date?" = "Are you sure you want to reset date?";
 "Yes" = "Yes";
 "No" = "No";
+
+"Delete" = "Delete";
