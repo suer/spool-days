@@ -20,12 +20,14 @@ class HistoryTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = NSLocalizedString("Reset History", comment: "")
+        title = dateViewModel.getTitle()
         historyViewModel.fetch()
         tableView.reloadData()
         loadCancelButton()
         loadSaveButton()
     }
+
+    // MARK: cancel button
 
     func loadCancelButton() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Cancel", comment:""), style: UIBarButtonItemStyle.Plain, target: self, action: "cancelButtonTapped")
@@ -34,6 +36,8 @@ class HistoryTableViewController: UITableViewController {
     func cancelButtonTapped() {
         dismissViewControllerAnimated(true, completion: {self.historyViewModel.rollback()})
     }
+
+    // MARK: save button
 
     func loadSaveButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Save", comment:""), style: UIBarButtonItemStyle.Plain, target: self, action: "saveButtonTapped")
@@ -44,6 +48,7 @@ class HistoryTableViewController: UITableViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
+    // MARK: table view
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return historyViewModel.logs.count
