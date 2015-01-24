@@ -11,6 +11,7 @@
 		8002868419EFE1EE00089835 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002868319EFE1EE00089835 /* MainViewController.swift */; };
 		800D5FF61A455F9800F86EC5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 800D5FF51A455F9800F86EC5 /* Settings.bundle */; };
 		800E8B841A731FE100CB1D6D /* I18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E8B831A731FE100CB1D6D /* I18n.swift */; };
+		800E8B861A73ECCB00CB1D6D /* DateTableViewCellAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E8B851A73ECCB00CB1D6D /* DateTableViewCellAction.swift */; };
 		801502A11A48F168000E3FD6 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801502A01A48F168000E3FD6 /* Preference.swift */; };
 		801502A31A48F1AA000E3FD6 /* preference.plist in Resources */ = {isa = PBXBuildFile; fileRef = 801502A21A48F1AA000E3FD6 /* preference.plist */; };
 		802225F619FB058F00330227 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 802225F519FB058F00330227 /* NotificationCenter.framework */; };
@@ -78,6 +79,7 @@
 		8002868319EFE1EE00089835 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		800D5FF51A455F9800F86EC5 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		800E8B831A731FE100CB1D6D /* I18n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = I18n.swift; sourceTree = "<group>"; };
+		800E8B851A73ECCB00CB1D6D /* DateTableViewCellAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTableViewCellAction.swift; sourceTree = "<group>"; };
 		801502A01A48F168000E3FD6 /* Preference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		801502A21A48F1AA000E3FD6 /* preference.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = preference.plist; sourceTree = "<group>"; };
 		802225F419FB058F00330227 /* SpoolDaysTodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SpoolDaysTodayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,6 +225,7 @@
 				801502A21A48F1AA000E3FD6 /* preference.plist */,
 				80AF1CEB1A50449600A84EAA /* ModalViewController.swift */,
 				800E8B831A731FE100CB1D6D /* I18n.swift */,
+				800E8B851A73ECCB00CB1D6D /* DateTableViewCellAction.swift */,
 			);
 			path = SpoolDays;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				80DFB0F719F3D2A100BCF3B1 /* Model.xcdatamodeld in Sources */,
 				8059A9021A03C11F00A9958B /* HistoryTableViewController.swift in Sources */,
 				801502A11A48F168000E3FD6 /* Preference.swift in Sources */,
+				800E8B861A73ECCB00CB1D6D /* DateTableViewCellAction.swift in Sources */,
 				807DC53A1A39C13C00F197AF /* DatePickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

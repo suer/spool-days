@@ -151,10 +151,10 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
         }
     }
 
-    let sheetActions: [(MainViewController, DateTableViewCell) -> ()] = [
-        { controller, cell in controller.showEditView(cell.dateViewModel) },
-        { controller, cell in controller.resetDate(cell) },
-        { controller, cell in controller.showHistoryView(cell.dateViewModel) }
+    let cellActions = [
+        DateTableViewCellAction(name: I18n.edit, action: { controller, cell in controller.showEditView(cell.dateViewModel) }),
+        DateTableViewCellAction(name: I18n.reset, action: { controller, cell in controller.resetDate(cell) }),
+        DateTableViewCellAction(name: I18n.history, action: { controller, cell in controller.showHistoryView(cell.dateViewModel) })
     ]
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -164,12 +164,12 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
             message: nil,
             cancelButtonTitle: I18n.cancel,
             destructiveButtonTitle: nil,
-            otherButtonTitles: [I18n.edit, I18n.reset, I18n.history],
+            otherButtonTitles: cellActions.map { cellAction in cellAction.name },
             popoverPresentationControllerBlock: nil) {
                 (alert, index) in
                 let buttonIndex = index - alert.firstOtherButtonIndex
-                if buttonIndex >= 0 && buttonIndex < self.sheetActions.count {
-                    self.sheetActions[buttonIndex](self, cell)
+                if buttonIndex >= 0 && buttonIndex < self.cellActions.count {
+                    self.cellActions[buttonIndex].action(self, cell)
                 }
                 tableView.deselectRowAtIndexPath(indexPath, animated: true)
                 return
