@@ -165,9 +165,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             destructiveButtonTitle: nil,
             otherButtonTitles: [NSLocalizedString("Yes", comment: "")],
             tapBlock: {
-                index in
+                (alert, index) in
                 switch index {
-                case UIAlertControllerBlocksFirstOtherButtonIndex:
+                case alert.firstOtherButtonIndex:
                     self.dateViewModel.deleteDate()
                     self.dismissViewControllerAnimated(true, completion: nil)
                     break

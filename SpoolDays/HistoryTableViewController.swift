@@ -76,9 +76,9 @@ class HistoryTableViewController: UITableViewController {
             let yes = NSLocalizedString("Yes", comment: "")
             let no = NSLocalizedString("No", comment: "")
             RMUniversalAlert.showAlertInViewController(self, withTitle: title, message: message, cancelButtonTitle: no, destructiveButtonTitle: nil, otherButtonTitles: [yes], tapBlock: {
-                buttonIndex in
-                switch buttonIndex {
-                case UIAlertControllerBlocksFirstOtherButtonIndex:
+                (alert, index) in
+                switch index {
+                case alert.firstOtherButtonIndex:
                     self.historyViewModel.deleteLog(indexPath.row)
                     self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
                 default:

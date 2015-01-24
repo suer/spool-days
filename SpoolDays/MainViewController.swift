@@ -103,9 +103,9 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
         let yes = NSLocalizedString("Yes", comment: "")
         let no = NSLocalizedString("No", comment: "")
         RMUniversalAlert.showAlertInViewController(self, withTitle: title, message: message, cancelButtonTitle: no, destructiveButtonTitle: nil, otherButtonTitles: [yes], tapBlock: {
-            buttonIndex in
-            switch buttonIndex {
-            case UIAlertControllerBlocksFirstOtherButtonIndex:
+            (alert ,index) in
+            switch index {
+            case alert.firstOtherButtonIndex:
                 self.datesViewModel.deleteDate(indexPath)
                 self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             default:
@@ -138,9 +138,9 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
         let yes = NSLocalizedString("Yes", comment: "")
         let no = NSLocalizedString("No", comment: "")
         RMUniversalAlert.showAlertInViewController(self, withTitle: title, message: message, cancelButtonTitle: no, destructiveButtonTitle: nil, otherButtonTitles: [yes], tapBlock: {
-            buttonIndex in
-            switch buttonIndex {
-            case UIAlertControllerBlocksFirstOtherButtonIndex:
+            (alertView, index) in
+            switch index {
+            case alertView.firstOtherButtonIndex:
                 cell.resetDate()
                 self.reload()
             default:
@@ -158,14 +158,15 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
             message: nil,
             cancelButtonTitle: cancelButtonTitle,
             destructiveButtonTitle: nil,
-            otherButtonTitles: otherButtonTitles) {
-                index in
+            otherButtonTitles: otherButtonTitles,
+            popoverPresentationControllerBlock: nil) {
+                (alert, index) in
                 switch index {
-                case UIAlertControllerBlocksFirstOtherButtonIndex:
+                case alert.firstOtherButtonIndex:
                     self.showEditView(cell.dateViewModel)
-                case UIAlertControllerBlocksFirstOtherButtonIndex + 1:
+                case alert.firstOtherButtonIndex + 1:
                     self.resetDate(cell)
-                case UIAlertControllerBlocksFirstOtherButtonIndex + 2:
+                case alert.firstOtherButtonIndex + 2:
                     self.showHistoryView(cell.dateViewModel)
                 default:
                     break
