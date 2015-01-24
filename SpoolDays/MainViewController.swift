@@ -52,16 +52,16 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
     }
 
     func loadEditButton() {
-        let editButton = UIBarButtonItem(title: NSLocalizedString("Edit", comment: ""), style: .Plain, target: self, action: Selector("editButtonTapped:"))
+        let editButton = UIBarButtonItem(title: I18n.edit, style: .Plain, target: self, action: Selector("editButtonTapped:"))
         navigationItem.rightBarButtonItem = editButton
     }
 
     func editButtonTapped(button: UIBarButtonItem) {
         self.tableView.setEditing(!tableView.editing, animated: true)
         if (tableView.editing) {
-            button.title = NSLocalizedString("Finish", comment: "")
+            button.title = I18n.finish
         } else {
-            button.title = NSLocalizedString("Edit", comment: "")
+            button.title = I18n.edit
             setSharedDefaults(datesViewModel)
         }
     }
@@ -98,20 +98,21 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
     }
 
     private func deleteDate(indexPath: NSIndexPath) {
-        let title = NSLocalizedString("Confirmation", comment: "")
-        let message = NSLocalizedString("Are you sure you want to delete?", comment: "")
-        let yes = NSLocalizedString("Yes", comment: "")
-        let no = NSLocalizedString("No", comment: "")
-        RMUniversalAlert.showAlertInViewController(self, withTitle: title, message: message, cancelButtonTitle: no, destructiveButtonTitle: nil, otherButtonTitles: [yes], tapBlock: {
-            (alert ,index) in
-            switch index {
-            case alert.firstOtherButtonIndex:
-                self.datesViewModel.deleteDate(indexPath)
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            default:
-                break
-            }
-        })
+        RMUniversalAlert.showAlertInViewController(self,
+            withTitle: I18n.confirmation,
+            message: I18n.translate("Are you sure you want to delete?"),
+            cancelButtonTitle: I18n.no,
+            destructiveButtonTitle: nil,
+            otherButtonTitles: [I18n.yes]) {
+                (alert ,index) in
+                switch index {
+                case alert.firstOtherButtonIndex:
+                    self.datesViewModel.deleteDate(indexPath)
+                    self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                default:
+                    break
+                }
+        }
     }
 
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -133,20 +134,21 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
     }
 
     private func resetDate(cell: DateTableViewCell) {
-        let title = NSLocalizedString("Confirmation", comment: "")
-        let message = NSLocalizedString("Are you sure you want to reset date?", comment: "")
-        let yes = NSLocalizedString("Yes", comment: "")
-        let no = NSLocalizedString("No", comment: "")
-        RMUniversalAlert.showAlertInViewController(self, withTitle: title, message: message, cancelButtonTitle: no, destructiveButtonTitle: nil, otherButtonTitles: [yes], tapBlock: {
-            (alertView, index) in
-            switch index {
-            case alertView.firstOtherButtonIndex:
-                cell.resetDate()
-                self.reload()
-            default:
-                break
-            }
-        })
+        RMUniversalAlert.showAlertInViewController(self,
+            withTitle: I18n.confirmation,
+            message: I18n.translate("Are you sure you want to reset date?"),
+            cancelButtonTitle: I18n.no,
+            destructiveButtonTitle: nil,
+            otherButtonTitles: [I18n.yes]) {
+                (alertView, index) in
+                switch index {
+                case alertView.firstOtherButtonIndex:
+                    cell.resetDate()
+                    self.reload()
+                default:
+                    break
+                }
+        }
     }
 
     let sheetActions: [(MainViewController, DateTableViewCell) -> ()] = [
@@ -157,14 +159,12 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as DateTableViewCell
-        let cancelButtonTitle = NSLocalizedString("Cancel", comment: "")
-        let otherButtonTitles = [NSLocalizedString("Edit", comment: ""), NSLocalizedString("Reset", comment: ""),NSLocalizedString("History", comment: "")]
         RMUniversalAlert.showActionSheetInViewController(self,
             withTitle: nil,
             message: nil,
-            cancelButtonTitle: cancelButtonTitle,
+            cancelButtonTitle: I18n.cancel,
             destructiveButtonTitle: nil,
-            otherButtonTitles: otherButtonTitles,
+            otherButtonTitles: [I18n.edit, I18n.reset, I18n.history],
             popoverPresentationControllerBlock: nil) {
                 (alert, index) in
                 let buttonIndex = index - alert.firstOtherButtonIndex

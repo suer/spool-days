@@ -58,7 +58,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: cancel button
 
     func loadCancelButton() {
-        let cancelButton = UIBarButtonItem(title: NSLocalizedString("Cancel", comment: ""), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("cancelButtonTapped:"))
+        let cancelButton = UIBarButtonItem(title: I18n.cancel, style: UIBarButtonItemStyle.Plain, target: self, action: Selector("cancelButtonTapped:"))
         navigationItem.leftBarButtonItem = cancelButton
     }
 
@@ -69,7 +69,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: save button
 
     func loadSaveButton() {
-        let saveButton = UIBarButtonItem(title: NSLocalizedString("Save", comment: ""), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("saveButtonTapped:"))
+        let saveButton = UIBarButtonItem(title: I18n.save, style: UIBarButtonItemStyle.Plain, target: self, action: Selector("saveButtonTapped:"))
         navigationItem.rightBarButtonItem = saveButton
     }
 
@@ -83,7 +83,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     func loadTextField() {
         textField = UITextField(frame: CGRectMake(0, 0, view.bounds.width, textFieldHeight))
         textField!.text = titleString
-        textField!.placeholder = NSLocalizedString("Title", comment: "")
+        textField!.placeholder = I18n.translate("Title")
         textField!.font = UIFont.systemFontOfSize(16)
         textField!.leftView = UIView(frame: CGRectMake(0, 0, 15, textField!.frame.size.height))
         textField!.leftViewMode = UITextFieldViewMode.Always
@@ -126,7 +126,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
-        cell.textLabel?.text = NSLocalizedString("Date", comment: "")
+        cell.textLabel?.text = I18n.translate("Date")
         cell.detailTextLabel?.text = Calendar(date: dateViewModel.baseDate?.date ?? NSDate()).dateString()
         return cell
     }
@@ -150,7 +150,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         let deleteButton = UIButton(frame: CGRectMake(0, cellHeight * 3, view.bounds.width, cellHeight))
         deleteButton.backgroundColor = ThemeColor.deleteColor()
-        deleteButton.setTitle(NSLocalizedString("Delete", comment: ""), forState: .Normal)
+        deleteButton.setTitle(I18n.delete, forState: .Normal)
         deleteButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         view.addSubview(deleteButton)
 
@@ -159,11 +159,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func deleteButtonTapped() {
         RMUniversalAlert.showAlertInViewController(self,
-            withTitle: NSLocalizedString("Are you sure you want to delete?", comment: ""),
+            withTitle: I18n.translate("Are you sure you want to delete?"),
             message: nil,
-            cancelButtonTitle: NSLocalizedString("Cancel", comment: ""),
+            cancelButtonTitle: I18n.cancel,
             destructiveButtonTitle: nil,
-            otherButtonTitles: [NSLocalizedString("Yes", comment: "")],
+            otherButtonTitles: [I18n.yes],
             tapBlock: {
                 (alert, index) in
                 switch index {

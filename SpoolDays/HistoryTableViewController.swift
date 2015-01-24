@@ -30,7 +30,7 @@ class HistoryTableViewController: UITableViewController {
     // MARK: cancel button
 
     func loadCancelButton() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Cancel", comment:""), style: UIBarButtonItemStyle.Plain, target: self, action: "cancelButtonTapped")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: I18n.cancel, style: UIBarButtonItemStyle.Plain, target: self, action: "cancelButtonTapped")
     }
 
     func cancelButtonTapped() {
@@ -40,7 +40,7 @@ class HistoryTableViewController: UITableViewController {
     // MARK: save button
 
     func loadSaveButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Save", comment:""), style: UIBarButtonItemStyle.Plain, target: self, action: "saveButtonTapped")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: I18n.save, style: UIBarButtonItemStyle.Plain, target: self, action: "saveButtonTapped")
     }
 
     func saveButtonTapped() {
@@ -71,20 +71,21 @@ class HistoryTableViewController: UITableViewController {
 
     private func deleteLog(indexPath: NSIndexPath) {
         if let cell = tableView.cellForRowAtIndexPath(indexPath) as? HistoryTableViewCell {
-            let title = NSLocalizedString("Confirmation", comment: "")
-            let message = NSLocalizedString("Are you sure you want to delete?", comment: "")
-            let yes = NSLocalizedString("Yes", comment: "")
-            let no = NSLocalizedString("No", comment: "")
-            RMUniversalAlert.showAlertInViewController(self, withTitle: title, message: message, cancelButtonTitle: no, destructiveButtonTitle: nil, otherButtonTitles: [yes], tapBlock: {
-                (alert, index) in
-                switch index {
-                case alert.firstOtherButtonIndex:
-                    self.historyViewModel.deleteLog(indexPath.row)
-                    self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                default:
-                    break
-                }
-            })
+            RMUniversalAlert.showAlertInViewController(self,
+                withTitle: I18n.confirmation,
+                message: I18n.translate("Are you sure you want to delete?"),
+                cancelButtonTitle: I18n.no,
+                destructiveButtonTitle: nil,
+                otherButtonTitles: [I18n.yes]) {
+                    (alert, index) in
+                    switch index {
+                    case alert.firstOtherButtonIndex:
+                        self.historyViewModel.deleteLog(indexPath.row)
+                        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    default:
+                        break
+                    }
+            }
         }
     }
 

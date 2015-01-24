@@ -20,9 +20,9 @@ class LogWrapper: NSObject {
     func eventString() -> String {
         switch(log.event) {
         case "create":
-            return NSLocalizedString("Create", comment: "")
+            return I18n.create
         case "reset":
-            return NSLocalizedString("Reset", comment: "")
+            return I18n.reset
         default:
             return ""
         }

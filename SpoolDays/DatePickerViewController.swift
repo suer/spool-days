@@ -48,7 +48,7 @@ class DatePickerViewController: UIViewController, RSDFDatePickerViewDelegate {
     }
 
     func loadCancelButton() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Cancel", comment: ""), style: .Plain, target: self, action: "cancelButtonTapped")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: I18n.translate("Cancel"), style: .Plain, target: self, action: "cancelButtonTapped")
     }
 
     func cancelButtonTapped() {

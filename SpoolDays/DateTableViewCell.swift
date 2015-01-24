@@ -22,13 +22,13 @@ class DateTableViewCell: SWTableViewCell {
         if let baseDate = dateViewModel.baseDate {
             textLabel?.text = baseDate.title
             let dateInterval = BaseDateWrapper(baseDate: baseDate).dateInterval()
-            detailTextLabel?.text = "\(dateInterval) " + NSLocalizedString("Days", comment: "")
+            detailTextLabel?.text = "\(dateInterval) " + I18n.translate("Days")
         }
     }
 
     private func loadButtons() {
         let leftButtons = NSMutableArray()
-        leftButtons.sw_addUtilityButtonWithColor(ThemeColor.resetColor(), title: NSLocalizedString("Reset", comment: ""))
+        leftButtons.sw_addUtilityButtonWithColor(ThemeColor.resetColor(), title: I18n.reset)
         leftUtilityButtons = leftButtons
     }
 }
