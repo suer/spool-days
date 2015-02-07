@@ -151,9 +151,36 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
         }
     }
 
+    private func resetWithDate(cell: DateTableViewCell) {
+        let datePicker = DatePickerViewController(initialDate: NSDate())
+        datePicker.onSelected = {
+            date in
+            let calendar = Calendar(date: date)
+            RMUniversalAlert.showAlertInViewController(
+                self,
+                withTitle: nil,
+                message: I18n.translateWithFormat("Are you sure you want to reset date with %@?", args: calendar.dateString()),
+                cancelButtonTitle: I18n.cancel,
+                destructiveButtonTitle: nil,
+                otherButtonTitles: [I18n.yes]) {
+                    (alert, index) in
+                    switch index {
+                    case alert.firstOtherButtonIndex:
+                        cell.resetDate(date)
+                        self.reload()
+                    default:
+                        break
+                    }
+            }
+            return
+        }
+        ModalViewController(baseController: self).presentModalViewController(datePicker)
+    }
+
     let cellActions = [
         DateTableViewCellAction(name: I18n.edit, action: { controller, cell in controller.showEditView(cell.dateViewModel) }),
         DateTableViewCellAction(name: I18n.reset, action: { controller, cell in controller.resetDate(cell) }),
+        DateTableViewCellAction(name: I18n.reset_with_date, action: { controller, cell in controller.resetWithDate(cell) }),
         DateTableViewCellAction(name: I18n.history, action: { controller, cell in controller.showHistoryView(cell.dateViewModel) })
     ]
 

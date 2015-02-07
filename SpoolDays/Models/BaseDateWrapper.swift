@@ -65,14 +65,14 @@ class BaseDateWrapper: NSObject {
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
     }
 
-    func reset() {
+    func reset(date: NSDate) {
         let log = Log.MR_createEntity() as Log
-        log.date = NSDate()
-        log.duration = dateInterval()
+        log.date = date
+        log.duration = dateInterval(date)
         log.baseDate = baseDate
         log.event = "reset"
 
-        baseDate.date = NSDate()
+        baseDate.date = date
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
     }
 
@@ -82,5 +82,9 @@ class BaseDateWrapper: NSObject {
 
     func dateInterval() -> Int {
         return Calendar(date: baseDate.date).dateIntervalFromNow()
+    }
+
+    func dateInterval(date: NSDate) -> Int {
+        return Calendar(date: baseDate.date).dateIntervalFromDate(date)
     }
 }

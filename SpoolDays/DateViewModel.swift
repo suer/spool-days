@@ -15,10 +15,14 @@ class DateViewModel: NSObject {
     }
 
     func resetDate() {
+        resetDate(NSDate())
+    }
+
+    func resetDate(date: NSDate) {
         if baseDate == nil {
             return
         }
-        BaseDateWrapper(baseDate: baseDate!).reset()
+        BaseDateWrapper(baseDate: baseDate!).reset(date)
     }
 
     func update(#title: String, date: NSDate) {

@@ -18,6 +18,10 @@ class DateTableViewCell: SWTableViewCell {
         dateViewModel.resetDate()
     }
 
+    func resetDate(date: NSDate) {
+        dateViewModel.resetDate(date)
+    }
+
     private func updateLabels() {
         if let baseDate = dateViewModel.baseDate {
             textLabel?.text = baseDate.title

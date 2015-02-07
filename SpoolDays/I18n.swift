@@ -5,6 +5,10 @@ class I18n {
         return NSLocalizedString(key, comment: "")
     }
 
+    class func translateWithFormat(key: String, args: CVarArgType...) -> String {
+        return String(format: I18n.translate(key), arguments: args)
+    }
+
     class var yes: String { return I18n.translate("Yes") }
 
     class var no: String { return I18n.translate("No") }
@@ -20,6 +24,8 @@ class I18n {
     class var edit: String { return I18n.translate("Edit") }
 
     class var reset: String { return I18n.translate("Reset") }
+
+    class var reset_with_date: String { return I18n.translate("Reset with Date") }
 
     class var create: String { return I18n.translate("Create") }
 
