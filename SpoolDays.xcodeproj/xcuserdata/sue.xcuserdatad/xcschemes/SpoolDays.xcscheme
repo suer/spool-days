@@ -107,5 +107,15 @@
    <ArchiveAction
       buildConfiguration = "Release"
       revealArchiveInOrganizer = "YES">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "&#10;API_KEY=$(/usr/libexec/PlistBuddy -c &quot;Print API_KEY&quot; $(dirname ${WORKSPACE_PATH})/mint.plist)&#10;API_TOKEN=$(/usr/libexec/PlistBuddy -c &quot;Print API_TOKEN&quot; $(dirname ${WORKSPACE_PATH})/mint.plist)&#10;rm -f SpoolDays.app.dSYM.zip&#10;zip -r SpoolDays.app.dSYM.zip &quot;${ARCHIVE_DSYMS_PATH}/SpoolDays.app.dSYM&quot;&#10;rm -f SpoolDaysTodayExtension.appex.dSYM.zip&#10;zip -r SpoolDaysTodayExtension.appex.dSYM.zip &quot;${ARCHIVE_DSYMS_PATH}/SpoolDaysTodayExtension.appex.dSYM&quot;&#10;curl -F file=@&quot;SpoolDays.app.dSYM.zip&quot; --header &quot;X-Splunk-Mint-apikey: ${API_KEY}&quot;  --header &quot;X-Splunk-Mint-Auth-Token: ${API_TOKEN}&quot; &quot;https://symbolicator.splkmobile.com/upload/dsym&quot; -i&#10;curl -F file=@&quot;SpoolDaysTodayExtension.appex.dSYM.zip&quot; --header &quot;X-Splunk-Mint-apikey: ${API_KEY}&quot;  --header &quot;X-Splunk-Mint-Auth-Token: ${API_TOKEN}&quot; &quot;https://symbolicator.splkmobile.com/upload/dsym&quot; -i&#10;"
+               shellToInvoke = "/bin/sh">
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
    </ArchiveAction>
 </Scheme>

@@ -7,3 +7,4 @@ preference.plist
 *.app.dSYM.zip
 certs/
 SpoolDays/preference.plist
+mint.plist
