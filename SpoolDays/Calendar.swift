@@ -1,3 +1,4 @@
+import Foundation
 class Calendar {
     let date: NSDate
     init(date: NSDate) {

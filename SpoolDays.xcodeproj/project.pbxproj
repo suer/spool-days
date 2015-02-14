@@ -14,6 +14,10 @@
 		800E8B861A73ECCB00CB1D6D /* DateTableViewCellAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E8B851A73ECCB00CB1D6D /* DateTableViewCellAction.swift */; };
 		801502A11A48F168000E3FD6 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801502A01A48F168000E3FD6 /* Preference.swift */; };
 		801502A31A48F1AA000E3FD6 /* preference.plist in Resources */ = {isa = PBXBuildFile; fileRef = 801502A21A48F1AA000E3FD6 /* preference.plist */; };
+		801A6B0F1A8F51C9006F4B7D /* LogWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059A8FD1A028D8500A9958B /* LogWrapper.swift */; };
+		801A6B101A8F525F006F4B7D /* Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11719F3E77400BCF3B1 /* Log.m */; };
+		801A6B111A8F5278006F4B7D /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80404BDC1A0BA76A00FD835F /* Calendar.swift */; };
+		801A6B141A8F5C13006F4B7D /* I18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E8B831A731FE100CB1D6D /* I18n.swift */; };
 		802225F619FB058F00330227 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 802225F519FB058F00330227 /* NotificationCenter.framework */; };
 		802225FB19FB058F00330227 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802225FA19FB058F00330227 /* TodayViewController.swift */; };
 		802225FD19FB058F00330227 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 802225FC19FB058F00330227 /* MainInterface.storyboard */; };
@@ -31,7 +35,7 @@
 		80A574B919EFDF4100C06CBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A574B819EFDF4100C06CBB /* AppDelegate.swift */; };
 		80A574C019EFDF4100C06CBB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80A574BF19EFDF4100C06CBB /* Images.xcassets */; };
 		80A574C319EFDF4100C06CBB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80A574C119EFDF4100C06CBB /* LaunchScreen.xib */; };
-		80A574CF19EFDF4100C06CBB /* SpoolDaysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A574CE19EFDF4100C06CBB /* SpoolDaysTests.swift */; };
+		80A574CF19EFDF4100C06CBB /* CalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A574CE19EFDF4100C06CBB /* CalendarTests.swift */; };
 		80A7D33219EFEE00007BB993 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7D33119EFEE00007BB993 /* DateTableViewCell.swift */; };
 		80A7D33419F012EA007BB993 /* DateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7D33319F012EA007BB993 /* DateViewModel.swift */; };
 		80AF1CEC1A50449600A84EAA /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF1CEB1A50449600A84EAA /* ModalViewController.swift */; };
@@ -82,6 +86,7 @@
 		800E8B851A73ECCB00CB1D6D /* DateTableViewCellAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTableViewCellAction.swift; sourceTree = "<group>"; };
 		801502A01A48F168000E3FD6 /* Preference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		801502A21A48F1AA000E3FD6 /* preference.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = preference.plist; sourceTree = "<group>"; };
+		801A6B131A8F534E006F4B7D /* SpoolDays-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SpoolDays-Bridging-Header.h"; path = "Common/SpoolDays-Bridging-Header.h"; sourceTree = "<group>"; };
 		802225F419FB058F00330227 /* SpoolDaysTodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SpoolDaysTodayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		802225F519FB058F00330227 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		802225F919FB058F00330227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -106,10 +111,9 @@
 		80A574C219EFDF4100C06CBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		80A574C819EFDF4100C06CBB /* SpoolDaysTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpoolDaysTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		80A574CD19EFDF4100C06CBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		80A574CE19EFDF4100C06CBB /* SpoolDaysTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoolDaysTests.swift; sourceTree = "<group>"; };
+		80A574CE19EFDF4100C06CBB /* CalendarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTests.swift; sourceTree = "<group>"; };
 		80A7D33119EFEE00007BB993 /* DateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTableViewCell.swift; sourceTree = "<group>"; };
 		80A7D33319F012EA007BB993 /* DateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewModel.swift; sourceTree = "<group>"; };
-		80A7D33519F01317007BB993 /* SpoolDays-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpoolDays-Bridging-Header.h"; sourceTree = "<group>"; };
 		80AF1CEB1A50449600A84EAA /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		80DFB0F619F3D2A100BCF3B1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		80DFB11619F3E77400BCF3B1 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Log.h; path = Models/Log.h; sourceTree = "<group>"; };
@@ -157,6 +161,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		801A6B121A8F52F3006F4B7D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				801A6B131A8F534E006F4B7D /* SpoolDays-Bridging-Header.h */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		802225F719FB058F00330227 /* SpoolDaysTodayExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +191,7 @@
 		80A574AA19EFDF4100C06CBB = {
 			isa = PBXGroup;
 			children = (
+				801A6B121A8F52F3006F4B7D /* Common */,
 				80A574B519EFDF4100C06CBB /* SpoolDays */,
 				80A574CB19EFDF4100C06CBB /* SpoolDaysTests */,
 				802225F719FB058F00330227 /* SpoolDaysTodayExtension */,
@@ -215,7 +228,6 @@
 				8059A9011A03C11F00A9958B /* HistoryTableViewController.swift */,
 				8059A8FF1A02925D00A9958B /* HistoryViewModel.swift */,
 				807DC5371A39BFED00F197AF /* HistoryTableViewCell.swift */,
-				80A7D33519F01317007BB993 /* SpoolDays-Bridging-Header.h */,
 				8057D9EB19FBEB8A00AB18DF /* Localizable.strings */,
 				8075F9DB19FE01DD00443983 /* ThemeColor.swift */,
 				80404BDC1A0BA76A00FD835F /* Calendar.swift */,
@@ -241,7 +253,7 @@
 		80A574CB19EFDF4100C06CBB /* SpoolDaysTests */ = {
 			isa = PBXGroup;
 			children = (
-				80A574CE19EFDF4100C06CBB /* SpoolDaysTests.swift */,
+				80A574CE19EFDF4100C06CBB /* CalendarTests.swift */,
 				80A574CC19EFDF4100C06CBB /* Supporting Files */,
 			);
 			path = SpoolDaysTests;
@@ -513,7 +525,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80A574CF19EFDF4100C06CBB /* SpoolDaysTests.swift in Sources */,
+				801A6B101A8F525F006F4B7D /* Log.m in Sources */,
+				801A6B0F1A8F51C9006F4B7D /* LogWrapper.swift in Sources */,
+				80A574CF19EFDF4100C06CBB /* CalendarTests.swift in Sources */,
+				801A6B111A8F5278006F4B7D /* Calendar.swift in Sources */,
+				801A6B141A8F5C13006F4B7D /* I18n.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +571,7 @@
 /* Begin XCBuildConfiguration section */
 		8022260219FB058F00330227 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28ED91F5F3718D86CF27B399 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SpoolDaysTodayExtension/SpoolDaysTodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -585,6 +602,7 @@
 		};
 		80A574D019EFDF4100C06CBB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28ED91F5F3718D86CF27B399 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -675,7 +693,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "SpoolDays/SpoolDays-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Common/SpoolDays-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -695,12 +713,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "SpoolDays/SpoolDays-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Common/SpoolDays-Bridging-Header.h";
 			};
 			name = Release;
 		};
 		80A574D619EFDF4100C06CBB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28ED91F5F3718D86CF27B399 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -714,6 +733,7 @@
 				INFOPLIST_FILE = SpoolDaysTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Common/SpoolDays-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpoolDays.app/SpoolDays";
 			};
 			name = Debug;
@@ -729,6 +749,7 @@
 				INFOPLIST_FILE = SpoolDaysTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Common/SpoolDays-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpoolDays.app/SpoolDays";
 			};
 			name = Release;

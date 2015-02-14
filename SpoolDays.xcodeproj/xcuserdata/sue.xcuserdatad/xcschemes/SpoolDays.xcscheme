@@ -51,6 +51,10 @@
                BlueprintName = "SpoolDaysTests"
                ReferencedContainer = "container:SpoolDays.xcodeproj">
             </BuildableReference>
+            <LocationScenarioReference
+               identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
+               referenceType = "1">
+            </LocationScenarioReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
