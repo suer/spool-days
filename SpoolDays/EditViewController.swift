@@ -2,20 +2,18 @@ import UIKit
 
 class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
-    var textField: UITextField?
     let dateViewModel: DateViewModel
     var tableView: UITableView?
 
     var titleString: String
     var date: NSDate {
         didSet {
-            if let cell = tableView?.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) {
+            if let cell = tableView?.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)) {
                 cell.detailTextLabel?.text = Calendar(date: date).dateString()
             }
         }
     }
 
-    let textFieldHeight = CGFloat(50.0)
     let cellHeight = CGFloat(50.0)
     let showLogButtonHeight = CGFloat(50.0)
 
@@ -43,16 +41,27 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         loadCancelButton()
         loadSaveButton()
         loadTableView()
-        loadTextField()
         loadDeleteButon()
     }
 
-    override func viewWillAppear(animated: Bool) {
-        textField!.becomeFirstResponder()
+    override func viewDidAppear(animated: Bool) {
+        focusOnTextField()
     }
 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        textField!.resignFirstResponder()
+        focusOnTextField()
+    }
+
+    private func focusOnTextField() {
+        if let cell = tableView?.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as? TextFieldTableViewCell {
+            cell.focusOnTextField()
+        }
+    }
+
+    private func blurOnTextField() {
+        if let cell = tableView?.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as? TextFieldTableViewCell {
+            cell.blurOnTextField()
+        }
     }
 
     // MARK: cancel button
@@ -78,35 +87,10 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         dismissViewControllerAnimated(true, completion: nil)
     }
 
-    // MARK: text field
-
-    func loadTextField() {
-        textField = UITextField(frame: CGRectMake(0, 0, view.bounds.width, textFieldHeight))
-        textField!.text = titleString
-        textField!.placeholder = I18n.translate("Title")
-        textField!.font = UIFont.systemFontOfSize(16)
-        textField!.leftView = UIView(frame: CGRectMake(0, 0, 15, textField!.frame.size.height))
-        textField!.leftViewMode = UITextFieldViewMode.Always
-        textField!.layer.borderWidth = 1
-        textField!.layer.borderColor = UIColor(white: 0.5, alpha: 0.5).CGColor
-        textField!.delegate = self
-        view.addSubview(textField!)
-
-        textField!.addTarget(self, action: Selector("textChanged:"), forControlEvents: .EditingChanged)
-    }
-
-    func textChanged(textField: UITextField) {
-        self.titleString = textField.text
-    }
-
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        return true
-    }
-
     // MARK: table view
 
     func loadTableView() {
-        tableView = UITableView(frame: CGRectMake(0, textFieldHeight, view.bounds.width, cellHeight))
+        tableView = UITableView(frame: CGRectMake(0, 0, view.bounds.width, cellHeight * 2))
         tableView!.delegate = self
         tableView!.dataSource = self
         view.addSubview(tableView!)
@@ -121,19 +105,33 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int  {
-        return 1
+        return 2
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
-        cell.textLabel?.text = I18n.translate("Date")
-        cell.detailTextLabel?.text = Calendar(date: dateViewModel.baseDate?.date ?? NSDate()).dateString()
-        return cell
+        if indexPath.row == 0 {
+            let cell = TextFieldTableViewCell(value: dateViewModel.baseDate?.title ?? "", placeHolder: "Title", reuserIdentifier: "Cell")
+            cell.valueChanged = { self.titleString = $0 }
+            return cell
+        } else {
+            let cell = UITableViewCell(style: .Value1, reuseIdentifier: "Cell")
+            cell.textLabel?.text = I18n.translate("Date")
+            cell.detailTextLabel?.text = Calendar(date: dateViewModel.baseDate?.date ?? NSDate()).dateString()
+            return cell
+        }
     }
 
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        textField!.resignFirstResponder()
+        if indexPath.row == 0 {
+            focusOnTextField()
+        } else {
+            blurOnTextField()
+            popupDatePicker()
+        }
+    }
+
+    private func popupDatePicker() {
         let controller = DatePickerViewController(initialDate: date)
         controller.onSelected = {
             date in

@@ -39,6 +39,7 @@
 		80A7D33219EFEE00007BB993 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7D33119EFEE00007BB993 /* DateTableViewCell.swift */; };
 		80A7D33419F012EA007BB993 /* DateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7D33319F012EA007BB993 /* DateViewModel.swift */; };
 		80AF1CEC1A50449600A84EAA /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF1CEB1A50449600A84EAA /* ModalViewController.swift */; };
+		80B069531A94D5BD00848701 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B069521A94D5BD00848701 /* TextFieldTableViewCell.swift */; };
 		80DFB0F719F3D2A100BCF3B1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB0F519F3D2A100BCF3B1 /* Model.xcdatamodeld */; };
 		80DFB11819F3E77400BCF3B1 /* Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11719F3E77400BCF3B1 /* Log.m */; };
 		80DFB11B19F3E77400BCF3B1 /* BaseDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11A19F3E77400BCF3B1 /* BaseDate.m */; };
@@ -115,6 +116,7 @@
 		80A7D33119EFEE00007BB993 /* DateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTableViewCell.swift; sourceTree = "<group>"; };
 		80A7D33319F012EA007BB993 /* DateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewModel.swift; sourceTree = "<group>"; };
 		80AF1CEB1A50449600A84EAA /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		80B069521A94D5BD00848701 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		80DFB0F619F3D2A100BCF3B1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		80DFB11619F3E77400BCF3B1 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Log.h; path = Models/Log.h; sourceTree = "<group>"; };
 		80DFB11719F3E77400BCF3B1 /* Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Log.m; path = Models/Log.m; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				80AF1CEB1A50449600A84EAA /* ModalViewController.swift */,
 				800E8B831A731FE100CB1D6D /* I18n.swift */,
 				800E8B851A73ECCB00CB1D6D /* DateTableViewCellAction.swift */,
+				80B069521A94D5BD00848701 /* TextFieldTableViewCell.swift */,
 			);
 			path = SpoolDays;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				8059A8FE1A028D8500A9958B /* LogWrapper.swift in Sources */,
 				80404BDD1A0BA76A00FD835F /* Calendar.swift in Sources */,
 				804E607419F31D5D005BA669 /* EditViewController.swift in Sources */,
+				80B069531A94D5BD00848701 /* TextFieldTableViewCell.swift in Sources */,
 				80A7D33419F012EA007BB993 /* DateViewModel.swift in Sources */,
 				8075F9DC19FE01DD00443983 /* ThemeColor.swift in Sources */,
 				80AF1CEC1A50449600A84EAA /* ModalViewController.swift in Sources */,
