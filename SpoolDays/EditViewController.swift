@@ -2,6 +2,8 @@ import UIKit
 
 class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
+    let cellCount = 2
+
     let dateViewModel: DateViewModel
     var tableView: UITableView?
 
@@ -90,7 +92,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: table view
 
     func loadTableView() {
-        tableView = UITableView(frame: CGRectMake(0, 0, view.bounds.width, cellHeight * 2))
+        tableView = UITableView(frame: CGRectMake(0, 0, view.bounds.width, cellHeight * CGFloat(cellCount)))
         tableView!.delegate = self
         tableView!.dataSource = self
         view.addSubview(tableView!)
@@ -142,7 +144,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         if dateViewModel.baseDate == nil {
             return
         }
-        let deleteButton = UIButton(frame: CGRectMake(0, cellHeight * 3, view.bounds.width, cellHeight))
+        let deleteButton = UIButton(frame: CGRectMake(0, cellHeight * CGFloat(cellCount + 1), view.bounds.width, cellHeight))
         deleteButton.backgroundColor = ThemeColor.deleteColor()
         deleteButton.setTitle(I18n.delete, forState: .Normal)
         deleteButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
