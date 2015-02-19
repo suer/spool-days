@@ -96,10 +96,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         view.addSubview(tableView!)
     }
 
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.0
-    }
-
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return cellHeight
     }
