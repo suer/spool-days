@@ -5,7 +5,7 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
-        title = "Spool Days"
+        title = I18n.translate("Spool Days")
         loadEditButton()
         loadToolbar()
         addNotificationCenterObserver()
