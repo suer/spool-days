@@ -10,12 +10,7 @@ class Calendar {
     }
 
     func dateIntervalFromDate(from: NSDate) -> Int {
-        let unit = NSCalendarUnit.YearCalendarUnit | NSCalendarUnit.MonthCalendarUnit | NSCalendarUnit.DayCalendarUnit
-        let calendar = NSCalendar(identifier: NSGregorianCalendar) ?? NSCalendar()
-        let fromComponent = calendar.dateFromComponents(calendar.components(unit, fromDate: date)) ?? NSDate()
-        let toComponent = calendar.dateFromComponents(calendar.components(unit, fromDate: from)) ?? NSDate()
-        let components = calendar.components(NSCalendarUnit.DayCalendarUnit, fromDate: fromComponent, toDate: toComponent, options: nil)
-        return components.day
+        return date.mt_daysUntilDate(from)
     }
 
     func dateString() -> String {

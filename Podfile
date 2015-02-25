@@ -7,6 +7,7 @@ pod 'MagicalRecord'
 pod 'SWTableViewCell'
 pod 'RSDayFlow', :git => 'https://github.com/suer/RSDayFlow.git'
 pod 'RMUniversalAlert'
+pod "MTDates"
 pod 'SplunkMint-iOS'
 
 post_install do | installer |

@@ -2,6 +2,7 @@ PODS:
   - MagicalRecord (2.2):
     - MagicalRecord/Core (= 2.2)
   - MagicalRecord/Core (2.2)
+  - MTDates (1.0.0)
   - RMUniversalAlert (0.6):
     - RMUniversalAlert/Core (= 0.6)
   - RMUniversalAlert/Core (0.6):
@@ -17,6 +18,7 @@ PODS:
 
 DEPENDENCIES:
   - MagicalRecord
+  - MTDates
   - RMUniversalAlert
   - RSDayFlow (from `https://github.com/suer/RSDayFlow.git`)
   - SplunkMint-iOS
@@ -33,6 +35,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
+  MTDates: e04c9433bf5f1d5cb55a1862ec018a01b5da75c3
   RMUniversalAlert: 29efbec1d069082dd851054042b934550bc70b45
   RSDayFlow: c4d545142a80e92949caa04abc23a5cc4ff42a32
   SplunkMint-iOS: 528329b25dcadcb919b99e46f4a786d11c51c82c
