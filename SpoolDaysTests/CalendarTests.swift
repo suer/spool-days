@@ -17,4 +17,18 @@ class CalendarTests: XCTestCase {
         let calendar = Calendar(date: date)
         XCTAssertEqual("8/4/81", calendar.dateString())
     }
+
+    func testFromString() {
+        let str = "2014-08-04"
+        let date = Calendar.fromString(str)
+        XCTAssertEqual(date!.mt_year(), 2014)
+        XCTAssertEqual(date!.mt_monthOfYear(), 8)
+        XCTAssertEqual(date!.mt_dayOfMonth(), 4)
+    }
+
+    func testFromStringFail() {
+        let str = "2014-08-04-"
+        let date = Calendar.fromString(str)
+        XCTAssertNil(date)
+    }
 }

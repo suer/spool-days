@@ -19,4 +19,10 @@ class Calendar {
         dateFormatter.dateStyle = .ShortStyle
         return dateFormatter.stringFromDate(date)
     }
+
+    class func fromString(str: String) -> NSDate? {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.dateFromString(str)
+    }
 }

@@ -48,22 +48,13 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         cell.textLabel?.text = dates[indexPath.row]["title"]
         cell.textLabel?.textColor = UIColor.whiteColor()
 
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let date = dateFormatter.dateFromString(dates[indexPath.row]["date"]!)!
-        cell.detailTextLabel?.text = "\(dateInterval(fromDate: date, toDate: NSDate())) " + NSLocalizedString("Days", comment: "")
+        let date = Calendar.fromString(dates[indexPath.row]["date"]!)!
+        let interval = Calendar(date: date).dateIntervalFromDate(NSDate())
+        let unit = NSLocalizedString("Days", comment: "")
+        cell.detailTextLabel?.text = "\(interval) \(unit)"
         cell.detailTextLabel?.textColor = UIColor.whiteColor()
 
         return cell
-    }
-
-    func dateInterval(#fromDate: NSDate, toDate: NSDate) -> Int {
-        let unit = NSCalendarUnit.YearCalendarUnit | NSCalendarUnit.MonthCalendarUnit | NSCalendarUnit.DayCalendarUnit
-        let calendar = NSCalendar(identifier: NSGregorianCalendar) ?? NSCalendar()
-        let fromComponent = calendar.dateFromComponents(calendar.components(unit, fromDate: fromDate))
-        let toComponent = calendar.dateFromComponents(calendar.components(unit, fromDate: toDate))
-        let components = calendar.components(NSCalendarUnit.DayCalendarUnit, fromDate: fromComponent!, toDate: toComponent!, options: nil)
-        return components.day
     }
 
     func userDefaultsDidChange(notification: NSNotification) {
