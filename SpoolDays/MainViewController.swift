@@ -33,22 +33,10 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), {
             dispatch_async(dispatch_get_main_queue(),{
                 self.datesViewModel.fetch()
-                self.setSharedDefaults(self.datesViewModel)
+                GroupData.setDates(self.datesViewModel.dates)
                 self.tableView.reloadData()
             })
         })
-    }
-
-    func setSharedDefaults(datesViewModel: DatesViewModel) {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let list = datesViewModel.dates.map({
-            (baseDate) -> Dictionary<String, AnyObject> in
-            return ["title": baseDate.title, "date": dateFormatter.stringFromDate(baseDate.date)]
-        })
-        let sharedDefaults = NSUserDefaults(suiteName: "group.org.codefirst.SpoolDaysExtension")
-        sharedDefaults?.setObject(list, forKey: "dates")
-        sharedDefaults?.synchronize()
     }
 
     func loadEditButton() {
@@ -62,7 +50,7 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
             button.title = I18n.finish
         } else {
             button.title = I18n.edit
-            setSharedDefaults(datesViewModel)
+            GroupData.setDates(self.datesViewModel.dates)
         }
     }
 
@@ -75,7 +63,7 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
     func addButtonTapped(sender: AnyObject) {
         let dateViewModel = DateViewModel(baseDate: nil)
         showEditView(dateViewModel)
-        setSharedDefaults(datesViewModel)
+        GroupData.setDates(self.datesViewModel.dates)
     }
 
     // MARK: table view
@@ -199,9 +187,9 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
                     self.cellActions[buttonIndex].action(self, cell)
                 }
                 tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                GroupData.setDates(self.datesViewModel.dates)
                 return
         }
-        setSharedDefaults(datesViewModel)
     }
 
     private func showEditView(dateViewModel: DateViewModel) {

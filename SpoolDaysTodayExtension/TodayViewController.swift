@@ -21,12 +21,12 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         tableView!.dataSource = self
         tableView!.layer.backgroundColor = UIColor.clearColor().CGColor
         view.addSubview(tableView!)
-        dates = getDates()
+        dates = GroupData.getDates(maxCellNumber)
         preferredContentSize.height = cellHeight * CGFloat(dates.count)
     }
 
     override func viewWillAppear(animated: Bool) {
-        dates = getDates()
+        dates = GroupData.getDates(maxCellNumber)
         preferredContentSize.height = cellHeight * CGFloat(dates.count)
     }
 
@@ -58,16 +58,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     }
 
     func userDefaultsDidChange(notification: NSNotification) {
-        dates = getDates()
-    }
-
-    func getDates() -> [Dictionary<String, String>] {
-        let sharedDefaults = NSUserDefaults(suiteName: "group.org.codefirst.SpoolDaysExtension")
-        var dates = sharedDefaults?.objectForKey("dates") as? [Dictionary<String, String>] ?? []
-        if dates.count > maxCellNumber {
-            dates = Array(dates[0..<maxCellNumber])
-        }
-        return dates
+        dates = GroupData.getDates(maxCellNumber)
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

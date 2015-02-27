@@ -41,6 +41,9 @@
 		80AF1CEC1A50449600A84EAA /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF1CEB1A50449600A84EAA /* ModalViewController.swift */; };
 		80B069531A94D5BD00848701 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B069521A94D5BD00848701 /* TextFieldTableViewCell.swift */; };
 		80B1486A1A9F457F00E60131 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80404BDC1A0BA76A00FD835F /* Calendar.swift */; };
+		80B1486C1AA0B30D00E60131 /* GroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B1486B1AA0B30D00E60131 /* GroupData.swift */; };
+		80B1486D1AA0B31400E60131 /* GroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B1486B1AA0B30D00E60131 /* GroupData.swift */; };
+		80B1486E1AA0B53600E60131 /* BaseDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11A19F3E77400BCF3B1 /* BaseDate.m */; };
 		80DFB0F719F3D2A100BCF3B1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB0F519F3D2A100BCF3B1 /* Model.xcdatamodeld */; };
 		80DFB11819F3E77400BCF3B1 /* Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11719F3E77400BCF3B1 /* Log.m */; };
 		80DFB11B19F3E77400BCF3B1 /* BaseDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11A19F3E77400BCF3B1 /* BaseDate.m */; };
@@ -118,6 +121,7 @@
 		80A7D33319F012EA007BB993 /* DateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewModel.swift; sourceTree = "<group>"; };
 		80AF1CEB1A50449600A84EAA /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		80B069521A94D5BD00848701 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		80B1486B1AA0B30D00E60131 /* GroupData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupData.swift; path = Common/GroupData.swift; sourceTree = "<group>"; };
 		80DFB0F619F3D2A100BCF3B1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		80DFB11619F3E77400BCF3B1 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Log.h; path = Models/Log.h; sourceTree = "<group>"; };
 		80DFB11719F3E77400BCF3B1 /* Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Log.m; path = Models/Log.m; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				801A6B131A8F534E006F4B7D /* SpoolDays-Bridging-Header.h */,
+				80B1486B1AA0B30D00E60131 /* GroupData.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -494,6 +499,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				802225FB19FB058F00330227 /* TodayViewController.swift in Sources */,
+				80B1486D1AA0B31400E60131 /* GroupData.swift in Sources */,
+				80B1486E1AA0B53600E60131 /* BaseDate.m in Sources */,
 				80B1486A1A9F457F00E60131 /* Calendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,6 +526,7 @@
 				8059A9001A02925D00A9958B /* HistoryViewModel.swift in Sources */,
 				8002868419EFE1EE00089835 /* MainViewController.swift in Sources */,
 				80DFB11B19F3E77400BCF3B1 /* BaseDate.m in Sources */,
+				80B1486C1AA0B30D00E60131 /* GroupData.swift in Sources */,
 				80DFB0F719F3D2A100BCF3B1 /* Model.xcdatamodeld in Sources */,
 				8059A9021A03C11F00A9958B /* HistoryTableViewController.swift in Sources */,
 				801502A11A48F168000E3FD6 /* Preference.swift in Sources */,
