@@ -22,4 +22,8 @@ class GroupData {
         }
         return dates
     }
+
+    class var appURL: NSURL? {
+        return NSURL(string: "spooldays://")
+    }
 }

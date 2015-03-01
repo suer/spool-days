@@ -63,11 +63,9 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        extensionContext?.openURL(NSURL(string: "spooldays://")!, completionHandler: nil)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        if let url = GroupData.appURL {
+            extensionContext?.openURL(url, completionHandler: nil)
+        }
     }
 
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
