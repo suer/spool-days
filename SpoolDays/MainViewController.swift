@@ -33,7 +33,6 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), {
             dispatch_async(dispatch_get_main_queue(),{
                 self.datesViewModel.fetch()
-                GroupData.setDates(self.datesViewModel.dates)
                 self.tableView.reloadData()
             })
         })
@@ -50,7 +49,6 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
             button.title = I18n.finish
         } else {
             button.title = I18n.edit
-            GroupData.setDates(self.datesViewModel.dates)
         }
     }
 
@@ -63,7 +61,6 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
     func addButtonTapped(sender: AnyObject) {
         let dateViewModel = DateViewModel(baseDate: nil)
         showEditView(dateViewModel)
-        GroupData.setDates(self.datesViewModel.dates)
     }
 
     // MARK: table view
@@ -108,7 +105,7 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
     }
 
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-        BaseDateWrapper.move(fromIndex: fromIndexPath.row, toIndex: toIndexPath.row)
+        datesViewModel.move(fromIndex: fromIndexPath.row, toIndex: toIndexPath.row)
     }
 
     func swipeableTableViewCell(cell: SWTableViewCell, didTriggerLeftUtilityButtonWithIndex index: NSInteger) {
@@ -187,7 +184,6 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
                     self.cellActions[buttonIndex].action(self, cell)
                 }
                 tableView.deselectRowAtIndexPath(indexPath, animated: true)
-                GroupData.setDates(self.datesViewModel.dates)
                 return
         }
     }
