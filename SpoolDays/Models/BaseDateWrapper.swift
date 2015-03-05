@@ -8,24 +8,25 @@ class BaseDateWrapper: NSObject {
 
     class func createBaseDate(title: String, date: NSDate) -> BaseDate? {
         let maxSort = BaseDate.MR_aggregateOperation("max:", onAttribute: "sort", withPredicate: NSPredicate(value: true)).integerValue
-        let baseDate = BaseDate.MR_createEntity() as BaseDate?
-        baseDate?.sort = maxSort + 1
-        baseDate?.date = date
-        baseDate?.title = title
+        if let baseDate = BaseDate.MR_createEntity() as BaseDate? {
+            baseDate.sort = maxSort + 1
+            baseDate.date = date
+            baseDate.title = title
 
-        let log = Log.MR_createEntity() as Log
-        log.date = date
-        log.duration = 0
-        log.baseDate = baseDate
-        log.event = "create"
+            let log = Log.MR_createEntity() as Log
+            log.date = date
+            log.duration = 0
+            log.baseDate = baseDate
+            log.event = "create"
 
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
-
-        return baseDate
+            NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+            return baseDate
+        }
+        return nil
     }
 
     func update(#title: String, date: NSDate) {
-        if baseDate.date != nil && !baseDate.date.isEqualToDate(date) {
+        if baseDate.date.isEqualToDate(date) {
             let log = Log.MR_createEntity() as Log
             log.date = baseDate.date
             log.duration = dateInterval()
@@ -59,7 +60,6 @@ class BaseDateWrapper: NSObject {
             for log in baseDate.logs {
                 log.MR_deleteEntity()
             }
-            baseDate.removeLogs(baseDate.logs)
         }
         baseDate.MR_deleteEntity()
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
