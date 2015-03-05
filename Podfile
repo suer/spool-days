@@ -2,7 +2,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '7.0'
 inhibit_all_warnings!
-link_with 'SpoolDays', 'SpoolDaysTest'
+link_with 'SpoolDays', 'SpoolDaysTest', 'SpoolDaysTodayExtension'
 pod 'MagicalRecord'
 pod 'SWTableViewCell'
 pod 'RSDayFlow', :git => 'https://github.com/suer/RSDayFlow.git'

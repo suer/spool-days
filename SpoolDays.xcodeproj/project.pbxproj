@@ -1,833 +1,2092 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>1F73F763FED1FF87B7CE8507</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>1FA52D760A72A747CC8FF1F5</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>25B400074D2DA20BF8724D18</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>28ED91F5F3718D86CF27B399</string>
+				<string>51761DB67EF34A17DB7EAEF3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>28ED91F5F3718D86CF27B399</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods/Pods.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>380BA9C6533C3E2245E955E7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C803814E2F0D8A09FC22F0B1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4A04256B7D08344F59C8612A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>51761DB67EF34A17DB7EAEF3</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods/Pods.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>55AA9C5EE09150BA7640BF8D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C803814E2F0D8A09FC22F0B1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>56F867F36975D648759ABE98</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>8002868319EFE1EE00089835</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>MainViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8002868419EFE1EE00089835</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8002868319EFE1EE00089835</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>800936091AA74ACB00F87B83</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>BaseDate.swift</string>
+			<key>path</key>
+			<string>Models/BaseDate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8009360A1AA74ACB00F87B83</key>
+		<dict>
+			<key>fileRef</key>
+			<string>800936091AA74ACB00F87B83</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8009360B1AA74ACC00F87B83</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>Log.swift</string>
+			<key>path</key>
+			<string>Models/Log.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8009360C1AA74ACC00F87B83</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8009360B1AA74ACC00F87B83</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8009360D1AA74B6900F87B83</key>
+		<dict>
+			<key>fileRef</key>
+			<string>800936091AA74ACB00F87B83</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8009360E1AA74D8100F87B83</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8009360B1AA74ACC00F87B83</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8009360F1AA74D8200F87B83</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8009360B1AA74ACC00F87B83</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>800936101AA74D8B00F87B83</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8059A8FD1A028D8500A9958B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>800936111AA74D9900F87B83</key>
+		<dict>
+			<key>fileRef</key>
+			<string>800E8B831A731FE100CB1D6D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>800936121AA74DBD00F87B83</key>
+		<dict>
+			<key>fileRef</key>
+			<string>800936091AA74ACB00F87B83</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>800D5FF51A455F9800F86EC5</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.plug-in</string>
+			<key>path</key>
+			<string>Settings.bundle</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>800D5FF61A455F9800F86EC5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>800D5FF51A455F9800F86EC5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>800D5FF71A45616A00F86EC5</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>VERSION_NUMBER=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "$INFOPLIST_FILE")
+/usr/libexec/PlistBuddy ${TARGET_BUILD_DIR}/${FULL_PRODUCT_NAME}/Settings.bundle/Root.plist -c "set PreferenceSpecifiers:0:DefaultValue $VERSION_NUMBER"
 
-/* Begin PBXBuildFile section */
-		55AA9C5EE09150BA7640BF8D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C803814E2F0D8A09FC22F0B1 /* libPods.a */; };
-		8002868419EFE1EE00089835 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002868319EFE1EE00089835 /* MainViewController.swift */; };
-		8009360A1AA74ACB00F87B83 /* BaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800936091AA74ACB00F87B83 /* BaseDate.swift */; };
-		8009360C1AA74ACC00F87B83 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8009360B1AA74ACC00F87B83 /* Log.swift */; };
-		8009360D1AA74B6900F87B83 /* BaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800936091AA74ACB00F87B83 /* BaseDate.swift */; };
-		8009360E1AA74D8100F87B83 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8009360B1AA74ACC00F87B83 /* Log.swift */; };
-		8009360F1AA74D8200F87B83 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8009360B1AA74ACC00F87B83 /* Log.swift */; };
-		800936101AA74D8B00F87B83 /* LogWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059A8FD1A028D8500A9958B /* LogWrapper.swift */; };
-		800936111AA74D9900F87B83 /* I18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E8B831A731FE100CB1D6D /* I18n.swift */; };
-		800936121AA74DBD00F87B83 /* BaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800936091AA74ACB00F87B83 /* BaseDate.swift */; };
-		800D5FF61A455F9800F86EC5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 800D5FF51A455F9800F86EC5 /* Settings.bundle */; };
-		800E8B841A731FE100CB1D6D /* I18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E8B831A731FE100CB1D6D /* I18n.swift */; };
-		800E8B861A73ECCB00CB1D6D /* DateTableViewCellAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E8B851A73ECCB00CB1D6D /* DateTableViewCellAction.swift */; };
-		801502A11A48F168000E3FD6 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801502A01A48F168000E3FD6 /* Preference.swift */; };
-		801502A31A48F1AA000E3FD6 /* preference.plist in Resources */ = {isa = PBXBuildFile; fileRef = 801502A21A48F1AA000E3FD6 /* preference.plist */; };
-		801A6B0F1A8F51C9006F4B7D /* LogWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059A8FD1A028D8500A9958B /* LogWrapper.swift */; };
-		801A6B111A8F5278006F4B7D /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80404BDC1A0BA76A00FD835F /* Calendar.swift */; };
-		801A6B141A8F5C13006F4B7D /* I18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E8B831A731FE100CB1D6D /* I18n.swift */; };
-		802225F619FB058F00330227 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 802225F519FB058F00330227 /* NotificationCenter.framework */; };
-		802225FB19FB058F00330227 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802225FA19FB058F00330227 /* TodayViewController.swift */; };
-		802225FD19FB058F00330227 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 802225FC19FB058F00330227 /* MainInterface.storyboard */; };
-		8022260019FB058F00330227 /* SpoolDaysTodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 802225F419FB058F00330227 /* SpoolDaysTodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		80404BDD1A0BA76A00FD835F /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80404BDC1A0BA76A00FD835F /* Calendar.swift */; };
-		804E607419F31D5D005BA669 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E607319F31D5D005BA669 /* EditViewController.swift */; };
-		8057D9E919FBEB8A00AB18DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8057D9EB19FBEB8A00AB18DF /* Localizable.strings */; };
-		8057D9EE19FBEDCB00AB18DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8057D9EB19FBEB8A00AB18DF /* Localizable.strings */; };
-		8059A8FE1A028D8500A9958B /* LogWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059A8FD1A028D8500A9958B /* LogWrapper.swift */; };
-		8059A9001A02925D00A9958B /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059A8FF1A02925D00A9958B /* HistoryViewModel.swift */; };
-		8059A9021A03C11F00A9958B /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059A9011A03C11F00A9958B /* HistoryTableViewController.swift */; };
-		8075F9DC19FE01DD00443983 /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8075F9DB19FE01DD00443983 /* ThemeColor.swift */; };
-		807DC5381A39BFED00F197AF /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807DC5371A39BFED00F197AF /* HistoryTableViewCell.swift */; };
-		807DC53A1A39C13C00F197AF /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807DC5391A39C13C00F197AF /* DatePickerViewController.swift */; };
-		80A574B919EFDF4100C06CBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A574B819EFDF4100C06CBB /* AppDelegate.swift */; };
-		80A574C019EFDF4100C06CBB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80A574BF19EFDF4100C06CBB /* Images.xcassets */; };
-		80A574C319EFDF4100C06CBB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80A574C119EFDF4100C06CBB /* LaunchScreen.xib */; };
-		80A574CF19EFDF4100C06CBB /* CalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A574CE19EFDF4100C06CBB /* CalendarTests.swift */; };
-		80A7D33219EFEE00007BB993 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7D33119EFEE00007BB993 /* DateTableViewCell.swift */; };
-		80A7D33419F012EA007BB993 /* DateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7D33319F012EA007BB993 /* DateViewModel.swift */; };
-		80AF1CEC1A50449600A84EAA /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF1CEB1A50449600A84EAA /* ModalViewController.swift */; };
-		80B069531A94D5BD00848701 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B069521A94D5BD00848701 /* TextFieldTableViewCell.swift */; };
-		80B1486A1A9F457F00E60131 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80404BDC1A0BA76A00FD835F /* Calendar.swift */; };
-		80B1486C1AA0B30D00E60131 /* GroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B1486B1AA0B30D00E60131 /* GroupData.swift */; };
-		80B1486D1AA0B31400E60131 /* GroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B1486B1AA0B30D00E60131 /* GroupData.swift */; };
-		80DFB0F719F3D2A100BCF3B1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB0F519F3D2A100BCF3B1 /* Model.xcdatamodeld */; };
-		80DFB11D19F3E7C600BCF3B1 /* BaseDateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11C19F3E7C600BCF3B1 /* BaseDateWrapper.swift */; };
-		80DFB11F19F5427200BCF3B1 /* DatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		802225FE19FB058F00330227 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 80A574AB19EFDF4100C06CBB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 802225F319FB058F00330227;
-			remoteInfo = SpoolDaysTodayExtension;
-		};
-		80A574C919EFDF4100C06CBB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 80A574AB19EFDF4100C06CBB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 80A574B219EFDF4100C06CBB;
-			remoteInfo = SpoolDays;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		8022260419FB058F00330227 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				8022260019FB058F00330227 /* SpoolDaysTodayExtension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
-/* Begin PBXFileReference section */
-		28ED91F5F3718D86CF27B399 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		51761DB67EF34A17DB7EAEF3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		8002868319EFE1EE00089835 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		800936091AA74ACB00F87B83 /* BaseDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseDate.swift; path = Models/BaseDate.swift; sourceTree = "<group>"; };
-		8009360B1AA74ACC00F87B83 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Models/Log.swift; sourceTree = "<group>"; };
-		800D5FF51A455F9800F86EC5 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		800E8B831A731FE100CB1D6D /* I18n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = I18n.swift; sourceTree = "<group>"; };
-		800E8B851A73ECCB00CB1D6D /* DateTableViewCellAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTableViewCellAction.swift; sourceTree = "<group>"; };
-		801502A01A48F168000E3FD6 /* Preference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
-		801502A21A48F1AA000E3FD6 /* preference.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = preference.plist; sourceTree = "<group>"; };
-		801A6B131A8F534E006F4B7D /* SpoolDays-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SpoolDays-Bridging-Header.h"; path = "Common/SpoolDays-Bridging-Header.h"; sourceTree = "<group>"; };
-		802225F419FB058F00330227 /* SpoolDaysTodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SpoolDaysTodayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		802225F519FB058F00330227 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		802225F919FB058F00330227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		802225FA19FB058F00330227 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		802225FC19FB058F00330227 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
-		8022260519FB086900330227 /* SpoolDaysTodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SpoolDaysTodayExtension.entitlements; sourceTree = "<group>"; };
-		8022260619FB3AE600330227 /* SpoolDays.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SpoolDays.entitlements; sourceTree = "<group>"; };
-		80404BDC1A0BA76A00FD835F /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
-		804E607319F31D5D005BA669 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
-		8057D9EA19FBEB8A00AB18DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		8057D9EC19FBEBB400AB18DF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		8059A8FD1A028D8500A9958B /* LogWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogWrapper.swift; path = Models/LogWrapper.swift; sourceTree = "<group>"; };
-		8059A8FF1A02925D00A9958B /* HistoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
-		8059A9011A03C11F00A9958B /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
-		8075F9DB19FE01DD00443983 /* ThemeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
-		807DC5371A39BFED00F197AF /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
-		807DC5391A39C13C00F197AF /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
-		80A574B319EFDF4100C06CBB /* SpoolDays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpoolDays.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		80A574B719EFDF4100C06CBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		80A574B819EFDF4100C06CBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		80A574BF19EFDF4100C06CBB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		80A574C219EFDF4100C06CBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		80A574C819EFDF4100C06CBB /* SpoolDaysTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpoolDaysTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		80A574CD19EFDF4100C06CBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		80A574CE19EFDF4100C06CBB /* CalendarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTests.swift; sourceTree = "<group>"; };
-		80A7D33119EFEE00007BB993 /* DateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTableViewCell.swift; sourceTree = "<group>"; };
-		80A7D33319F012EA007BB993 /* DateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateViewModel.swift; sourceTree = "<group>"; };
-		80AF1CEB1A50449600A84EAA /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
-		80B069521A94D5BD00848701 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
-		80B1486B1AA0B30D00E60131 /* GroupData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupData.swift; path = Common/GroupData.swift; sourceTree = "<group>"; };
-		80DFB0F619F3D2A100BCF3B1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		80DFB11C19F3E7C600BCF3B1 /* BaseDateWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseDateWrapper.swift; path = Models/BaseDateWrapper.swift; sourceTree = "<group>"; };
-		80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesViewModel.swift; sourceTree = "<group>"; };
-		C803814E2F0D8A09FC22F0B1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		802225F119FB058F00330227 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				802225F619FB058F00330227 /* NotificationCenter.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		80A574B019EFDF4100C06CBB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				55AA9C5EE09150BA7640BF8D /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		80A574C519EFDF4100C06CBB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		25B400074D2DA20BF8724D18 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				28ED91F5F3718D86CF27B399 /* Pods.debug.xcconfig */,
-				51761DB67EF34A17DB7EAEF3 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		801A6B121A8F52F3006F4B7D /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				801A6B131A8F534E006F4B7D /* SpoolDays-Bridging-Header.h */,
-				80B1486B1AA0B30D00E60131 /* GroupData.swift */,
-			);
-			name = Common;
-			sourceTree = "<group>";
-		};
-		802225F719FB058F00330227 /* SpoolDaysTodayExtension */ = {
-			isa = PBXGroup;
-			children = (
-				8022260519FB086900330227 /* SpoolDaysTodayExtension.entitlements */,
-				802225FA19FB058F00330227 /* TodayViewController.swift */,
-				802225FC19FB058F00330227 /* MainInterface.storyboard */,
-				802225F819FB058F00330227 /* Supporting Files */,
-			);
-			path = SpoolDaysTodayExtension;
-			sourceTree = "<group>";
-		};
-		802225F819FB058F00330227 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				802225F919FB058F00330227 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		80A574AA19EFDF4100C06CBB = {
-			isa = PBXGroup;
-			children = (
-				801A6B121A8F52F3006F4B7D /* Common */,
-				80A574B519EFDF4100C06CBB /* SpoolDays */,
-				80A574CB19EFDF4100C06CBB /* SpoolDaysTests */,
-				802225F719FB058F00330227 /* SpoolDaysTodayExtension */,
-				80A574B419EFDF4100C06CBB /* Products */,
-				25B400074D2DA20BF8724D18 /* Pods */,
-				C9DD4CF9193C1C7BCB6EC7B2 /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		80A574B419EFDF4100C06CBB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				80A574B319EFDF4100C06CBB /* SpoolDays.app */,
-				80A574C819EFDF4100C06CBB /* SpoolDaysTests.xctest */,
-				802225F419FB058F00330227 /* SpoolDaysTodayExtension.appex */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		80A574B519EFDF4100C06CBB /* SpoolDays */ = {
-			isa = PBXGroup;
-			children = (
-				8022260619FB3AE600330227 /* SpoolDays.entitlements */,
-				80DFB0F419F3D27B00BCF3B1 /* Models */,
-				80A574B819EFDF4100C06CBB /* AppDelegate.swift */,
-				80A574BF19EFDF4100C06CBB /* Images.xcassets */,
-				80A574C119EFDF4100C06CBB /* LaunchScreen.xib */,
-				80A574B619EFDF4100C06CBB /* Supporting Files */,
-				8002868319EFE1EE00089835 /* MainViewController.swift */,
-				80A7D33119EFEE00007BB993 /* DateTableViewCell.swift */,
-				80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */,
-				80A7D33319F012EA007BB993 /* DateViewModel.swift */,
-				804E607319F31D5D005BA669 /* EditViewController.swift */,
-				8059A9011A03C11F00A9958B /* HistoryTableViewController.swift */,
-				8059A8FF1A02925D00A9958B /* HistoryViewModel.swift */,
-				807DC5371A39BFED00F197AF /* HistoryTableViewCell.swift */,
-				8057D9EB19FBEB8A00AB18DF /* Localizable.strings */,
-				8075F9DB19FE01DD00443983 /* ThemeColor.swift */,
-				80404BDC1A0BA76A00FD835F /* Calendar.swift */,
-				807DC5391A39C13C00F197AF /* DatePickerViewController.swift */,
-				800D5FF51A455F9800F86EC5 /* Settings.bundle */,
-				801502A01A48F168000E3FD6 /* Preference.swift */,
-				801502A21A48F1AA000E3FD6 /* preference.plist */,
-				80AF1CEB1A50449600A84EAA /* ModalViewController.swift */,
-				800E8B831A731FE100CB1D6D /* I18n.swift */,
-				800E8B851A73ECCB00CB1D6D /* DateTableViewCellAction.swift */,
-				80B069521A94D5BD00848701 /* TextFieldTableViewCell.swift */,
-			);
-			path = SpoolDays;
-			sourceTree = "<group>";
-		};
-		80A574B619EFDF4100C06CBB /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				80A574B719EFDF4100C06CBB /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		80A574CB19EFDF4100C06CBB /* SpoolDaysTests */ = {
-			isa = PBXGroup;
-			children = (
-				80A574CE19EFDF4100C06CBB /* CalendarTests.swift */,
-				80A574CC19EFDF4100C06CBB /* Supporting Files */,
-			);
-			path = SpoolDaysTests;
-			sourceTree = "<group>";
-		};
-		80A574CC19EFDF4100C06CBB /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				80A574CD19EFDF4100C06CBB /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		80DFB0F419F3D27B00BCF3B1 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				80DFB0F519F3D2A100BCF3B1 /* Model.xcdatamodeld */,
-				800936091AA74ACB00F87B83 /* BaseDate.swift */,
-				8009360B1AA74ACC00F87B83 /* Log.swift */,
-				80DFB11C19F3E7C600BCF3B1 /* BaseDateWrapper.swift */,
-				8059A8FD1A028D8500A9958B /* LogWrapper.swift */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-		C9DD4CF9193C1C7BCB6EC7B2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C803814E2F0D8A09FC22F0B1 /* libPods.a */,
-				802225F519FB058F00330227 /* NotificationCenter.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		802225F319FB058F00330227 /* SpoolDaysTodayExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8022260119FB058F00330227 /* Build configuration list for PBXNativeTarget "SpoolDaysTodayExtension" */;
-			buildPhases = (
-				802225F019FB058F00330227 /* Sources */,
-				802225F119FB058F00330227 /* Frameworks */,
-				802225F219FB058F00330227 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SpoolDaysTodayExtension;
-			productName = SpoolDaysTodayExtension;
-			productReference = 802225F419FB058F00330227 /* SpoolDaysTodayExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		80A574B219EFDF4100C06CBB /* SpoolDays */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 80A574D219EFDF4100C06CBB /* Build configuration list for PBXNativeTarget "SpoolDays" */;
-			buildPhases = (
-				4A04256B7D08344F59C8612A /* Check Pods Manifest.lock */,
-				80A574AF19EFDF4100C06CBB /* Sources */,
-				80A574B019EFDF4100C06CBB /* Frameworks */,
-				80A574B119EFDF4100C06CBB /* Resources */,
-				56F867F36975D648759ABE98 /* Copy Pods Resources */,
-				8022260419FB058F00330227 /* Embed App Extensions */,
-				800D5FF71A45616A00F86EC5 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				802225FF19FB058F00330227 /* PBXTargetDependency */,
-			);
-			name = SpoolDays;
-			productName = SpoolDays;
-			productReference = 80A574B319EFDF4100C06CBB /* SpoolDays.app */;
-			productType = "com.apple.product-type.application";
-		};
-		80A574C719EFDF4100C06CBB /* SpoolDaysTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 80A574D519EFDF4100C06CBB /* Build configuration list for PBXNativeTarget "SpoolDaysTests" */;
-			buildPhases = (
-				80A574C419EFDF4100C06CBB /* Sources */,
-				80A574C519EFDF4100C06CBB /* Frameworks */,
-				80A574C619EFDF4100C06CBB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				80A574CA19EFDF4100C06CBB /* PBXTargetDependency */,
-			);
-			name = SpoolDaysTests;
-			productName = SpoolDaysTests;
-			productReference = 80A574C819EFDF4100C06CBB /* SpoolDaysTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		80A574AB19EFDF4100C06CBB /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastUpgradeCheck = 0600;
-				ORGANIZATIONNAME = codefirst.org;
-				TargetAttributes = {
-					802225F319FB058F00330227 = {
-						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = LG7S83GR74;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
-							};
-						};
-					};
-					80A574B219EFDF4100C06CBB = {
-						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = LG7S83GR74;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
-							};
-							com.apple.BackgroundModes = {
-								enabled = 1;
-							};
-						};
-					};
-					80A574C719EFDF4100C06CBB = {
-						CreatedOnToolsVersion = 6.0.1;
-						TestTargetID = 80A574B219EFDF4100C06CBB;
-					};
-				};
-			};
-			buildConfigurationList = 80A574AE19EFDF4100C06CBB /* Build configuration list for PBXProject "SpoolDays" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-				ja,
-			);
-			mainGroup = 80A574AA19EFDF4100C06CBB;
-			productRefGroup = 80A574B419EFDF4100C06CBB /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				80A574B219EFDF4100C06CBB /* SpoolDays */,
-				80A574C719EFDF4100C06CBB /* SpoolDaysTests */,
-				802225F319FB058F00330227 /* SpoolDaysTodayExtension */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		802225F219FB058F00330227 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				802225FD19FB058F00330227 /* MainInterface.storyboard in Resources */,
-				8057D9EE19FBEDCB00AB18DF /* Localizable.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		80A574B119EFDF4100C06CBB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				800D5FF61A455F9800F86EC5 /* Settings.bundle in Resources */,
-				801502A31A48F1AA000E3FD6 /* preference.plist in Resources */,
-				80A574C319EFDF4100C06CBB /* LaunchScreen.xib in Resources */,
-				8057D9E919FBEB8A00AB18DF /* Localizable.strings in Resources */,
-				80A574C019EFDF4100C06CBB /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		80A574C619EFDF4100C06CBB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		4A04256B7D08344F59C8612A /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		56F867F36975D648759ABE98 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		800D5FF71A45616A00F86EC5 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "VERSION_NUMBER=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\n/usr/libexec/PlistBuddy ${TARGET_BUILD_DIR}/${FULL_PRODUCT_NAME}/Settings.bundle/Root.plist -c \"set PreferenceSpecifiers:0:DefaultValue $VERSION_NUMBER\"\n\nBUILD_NUMBER=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n/usr/libexec/PlistBuddy ${TARGET_BUILD_DIR}/${FULL_PRODUCT_NAME}/Settings.bundle/Root.plist -c \"Set :PreferenceSpecifiers:1:DefaultValue $BUILD_NUMBER\"";
-		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		802225F019FB058F00330227 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				802225FB19FB058F00330227 /* TodayViewController.swift in Sources */,
-				80B1486D1AA0B31400E60131 /* GroupData.swift in Sources */,
-				8009360E1AA74D8100F87B83 /* Log.swift in Sources */,
-				800936111AA74D9900F87B83 /* I18n.swift in Sources */,
-				8009360D1AA74B6900F87B83 /* BaseDate.swift in Sources */,
-				800936101AA74D8B00F87B83 /* LogWrapper.swift in Sources */,
-				80B1486A1A9F457F00E60131 /* Calendar.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		80A574AF19EFDF4100C06CBB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				80DFB11F19F5427200BCF3B1 /* DatesViewModel.swift in Sources */,
-				8009360C1AA74ACC00F87B83 /* Log.swift in Sources */,
-				8059A8FE1A028D8500A9958B /* LogWrapper.swift in Sources */,
-				80404BDD1A0BA76A00FD835F /* Calendar.swift in Sources */,
-				804E607419F31D5D005BA669 /* EditViewController.swift in Sources */,
-				8009360A1AA74ACB00F87B83 /* BaseDate.swift in Sources */,
-				80B069531A94D5BD00848701 /* TextFieldTableViewCell.swift in Sources */,
-				80A7D33419F012EA007BB993 /* DateViewModel.swift in Sources */,
-				8075F9DC19FE01DD00443983 /* ThemeColor.swift in Sources */,
-				80AF1CEC1A50449600A84EAA /* ModalViewController.swift in Sources */,
-				80A574B919EFDF4100C06CBB /* AppDelegate.swift in Sources */,
-				800E8B841A731FE100CB1D6D /* I18n.swift in Sources */,
-				807DC5381A39BFED00F197AF /* HistoryTableViewCell.swift in Sources */,
-				80DFB11D19F3E7C600BCF3B1 /* BaseDateWrapper.swift in Sources */,
-				80A7D33219EFEE00007BB993 /* DateTableViewCell.swift in Sources */,
-				8059A9001A02925D00A9958B /* HistoryViewModel.swift in Sources */,
-				8002868419EFE1EE00089835 /* MainViewController.swift in Sources */,
-				80B1486C1AA0B30D00E60131 /* GroupData.swift in Sources */,
-				80DFB0F719F3D2A100BCF3B1 /* Model.xcdatamodeld in Sources */,
-				8059A9021A03C11F00A9958B /* HistoryTableViewController.swift in Sources */,
-				801502A11A48F168000E3FD6 /* Preference.swift in Sources */,
-				800E8B861A73ECCB00CB1D6D /* DateTableViewCellAction.swift in Sources */,
-				807DC53A1A39C13C00F197AF /* DatePickerViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		80A574C419EFDF4100C06CBB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				801A6B0F1A8F51C9006F4B7D /* LogWrapper.swift in Sources */,
-				80A574CF19EFDF4100C06CBB /* CalendarTests.swift in Sources */,
-				800936121AA74DBD00F87B83 /* BaseDate.swift in Sources */,
-				8009360F1AA74D8200F87B83 /* Log.swift in Sources */,
-				801A6B111A8F5278006F4B7D /* Calendar.swift in Sources */,
-				801A6B141A8F5C13006F4B7D /* I18n.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		802225FF19FB058F00330227 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 802225F319FB058F00330227 /* SpoolDaysTodayExtension */;
-			targetProxy = 802225FE19FB058F00330227 /* PBXContainerItemProxy */;
-		};
-		80A574CA19EFDF4100C06CBB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 80A574B219EFDF4100C06CBB /* SpoolDays */;
-			targetProxy = 80A574C919EFDF4100C06CBB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		8057D9EB19FBEB8A00AB18DF /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8057D9EA19FBEB8A00AB18DF /* en */,
-				8057D9EC19FBEBB400AB18DF /* ja */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		80A574C119EFDF4100C06CBB /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				80A574C219EFDF4100C06CBB /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		8022260219FB058F00330227 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28ED91F5F3718D86CF27B399 /* Pods.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = SpoolDaysTodayExtension/SpoolDaysTodayExtension.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SpoolDaysTodayExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Common/SpoolDays-Bridging-Header.h";
-			};
-			name = Debug;
-		};
-		8022260319FB058F00330227 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = SpoolDaysTodayExtension/SpoolDaysTodayExtension.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = SpoolDaysTodayExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Common/SpoolDays-Bridging-Header.h";
-			};
-			name = Release;
-		};
-		80A574D019EFDF4100C06CBB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28ED91F5F3718D86CF27B399 /* Pods.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		80A574D119EFDF4100C06CBB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		80A574D319EFDF4100C06CBB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28ED91F5F3718D86CF27B399 /* Pods.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = SpoolDays/SpoolDays.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				INFOPLIST_FILE = SpoolDays/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Common/SpoolDays-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		80A574D419EFDF4100C06CBB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51761DB67EF34A17DB7EAEF3 /* Pods.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = SpoolDays/SpoolDays.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				INFOPLIST_FILE = SpoolDays/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Common/SpoolDays-Bridging-Header.h";
-			};
-			name = Release;
-		};
-		80A574D619EFDF4100C06CBB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28ED91F5F3718D86CF27B399 /* Pods.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SpoolDaysTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Common/SpoolDays-Bridging-Header.h";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpoolDays.app/SpoolDays";
-			};
-			name = Debug;
-		};
-		80A574D719EFDF4100C06CBB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SpoolDaysTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Common/SpoolDays-Bridging-Header.h";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpoolDays.app/SpoolDays";
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		8022260119FB058F00330227 /* Build configuration list for PBXNativeTarget "SpoolDaysTodayExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8022260219FB058F00330227 /* Debug */,
-				8022260319FB058F00330227 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		80A574AE19EFDF4100C06CBB /* Build configuration list for PBXProject "SpoolDays" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				80A574D019EFDF4100C06CBB /* Debug */,
-				80A574D119EFDF4100C06CBB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		80A574D219EFDF4100C06CBB /* Build configuration list for PBXNativeTarget "SpoolDays" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				80A574D319EFDF4100C06CBB /* Debug */,
-				80A574D419EFDF4100C06CBB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		80A574D519EFDF4100C06CBB /* Build configuration list for PBXNativeTarget "SpoolDaysTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				80A574D619EFDF4100C06CBB /* Debug */,
-				80A574D719EFDF4100C06CBB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		80DFB0F519F3D2A100BCF3B1 /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				80DFB0F619F3D2A100BCF3B1 /* Model.xcdatamodel */,
-			);
-			currentVersion = 80DFB0F619F3D2A100BCF3B1 /* Model.xcdatamodel */;
-			name = Model.xcdatamodeld;
-			path = Models/Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
-	};
-	rootObject = 80A574AB19EFDF4100C06CBB /* Project object */;
-}
+BUILD_NUMBER=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$INFOPLIST_FILE")
+/usr/libexec/PlistBuddy ${TARGET_BUILD_DIR}/${FULL_PRODUCT_NAME}/Settings.bundle/Root.plist -c "Set :PreferenceSpecifiers:1:DefaultValue $BUILD_NUMBER"</string>
+		</dict>
+		<key>800E8B831A731FE100CB1D6D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>I18n.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>800E8B841A731FE100CB1D6D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>800E8B831A731FE100CB1D6D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>800E8B851A73ECCB00CB1D6D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DateTableViewCellAction.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>800E8B861A73ECCB00CB1D6D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>800E8B851A73ECCB00CB1D6D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>801502A01A48F168000E3FD6</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Preference.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>801502A11A48F168000E3FD6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>801502A01A48F168000E3FD6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>801502A21A48F1AA000E3FD6</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>preference.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>801502A31A48F1AA000E3FD6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>801502A21A48F1AA000E3FD6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>801A6B0F1A8F51C9006F4B7D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8059A8FD1A028D8500A9958B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>801A6B111A8F5278006F4B7D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>80404BDC1A0BA76A00FD835F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>801A6B121A8F52F3006F4B7D</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>801A6B131A8F534E006F4B7D</string>
+				<string>80B1486B1AA0B30D00E60131</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Common</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>801A6B131A8F534E006F4B7D</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SpoolDays-Bridging-Header.h</string>
+			<key>path</key>
+			<string>Common/SpoolDays-Bridging-Header.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>801A6B141A8F5C13006F4B7D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>800E8B831A731FE100CB1D6D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>802225F019FB058F00330227</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>802225FB19FB058F00330227</string>
+				<string>80B1486D1AA0B31400E60131</string>
+				<string>8009360E1AA74D8100F87B83</string>
+				<string>800936111AA74D9900F87B83</string>
+				<string>8009360D1AA74B6900F87B83</string>
+				<string>800936101AA74D8B00F87B83</string>
+				<string>80B1486A1A9F457F00E60131</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>802225F119FB058F00330227</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>802225F619FB058F00330227</string>
+				<string>380BA9C6533C3E2245E955E7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>802225F219FB058F00330227</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>802225FD19FB058F00330227</string>
+				<string>8057D9EE19FBEDCB00AB18DF</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>802225F319FB058F00330227</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>8022260119FB058F00330227</string>
+			<key>buildPhases</key>
+			<array>
+				<string>1FA52D760A72A747CC8FF1F5</string>
+				<string>802225F019FB058F00330227</string>
+				<string>802225F119FB058F00330227</string>
+				<string>802225F219FB058F00330227</string>
+				<string>1F73F763FED1FF87B7CE8507</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>SpoolDaysTodayExtension</string>
+			<key>productName</key>
+			<string>SpoolDaysTodayExtension</string>
+			<key>productReference</key>
+			<string>802225F419FB058F00330227</string>
+			<key>productType</key>
+			<string>com.apple.product-type.app-extension</string>
+		</dict>
+		<key>802225F419FB058F00330227</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.app-extension</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>SpoolDaysTodayExtension.appex</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>802225F519FB058F00330227</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>NotificationCenter.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/NotificationCenter.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>802225F619FB058F00330227</key>
+		<dict>
+			<key>fileRef</key>
+			<string>802225F519FB058F00330227</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>802225F719FB058F00330227</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8022260519FB086900330227</string>
+				<string>802225FA19FB058F00330227</string>
+				<string>802225FC19FB058F00330227</string>
+				<string>802225F819FB058F00330227</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>SpoolDaysTodayExtension</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>802225F819FB058F00330227</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>802225F919FB058F00330227</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>802225F919FB058F00330227</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>802225FA19FB058F00330227</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>TodayViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>802225FB19FB058F00330227</key>
+		<dict>
+			<key>fileRef</key>
+			<string>802225FA19FB058F00330227</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>802225FC19FB058F00330227</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>path</key>
+			<string>MainInterface.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>802225FD19FB058F00330227</key>
+		<dict>
+			<key>fileRef</key>
+			<string>802225FC19FB058F00330227</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>802225FE19FB058F00330227</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>80A574AB19EFDF4100C06CBB</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>802225F319FB058F00330227</string>
+			<key>remoteInfo</key>
+			<string>SpoolDaysTodayExtension</string>
+		</dict>
+		<key>802225FF19FB058F00330227</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>802225F319FB058F00330227</string>
+			<key>targetProxy</key>
+			<string>802225FE19FB058F00330227</string>
+		</dict>
+		<key>8022260019FB058F00330227</key>
+		<dict>
+			<key>fileRef</key>
+			<string>802225F419FB058F00330227</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>RemoveHeadersOnCopy</string>
+				</array>
+			</dict>
+		</dict>
+		<key>8022260119FB058F00330227</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>8022260219FB058F00330227</string>
+				<string>8022260319FB058F00330227</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>8022260219FB058F00330227</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>28ED91F5F3718D86CF27B399</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_ENTITLEMENTS</key>
+				<string>SpoolDaysTodayExtension/SpoolDaysTodayExtension.entitlements</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>SpoolDaysTodayExtension/Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string>Common/SpoolDays-Bridging-Header.h</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>8022260319FB058F00330227</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>51761DB67EF34A17DB7EAEF3</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CODE_SIGN_ENTITLEMENTS</key>
+				<string>SpoolDaysTodayExtension/SpoolDaysTodayExtension.entitlements</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>INFOPLIST_FILE</key>
+				<string>SpoolDaysTodayExtension/Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string>Common/SpoolDays-Bridging-Header.h</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>8022260419FB058F00330227</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>dstPath</key>
+			<string></string>
+			<key>dstSubfolderSpec</key>
+			<string>13</string>
+			<key>files</key>
+			<array>
+				<string>8022260019FB058F00330227</string>
+			</array>
+			<key>isa</key>
+			<string>PBXCopyFilesBuildPhase</string>
+			<key>name</key>
+			<string>Embed App Extensions</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>8022260519FB086900330227</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xml</string>
+			<key>path</key>
+			<string>SpoolDaysTodayExtension.entitlements</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8022260619FB3AE600330227</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xml</string>
+			<key>path</key>
+			<string>SpoolDays.entitlements</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80404BDC1A0BA76A00FD835F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Calendar.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80404BDD1A0BA76A00FD835F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>80404BDC1A0BA76A00FD835F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>804E607319F31D5D005BA669</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>EditViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>804E607419F31D5D005BA669</key>
+		<dict>
+			<key>fileRef</key>
+			<string>804E607319F31D5D005BA669</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8057D9E919FBEB8A00AB18DF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8057D9EB19FBEB8A00AB18DF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8057D9EA19FBEB8A00AB18DF</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/Localizable.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8057D9EB19FBEB8A00AB18DF</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8057D9EA19FBEB8A00AB18DF</string>
+				<string>8057D9EC19FBEBB400AB18DF</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Localizable.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8057D9EC19FBEBB400AB18DF</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>ja</string>
+			<key>path</key>
+			<string>ja.lproj/Localizable.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8057D9EE19FBEDCB00AB18DF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8057D9EB19FBEB8A00AB18DF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8059A8FD1A028D8500A9958B</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>LogWrapper.swift</string>
+			<key>path</key>
+			<string>Models/LogWrapper.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8059A8FE1A028D8500A9958B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8059A8FD1A028D8500A9958B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8059A8FF1A02925D00A9958B</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>HistoryViewModel.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8059A9001A02925D00A9958B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8059A8FF1A02925D00A9958B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8059A9011A03C11F00A9958B</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>HistoryTableViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8059A9021A03C11F00A9958B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8059A9011A03C11F00A9958B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8075F9DB19FE01DD00443983</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ThemeColor.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8075F9DC19FE01DD00443983</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8075F9DB19FE01DD00443983</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>807DC5371A39BFED00F197AF</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>HistoryTableViewCell.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>807DC5381A39BFED00F197AF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>807DC5371A39BFED00F197AF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>807DC5391A39C13C00F197AF</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DatePickerViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>807DC53A1A39C13C00F197AF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>807DC5391A39C13C00F197AF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>80A574AA19EFDF4100C06CBB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>801A6B121A8F52F3006F4B7D</string>
+				<string>80A574B519EFDF4100C06CBB</string>
+				<string>80A574CB19EFDF4100C06CBB</string>
+				<string>802225F719FB058F00330227</string>
+				<string>80A574B419EFDF4100C06CBB</string>
+				<string>25B400074D2DA20BF8724D18</string>
+				<string>C9DD4CF9193C1C7BCB6EC7B2</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80A574AB19EFDF4100C06CBB</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastUpgradeCheck</key>
+				<string>0600</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>codefirst.org</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>802225F319FB058F00330227</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>6.1</string>
+						<key>DevelopmentTeam</key>
+						<string>LG7S83GR74</string>
+						<key>SystemCapabilities</key>
+						<dict>
+							<key>com.apple.ApplicationGroups.iOS</key>
+							<dict>
+								<key>enabled</key>
+								<string>1</string>
+							</dict>
+						</dict>
+					</dict>
+					<key>80A574B219EFDF4100C06CBB</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>6.0.1</string>
+						<key>DevelopmentTeam</key>
+						<string>LG7S83GR74</string>
+						<key>SystemCapabilities</key>
+						<dict>
+							<key>com.apple.ApplicationGroups.iOS</key>
+							<dict>
+								<key>enabled</key>
+								<string>1</string>
+							</dict>
+							<key>com.apple.BackgroundModes</key>
+							<dict>
+								<key>enabled</key>
+								<string>1</string>
+							</dict>
+						</dict>
+					</dict>
+					<key>80A574C719EFDF4100C06CBB</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>6.0.1</string>
+						<key>TestTargetID</key>
+						<string>80A574B219EFDF4100C06CBB</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>80A574AE19EFDF4100C06CBB</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+				<string>ja</string>
+			</array>
+			<key>mainGroup</key>
+			<string>80A574AA19EFDF4100C06CBB</string>
+			<key>productRefGroup</key>
+			<string>80A574B419EFDF4100C06CBB</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>80A574B219EFDF4100C06CBB</string>
+				<string>80A574C719EFDF4100C06CBB</string>
+				<string>802225F319FB058F00330227</string>
+			</array>
+		</dict>
+		<key>80A574AE19EFDF4100C06CBB</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>80A574D019EFDF4100C06CBB</string>
+				<string>80A574D119EFDF4100C06CBB</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>80A574AF19EFDF4100C06CBB</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>80DFB11F19F5427200BCF3B1</string>
+				<string>8009360C1AA74ACC00F87B83</string>
+				<string>8059A8FE1A028D8500A9958B</string>
+				<string>80404BDD1A0BA76A00FD835F</string>
+				<string>804E607419F31D5D005BA669</string>
+				<string>8009360A1AA74ACB00F87B83</string>
+				<string>80B069531A94D5BD00848701</string>
+				<string>80A7D33419F012EA007BB993</string>
+				<string>8075F9DC19FE01DD00443983</string>
+				<string>80AF1CEC1A50449600A84EAA</string>
+				<string>80A574B919EFDF4100C06CBB</string>
+				<string>800E8B841A731FE100CB1D6D</string>
+				<string>807DC5381A39BFED00F197AF</string>
+				<string>80DFB11D19F3E7C600BCF3B1</string>
+				<string>80A7D33219EFEE00007BB993</string>
+				<string>8059A9001A02925D00A9958B</string>
+				<string>8002868419EFE1EE00089835</string>
+				<string>80B1486C1AA0B30D00E60131</string>
+				<string>80DFB0F719F3D2A100BCF3B1</string>
+				<string>8059A9021A03C11F00A9958B</string>
+				<string>801502A11A48F168000E3FD6</string>
+				<string>800E8B861A73ECCB00CB1D6D</string>
+				<string>807DC53A1A39C13C00F197AF</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>80A574B019EFDF4100C06CBB</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>55AA9C5EE09150BA7640BF8D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>80A574B119EFDF4100C06CBB</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>800D5FF61A455F9800F86EC5</string>
+				<string>801502A31A48F1AA000E3FD6</string>
+				<string>80A574C319EFDF4100C06CBB</string>
+				<string>8057D9E919FBEB8A00AB18DF</string>
+				<string>80A574C019EFDF4100C06CBB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>80A574B219EFDF4100C06CBB</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>80A574D219EFDF4100C06CBB</string>
+			<key>buildPhases</key>
+			<array>
+				<string>4A04256B7D08344F59C8612A</string>
+				<string>80A574AF19EFDF4100C06CBB</string>
+				<string>80A574B019EFDF4100C06CBB</string>
+				<string>80A574B119EFDF4100C06CBB</string>
+				<string>56F867F36975D648759ABE98</string>
+				<string>8022260419FB058F00330227</string>
+				<string>800D5FF71A45616A00F86EC5</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>802225FF19FB058F00330227</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>SpoolDays</string>
+			<key>productName</key>
+			<string>SpoolDays</string>
+			<key>productReference</key>
+			<string>80A574B319EFDF4100C06CBB</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>80A574B319EFDF4100C06CBB</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>SpoolDays.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>80A574B419EFDF4100C06CBB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>80A574B319EFDF4100C06CBB</string>
+				<string>80A574C819EFDF4100C06CBB</string>
+				<string>802225F419FB058F00330227</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80A574B519EFDF4100C06CBB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>8022260619FB3AE600330227</string>
+				<string>80DFB0F419F3D27B00BCF3B1</string>
+				<string>80A574B819EFDF4100C06CBB</string>
+				<string>80A574BF19EFDF4100C06CBB</string>
+				<string>80A574C119EFDF4100C06CBB</string>
+				<string>80A574B619EFDF4100C06CBB</string>
+				<string>8002868319EFE1EE00089835</string>
+				<string>80A7D33119EFEE00007BB993</string>
+				<string>80DFB11E19F5427200BCF3B1</string>
+				<string>80A7D33319F012EA007BB993</string>
+				<string>804E607319F31D5D005BA669</string>
+				<string>8059A9011A03C11F00A9958B</string>
+				<string>8059A8FF1A02925D00A9958B</string>
+				<string>807DC5371A39BFED00F197AF</string>
+				<string>8057D9EB19FBEB8A00AB18DF</string>
+				<string>8075F9DB19FE01DD00443983</string>
+				<string>80404BDC1A0BA76A00FD835F</string>
+				<string>807DC5391A39C13C00F197AF</string>
+				<string>800D5FF51A455F9800F86EC5</string>
+				<string>801502A01A48F168000E3FD6</string>
+				<string>801502A21A48F1AA000E3FD6</string>
+				<string>80AF1CEB1A50449600A84EAA</string>
+				<string>800E8B831A731FE100CB1D6D</string>
+				<string>800E8B851A73ECCB00CB1D6D</string>
+				<string>80B069521A94D5BD00848701</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>SpoolDays</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80A574B619EFDF4100C06CBB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>80A574B719EFDF4100C06CBB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80A574B719EFDF4100C06CBB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80A574B819EFDF4100C06CBB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AppDelegate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80A574B919EFDF4100C06CBB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>80A574B819EFDF4100C06CBB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>80A574BF19EFDF4100C06CBB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Images.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80A574C019EFDF4100C06CBB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>80A574BF19EFDF4100C06CBB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>80A574C119EFDF4100C06CBB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>80A574C219EFDF4100C06CBB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>LaunchScreen.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80A574C219EFDF4100C06CBB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/LaunchScreen.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80A574C319EFDF4100C06CBB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>80A574C119EFDF4100C06CBB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>80A574C419EFDF4100C06CBB</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>801A6B0F1A8F51C9006F4B7D</string>
+				<string>80A574CF19EFDF4100C06CBB</string>
+				<string>800936121AA74DBD00F87B83</string>
+				<string>8009360F1AA74D8200F87B83</string>
+				<string>801A6B111A8F5278006F4B7D</string>
+				<string>801A6B141A8F5C13006F4B7D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>80A574C519EFDF4100C06CBB</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>80A574C619EFDF4100C06CBB</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>80A574C719EFDF4100C06CBB</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>80A574D519EFDF4100C06CBB</string>
+			<key>buildPhases</key>
+			<array>
+				<string>80A574C419EFDF4100C06CBB</string>
+				<string>80A574C519EFDF4100C06CBB</string>
+				<string>80A574C619EFDF4100C06CBB</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>80A574CA19EFDF4100C06CBB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>SpoolDaysTests</string>
+			<key>productName</key>
+			<string>SpoolDaysTests</string>
+			<key>productReference</key>
+			<string>80A574C819EFDF4100C06CBB</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>80A574C819EFDF4100C06CBB</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>SpoolDaysTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>80A574C919EFDF4100C06CBB</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>80A574AB19EFDF4100C06CBB</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>80A574B219EFDF4100C06CBB</string>
+			<key>remoteInfo</key>
+			<string>SpoolDays</string>
+		</dict>
+		<key>80A574CA19EFDF4100C06CBB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>80A574B219EFDF4100C06CBB</string>
+			<key>targetProxy</key>
+			<string>80A574C919EFDF4100C06CBB</string>
+		</dict>
+		<key>80A574CB19EFDF4100C06CBB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>80A574CE19EFDF4100C06CBB</string>
+				<string>80A574CC19EFDF4100C06CBB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>SpoolDaysTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80A574CC19EFDF4100C06CBB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>80A574CD19EFDF4100C06CBB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80A574CD19EFDF4100C06CBB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80A574CE19EFDF4100C06CBB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>CalendarTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80A574CF19EFDF4100C06CBB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>80A574CE19EFDF4100C06CBB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>80A574D019EFDF4100C06CBB</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>28ED91F5F3718D86CF27B399</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>80A574D119EFDF4100C06CBB</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>7.0</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>80A574D219EFDF4100C06CBB</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>80A574D319EFDF4100C06CBB</string>
+				<string>80A574D419EFDF4100C06CBB</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>80A574D319EFDF4100C06CBB</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>28ED91F5F3718D86CF27B399</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CODE_SIGN_ENTITLEMENTS</key>
+				<string>SpoolDays/SpoolDays.entitlements</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>EMBEDDED_CONTENT_CONTAINS_SWIFT</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>SpoolDays/Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE</key>
+				<string></string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string>Common/SpoolDays-Bridging-Header.h</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>80A574D419EFDF4100C06CBB</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>51761DB67EF34A17DB7EAEF3</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CODE_SIGN_ENTITLEMENTS</key>
+				<string>SpoolDays/SpoolDays.entitlements</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>EMBEDDED_CONTENT_CONTAINS_SWIFT</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>SpoolDays/Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>8.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE</key>
+				<string></string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string>Common/SpoolDays-Bridging-Header.h</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>80A574D519EFDF4100C06CBB</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>80A574D619EFDF4100C06CBB</string>
+				<string>80A574D719EFDF4100C06CBB</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>80A574D619EFDF4100C06CBB</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>28ED91F5F3718D86CF27B399</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>SpoolDaysTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string>Common/SpoolDays-Bridging-Header.h</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/SpoolDays.app/SpoolDays</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>80A574D719EFDF4100C06CBB</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>INFOPLIST_FILE</key>
+				<string>SpoolDaysTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string>Common/SpoolDays-Bridging-Header.h</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/SpoolDays.app/SpoolDays</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>80A7D33119EFEE00007BB993</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DateTableViewCell.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80A7D33219EFEE00007BB993</key>
+		<dict>
+			<key>fileRef</key>
+			<string>80A7D33119EFEE00007BB993</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>80A7D33319F012EA007BB993</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DateViewModel.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80A7D33419F012EA007BB993</key>
+		<dict>
+			<key>fileRef</key>
+			<string>80A7D33319F012EA007BB993</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>80AF1CEB1A50449600A84EAA</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ModalViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80AF1CEC1A50449600A84EAA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>80AF1CEB1A50449600A84EAA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>80B069521A94D5BD00848701</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>TextFieldTableViewCell.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80B069531A94D5BD00848701</key>
+		<dict>
+			<key>fileRef</key>
+			<string>80B069521A94D5BD00848701</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>80B1486A1A9F457F00E60131</key>
+		<dict>
+			<key>fileRef</key>
+			<string>80404BDC1A0BA76A00FD835F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>80B1486B1AA0B30D00E60131</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>GroupData.swift</string>
+			<key>path</key>
+			<string>Common/GroupData.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80B1486C1AA0B30D00E60131</key>
+		<dict>
+			<key>fileRef</key>
+			<string>80B1486B1AA0B30D00E60131</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>80B1486D1AA0B31400E60131</key>
+		<dict>
+			<key>fileRef</key>
+			<string>80B1486B1AA0B30D00E60131</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>80DFB0F419F3D27B00BCF3B1</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>80DFB0F519F3D2A100BCF3B1</string>
+				<string>800936091AA74ACB00F87B83</string>
+				<string>8009360B1AA74ACC00F87B83</string>
+				<string>80DFB11C19F3E7C600BCF3B1</string>
+				<string>8059A8FD1A028D8500A9958B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Models</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80DFB0F519F3D2A100BCF3B1</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>80DFB0F619F3D2A100BCF3B1</string>
+			</array>
+			<key>currentVersion</key>
+			<string>80DFB0F619F3D2A100BCF3B1</string>
+			<key>isa</key>
+			<string>XCVersionGroup</string>
+			<key>name</key>
+			<string>Model.xcdatamodeld</string>
+			<key>path</key>
+			<string>Models/Model.xcdatamodeld</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+			<key>versionGroupType</key>
+			<string>wrapper.xcdatamodel</string>
+		</dict>
+		<key>80DFB0F619F3D2A100BCF3B1</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.xcdatamodel</string>
+			<key>path</key>
+			<string>Model.xcdatamodel</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80DFB0F719F3D2A100BCF3B1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>80DFB0F519F3D2A100BCF3B1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>80DFB11C19F3E7C600BCF3B1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>BaseDateWrapper.swift</string>
+			<key>path</key>
+			<string>Models/BaseDateWrapper.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80DFB11D19F3E7C600BCF3B1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>80DFB11C19F3E7C600BCF3B1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>80DFB11E19F5427200BCF3B1</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DatesViewModel.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>80DFB11F19F5427200BCF3B1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>80DFB11E19F5427200BCF3B1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>C803814E2F0D8A09FC22F0B1</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>C9DD4CF9193C1C7BCB6EC7B2</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>C803814E2F0D8A09FC22F0B1</string>
+				<string>802225F519FB058F00330227</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>80A574AB19EFDF4100C06CBB</string>
+</dict>
+</plist>
