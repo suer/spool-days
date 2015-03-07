@@ -8,3 +8,4 @@ preference.plist
 certs/
 SpoolDays/preference.plist
 mint.plist
+build/
