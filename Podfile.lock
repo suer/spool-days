@@ -9,7 +9,7 @@ PODS:
     - UIActionSheet+Blocks (>= 0.8)
     - UIAlertController+Blocks (>= 0.8)
     - UIAlertView+Blocks (>= 0.8)
-  - RSDayFlow (0.7.3)
+  - RSDayFlow (0.8.0)
   - SplunkMint-iOS (4.0.24)
   - SWTableViewCell (0.3.7)
   - UIActionSheet+Blocks (0.8.1)
@@ -30,18 +30,18 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   RSDayFlow:
-    :commit: c731f447a8cfe0015a42ee5ce0f01de1f987cae0
+    :commit: e686a5cd5b94f106a87bfbe7ab0874004483d07c
     :git: https://github.com/suer/RSDayFlow.git
 
 SPEC CHECKSUMS:
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
   MTDates: e04c9433bf5f1d5cb55a1862ec018a01b5da75c3
   RMUniversalAlert: 29efbec1d069082dd851054042b934550bc70b45
-  RSDayFlow: c4d545142a80e92949caa04abc23a5cc4ff42a32
+  RSDayFlow: fb48480094f00d28fc90947051190f55478263c4
   SplunkMint-iOS: 528329b25dcadcb919b99e46f4a786d11c51c82c
   SWTableViewCell: 25de71898e3fcd11cf75707ef90245acf990ec03
   UIActionSheet+Blocks: c8b9c02f3d08964e8f7a4202f004a639c15eab80
   UIAlertController+Blocks: a02869a586a1e242accabc86beb5f08f00998a76
   UIAlertView+Blocks: 0b749f1f7bd5131ff2233b30a406c1585a7171b2
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.36.0

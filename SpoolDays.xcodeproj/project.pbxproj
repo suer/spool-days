@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		380BA9C6533C3E2245E955E7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C803814E2F0D8A09FC22F0B1 /* libPods.a */; };
-		55AA9C5EE09150BA7640BF8D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C803814E2F0D8A09FC22F0B1 /* libPods.a */; };
+		380BA9C6533C3E2245E955E7 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		8002868419EFE1EE00089835 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002868319EFE1EE00089835 /* MainViewController.swift */; };
 		8009360A1AA74ACB00F87B83 /* BaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800936091AA74ACB00F87B83 /* BaseDate.swift */; };
 		8009360C1AA74ACC00F87B83 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8009360B1AA74ACC00F87B83 /* Log.swift */; };
@@ -54,6 +53,10 @@
 		80DFB0F719F3D2A100BCF3B1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB0F519F3D2A100BCF3B1 /* Model.xcdatamodeld */; };
 		80DFB11D19F3E7C600BCF3B1 /* BaseDateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11C19F3E7C600BCF3B1 /* BaseDateWrapper.swift */; };
 		80DFB11F19F5427200BCF3B1 /* DatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */; };
+		9F3086AF200E0D71D1621672 /* (null) in Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (Weak, ); }; };
+		A6DDCBEF197EA5526F0AAFFB /* libPods-SpoolDays.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC53BF8201B907317DF4846 /* libPods-SpoolDays.a */; };
+		C02874AFCB92C00677B33AD4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 682A6DEA46906076E5CC2CA4 /* libPods.a */; };
+		DDD377D0E9AC07257E99E4B6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 682A6DEA46906076E5CC2CA4 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +93,7 @@
 /* Begin PBXFileReference section */
 		28ED91F5F3718D86CF27B399 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		51761DB67EF34A17DB7EAEF3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		682A6DEA46906076E5CC2CA4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8002868319EFE1EE00089835 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		800936091AA74ACB00F87B83 /* BaseDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseDate.swift; path = Models/BaseDate.swift; sourceTree = "<group>"; };
 		8009360B1AA74ACC00F87B83 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Models/Log.swift; sourceTree = "<group>"; };
@@ -132,7 +136,8 @@
 		80DFB0F619F3D2A100BCF3B1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		80DFB11C19F3E7C600BCF3B1 /* BaseDateWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseDateWrapper.swift; path = Models/BaseDateWrapper.swift; sourceTree = "<group>"; };
 		80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesViewModel.swift; sourceTree = "<group>"; };
-		C803814E2F0D8A09FC22F0B1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		80EE03821AB087310009CE05 /* libPods-SpoolDays-RSDayFlow.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SpoolDays-RSDayFlow.a"; path = "Pods/../build/Debug-iphoneos/libPods-SpoolDays-RSDayFlow.a"; sourceTree = "<group>"; };
+		ACC53BF8201B907317DF4846 /* libPods-SpoolDays.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpoolDays.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +146,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				802225F619FB058F00330227 /* NotificationCenter.framework in Frameworks */,
-				380BA9C6533C3E2245E955E7 /* libPods.a in Frameworks */,
+				380BA9C6533C3E2245E955E7 /* (null) in Frameworks */,
+				9F3086AF200E0D71D1621672 /* (null) in Frameworks */,
+				C02874AFCB92C00677B33AD4 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +156,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55AA9C5EE09150BA7640BF8D /* libPods.a in Frameworks */,
+				DDD377D0E9AC07257E99E4B6 /* libPods.a in Frameworks */,
+				A6DDCBEF197EA5526F0AAFFB /* libPods-SpoolDays.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,8 +303,10 @@
 		C9DD4CF9193C1C7BCB6EC7B2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C803814E2F0D8A09FC22F0B1 /* libPods.a */,
+				80EE03821AB087310009CE05 /* libPods-SpoolDays-RSDayFlow.a */,
 				802225F519FB058F00330227 /* NotificationCenter.framework */,
+				682A6DEA46906076E5CC2CA4 /* libPods.a */,
+				ACC53BF8201B907317DF4846 /* libPods-SpoolDays.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -630,10 +640,40 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					RSDF_APP_EXTENSION,
 				);
 				INFOPLIST_FILE = SpoolDaysTodayExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MTDates\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MagicalRecord\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/RMUniversalAlert\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/RSDayFlow\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SWTableViewCell\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SplunkMint-iOS\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/UIActionSheet+Blocks\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/UIAlertController+Blocks\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/UIAlertView+Blocks\"",
+					"-DRSDF_APP_EXTENSION",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DRSDF_APP_EXTENSION",
+				);
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Common/SpoolDays-Bridging-Header.h";
@@ -646,9 +686,43 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SpoolDaysTodayExtension/SpoolDaysTodayExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					RSDF_APP_EXTENSION,
+				);
 				INFOPLIST_FILE = SpoolDaysTodayExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MTDates\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MagicalRecord\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/RMUniversalAlert\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/RSDayFlow\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SWTableViewCell\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/SplunkMint-iOS\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/UIActionSheet+Blocks\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/UIAlertController+Blocks\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/UIAlertView+Blocks\"",
+					"-DRSDF_APP_EXTENSION",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DRSDF_APP_EXTENSION",
+				);
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Common/SpoolDays-Bridging-Header.h";
@@ -746,6 +820,10 @@
 				INFOPLIST_FILE = SpoolDays/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Common/SpoolDays-Bridging-Header.h";
@@ -766,6 +844,10 @@
 				INFOPLIST_FILE = SpoolDays/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Common/SpoolDays-Bridging-Header.h";
