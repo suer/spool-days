@@ -10,7 +10,6 @@ pod 'RMUniversalAlert'
 pod "MTDates"
 pod 'SplunkMint-iOS'
 
-
 post_install do |installer|
   t = installer.project.targets.find {|target| target.name == 'Pods-RSDayFlow'}
   t.build_configurations.each do |config|

@@ -92,10 +92,19 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: table view
 
     func loadTableView() {
-        tableView = UITableView(frame: CGRectMake(0, 0, view.bounds.width, cellHeight * CGFloat(cellCount)))
+        tableView = UITableView()
         tableView!.delegate = self
         tableView!.dataSource = self
         view.addSubview(tableView!)
+
+        tableView!.setTranslatesAutoresizingMaskIntoConstraints(false)
+        view!.autoresizingMask = .FlexibleHeight | .FlexibleWidth
+        let topConstraint = NSLayoutConstraint(item: tableView!, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1.0, constant: 0.0)
+        let bottomConstraint = NSLayoutConstraint(item: tableView!, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1.0, constant: cellHeight * CGFloat(cellCount))
+        let leftConstraint = NSLayoutConstraint(item: tableView!, attribute: .Left, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier: 1.0, constant: 0.0)
+        let rightConstraint = NSLayoutConstraint(item: tableView!, attribute: .Right, relatedBy: .Equal, toItem: view, attribute: .Right, multiplier: 1.0, constant: 0.0)
+        view!.addConstraints([topConstraint, bottomConstraint, leftConstraint, rightConstraint])
+
     }
 
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -149,6 +158,14 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         deleteButton.setTitle(I18n.delete, forState: .Normal)
         deleteButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         view.addSubview(deleteButton)
+
+        deleteButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+        view!.autoresizingMask = .FlexibleHeight | .FlexibleWidth
+        let topConstraint = NSLayoutConstraint(item: deleteButton, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1.0, constant: cellHeight * CGFloat(cellCount + 1))
+        let bottomConstraint = NSLayoutConstraint(item: deleteButton, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1.0, constant: cellHeight * CGFloat(cellCount + 2))
+        let leftConstraint = NSLayoutConstraint(item: deleteButton, attribute: .Left, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier: 1.0, constant: 0.0)
+        let rightConstraint = NSLayoutConstraint(item: deleteButton, attribute: .Right, relatedBy: .Equal, toItem: view, attribute: .Right, multiplier: 1.0, constant: 0.0)
+        view!.addConstraints([topConstraint, bottomConstraint, leftConstraint, rightConstraint])
 
         deleteButton.addTarget(self, action: Selector("deleteButtonTapped"), forControlEvents: .TouchUpInside)
     }
