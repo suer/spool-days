@@ -20,17 +20,18 @@ DEPENDENCIES:
   - MagicalRecord
   - MTDates
   - RMUniversalAlert
-  - RSDayFlow (from `https://github.com/suer/RSDayFlow.git`)
+  - RSDayFlow (from `https://github.com/suer/RSDayFlow.git`, commit `efb97f8`)
   - SplunkMint-iOS
   - SWTableViewCell
 
 EXTERNAL SOURCES:
   RSDayFlow:
+    :commit: efb97f8
     :git: https://github.com/suer/RSDayFlow.git
 
 CHECKOUT OPTIONS:
   RSDayFlow:
-    :commit: e686a5cd5b94f106a87bfbe7ab0874004483d07c
+    :commit: efb97f8
     :git: https://github.com/suer/RSDayFlow.git
 
 SPEC CHECKSUMS:

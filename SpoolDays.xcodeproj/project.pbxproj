@@ -54,7 +54,6 @@
 		80DFB11D19F3E7C600BCF3B1 /* BaseDateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11C19F3E7C600BCF3B1 /* BaseDateWrapper.swift */; };
 		80DFB11F19F5427200BCF3B1 /* DatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */; };
 		9F3086AF200E0D71D1621672 /* (null) in Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (Weak, ); }; };
-		A6DDCBEF197EA5526F0AAFFB /* libPods-SpoolDays.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC53BF8201B907317DF4846 /* libPods-SpoolDays.a */; };
 		C02874AFCB92C00677B33AD4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 682A6DEA46906076E5CC2CA4 /* libPods.a */; };
 		DDD377D0E9AC07257E99E4B6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 682A6DEA46906076E5CC2CA4 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -157,7 +156,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDD377D0E9AC07257E99E4B6 /* libPods.a in Frameworks */,
-				A6DDCBEF197EA5526F0AAFFB /* libPods-SpoolDays.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -846,7 +844,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Release-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
