@@ -177,7 +177,10 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
             cancelButtonTitle: I18n.cancel,
             destructiveButtonTitle: nil,
             otherButtonTitles: cellActions.map { cellAction in cellAction.name },
-            popoverPresentationControllerBlock: nil) {
+            popoverPresentationControllerBlock: {
+                $0.sourceView = cell
+                $0.sourceRect = cell.frame
+            }) {
                 (alert, index) in
                 let buttonIndex = index - alert.firstOtherButtonIndex
                 if buttonIndex >= 0 && buttonIndex < self.cellActions.count {
