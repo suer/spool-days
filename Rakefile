@@ -22,7 +22,7 @@ end
 
 task :ipa => :archive do
     puts "📦  Creating ipa...".bold
-    sh "xcrun -sdk iphoneos PackageApplication #{ARCHIVE}.xcarchive/Products/Applications/#{SCHEME}.app -o #{IPA}"
+    sh "xcrun -sdk iphoneos PackageApplication #{ARCHIVE}.xcarchive/Products/Applications/#{SCHEME}.app -o #{IPA}  -embed org.codefirst.SpoolDays.mobileprovision"
 end
 
 task :submit => :ipa do
