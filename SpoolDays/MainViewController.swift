@@ -6,6 +6,7 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
         title = I18n.translate("Spool Days")
+        datesViewModel.addObserver(self, forKeyPath: "dates", options: .New, context: nil)
         loadEditButton()
         loadToolbar()
         addNotificationCenterObserver()
@@ -14,10 +15,17 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
     override func viewWillAppear(animated: Bool) {
         reload()
         navigationController?.toolbarHidden = false
-        super.viewWillAppear(animated)        
+        super.viewWillAppear(animated)
+    }
+
+    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
+        if keyPath == "dates" {
+            self.tableView.reloadData()
+        }
     }
 
     deinit {
+        datesViewModel.removeObserver(self, forKeyPath: "dates")
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
@@ -33,7 +41,6 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), {
             dispatch_async(dispatch_get_main_queue(),{
                 self.datesViewModel.fetch()
-                self.tableView.reloadData()
             })
         })
     }
@@ -41,10 +48,12 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
     func loadEditButton() {
         let editButton = UIBarButtonItem(title: I18n.edit, style: .Plain, target: self, action: Selector("editButtonTapped:"))
         navigationItem.rightBarButtonItem = editButton
+
     }
 
     func editButtonTapped(button: UIBarButtonItem) {
         self.tableView.setEditing(!tableView.editing, animated: true)
+        println(tableView.valueForKey("editing"))
         if (tableView.editing) {
             button.title = I18n.finish
         } else {
