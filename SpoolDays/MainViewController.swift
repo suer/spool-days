@@ -2,11 +2,13 @@ import UIKit
 
 class MainViewController: UITableViewController, SWTableViewCellDelegate {
     let datesViewModel = DatesViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
         title = I18n.translate("Spool Days")
         datesViewModel.addObserver(self, forKeyPath: "dates", options: .New, context: nil)
+        self.addObserver(self, forKeyPath: "editing", options: .New, context: nil)
         loadEditButton()
         loadToolbar()
         addNotificationCenterObserver()
@@ -19,8 +21,13 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
     }
 
     override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
-        if keyPath == "dates" {
+        switch keyPath {
+        case "dates":
             self.tableView.reloadData()
+        case "editing":
+            navigationItem.rightBarButtonItem?.title = editing ? I18n.finish : I18n.edit
+        default:
+            break
         }
     }
 
@@ -48,17 +55,10 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
     func loadEditButton() {
         let editButton = UIBarButtonItem(title: I18n.edit, style: .Plain, target: self, action: Selector("editButtonTapped:"))
         navigationItem.rightBarButtonItem = editButton
-
     }
 
     func editButtonTapped(button: UIBarButtonItem) {
-        self.tableView.setEditing(!tableView.editing, animated: true)
-        println(tableView.valueForKey("editing"))
-        if (tableView.editing) {
-            button.title = I18n.finish
-        } else {
-            button.title = I18n.edit
-        }
+        editing = !editing
     }
 
     func loadToolbar() {
