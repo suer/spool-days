@@ -4,11 +4,7 @@ class HistoryTableViewController: UITableViewController {
     let historyViewModel: HistoryViewModel
     let dateViewModel: DateViewModel
 
-    convenience init(dateViewModel: DateViewModel) {
-        self.init(nibName: nil, bundle: nil, dateViewModel: dateViewModel)
-    }
-
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, dateViewModel: DateViewModel) {
+    init(dateViewModel: DateViewModel) {
         self.dateViewModel = dateViewModel
         self.historyViewModel = HistoryViewModel(baseDate: dateViewModel.baseDate!)
         super.init(nibName: nil, bundle: nil)
