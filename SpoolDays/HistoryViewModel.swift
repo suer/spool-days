@@ -7,7 +7,7 @@ class HistoryViewModel: NSObject {
     }
 
     func fetch() {
-        logs = LogWrapper.findResetLogsByBaseDate(baseDate)
+        logs = Log.findResetLogsByBaseDate(baseDate)
     }
 
     func save() {
@@ -15,7 +15,7 @@ class HistoryViewModel: NSObject {
     }
 
     func deleteLog(index: Int) {
-        LogWrapper(log:logs[index]).delete()
+        logs[index].delete()
         logs.removeAtIndex(index)
     }
 

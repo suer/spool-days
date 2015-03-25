@@ -14,7 +14,6 @@
 		8009360D1AA74B6900F87B83 /* BaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800936091AA74ACB00F87B83 /* BaseDate.swift */; };
 		8009360E1AA74D8100F87B83 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8009360B1AA74ACC00F87B83 /* Log.swift */; };
 		8009360F1AA74D8200F87B83 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8009360B1AA74ACC00F87B83 /* Log.swift */; };
-		800936101AA74D8B00F87B83 /* LogWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059A8FD1A028D8500A9958B /* LogWrapper.swift */; };
 		800936111AA74D9900F87B83 /* I18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E8B831A731FE100CB1D6D /* I18n.swift */; };
 		800936121AA74DBD00F87B83 /* BaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800936091AA74ACB00F87B83 /* BaseDate.swift */; };
 		800D5FF61A455F9800F86EC5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 800D5FF51A455F9800F86EC5 /* Settings.bundle */; };
@@ -22,7 +21,6 @@
 		800E8B861A73ECCB00CB1D6D /* DateTableViewCellAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E8B851A73ECCB00CB1D6D /* DateTableViewCellAction.swift */; };
 		801502A11A48F168000E3FD6 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801502A01A48F168000E3FD6 /* Preference.swift */; };
 		801502A31A48F1AA000E3FD6 /* preference.plist in Resources */ = {isa = PBXBuildFile; fileRef = 801502A21A48F1AA000E3FD6 /* preference.plist */; };
-		801A6B0F1A8F51C9006F4B7D /* LogWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059A8FD1A028D8500A9958B /* LogWrapper.swift */; };
 		801A6B111A8F5278006F4B7D /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80404BDC1A0BA76A00FD835F /* Calendar.swift */; };
 		801A6B141A8F5C13006F4B7D /* I18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E8B831A731FE100CB1D6D /* I18n.swift */; };
 		802225F619FB058F00330227 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 802225F519FB058F00330227 /* NotificationCenter.framework */; };
@@ -33,7 +31,6 @@
 		804E607419F31D5D005BA669 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E607319F31D5D005BA669 /* EditViewController.swift */; };
 		8057D9E919FBEB8A00AB18DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8057D9EB19FBEB8A00AB18DF /* Localizable.strings */; };
 		8057D9EE19FBEDCB00AB18DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8057D9EB19FBEB8A00AB18DF /* Localizable.strings */; };
-		8059A8FE1A028D8500A9958B /* LogWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059A8FD1A028D8500A9958B /* LogWrapper.swift */; };
 		8059A9001A02925D00A9958B /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059A8FF1A02925D00A9958B /* HistoryViewModel.swift */; };
 		8059A9021A03C11F00A9958B /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059A9011A03C11F00A9958B /* HistoryTableViewController.swift */; };
 		8075F9DC19FE01DD00443983 /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8075F9DB19FE01DD00443983 /* ThemeColor.swift */; };
@@ -113,7 +110,6 @@
 		804E607319F31D5D005BA669 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		8057D9EA19FBEB8A00AB18DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8057D9EC19FBEBB400AB18DF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		8059A8FD1A028D8500A9958B /* LogWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogWrapper.swift; path = Models/LogWrapper.swift; sourceTree = "<group>"; };
 		8059A8FF1A02925D00A9958B /* HistoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		8059A9011A03C11F00A9958B /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		8075F9DB19FE01DD00443983 /* ThemeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
@@ -293,7 +289,6 @@
 				800936091AA74ACB00F87B83 /* BaseDate.swift */,
 				8009360B1AA74ACC00F87B83 /* Log.swift */,
 				80DFB11C19F3E7C600BCF3B1 /* BaseDateWrapper.swift */,
-				8059A8FD1A028D8500A9958B /* LogWrapper.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -545,7 +540,6 @@
 				8009360E1AA74D8100F87B83 /* Log.swift in Sources */,
 				800936111AA74D9900F87B83 /* I18n.swift in Sources */,
 				8009360D1AA74B6900F87B83 /* BaseDate.swift in Sources */,
-				800936101AA74D8B00F87B83 /* LogWrapper.swift in Sources */,
 				80B1486A1A9F457F00E60131 /* Calendar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -556,7 +550,6 @@
 			files = (
 				80DFB11F19F5427200BCF3B1 /* DatesViewModel.swift in Sources */,
 				8009360C1AA74ACC00F87B83 /* Log.swift in Sources */,
-				8059A8FE1A028D8500A9958B /* LogWrapper.swift in Sources */,
 				80404BDD1A0BA76A00FD835F /* Calendar.swift in Sources */,
 				804E607419F31D5D005BA669 /* EditViewController.swift in Sources */,
 				8009360A1AA74ACB00F87B83 /* BaseDate.swift in Sources */,
@@ -584,7 +577,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				801A6B0F1A8F51C9006F4B7D /* LogWrapper.swift in Sources */,
 				80A574CF19EFDF4100C06CBB /* CalendarTests.swift in Sources */,
 				800936121AA74DBD00F87B83 /* BaseDate.swift in Sources */,
 				8009360F1AA74D8200F87B83 /* Log.swift in Sources */,
