@@ -19,21 +19,22 @@ class DateViewModel: NSObject {
     }
 
     func resetDate(date: NSDate) {
-        if baseDate == nil {
-            return
+        if let baseDate = baseDate {
+            baseDate.reset(date)
         }
-        BaseDateWrapper(baseDate: baseDate!).reset(date)
     }
 
     func update(#title: String, date: NSDate) {
-        if baseDate == nil {
-            BaseDateWrapper.createBaseDate(title, date: date)
+        if let baseDate = baseDate {
+            baseDate.update(title: title, date: date)
         } else {
-            BaseDateWrapper(baseDate: baseDate!).update(title: title, date: date)
+            BaseDate.createBaseDate(title, date: date)
         }
     }
 
     func deleteDate() {
-        BaseDateWrapper(baseDate: baseDate!).delete()
+        if let baseDate = baseDate {
+            baseDate.delete()
+        }
     }
 }

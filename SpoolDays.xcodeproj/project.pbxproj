@@ -48,7 +48,6 @@
 		80B1486C1AA0B30D00E60131 /* GroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B1486B1AA0B30D00E60131 /* GroupData.swift */; };
 		80B1486D1AA0B31400E60131 /* GroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B1486B1AA0B30D00E60131 /* GroupData.swift */; };
 		80DFB0F719F3D2A100BCF3B1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB0F519F3D2A100BCF3B1 /* Model.xcdatamodeld */; };
-		80DFB11D19F3E7C600BCF3B1 /* BaseDateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11C19F3E7C600BCF3B1 /* BaseDateWrapper.swift */; };
 		80DFB11F19F5427200BCF3B1 /* DatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */; };
 		9F3086AF200E0D71D1621672 /* (null) in Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (Weak, ); }; };
 		C02874AFCB92C00677B33AD4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 682A6DEA46906076E5CC2CA4 /* libPods.a */; };
@@ -129,7 +128,6 @@
 		80B069521A94D5BD00848701 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		80B1486B1AA0B30D00E60131 /* GroupData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupData.swift; path = Common/GroupData.swift; sourceTree = "<group>"; };
 		80DFB0F619F3D2A100BCF3B1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		80DFB11C19F3E7C600BCF3B1 /* BaseDateWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseDateWrapper.swift; path = Models/BaseDateWrapper.swift; sourceTree = "<group>"; };
 		80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesViewModel.swift; sourceTree = "<group>"; };
 		80EE03821AB087310009CE05 /* libPods-SpoolDays-RSDayFlow.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SpoolDays-RSDayFlow.a"; path = "Pods/../build/Debug-iphoneos/libPods-SpoolDays-RSDayFlow.a"; sourceTree = "<group>"; };
 		ACC53BF8201B907317DF4846 /* libPods-SpoolDays.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SpoolDays.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -288,7 +286,6 @@
 				80DFB0F519F3D2A100BCF3B1 /* Model.xcdatamodeld */,
 				800936091AA74ACB00F87B83 /* BaseDate.swift */,
 				8009360B1AA74ACC00F87B83 /* Log.swift */,
-				80DFB11C19F3E7C600BCF3B1 /* BaseDateWrapper.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -560,7 +557,6 @@
 				80A574B919EFDF4100C06CBB /* AppDelegate.swift in Sources */,
 				800E8B841A731FE100CB1D6D /* I18n.swift in Sources */,
 				807DC5381A39BFED00F197AF /* HistoryTableViewCell.swift in Sources */,
-				80DFB11D19F3E7C600BCF3B1 /* BaseDateWrapper.swift in Sources */,
 				80A7D33219EFEE00007BB993 /* DateTableViewCell.swift in Sources */,
 				8059A9001A02925D00A9958B /* HistoryViewModel.swift in Sources */,
 				8002868419EFE1EE00089835 /* MainViewController.swift in Sources */,

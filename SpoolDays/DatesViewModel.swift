@@ -7,12 +7,12 @@ class DatesViewModel: NSObject {
     }
 
     func deleteDate(indexPath: NSIndexPath) {
-        BaseDateWrapper(baseDate: dates[indexPath.row]).delete()
+        dates[indexPath.row].delete()
         fetch()
     }
 
     func move(#fromIndex: Int, toIndex: Int) {
-        BaseDateWrapper.move(fromIndex: fromIndex, toIndex: toIndex)
+        BaseDate.move(fromIndex: fromIndex, toIndex: toIndex)
         fetch()
     }
 }

@@ -58,29 +58,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func updateBadge(completionHandler: (UIBackgroundFetchResult) -> Void) {
-        let baseDate = BaseDateWrapper.first()
-        if baseDate == nil {
+        if let baseDate = BaseDate.first() {
+            UIApplication.sharedApplication().applicationIconBadgeNumber = abs(baseDate.dateInterval())
+            completionHandler(UIBackgroundFetchResult.NewData)
+        } else {
             UIApplication.sharedApplication().applicationIconBadgeNumber = 0
             completionHandler(UIBackgroundFetchResult.Failed)
-            return
         }
-
-        UIApplication.sharedApplication().applicationIconBadgeNumber = abs(BaseDateWrapper(baseDate: baseDate!).dateInterval())
-        completionHandler(UIBackgroundFetchResult.NewData)
     }
 
     func applicationWillResignActive(application: UIApplication) {
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
-        updateBadge({result in return})
+        updateBadge({_ in return})
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
-        updateBadge({result in return})
+        updateBadge({_ in return})
     }
 
     func applicationWillTerminate(application: UIApplication) {

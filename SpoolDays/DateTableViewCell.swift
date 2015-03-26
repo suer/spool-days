@@ -25,8 +25,7 @@ class DateTableViewCell: SWTableViewCell {
     private func updateLabels() {
         if let baseDate = dateViewModel.baseDate {
             textLabel?.text = baseDate.title
-            let dateInterval = BaseDateWrapper(baseDate: baseDate).dateInterval()
-            detailTextLabel?.text = "\(dateInterval) " + I18n.translate("Days")
+            detailTextLabel?.text = "\(baseDate.dateInterval()) " + I18n.translate("Days")
         }
     }
 
