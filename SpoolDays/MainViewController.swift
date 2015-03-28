@@ -33,6 +33,7 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
 
     deinit {
         datesViewModel.removeObserver(self, forKeyPath: "dates")
+        self.removeObserver(self, forKeyPath: "editing")
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
