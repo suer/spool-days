@@ -1,7 +1,7 @@
 import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
-    let log: Log
+    private let log: Log
     init(log: Log) {
         self.log = log
         super.init(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
@@ -22,6 +22,15 @@ class HistoryTableViewCell: UITableViewCell {
     override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
         if let date = change["new"] as? NSDate {
             textLabel?.text = Calendar(date: log.date).dateString()
+        }
+    }
+
+    var date: NSDate {
+        get {
+            return log.date
+        }
+        set {
+            log.date = newValue
         }
     }
 }
