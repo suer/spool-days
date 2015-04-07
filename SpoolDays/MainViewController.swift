@@ -150,11 +150,10 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
         let datePicker = DatePickerViewController(initialDate: NSDate())
         datePicker.onSelected = {
             date in
-            let calendar = Calendar(date: date)
             RMUniversalAlert.showAlertInViewController(
                 self,
                 withTitle: nil,
-                message: I18n.translateWithFormat("Are you sure you want to reset date with %@?", args: calendar.dateString()),
+                message: I18n.translateWithFormat("Are you sure you want to reset date with %@?", args: date.dateString()),
                 cancelButtonTitle: I18n.cancel,
                 destructiveButtonTitle: nil,
                 otherButtonTitles: [I18n.yes]) {

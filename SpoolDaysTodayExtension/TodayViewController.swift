@@ -48,8 +48,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         cell.textLabel?.text = dates[indexPath.row]["title"]
         cell.textLabel?.textColor = UIColor.whiteColor()
 
-        let date = Calendar.fromString(dates[indexPath.row]["date"]!)!
-        let interval = Calendar(date: date).dateIntervalFromDate(NSDate())
+        let date = NSDate.fromString(dates[indexPath.row]["date"]!)!
+        let interval = date.dateIntervalFromDate(NSDate())
         let unit = NSLocalizedString("Days", comment: "")
         cell.detailTextLabel?.text = "\(interval) \(unit)"
         cell.detailTextLabel?.textColor = UIColor.whiteColor()

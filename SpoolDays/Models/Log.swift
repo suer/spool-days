@@ -15,7 +15,7 @@ class Log: NSManagedObject {
     }
 
     func dateString() -> String {
-        return Calendar(date: date).dateString()
+        return date.dateString()
     }
 
     func delete() {

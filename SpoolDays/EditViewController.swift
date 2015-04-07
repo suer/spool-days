@@ -11,7 +11,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var date: NSDate {
         didSet {
             if let cell = tableView?.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)) {
-                cell.detailTextLabel?.text = Calendar(date: date).dateString()
+                cell.detailTextLabel?.text = date.dateString()
             }
         }
     }
@@ -123,7 +123,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else {
             let cell = UITableViewCell(style: .Value1, reuseIdentifier: "Cell")
             cell.textLabel?.text = I18n.translate("Date")
-            cell.detailTextLabel?.text = Calendar(date: dateViewModel.baseDate?.date ?? NSDate()).dateString()
+            cell.detailTextLabel?.text = (dateViewModel.baseDate?.date ?? NSDate()).dateString()
             return cell
         }
     }

@@ -84,10 +84,10 @@ class BaseDate: NSManagedObject {
     }
 
     func dateInterval() -> Int {
-        return Calendar(date: date).dateIntervalFromNow()
+        return date.dateIntervalFromNow()
     }
 
-    func dateInterval(date: NSDate) -> Int {
-        return Calendar(date: self.date).dateIntervalFromDate(date)
+    func dateInterval(from: NSDate) -> Int {
+        return date.dateIntervalFromDate(from)
     }
 }
