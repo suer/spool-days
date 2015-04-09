@@ -12,6 +12,7 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
         loadEditButton()
         loadToolbar()
         addNotificationCenterObserver()
+        registerOnSignificantTimeChange()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -206,5 +207,13 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
 
     private func showHistoryView(dateViewModel: DateViewModel) {
         ModalViewController(baseController: self).presentModalViewController(HistoryTableViewController(dateViewModel: dateViewModel))
+    }
+
+    private func registerOnSignificantTimeChange() {
+        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            delegate.onSignificantTimeChange = {
+                self.reload()
+            }
+        }
     }
 }

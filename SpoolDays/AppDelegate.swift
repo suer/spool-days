@@ -5,6 +5,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var onSignificantTimeChange: (() -> ())?
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         MagicalRecord.setupCoreDataStackWithStoreNamed("spooldays.sqlite3")
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -83,6 +85,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         MagicalRecord.cleanUp()
+    }
+
+    func applicationSignificantTimeChange(application: UIApplication) {
+        onSignificantTimeChange?()
     }
 }
 
