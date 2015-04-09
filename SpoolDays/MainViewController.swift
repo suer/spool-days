@@ -180,7 +180,7 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
     ]
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as DateTableViewCell
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! DateTableViewCell
         RMUniversalAlert.showActionSheetInViewController(self,
             withTitle: nil,
             message: nil,

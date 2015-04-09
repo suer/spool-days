@@ -30,8 +30,11 @@ class DateTableViewCell: SWTableViewCell {
     }
 
     private func loadButtons() {
-        let leftButtons = NSMutableArray()
-        leftButtons.sw_addUtilityButtonWithColor(ThemeColor.resetColor(), title: I18n.reset)
-        leftUtilityButtons = leftButtons
+        let resetButton = UIButton.buttonWithType(.Custom) as! UIButton
+        resetButton.backgroundColor = ThemeColor.resetColor()
+        resetButton.setTitle(I18n.reset, forState: .Normal)
+        resetButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        resetButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        leftUtilityButtons = [resetButton]
     }
 }

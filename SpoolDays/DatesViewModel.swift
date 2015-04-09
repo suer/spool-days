@@ -2,7 +2,7 @@ class DatesViewModel: NSObject {
     dynamic var dates: [BaseDate] = []
 
     func fetch() {
-        dates = BaseDate.MR_findAllSortedBy("sort", ascending: true) as [BaseDate]
+        dates = BaseDate.MR_findAllSortedBy("sort", ascending: true) as! [BaseDate]
         GroupData.setDates(dates)
     }
 

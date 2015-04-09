@@ -11,12 +11,12 @@ class BaseDate: NSManagedObject {
 
     class func createBaseDate(title: String, date: NSDate) -> BaseDate? {
         let maxSort = BaseDate.MR_aggregateOperation("max:", onAttribute: "sort", withPredicate: NSPredicate(value: true)).integerValue
-        if let baseDate = BaseDate.MR_createEntity() as BaseDate? {
+        if let baseDate = BaseDate.MR_createEntity() as? BaseDate {
             baseDate.sort = maxSort + 1
             baseDate.date = date
             baseDate.title = title
 
-            let log = Log.MR_createEntity() as Log
+            let log = Log.MR_createEntity() as! Log
             log.date = date
             log.duration = 0
             log.baseDate = baseDate
@@ -30,7 +30,7 @@ class BaseDate: NSManagedObject {
 
     func update(#title: String, date: NSDate) {
         if self.date.isEqualToDate(date) {
-            let log = Log.MR_createEntity() as Log
+            let log = Log.MR_createEntity() as! Log
             log.date = date
             log.duration = dateInterval()
             log.baseDate = self
@@ -44,7 +44,7 @@ class BaseDate: NSManagedObject {
     }
 
     class func move(#fromIndex: Int, toIndex: Int) {
-        let dates = BaseDate.MR_findAllSortedBy("sort", ascending: true) as [BaseDate]
+        let dates = BaseDate.MR_findAllSortedBy("sort", ascending: true) as! [BaseDate]
         dates[fromIndex].sort = toIndex
         if (fromIndex < toIndex) {
             for var i = fromIndex + 1; i <= toIndex; i++ {
@@ -69,7 +69,7 @@ class BaseDate: NSManagedObject {
     }
 
     func reset(date: NSDate) {
-        let log = Log.MR_createEntity() as Log
+        let log = Log.MR_createEntity() as! Log
         log.date = date
         log.duration = dateInterval(date)
         log.baseDate = self
