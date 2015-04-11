@@ -103,8 +103,10 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
                 (alert ,index) in
                 switch index {
                 case alert.firstOtherButtonIndex:
+                    self.tableView.beginUpdates()
                     self.datesViewModel.deleteDate(indexPath)
                     self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                    self.tableView.endUpdates()
                 default:
                     break
                 }
