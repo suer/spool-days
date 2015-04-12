@@ -94,22 +94,11 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
     }
 
     private func deleteDate(indexPath: NSIndexPath) {
-        RMUniversalAlert.showAlertInViewController(self,
-            withTitle: I18n.confirmation,
-            message: I18n.translate("Are you sure you want to delete?"),
-            cancelButtonTitle: I18n.no,
-            destructiveButtonTitle: nil,
-            otherButtonTitles: [I18n.yes]) {
-                (alert ,index) in
-                switch index {
-                case alert.firstOtherButtonIndex:
-                    self.tableView.beginUpdates()
-                    self.datesViewModel.deleteDate(indexPath)
-                    self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                    self.tableView.endUpdates()
-                default:
-                    break
-                }
+        PopupAlertView.confirm(self, message: I18n.translate("Are you sure you want to delete?")) {
+            self.tableView.beginUpdates()
+            self.datesViewModel.deleteDate(indexPath)
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            self.tableView.endUpdates()
         }
     }
 
@@ -132,20 +121,9 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
     }
 
     private func resetDate(cell: DateTableViewCell) {
-        RMUniversalAlert.showAlertInViewController(self,
-            withTitle: I18n.confirmation,
-            message: I18n.translate("Are you sure you want to reset date?"),
-            cancelButtonTitle: I18n.no,
-            destructiveButtonTitle: nil,
-            otherButtonTitles: [I18n.yes]) {
-                (alertView, index) in
-                switch index {
-                case alertView.firstOtherButtonIndex:
-                    cell.resetDate()
-                    self.reload()
-                default:
-                    break
-                }
+        PopupAlertView.confirm(self, message: I18n.translate("Are you sure you want to reset date?")) {
+            cell.resetDate()
+            self.reload()
         }
     }
 
@@ -153,23 +131,10 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
         let datePicker = DatePickerViewController(initialDate: NSDate())
         datePicker.onSelected = {
             date in
-            RMUniversalAlert.showAlertInViewController(
-                self,
-                withTitle: nil,
-                message: I18n.translateWithFormat("Are you sure you want to reset date with %@?", args: date.dateString()),
-                cancelButtonTitle: I18n.cancel,
-                destructiveButtonTitle: nil,
-                otherButtonTitles: [I18n.yes]) {
-                    (alert, index) in
-                    switch index {
-                    case alert.firstOtherButtonIndex:
-                        cell.resetDate(date)
-                        self.reload()
-                    default:
-                        break
-                    }
+            PopupAlertView.confirm(self, message: I18n.translateWithFormat("Are you sure you want to reset date with %@?", args: date.dateString())) {
+                cell.resetDate(date)
+                self.reload()
             }
-            return
         }
         ModalViewController(baseController: self).presentModalViewController(datePicker)
     }

@@ -171,23 +171,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func deleteButtonTapped() {
-        RMUniversalAlert.showAlertInViewController(self,
-            withTitle: I18n.translate("Are you sure you want to delete?"),
-            message: nil,
-            cancelButtonTitle: I18n.cancel,
-            destructiveButtonTitle: nil,
-            otherButtonTitles: [I18n.yes],
-            tapBlock: {
-                (alert, index) in
-                switch index {
-                case alert.firstOtherButtonIndex:
-                    self.dateViewModel.deleteDate()
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                    break
-                default:
-                    break
-                }
-                return
-        })
+        PopupAlertView.confirm(self, message: I18n.translate("Are you sure you want to delete?")) {
+            self.dateViewModel.deleteDate()
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
 }

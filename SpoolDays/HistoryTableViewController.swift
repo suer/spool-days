@@ -66,20 +66,9 @@ class HistoryTableViewController: UITableViewController {
 
     private func deleteLog(indexPath: NSIndexPath) {
         if let cell = tableView.cellForRowAtIndexPath(indexPath) as? HistoryTableViewCell {
-            RMUniversalAlert.showAlertInViewController(self,
-                withTitle: I18n.confirmation,
-                message: I18n.translate("Are you sure you want to delete?"),
-                cancelButtonTitle: I18n.no,
-                destructiveButtonTitle: nil,
-                otherButtonTitles: [I18n.yes]) {
-                    (alert, index) in
-                    switch index {
-                    case alert.firstOtherButtonIndex:
-                        self.historyViewModel.deleteLog(indexPath.row)
-                        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                    default:
-                        break
-                    }
+            PopupAlertView.confirm(self, message: I18n.translate("Are you sure you want to delete?")) {
+                self.historyViewModel.deleteLog(indexPath.row)
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             }
         }
     }

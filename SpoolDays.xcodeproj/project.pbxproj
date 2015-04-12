@@ -28,6 +28,7 @@
 		802225FD19FB058F00330227 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 802225FC19FB058F00330227 /* MainInterface.storyboard */; };
 		8022260019FB058F00330227 /* SpoolDaysTodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 802225F419FB058F00330227 /* SpoolDaysTodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		80404BDD1A0BA76A00FD835F /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80404BDC1A0BA76A00FD835F /* NSDateExtension.swift */; };
+		804A869E1ADA68CE0024E2E4 /* PopupAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A869D1ADA68CE0024E2E4 /* PopupAlertView.swift */; };
 		804E607419F31D5D005BA669 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E607319F31D5D005BA669 /* EditViewController.swift */; };
 		8057D9E919FBEB8A00AB18DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8057D9EB19FBEB8A00AB18DF /* Localizable.strings */; };
 		8057D9EE19FBEDCB00AB18DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8057D9EB19FBEB8A00AB18DF /* Localizable.strings */; };
@@ -106,6 +107,7 @@
 		8022260519FB086900330227 /* SpoolDaysTodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SpoolDaysTodayExtension.entitlements; sourceTree = "<group>"; };
 		8022260619FB3AE600330227 /* SpoolDays.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SpoolDays.entitlements; sourceTree = "<group>"; };
 		80404BDC1A0BA76A00FD835F /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		804A869D1ADA68CE0024E2E4 /* PopupAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupAlertView.swift; sourceTree = "<group>"; };
 		804E607319F31D5D005BA669 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		8057D9EA19FBEB8A00AB18DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8057D9EC19FBEBB400AB18DF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				800E8B831A731FE100CB1D6D /* I18n.swift */,
 				800E8B851A73ECCB00CB1D6D /* DateTableViewCellAction.swift */,
 				80B069521A94D5BD00848701 /* TextFieldTableViewCell.swift */,
+				804A869D1ADA68CE0024E2E4 /* PopupAlertView.swift */,
 			);
 			path = SpoolDays;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 			files = (
 				80DFB11F19F5427200BCF3B1 /* DatesViewModel.swift in Sources */,
 				8009360C1AA74ACC00F87B83 /* Log.swift in Sources */,
+				804A869E1ADA68CE0024E2E4 /* PopupAlertView.swift in Sources */,
 				80404BDD1A0BA76A00FD835F /* NSDateExtension.swift in Sources */,
 				804E607419F31D5D005BA669 /* EditViewController.swift in Sources */,
 				8009360A1AA74ACB00F87B83 /* BaseDate.swift in Sources */,
