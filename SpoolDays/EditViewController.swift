@@ -140,10 +140,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     private func popupDatePicker() {
         let controller = DatePickerViewController(initialDate: date)
-        controller.onSelected = {
-            date in
-            self.date = date
-        }
+        controller.onSelected = { self.date = $0 }
         ModalViewController(baseController: self).presentModalViewController(controller)
     }
 

@@ -77,8 +77,7 @@ class HistoryTableViewController: UITableViewController {
         if let cell = tableView.cellForRowAtIndexPath(indexPath) as? HistoryTableViewCell {
             let controller = DatePickerViewController(initialDate: cell.date)
             controller.onSelected = {
-                date in
-                cell.date = date
+                cell.date = $0
                 self.tableView.reloadData()
             }
             ModalViewController(baseController: self).presentModalViewController(controller)
