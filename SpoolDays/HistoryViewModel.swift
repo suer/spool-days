@@ -1,8 +1,7 @@
 class HistoryViewModel: NSObject {
-    dynamic var logs: [Log]
+    dynamic var logs = [Log]()
     let baseDate: BaseDate
     init(baseDate: BaseDate) {
-        self.logs = []
         self.baseDate = baseDate
     }
 
