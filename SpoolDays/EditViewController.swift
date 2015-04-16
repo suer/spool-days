@@ -69,22 +69,22 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: cancel button
 
     func loadCancelButton() {
-        let cancelButton = UIBarButtonItem(title: I18n.cancel, style: UIBarButtonItemStyle.Plain, target: self, action: Selector("cancelButtonTapped:"))
+        let cancelButton = UIBarButtonItem(title: I18n.cancel, style: UIBarButtonItemStyle.Plain, target: self, action: Selector("cancelButtonTapped"))
         navigationItem.leftBarButtonItem = cancelButton
     }
 
-    func cancelButtonTapped(sender: AnyObject) {
+    func cancelButtonTapped() {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
     // MARK: save button
 
     func loadSaveButton() {
-        let saveButton = UIBarButtonItem(title: I18n.save, style: UIBarButtonItemStyle.Plain, target: self, action: Selector("saveButtonTapped:"))
+        let saveButton = UIBarButtonItem(title: I18n.save, style: UIBarButtonItemStyle.Plain, target: self, action: Selector("saveButtonTapped"))
         navigationItem.rightBarButtonItem = saveButton
     }
 
-    func saveButtonTapped(sender: AnyObject) {
+    func saveButtonTapped() {
         dateViewModel.update(title: titleString, date: date)
         dismissViewControllerAnimated(true, completion: nil)
     }
