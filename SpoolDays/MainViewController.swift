@@ -55,21 +55,21 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
     }
 
     func loadEditButton() {
-        let editButton = UIBarButtonItem(title: I18n.edit, style: .Plain, target: self, action: Selector("editButtonTapped:"))
+        let editButton = UIBarButtonItem(title: I18n.edit, style: .Plain, target: self, action: Selector("editButtonTapped"))
         navigationItem.rightBarButtonItem = editButton
     }
 
-    func editButtonTapped(button: UIBarButtonItem) {
+    func editButtonTapped() {
         editing = !editing
     }
 
     func loadToolbar() {
-        let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: Selector("addButtonTapped:"))
+        let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: Selector("addButtonTapped"))
         let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
         toolbarItems = [spacer, addButton]
     }
 
-    func addButtonTapped(sender: AnyObject) {
+    func addButtonTapped() {
         let dateViewModel = DateViewModel(baseDate: nil)
         showEditView(dateViewModel)
     }
