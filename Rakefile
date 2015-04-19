@@ -16,16 +16,17 @@ end
 task :clean do
     puts "🚮  Cleaning...".bold
     sh "rm -rf #{TMP} && mkdir #{TMP}"
+    sh "xcodebuild clean -workspace #{WORKSPACE} -scheme #{SCHEME}"
 end
 
-task :archive => :clean do
+task :archive do
     puts "🔨  Archiving...".bold
     sh "xcodebuild archive -workspace #{WORKSPACE} -scheme #{SCHEME} -archivePath #{ARCHIVE} | #{PRETTY}"
 end
 
 task :ipa => :archive do
     puts "📦  Creating ipa...".bold
-    sh "xcrun -sdk iphoneos PackageApplication #{ARCHIVE}.xcarchive/Products/Applications/#{SCHEME}.app -o #{IPA}  -embed org.codefirst.SpoolDays.mobileprovision"
+    sh "xcrun -sdk iphoneos PackageApplication #{ARCHIVE}.xcarchive/Products/Applications/#{SCHEME}.app -o #{IPA} -embed org.codefirst.SpoolDays.mobileprovision"
 end
 
 task :submit => :ipa do
