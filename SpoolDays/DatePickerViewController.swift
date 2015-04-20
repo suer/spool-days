@@ -33,17 +33,10 @@ class DatePickerViewController: UIViewController, RSDFDatePickerViewDelegate {
     }
 
     func datePickerView(view: RSDFDatePickerView!, didSelectDate date: NSDate!) {
-        dismissViewControllerAnimated(true, completion: {
-            if let selected = self.onSelected {
-                selected(date)
-            }
-            return
-        })
         dismissViewControllerAnimated(true) {
             if let selected = self.onSelected {
                 selected(date)
             }
-            return
         }
     }
 
