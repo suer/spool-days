@@ -3,10 +3,8 @@ import Foundation
 class Preference {
     var mintAPIKey: String {
         get {
-            if let path = preferencePlistPath {
-                if let dictionary = NSDictionary(contentsOfFile: path) {
-                    return dictionary.objectForKey("MintAPIKey") as? String ?? ""
-                }
+            if let path = preferencePlistPath, dictionary = NSDictionary(contentsOfFile: path) {
+                return dictionary.objectForKey("MintAPIKey") as? String ?? ""
             }
             return ""
         }
