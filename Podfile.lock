@@ -35,14 +35,14 @@ CHECKOUT OPTIONS:
     :git: https://github.com/suer/RSDayFlow.git
 
 SPEC CHECKSUMS:
-  MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
-  MTDates: e04c9433bf5f1d5cb55a1862ec018a01b5da75c3
-  RMUniversalAlert: 29efbec1d069082dd851054042b934550bc70b45
+  MagicalRecord: f8a56bb87ab6552f20c4bb8681a1958a197ea3cd
+  MTDates: 1dbf92ecda49c0fc42bfd692bda3c471069b57ba
+  RMUniversalAlert: a383f00755c8258c6e77e09fd241f7325ea4dac2
   RSDayFlow: fb48480094f00d28fc90947051190f55478263c4
-  SplunkMint-iOS: 528329b25dcadcb919b99e46f4a786d11c51c82c
-  SWTableViewCell: 25de71898e3fcd11cf75707ef90245acf990ec03
-  UIActionSheet+Blocks: c8b9c02f3d08964e8f7a4202f004a639c15eab80
-  UIAlertController+Blocks: a02869a586a1e242accabc86beb5f08f00998a76
-  UIAlertView+Blocks: 0b749f1f7bd5131ff2233b30a406c1585a7171b2
+  SplunkMint-iOS: 6dca12ac7a8a8f4c1f503f70b2abeebc4d1cf90a
+  SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
+  UIActionSheet+Blocks: 7fdab45fc8f15ac2dc1cd65af1470746600b5f46
+  UIAlertController+Blocks: 45787b973b5f2f4ca4f01bc76f4175481ce059b3
+  UIAlertView+Blocks: 45c3d3b7194906702d3e9a14c7ece5581505646d
 
-COCOAPODS: 0.36.0
+COCOAPODS: 0.38.2

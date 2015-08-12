@@ -11,7 +11,7 @@ pod "MTDates"
 pod 'SplunkMint-iOS'
 
 post_install do |installer|
-  t = installer.project.targets.find {|target| target.name == 'Pods-RSDayFlow'}
+  t = installer.pods_project.targets.find {|target| target.name == 'RSDayFlow'}
   t.build_configurations.each do |config|
     config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] = ['$(inherited)', 'RSDF_APP_EXTENSION']
   end
