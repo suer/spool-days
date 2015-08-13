@@ -11,7 +11,7 @@ class DatesViewModel: NSObject {
         fetch()
     }
 
-    func move(#fromIndex: Int, toIndex: Int) {
+    func move(fromIndex fromIndex: Int, toIndex: Int) {
         BaseDate.move(fromIndex: fromIndex, toIndex: toIndex)
         fetch()
     }

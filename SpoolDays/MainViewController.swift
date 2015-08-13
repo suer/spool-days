@@ -21,11 +21,11 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
         super.viewWillAppear(animated)
     }
 
-    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         switch keyPath {
-        case "dates":
+        case .Some("dates"):
             self.tableView.reloadData()
-        case "editing":
+        case .Some("editing"):
             navigationItem.rightBarButtonItem?.title = editing ? I18n.finish : I18n.edit
         default:
             break
@@ -148,24 +148,17 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! DateTableViewCell
-        RMUniversalAlert.showActionSheetInViewController(self,
-            withTitle: nil,
-            message: nil,
-            cancelButtonTitle: I18n.cancel,
-            destructiveButtonTitle: nil,
-            otherButtonTitles: cellActions.map { cellAction in cellAction.name },
-            popoverPresentationControllerBlock: {
-                $0.sourceView = cell
-                $0.sourceRect = cell.frame
-            }) {
-                (alert, index) in
-                let buttonIndex = index - alert.firstOtherButtonIndex
-                if buttonIndex >= 0 && buttonIndex < self.cellActions.count {
-                    self.cellActions[buttonIndex].action(self, cell)
-                }
-                tableView.deselectRowAtIndexPath(indexPath, animated: true)
-                return
+
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+
+        let ac = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        ac.addAction(UIAlertAction(title: I18n.cancel, style: .Cancel, handler: nil))
+        for cellAction in cellActions {
+            ac.addAction(UIAlertAction(title: cellAction.name, style: .Default, handler: { _ in
+                cellAction.action(self, cell)
+            }))
         }
+        presentViewController(ac, animated: true, completion: nil)
     }
 
     private func showEditView(dateViewModel: DateViewModel) {

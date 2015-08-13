@@ -372,12 +372,13 @@
 		80A574AB19EFDF4100C06CBB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = codefirst.org;
 				TargetAttributes = {
 					802225F319FB058F00330227 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = LG7S83GR74;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -386,7 +387,6 @@
 					};
 					80A574B219EFDF4100C06CBB = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = LG7S83GR74;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;

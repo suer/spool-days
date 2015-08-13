@@ -30,7 +30,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -50,7 +50,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         focusOnTextField()
     }
 
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         focusOnTextField()
     }
 
@@ -97,8 +97,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView!.dataSource = self
         view.addSubview(tableView!)
 
-        tableView!.setTranslatesAutoresizingMaskIntoConstraints(false)
-        view!.autoresizingMask = .FlexibleHeight | .FlexibleWidth
+        tableView!.translatesAutoresizingMaskIntoConstraints = false
+        view!.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
         let topConstraint = NSLayoutConstraint(item: tableView!, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1.0, constant: 0.0)
         let bottomConstraint = NSLayoutConstraint(item: tableView!, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1.0, constant: cellHeight * CGFloat(cellCount))
         let leftConstraint = NSLayoutConstraint(item: tableView!, attribute: .Left, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier: 1.0, constant: 0.0)
@@ -156,8 +156,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         deleteButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         view.addSubview(deleteButton)
 
-        deleteButton.setTranslatesAutoresizingMaskIntoConstraints(false)
-        view!.autoresizingMask = .FlexibleHeight | .FlexibleWidth
+        deleteButton.translatesAutoresizingMaskIntoConstraints = false
+        view!.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
         let topConstraint = NSLayoutConstraint(item: deleteButton, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1.0, constant: cellHeight * CGFloat(cellCount + 1))
         let bottomConstraint = NSLayoutConstraint(item: deleteButton, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1.0, constant: cellHeight * CGFloat(cellCount + 2))
         let leftConstraint = NSLayoutConstraint(item: deleteButton, attribute: .Left, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier: 1.0, constant: 0.0)

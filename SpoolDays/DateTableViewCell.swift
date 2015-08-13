@@ -10,7 +10,7 @@ class DateTableViewCell: SWTableViewCell {
         updateLabels()
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -30,7 +30,7 @@ class DateTableViewCell: SWTableViewCell {
     }
 
     private func loadButtons() {
-        let resetButton = UIButton.buttonWithType(.Custom) as! UIButton
+        let resetButton = UIButton(type: .Custom)
         resetButton.backgroundColor = ThemeColor.resetColor()
         resetButton.setTitle(I18n.reset, forState: .Normal)
         resetButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)

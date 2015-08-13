@@ -8,7 +8,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     var tableView: UITableView?
     var dates: [Dictionary<String, String>] = []
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDefaultsDidChange:",
             name: NSUserDefaultsDidChangeNotification, object: nil)
@@ -68,7 +68,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         }
     }
 
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
+    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
         completionHandler(NCUpdateResult.NewData)
     }
 }
