@@ -1,12 +1,11 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-platform :ios, '7.0'
+platform :ios, '8.0'
 inhibit_all_warnings!
 link_with 'SpoolDays', 'SpoolDaysTest', 'SpoolDaysTodayExtension'
 pod 'MagicalRecord'
 pod 'SWTableViewCell'
 pod 'RSDayFlow', :git => 'https://github.com/suer/RSDayFlow.git', :commit => 'efb97f8'
-pod 'RMUniversalAlert'
 pod "MTDates"
 pod 'SplunkMint-iOS'
 
