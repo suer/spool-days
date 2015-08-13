@@ -3,4 +3,4 @@
 #import "RSDFDatePickerView.h"
 #import "RMUniversalAlert.h"
 #import "NSDate+MTDates.h"
-#import "SplunkMint-iOS.h"
+#import <SplunkMint-iOS/SplunkMint-iOS.h>
