@@ -2,7 +2,7 @@ class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     var textField: UITextField?
     var valueChanged: (String -> ())?
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -15,8 +15,8 @@ class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
         textField!.autocapitalizationType = .None
         contentView.addSubview(textField!)
 
-        textField!.setTranslatesAutoresizingMaskIntoConstraints(false)
-        contentView.autoresizingMask = .FlexibleHeight | .FlexibleWidth
+        textField!.translatesAutoresizingMaskIntoConstraints = false
+        contentView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
         let topConstraint = NSLayoutConstraint(item: textField!, attribute: .Top, relatedBy: .Equal, toItem: contentView, attribute: .Top, multiplier: 1.0, constant: 0.0)
         let bottomConstraint = NSLayoutConstraint(item: textField!, attribute: .Bottom, relatedBy: .Equal, toItem: contentView, attribute: .Bottom, multiplier: 1.0, constant: 0.0)
         let leftConstraint = NSLayoutConstraint(item: textField!, attribute: .Left, relatedBy: .Equal, toItem: contentView, attribute: .Left, multiplier: 1.0, constant: 15.0)
@@ -41,6 +41,6 @@ class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
 
     func getValue() -> String {
-        return textField!.text
+        return textField?.text ?? ""
     }
 }

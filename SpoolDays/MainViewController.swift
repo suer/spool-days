@@ -21,11 +21,11 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
         super.viewWillAppear(animated)
     }
 
-    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         switch keyPath {
-        case "dates":
+        case .Some("dates"):
             self.tableView.reloadData()
-        case "editing":
+        case .Some("editing"):
             navigationItem.rightBarButtonItem?.title = editing ? I18n.finish : I18n.edit
         default:
             break

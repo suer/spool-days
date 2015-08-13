@@ -372,6 +372,8 @@
 		80A574AB19EFDF4100C06CBB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = codefirst.org;
 				TargetAttributes = {

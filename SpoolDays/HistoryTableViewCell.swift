@@ -7,7 +7,7 @@ class HistoryTableViewCell: UITableViewCell {
         super.init(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -15,8 +15,8 @@ class HistoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
-        if let date = change["new"] as? NSDate {
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if let date = change?["new"] as? NSDate {
             textLabel?.text = log.date.dateString()
         }
     }

@@ -24,7 +24,7 @@ class DateViewModel: NSObject {
         }
     }
 
-    func update(#title: String, date: NSDate) {
+    func update(title title: String, date: NSDate) {
         if let baseDate = baseDate {
             baseDate.update(title: title, date: date)
         } else {

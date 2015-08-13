@@ -28,7 +28,7 @@ class BaseDate: NSManagedObject {
         return nil
     }
 
-    func update(#title: String, date: NSDate) {
+    func update(title title: String, date: NSDate) {
         if self.date.isEqualToDate(date) {
             let log = Log.MR_createEntity() as! Log
             log.date = date
@@ -43,7 +43,7 @@ class BaseDate: NSManagedObject {
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
     }
 
-    class func move(#fromIndex: Int, toIndex: Int) {
+    class func move(fromIndex fromIndex: Int, toIndex: Int) {
         let dates = BaseDate.MR_findAllSortedBy("sort", ascending: true) as! [BaseDate]
         dates[fromIndex].sort = toIndex
         if (fromIndex < toIndex) {
