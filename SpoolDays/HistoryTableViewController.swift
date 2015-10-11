@@ -65,7 +65,7 @@ class HistoryTableViewController: UITableViewController {
     }
 
     private func deleteLog(indexPath: NSIndexPath) {
-        if let cell = tableView.cellForRowAtIndexPath(indexPath) as? HistoryTableViewCell {
+        if let _ = tableView.cellForRowAtIndexPath(indexPath) as? HistoryTableViewCell {
             PopupAlertView.confirm(self, message: I18n.translate("Are you sure you want to delete?")) {
                 self.historyViewModel.deleteLog(indexPath.row)
                 self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)

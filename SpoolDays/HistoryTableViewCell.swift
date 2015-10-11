@@ -16,7 +16,7 @@ class HistoryTableViewCell: UITableViewCell {
     }
 
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        if let date = change?["new"] as? NSDate {
+        if let _ = change?["new"] as? NSDate {
             textLabel?.text = log.date.dateString()
         }
     }
