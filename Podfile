@@ -7,7 +7,6 @@ pod 'MagicalRecord'
 pod 'SWTableViewCell'
 pod 'RSDayFlow', :git => 'https://github.com/suer/RSDayFlow.git', :commit => 'efb97f8'
 pod "MTDates"
-pod 'SplunkMint-iOS'
 
 post_install do |installer|
   t = installer.pods_project.targets.find {|target| target.name == 'RSDayFlow'}

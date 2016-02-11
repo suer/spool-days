@@ -4,14 +4,12 @@ PODS:
   - MagicalRecord/Core (2.2)
   - MTDates (1.0.0)
   - RSDayFlow (0.8.0)
-  - SplunkMint-iOS (4.0.24)
   - SWTableViewCell (0.3.7)
 
 DEPENDENCIES:
   - MagicalRecord
   - MTDates
   - RSDayFlow (from `https://github.com/suer/RSDayFlow.git`, commit `efb97f8`)
-  - SplunkMint-iOS
   - SWTableViewCell
 
 EXTERNAL SOURCES:
@@ -25,10 +23,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/suer/RSDayFlow.git
 
 SPEC CHECKSUMS:
-  MagicalRecord: f8a56bb87ab6552f20c4bb8681a1958a197ea3cd
+  MagicalRecord: 2dc87179ae7c1f2a274442624ec65a07d4357a6f
   MTDates: 1dbf92ecda49c0fc42bfd692bda3c471069b57ba
   RSDayFlow: fb48480094f00d28fc90947051190f55478263c4
-  SplunkMint-iOS: 6dca12ac7a8a8f4c1f503f70b2abeebc4d1cf90a
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
 
 COCOAPODS: 0.38.2
