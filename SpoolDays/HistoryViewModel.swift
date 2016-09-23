@@ -10,15 +10,15 @@ class HistoryViewModel: NSObject {
     }
 
     func save() {
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+        NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
     }
 
-    func deleteLog(index: Int) {
+    func deleteLog(_ index: Int) {
         logs[index].delete()
-        logs.removeAtIndex(index)
+        logs.remove(at: index)
     }
 
     func rollback() {
-        NSManagedObjectContext.MR_defaultContext().rollback()
+        NSManagedObjectContext.mr_default().rollback()
     }
 }

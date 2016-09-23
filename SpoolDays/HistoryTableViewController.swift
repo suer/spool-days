@@ -26,55 +26,55 @@ class HistoryTableViewController: UITableViewController {
     // MARK: cancel button
 
     func loadCancelButton() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: I18n.cancel, style: UIBarButtonItemStyle.Plain, target: self, action: "cancelButtonTapped")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: I18n.cancel, style: UIBarButtonItemStyle.plain, target: self, action: #selector(HistoryTableViewController.cancelButtonTapped))
     }
 
     func cancelButtonTapped() {
-        dismissViewControllerAnimated(true, completion: {self.historyViewModel.rollback()})
+        dismiss(animated: true, completion: {self.historyViewModel.rollback()})
     }
 
     // MARK: save button
 
     func loadSaveButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: I18n.save, style: UIBarButtonItemStyle.Plain, target: self, action: "saveButtonTapped")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: I18n.save, style: UIBarButtonItemStyle.plain, target: self, action: #selector(HistoryTableViewController.saveButtonTapped))
     }
 
     func saveButtonTapped() {
         historyViewModel.save()
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
     // MARK: table view
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return historyViewModel.logs.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let log = historyViewModel.logs[indexPath.row]
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let log = historyViewModel.logs[(indexPath as NSIndexPath).row]
         let cell = HistoryTableViewCell(log: log)
         cell.textLabel?.text = log.dateString()
         cell.detailTextLabel?.text = log.eventString()
         return cell
     }
 
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
             deleteLog(indexPath)
         }
     }
 
-    private func deleteLog(indexPath: NSIndexPath) {
-        if let _ = tableView.cellForRowAtIndexPath(indexPath) as? HistoryTableViewCell {
+    fileprivate func deleteLog(_ indexPath: IndexPath) {
+        if let _ = tableView.cellForRow(at: indexPath) as? HistoryTableViewCell {
             PopupAlertView.confirm(self, message: I18n.translate("Are you sure you want to delete?")) {
-                self.historyViewModel.deleteLog(indexPath.row)
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                self.historyViewModel.deleteLog((indexPath as NSIndexPath).row)
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
             }
         }
     }
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if let cell = tableView.cellForRowAtIndexPath(indexPath) as? HistoryTableViewCell {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? HistoryTableViewCell {
             let controller = DatePickerViewController(initialDate: cell.date)
             controller.onSelected = {
                 cell.date = $0

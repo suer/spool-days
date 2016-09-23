@@ -4,14 +4,14 @@ import CoreData
 @objc(Log)
 class Log: NSManagedObject {
 
-    @NSManaged var date: NSDate
+    @NSManaged var date: Date
     @NSManaged var duration: NSNumber
     @NSManaged var event: String
     @NSManaged var baseDate: BaseDate
 
-    class func findResetLogsByBaseDate(baseDate: BaseDate) -> [Log] {
+    class func findResetLogsByBaseDate(_ baseDate: BaseDate) -> [Log] {
         let predicate = NSPredicate(format: "baseDate = %@ and event in %@", baseDate, ["create", "reset"])
-        return Log.MR_findAllSortedBy("_pk", ascending: false, withPredicate: predicate) as! [Log]
+        return Log.mr_findAllSorted(by: "_pk", ascending: false, with: predicate) as! [Log]
     }
 
     func dateString() -> String {
@@ -19,7 +19,7 @@ class Log: NSManagedObject {
     }
 
     func delete() {
-        MR_deleteEntity()
+        mr_deleteEntity()
     }
 
     func eventString() -> String {

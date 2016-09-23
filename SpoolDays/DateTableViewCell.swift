@@ -5,7 +5,7 @@ class DateTableViewCell: SWTableViewCell {
 
     init(reuseIdentifier: String?, dateViewModel: DateViewModel) {
         self.dateViewModel = dateViewModel
-        super.init(style: UITableViewCellStyle.Value1, reuseIdentifier: reuseIdentifier)
+        super.init(style: UITableViewCellStyle.value1, reuseIdentifier: reuseIdentifier)
         loadButtons()
         updateLabels()
     }
@@ -18,22 +18,22 @@ class DateTableViewCell: SWTableViewCell {
         dateViewModel.resetDate()
     }
 
-    func resetDate(date: NSDate) {
+    func resetDate(_ date: Date) {
         dateViewModel.resetDate(date)
     }
 
-    private func updateLabels() {
+    fileprivate func updateLabels() {
         if let baseDate = dateViewModel.baseDate {
             textLabel?.text = baseDate.title
             detailTextLabel?.text = "\(baseDate.dateInterval()) " + I18n.translate("Days")
         }
     }
 
-    private func loadButtons() {
-        let resetButton = UIButton(type: .Custom)
+    fileprivate func loadButtons() {
+        let resetButton = UIButton(type: .custom)
         resetButton.backgroundColor = ThemeColor.resetColor()
-        resetButton.setTitle(I18n.reset, forState: .Normal)
-        resetButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        resetButton.setTitle(I18n.reset, for: UIControlState())
+        resetButton.setTitleColor(UIColor.white, for: UIControlState())
         resetButton.titleLabel?.adjustsFontSizeToFitWidth = true
         leftUtilityButtons = [resetButton]
     }

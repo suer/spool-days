@@ -1,23 +1,23 @@
 import Foundation
-extension NSDate {
+extension Date {
     func dateIntervalFromNow() -> Int {
-        return dateIntervalFromDate(NSDate())
+        return dateIntervalFromDate(Date())
     }
 
-    func dateIntervalFromDate(from: NSDate) -> Int {
-        return self.mt_daysUntilDate(from)
+    func dateIntervalFromDate(_ from: Date) -> Int {
+        return (self as NSDate).mt_days(until: from)
     }
 
     func dateString() -> String {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.timeStyle = .NoStyle
-        dateFormatter.dateStyle = .ShortStyle
-        return dateFormatter.stringFromDate(self)
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateStyle = .short
+        return dateFormatter.string(from: self)
     }
 
-    class func fromString(str: String) -> NSDate? {
-        let dateFormatter = NSDateFormatter()
+    static func fromString(_ str: String) -> Date? {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.dateFromString(str)
+        return dateFormatter.date(from: str)
     }
 }

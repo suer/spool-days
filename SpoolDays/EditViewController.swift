@@ -8,9 +8,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var tableView: UITableView?
 
     var titleString: String
-    var date: NSDate {
+    var date: Date {
         didSet {
-            if let cell = tableView?.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 0)) {
+            if let cell = tableView?.cellForRow(at: IndexPath(row: 1, section: 0)) {
                 cell.detailTextLabel?.text = date.dateString()
             }
         }
@@ -23,10 +23,10 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.init(nibName: nil, bundle: nil, dateViewModel: dateViewModel)
     }
 
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, dateViewModel: DateViewModel) {
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, dateViewModel: DateViewModel) {
         self.dateViewModel = dateViewModel
         self.titleString = dateViewModel.baseDate?.title ?? ""
-        self.date = dateViewModel.baseDate?.date ?? NSDate()
+        self.date = dateViewModel.baseDate?.date as Date? ?? Date()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
@@ -36,8 +36,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.whiteColor()
-        edgesForExtendedLayout = UIRectEdge.None
+        view.backgroundColor = UIColor.white
+        edgesForExtendedLayout = UIRectEdge()
         automaticallyAdjustsScrollViewInsets = false
 
         loadCancelButton()
@@ -46,22 +46,22 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         loadDeleteButon()
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         focusOnTextField()
     }
 
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         focusOnTextField()
     }
 
-    private func focusOnTextField() {
-        if let cell = tableView?.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as? TextFieldTableViewCell {
+    fileprivate func focusOnTextField() {
+        if let cell = tableView?.cellForRow(at: IndexPath(row: 0, section: 0)) as? TextFieldTableViewCell {
             cell.focusOnTextField()
         }
     }
 
-    private func blurOnTextField() {
-        if let cell = tableView?.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as? TextFieldTableViewCell {
+    fileprivate func blurOnTextField() {
+        if let cell = tableView?.cellForRow(at: IndexPath(row: 0, section: 0)) as? TextFieldTableViewCell {
             cell.blurOnTextField()
         }
     }
@@ -69,24 +69,24 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: cancel button
 
     func loadCancelButton() {
-        let cancelButton = UIBarButtonItem(title: I18n.cancel, style: UIBarButtonItemStyle.Plain, target: self, action: Selector("cancelButtonTapped"))
+        let cancelButton = UIBarButtonItem(title: I18n.cancel, style: UIBarButtonItemStyle.plain, target: self, action: #selector(EditViewController.cancelButtonTapped))
         navigationItem.leftBarButtonItem = cancelButton
     }
 
     func cancelButtonTapped() {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
     // MARK: save button
 
     func loadSaveButton() {
-        let saveButton = UIBarButtonItem(title: I18n.save, style: UIBarButtonItemStyle.Plain, target: self, action: Selector("saveButtonTapped"))
+        let saveButton = UIBarButtonItem(title: I18n.save, style: UIBarButtonItemStyle.plain, target: self, action: #selector(EditViewController.saveButtonTapped))
         navigationItem.rightBarButtonItem = saveButton
     }
 
     func saveButtonTapped() {
         dateViewModel.update(title: titleString, date: date)
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
     // MARK: table view
@@ -98,39 +98,39 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         view.addSubview(tableView!)
 
         tableView!.translatesAutoresizingMaskIntoConstraints = false
-        view!.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
-        let topConstraint = NSLayoutConstraint(item: tableView!, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1.0, constant: 0.0)
-        let bottomConstraint = NSLayoutConstraint(item: tableView!, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1.0, constant: cellHeight * CGFloat(cellCount))
-        let leftConstraint = NSLayoutConstraint(item: tableView!, attribute: .Left, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier: 1.0, constant: 0.0)
-        let rightConstraint = NSLayoutConstraint(item: tableView!, attribute: .Right, relatedBy: .Equal, toItem: view, attribute: .Right, multiplier: 1.0, constant: 0.0)
+        view!.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        let topConstraint = NSLayoutConstraint(item: tableView!, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 0.0)
+        let bottomConstraint = NSLayoutConstraint(item: tableView!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: cellHeight * CGFloat(cellCount))
+        let leftConstraint = NSLayoutConstraint(item: tableView!, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant: 0.0)
+        let rightConstraint = NSLayoutConstraint(item: tableView!, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant: 0.0)
         view!.addConstraints([topConstraint, bottomConstraint, leftConstraint, rightConstraint])
 
     }
 
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cellHeight
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int  {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int  {
         return 2
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if (indexPath as NSIndexPath).row == 0 {
             let cell = TextFieldTableViewCell(value: dateViewModel.baseDate?.title ?? "", placeHolder: "Title", reuserIdentifier: "Cell")
             cell.valueChanged = { self.titleString = $0 }
             return cell
         } else {
-            let cell = UITableViewCell(style: .Value1, reuseIdentifier: "Cell")
+            let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
             cell.textLabel?.text = I18n.translate("Date")
-            cell.detailTextLabel?.text = (dateViewModel.baseDate?.date ?? NSDate()).dateString()
+            cell.detailTextLabel?.text = (dateViewModel.baseDate?.date ?? Date()).dateString()
             return cell
         }
     }
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        if indexPath.row == 0 {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if (indexPath as NSIndexPath).row == 0 {
             focusOnTextField()
         } else {
             blurOnTextField()
@@ -138,7 +138,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
 
-    private func popupDatePicker() {
+    fileprivate func popupDatePicker() {
         let controller = DatePickerViewController(initialDate: date)
         controller.onSelected = { self.date = $0 }
         ModalViewController(baseController: self).presentModalViewController(controller)
@@ -150,27 +150,27 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         if dateViewModel.baseDate == nil {
             return
         }
-        let deleteButton = UIButton(frame: CGRectMake(0, cellHeight * CGFloat(cellCount + 1), view.bounds.width, cellHeight))
+        let deleteButton = UIButton(frame: CGRect(x: 0, y: cellHeight * CGFloat(cellCount + 1), width: view.bounds.width, height: cellHeight))
         deleteButton.backgroundColor = ThemeColor.deleteColor()
-        deleteButton.setTitle(I18n.delete, forState: .Normal)
-        deleteButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        deleteButton.setTitle(I18n.delete, for: UIControlState())
+        deleteButton.setTitleColor(UIColor.white, for: UIControlState())
         view.addSubview(deleteButton)
 
         deleteButton.translatesAutoresizingMaskIntoConstraints = false
-        view!.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
-        let topConstraint = NSLayoutConstraint(item: deleteButton, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1.0, constant: cellHeight * CGFloat(cellCount + 1))
-        let bottomConstraint = NSLayoutConstraint(item: deleteButton, attribute: .Bottom, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1.0, constant: cellHeight * CGFloat(cellCount + 2))
-        let leftConstraint = NSLayoutConstraint(item: deleteButton, attribute: .Left, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier: 1.0, constant: 0.0)
-        let rightConstraint = NSLayoutConstraint(item: deleteButton, attribute: .Right, relatedBy: .Equal, toItem: view, attribute: .Right, multiplier: 1.0, constant: 0.0)
+        view!.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        let topConstraint = NSLayoutConstraint(item: deleteButton, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: cellHeight * CGFloat(cellCount + 1))
+        let bottomConstraint = NSLayoutConstraint(item: deleteButton, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: cellHeight * CGFloat(cellCount + 2))
+        let leftConstraint = NSLayoutConstraint(item: deleteButton, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant: 0.0)
+        let rightConstraint = NSLayoutConstraint(item: deleteButton, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant: 0.0)
         view!.addConstraints([topConstraint, bottomConstraint, leftConstraint, rightConstraint])
 
-        deleteButton.addTarget(self, action: Selector("deleteButtonTapped"), forControlEvents: .TouchUpInside)
+        deleteButton.addTarget(self, action: #selector(EditViewController.deleteButtonTapped), for: .touchUpInside)
     }
 
     func deleteButtonTapped() {
         PopupAlertView.confirm(self, message: I18n.translate("Are you sure you want to delete?")) {
             self.dateViewModel.deleteDate()
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }

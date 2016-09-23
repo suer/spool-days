@@ -1,11 +1,11 @@
 import Foundation
 
 class I18n {
-    class func translate(key: String) -> String {
+    class func translate(_ key: String) -> String {
         return NSLocalizedString(key, comment: "")
     }
 
-    class func translateWithFormat(key: String, args: CVarArgType...) -> String {
+    class func translateWithFormat(_ key: String, args: CVarArg...) -> String {
         return String(format: I18n.translate(key), arguments: args)
     }
 

@@ -4,35 +4,35 @@ import CoreData
 @objc(BaseDate)
 class BaseDate: NSManagedObject {
 
-    @NSManaged var date: NSDate
+    @NSManaged var date: Date
     @NSManaged var sort: NSNumber
     @NSManaged var title: String
     @NSManaged var logs: NSSet
 
-    class func createBaseDate(title: String, date: NSDate) -> BaseDate? {
-        let maxSort = BaseDate.MR_aggregateOperation("max:", onAttribute: "sort", withPredicate: NSPredicate(value: true)).integerValue
-        if let baseDate = BaseDate.MR_createEntity() as? BaseDate {
-            baseDate.sort = maxSort + 1
+    class func createBaseDate(_ title: String, date: Date) -> BaseDate? {
+        let maxSort = BaseDate.mr_aggregateOperation("max:", onAttribute: "sort", with: NSPredicate(value: true)).intValue
+        if let baseDate = BaseDate.mr_createEntity() as? BaseDate {
+            baseDate.sort = (maxSort + 1) as NSNumber
             baseDate.date = date
             baseDate.title = title
 
-            let log = Log.MR_createEntity() as! Log
+            let log = Log.mr_createEntity() as! Log
             log.date = date
             log.duration = 0
             log.baseDate = baseDate
             log.event = "create"
 
-            NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+            NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
             return baseDate
         }
         return nil
     }
 
-    func update(title title: String, date: NSDate) {
-        if self.date.isEqualToDate(date) {
-            let log = Log.MR_createEntity() as! Log
+    func update(title: String, date: Date) {
+        if self.date == date {
+            let log = Log.mr_createEntity() as! Log
             log.date = date
-            log.duration = dateInterval()
+            log.duration = NSNumber(value: dateInterval())
             log.baseDate = self
             log.event = "edit"
         }
@@ -40,54 +40,54 @@ class BaseDate: NSManagedObject {
         self.title = title
         self.date = date
 
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+        NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
     }
 
-    class func move(fromIndex fromIndex: Int, toIndex: Int) {
-        let dates = BaseDate.MR_findAllSortedBy("sort", ascending: true) as! [BaseDate]
-        dates[fromIndex].sort = toIndex
+    class func move(fromIndex: Int, toIndex: Int) {
+        let dates = BaseDate.mr_findAllSorted(by: "sort", ascending: true) as! [BaseDate]
+        dates[fromIndex].sort = NSNumber(value: toIndex)
         if (fromIndex < toIndex) {
-            for var i = fromIndex + 1; i <= toIndex; i++ {
-                dates[i].sort = Int(dates[i].sort) - 1
+            for i in stride(from: (fromIndex + 1), to: toIndex, by: 1) {
+                dates[i].sort = (Int(dates[i].sort) - 1) as NSNumber
             }
         } else {
-            for var i = toIndex; i < fromIndex; i++ {
-                dates[i].sort = Int(dates[i].sort) + 1
+            for i in toIndex ..< fromIndex {
+                dates[i].sort = (Int(dates[i].sort) + 1) as NSNumber
             }
         }
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+        NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
     }
 
     func delete() {
         if logs.count > 0 {
             for log in logs {
-                log.MR_deleteEntity()
+                (log as AnyObject).mr_deleteEntity()
             }
         }
-        MR_deleteEntity()
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+        mr_deleteEntity()
+        NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
     }
 
-    func reset(date: NSDate) {
-        let log = Log.MR_createEntity() as! Log
+    func reset(_ date: Date) {
+        let log = Log.mr_createEntity() as! Log
         log.date = date
-        log.duration = dateInterval(date)
+        log.duration = NSNumber(value: dateInterval(date))
         log.baseDate = self
         log.event = "reset"
 
         self.date = date
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+        NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
     }
 
     class func first() -> BaseDate? {
-        return BaseDate.MR_findFirstOrderedByAttribute("sort", ascending: true) as? BaseDate
+        return BaseDate.mr_findFirstOrdered(byAttribute: "sort", ascending: true) as? BaseDate
     }
 
     func dateInterval() -> Int {
         return date.dateIntervalFromNow()
     }
 
-    func dateInterval(from: NSDate) -> Int {
+    func dateInterval(_ from: Date) -> Int {
         return date.dateIntervalFromDate(from)
     }
 }

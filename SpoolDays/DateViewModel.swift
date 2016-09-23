@@ -10,21 +10,21 @@ class DateViewModel: NSObject {
         return baseDate?.title
     }
 
-    func getDate() -> NSDate? {
-        return baseDate?.date
+    func getDate() -> Date? {
+        return baseDate?.date as Date?
     }
 
     func resetDate() {
-        resetDate(NSDate())
+        resetDate(Date())
     }
 
-    func resetDate(date: NSDate) {
+    func resetDate(_ date: Date) {
         if let baseDate = baseDate {
             baseDate.reset(date)
         }
     }
 
-    func update(title title: String, date: NSDate) {
+    func update(title: String, date: Date) {
         if let baseDate = baseDate {
             baseDate.update(title: title, date: date)
         } else {

@@ -1,29 +1,29 @@
 import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
-    private let log: Log
+    fileprivate let log: Log
     init(log: Log) {
         self.log = log
-        super.init(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
+        super.init(style: UITableViewCellStyle.value1, reuseIdentifier: "Cell")
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
 
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        if let _ = change?["new"] as? NSDate {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if let _ = change?[.newKey] as? Date {
             textLabel?.text = log.date.dateString()
         }
     }
 
-    var date: NSDate {
+    var date: Date {
         get {
-            return log.date
+            return log.date as Date
         }
         set {
             log.date = newValue

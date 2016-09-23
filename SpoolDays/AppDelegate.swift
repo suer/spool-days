@@ -7,28 +7,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var onSignificantTimeChange: (() -> ())?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        MagicalRecord.setupCoreDataStackWithStoreNamed("spooldays.sqlite3")
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window!.backgroundColor = UIColor.whiteColor()
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        MagicalRecord.setupCoreDataStack(withStoreNamed: "spooldays.sqlite3")
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window!.backgroundColor = UIColor.white
         window!.makeKeyAndVisible()
         let navigationController = UINavigationController(rootViewController: MainViewController())
         window!.addSubview(navigationController.view)
         window!.rootViewController = navigationController
         registerNotification(application)
-        UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         setupStyle()
         return true
     }
 
-    private func registerNotification(application: UIApplication) {
-        if application.respondsToSelector(Selector("registerUserNotificationSettings:")) {
-            application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: ([UIUserNotificationType.Sound, UIUserNotificationType.Alert, UIUserNotificationType.Badge]), categories: nil))
+    fileprivate func registerNotification(_ application: UIApplication) {
+        if application.responds(to: #selector(UIApplication.registerUserNotificationSettings(_:))) {
+            application.registerUserNotificationSettings(UIUserNotificationSettings(types: ([UIUserNotificationType.sound, UIUserNotificationType.alert, UIUserNotificationType.badge]), categories: nil))
             application.registerForRemoteNotifications()
         }
     }
 
-    private func setupStyle() {
+    fileprivate func setupStyle() {
         UINavigationBar.appearance().barTintColor = ThemeColor.baseColor()
         UINavigationBar.appearance().tintColor = ThemeColor.baseTextColor()
         UINavigationBar.appearance().titleTextAttributes = [
@@ -38,46 +38,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().tintColor = ThemeColor.baseTextColor()
         UITabBarItem.appearance().setTitleTextAttributes([
             NSForegroundColorAttributeName: ThemeColor.baseTextColor()
-            ], forState: UIControlState.Selected)
+            ], for: UIControlState.selected)
 
-        UITableViewCell.appearance().separatorInset = UIEdgeInsetsZero
+        UITableViewCell.appearance().separatorInset = UIEdgeInsets.zero
 
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: false)
     }
 
-    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         updateBadge(completionHandler)
     }
 
-    private func updateBadge(completionHandler: (UIBackgroundFetchResult) -> Void) {
+    fileprivate func updateBadge(_ completionHandler: (UIBackgroundFetchResult) -> Void) {
         if let baseDate = BaseDate.first() {
-            UIApplication.sharedApplication().applicationIconBadgeNumber = abs(baseDate.dateInterval())
-            completionHandler(UIBackgroundFetchResult.NewData)
+            UIApplication.shared.applicationIconBadgeNumber = abs(baseDate.dateInterval())
+            completionHandler(UIBackgroundFetchResult.newData)
         } else {
-            UIApplication.sharedApplication().applicationIconBadgeNumber = 0
-            completionHandler(UIBackgroundFetchResult.Failed)
+            UIApplication.shared.applicationIconBadgeNumber = 0
+            completionHandler(UIBackgroundFetchResult.failed)
         }
     }
 
-    func applicationWillResignActive(application: UIApplication) {
+    func applicationWillResignActive(_ application: UIApplication) {
     }
 
-    func applicationDidEnterBackground(application: UIApplication) {
+    func applicationDidEnterBackground(_ application: UIApplication) {
         updateBadge({_ in return})
     }
 
-    func applicationWillEnterForeground(application: UIApplication) {
+    func applicationWillEnterForeground(_ application: UIApplication) {
     }
 
-    func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(_ application: UIApplication) {
         updateBadge({_ in return})
     }
 
-    func applicationWillTerminate(application: UIApplication) {
+    func applicationWillTerminate(_ application: UIApplication) {
         MagicalRecord.cleanUp()
     }
 
-    func applicationSignificantTimeChange(application: UIApplication) {
+    func applicationSignificantTimeChange(_ application: UIApplication) {
         onSignificantTimeChange?()
     }
 }

@@ -5,28 +5,28 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
         title = I18n.translate("Spool Days")
-        datesViewModel.addObserver(self, forKeyPath: "dates", options: .New, context: nil)
-        self.addObserver(self, forKeyPath: "editing", options: .New, context: nil)
+        datesViewModel.addObserver(self, forKeyPath: "dates", options: .new, context: nil)
+        self.addObserver(self, forKeyPath: "editing", options: .new, context: nil)
         loadEditButton()
         loadToolbar()
         addNotificationCenterObserver()
         registerOnSignificantTimeChange()
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         reload()
-        navigationController?.toolbarHidden = false
+        navigationController?.isToolbarHidden = false
         super.viewWillAppear(animated)
     }
 
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         switch keyPath {
-        case .Some("dates"):
+        case .some("dates"):
             self.tableView.reloadData()
-        case .Some("editing"):
-            navigationItem.rightBarButtonItem?.title = editing ? I18n.finish : I18n.edit
+        case .some("editing"):
+            navigationItem.rightBarButtonItem?.title = isEditing ? I18n.finish : I18n.edit
         default:
             break
         }
@@ -35,37 +35,37 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
     deinit {
         datesViewModel.removeObserver(self, forKeyPath: "dates")
         self.removeObserver(self, forKeyPath: "editing")
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 
-    private func addNotificationCenterObserver() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("applicationDidBecomeActive:"), name: UIApplicationDidBecomeActiveNotification, object: nil)
+    fileprivate func addNotificationCenterObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(UIApplicationDelegate.applicationDidBecomeActive(_:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
     }
 
-    func applicationDidBecomeActive(notification: NSNotification) {
+    func applicationDidBecomeActive(_ notification: Notification) {
         reload()
     }
 
-    private func reload() {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), {
-            dispatch_async(dispatch_get_main_queue(),{
+    fileprivate func reload() {
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high).async(execute: {
+            DispatchQueue.main.async(execute: {
                 self.datesViewModel.fetch()
             })
         })
     }
 
     func loadEditButton() {
-        let editButton = UIBarButtonItem(title: I18n.edit, style: .Plain, target: self, action: Selector("editButtonTapped"))
+        let editButton = UIBarButtonItem(title: I18n.edit, style: .plain, target: self, action: #selector(MainViewController.editButtonTapped))
         navigationItem.rightBarButtonItem = editButton
     }
 
     func editButtonTapped() {
-        editing = !editing
+        isEditing = !isEditing
     }
 
     func loadToolbar() {
-        let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: Selector("addButtonTapped"))
-        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(MainViewController.addButtonTapped))
+        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         toolbarItems = [spacer, addButton]
     }
 
@@ -76,41 +76,41 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
 
     // MARK: table view
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return datesViewModel.dates.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let dateViewModel = DateViewModel(baseDate: datesViewModel.dates[indexPath.row])
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let dateViewModel = DateViewModel(baseDate: datesViewModel.dates[(indexPath as NSIndexPath).row])
         let cell = DateTableViewCell(reuseIdentifier: "Cell", dateViewModel: dateViewModel)
         cell.delegate = self
         return cell
     }
 
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
             deleteDate(indexPath)
         }
     }
 
-    private func deleteDate(indexPath: NSIndexPath) {
+    fileprivate func deleteDate(_ indexPath: IndexPath) {
         PopupAlertView.confirm(self, message: I18n.translate("Are you sure you want to delete?")) {
             self.tableView.beginUpdates()
             self.datesViewModel.deleteDate(indexPath)
-            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
             self.tableView.endUpdates()
         }
     }
 
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
 
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-        datesViewModel.move(fromIndex: fromIndexPath.row, toIndex: toIndexPath.row)
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
+        datesViewModel.move(fromIndex: (fromIndexPath as NSIndexPath).row, toIndex: (toIndexPath as NSIndexPath).row)
     }
 
-    func swipeableTableViewCell(cell: SWTableViewCell, didTriggerLeftUtilityButtonWithIndex index: NSInteger) {
+    func swipeableTableViewCell(_ cell: SWTableViewCell, didTriggerLeftUtilityButtonWith index: NSInteger) {
         if index != 0 {
             return
         }
@@ -120,15 +120,15 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
         }
     }
 
-    private func resetDate(cell: DateTableViewCell) {
+    fileprivate func resetDate(_ cell: DateTableViewCell) {
         PopupAlertView.confirm(self, message: I18n.translate("Are you sure you want to reset date?")) {
             cell.resetDate()
             self.reload()
         }
     }
 
-    private func resetWithDate(cell: DateTableViewCell) {
-        let datePicker = DatePickerViewController(initialDate: NSDate())
+    fileprivate func resetWithDate(_ cell: DateTableViewCell) {
+        let datePicker = DatePickerViewController(initialDate: Date())
         datePicker.onSelected = {
             date in
             PopupAlertView.confirm(self, message: I18n.translateWithFormat("Are you sure you want to reset date with %@?", args: date.dateString())) {
@@ -146,31 +146,31 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
         DateTableViewCellAction(name: I18n.history, action: { controller, cell in controller.showHistoryView(cell.dateViewModel) })
     ]
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! DateTableViewCell
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! DateTableViewCell
 
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
 
-        let ac = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
-        ac.addAction(UIAlertAction(title: I18n.cancel, style: .Cancel, handler: nil))
+        let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: I18n.cancel, style: .cancel, handler: nil))
         for cellAction in cellActions {
-            ac.addAction(UIAlertAction(title: cellAction.name, style: .Default, handler: { _ in
+            ac.addAction(UIAlertAction(title: cellAction.name, style: .default, handler: { _ in
                 cellAction.action(self, cell)
             }))
         }
-        presentViewController(ac, animated: true, completion: nil)
+        present(ac, animated: true, completion: nil)
     }
 
-    private func showEditView(dateViewModel: DateViewModel) {
+    fileprivate func showEditView(_ dateViewModel: DateViewModel) {
         ModalViewController(baseController: self).presentModalViewController(EditViewController(dateViewModel: dateViewModel))
     }
 
-    private func showHistoryView(dateViewModel: DateViewModel) {
+    fileprivate func showHistoryView(_ dateViewModel: DateViewModel) {
         ModalViewController(baseController: self).presentModalViewController(HistoryTableViewController(dateViewModel: dateViewModel))
     }
 
-    private func registerOnSignificantTimeChange() {
-        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+    fileprivate func registerOnSignificantTimeChange() {
+        if let delegate = UIApplication.shared.delegate as? AppDelegate {
             delegate.onSignificantTimeChange = {
                 self.reload()
             }

@@ -2,28 +2,28 @@ class GroupData {
     class var userDefaultSuiteName: String { return "group.org.codefirst.SpoolDaysExtension" }
     class var keyOfDates: String { return "dates" }
 
-    class func setDates(dates: [BaseDate]) {
-            let dateFormatter = NSDateFormatter()
+    class func setDates(_ dates: [BaseDate]) {
+            let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
             let list = dates.map {
                 (baseDate) -> Dictionary<String, AnyObject> in
-                return ["title": baseDate.title, "date": dateFormatter.stringFromDate(baseDate.date)]
+                return ["title": baseDate.title as AnyObject, "date": dateFormatter.string(from: baseDate.date as Date) as AnyObject]
             }
-            let sharedDefaults = NSUserDefaults(suiteName: userDefaultSuiteName)
-            sharedDefaults?.setObject(list, forKey: keyOfDates)
+            let sharedDefaults = UserDefaults(suiteName: userDefaultSuiteName)
+            sharedDefaults?.set(list, forKey: keyOfDates)
             sharedDefaults?.synchronize()
     }
 
-    class func getDates(count: Int) -> [Dictionary<String, String>] {
-        let sharedDefaults = NSUserDefaults(suiteName: userDefaultSuiteName)
-        var dates = sharedDefaults?.objectForKey(keyOfDates) as? [Dictionary<String, String>] ?? []
+    class func getDates(_ count: Int) -> [Dictionary<String, String>] {
+        let sharedDefaults = UserDefaults(suiteName: userDefaultSuiteName)
+        var dates = sharedDefaults?.object(forKey: keyOfDates) as? [Dictionary<String, String>] ?? []
         if dates.count > count {
             dates = Array(dates[0..<count])
         }
         return dates
     }
 
-    class var appURL: NSURL? {
-        return NSURL(string: "spooldays://")
+    class var appURL: URL? {
+        return URL(string: "spooldays://")
     }
 }

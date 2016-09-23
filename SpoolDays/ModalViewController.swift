@@ -1,15 +1,15 @@
 import UIKit
 
 class ModalViewController {
-    private let baseController: UIViewController
+    fileprivate let baseController: UIViewController
 
     init(baseController: UIViewController) {
         self.baseController = baseController
     }
 
-    func presentModalViewController(controller: UIViewController) {
+    func presentModalViewController(_ controller: UIViewController) {
         let navigationController = UINavigationController(rootViewController: controller)
-        baseController.navigationController?.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
-        baseController.presentViewController(navigationController, animated: true, completion: nil)
+        baseController.navigationController?.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+        baseController.present(navigationController, animated: true, completion: nil)
     }
 }

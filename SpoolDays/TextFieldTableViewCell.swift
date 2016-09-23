@@ -1,29 +1,29 @@
 class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     var textField: UITextField?
-    var valueChanged: (String -> ())?
+    var valueChanged: ((String) -> ())?
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     init(value: String, placeHolder: String, reuserIdentifier: String) {
-        super.init(style: UITableViewCellStyle.Default, reuseIdentifier: reuserIdentifier)
+        super.init(style: UITableViewCellStyle.default, reuseIdentifier: reuserIdentifier)
         textField = UITextField()
         textField!.placeholder = placeHolder
         textField!.text = value
         textField!.delegate = self
-        textField!.autocapitalizationType = .None
+        textField!.autocapitalizationType = .none
         contentView.addSubview(textField!)
 
         textField!.translatesAutoresizingMaskIntoConstraints = false
-        contentView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
-        let topConstraint = NSLayoutConstraint(item: textField!, attribute: .Top, relatedBy: .Equal, toItem: contentView, attribute: .Top, multiplier: 1.0, constant: 0.0)
-        let bottomConstraint = NSLayoutConstraint(item: textField!, attribute: .Bottom, relatedBy: .Equal, toItem: contentView, attribute: .Bottom, multiplier: 1.0, constant: 0.0)
-        let leftConstraint = NSLayoutConstraint(item: textField!, attribute: .Left, relatedBy: .Equal, toItem: contentView, attribute: .Left, multiplier: 1.0, constant: 15.0)
-        let rightConstraint = NSLayoutConstraint(item: textField!, attribute: .Right, relatedBy: .Equal, toItem: contentView, attribute: .Right, multiplier: 1.0, constant: -20.0)
+        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        let topConstraint = NSLayoutConstraint(item: textField!, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1.0, constant: 0.0)
+        let bottomConstraint = NSLayoutConstraint(item: textField!, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1.0, constant: 0.0)
+        let leftConstraint = NSLayoutConstraint(item: textField!, attribute: .left, relatedBy: .equal, toItem: contentView, attribute: .left, multiplier: 1.0, constant: 15.0)
+        let rightConstraint = NSLayoutConstraint(item: textField!, attribute: .right, relatedBy: .equal, toItem: contentView, attribute: .right, multiplier: 1.0, constant: -20.0)
         contentView.addConstraints([topConstraint, bottomConstraint, leftConstraint, rightConstraint])
 
-        textField!.addTarget(self, action: Selector("textChanged"), forControlEvents: .EditingChanged)
+        textField!.addTarget(self, action: #selector(TextFieldTableViewCell.textChanged), for: .editingChanged)
     }
 
     func textChanged() {

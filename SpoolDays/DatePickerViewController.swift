@@ -2,10 +2,10 @@ import UIKit
 
 class DatePickerViewController: UIViewController, RSDFDatePickerViewDelegate {
     var datePicker: RSDFDatePickerView?
-    var initialDate: NSDate
-    var onSelected: ((NSDate) -> ())?
+    var initialDate: Date
+    var onSelected: ((Date) -> ())?
 
-    init(initialDate: NSDate) {
+    init(initialDate: Date) {
         self.initialDate = initialDate
         super.init(nibName: nil, bundle: nil)
     }
@@ -16,8 +16,8 @@ class DatePickerViewController: UIViewController, RSDFDatePickerViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.whiteColor()
-        edgesForExtendedLayout = UIRectEdge.None
+        view.backgroundColor = UIColor.white
+        edgesForExtendedLayout = UIRectEdge()
         automaticallyAdjustsScrollViewInsets = false
         loadDatePicker()
         loadCancelButton()
@@ -28,12 +28,12 @@ class DatePickerViewController: UIViewController, RSDFDatePickerViewDelegate {
         datePicker!.delegate = self
         view.addSubview(datePicker!)
 
-        datePicker!.selectDate(initialDate)
-        datePicker!.scrollToDate(initialDate, animated: true)
+        datePicker!.select(initialDate)
+        datePicker!.scroll(to: initialDate, animated: true)
     }
 
-    func datePickerView(view: RSDFDatePickerView!, didSelectDate date: NSDate!) {
-        dismissViewControllerAnimated(true) {
+    func datePickerView(_ view: RSDFDatePickerView!, didSelect date: Date!) {
+        dismiss(animated: true) {
             if let selected = self.onSelected {
                 selected(date)
             }
@@ -41,11 +41,11 @@ class DatePickerViewController: UIViewController, RSDFDatePickerViewDelegate {
     }
 
     func loadCancelButton() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: I18n.translate("Cancel"), style: .Plain, target: self, action: "cancelButtonTapped")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: I18n.translate("Cancel"), style: .plain, target: self, action: "cancelButtonTapped")
     }
 
     func cancelButtonTapped() {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
 }
