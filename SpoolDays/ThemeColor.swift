@@ -1,3 +1,6 @@
+import Foundation
+import UIKit
+
 class ThemeColor: NSObject {
     class func baseColor() -> UIColor {
         return colorByRGB(red: 0, green: 195, blue: 121, alpha: 255)

@@ -1,3 +1,5 @@
+import Foundation
+
 class DateViewModel: NSObject {
     dynamic var baseDate: BaseDate?
 

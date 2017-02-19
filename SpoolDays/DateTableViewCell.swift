@@ -1,4 +1,5 @@
 import UIKit
+import SWTableViewCell
 
 class DateTableViewCell: SWTableViewCell {
     var dateViewModel: DateViewModel

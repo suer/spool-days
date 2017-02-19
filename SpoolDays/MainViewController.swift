@@ -1,4 +1,6 @@
 import UIKit
+import MagicalRecord
+import SWTableViewCell
 
 class MainViewController: UITableViewController, SWTableViewCellDelegate {
     let datesViewModel = DatesViewModel()

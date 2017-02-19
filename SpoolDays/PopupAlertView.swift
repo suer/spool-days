@@ -1,3 +1,5 @@
+import UIKit
+
 class PopupAlertView {
     class func confirm(_ viewController: UIViewController, message: String, yes: @escaping () -> ()) {
         let ac = UIAlertController(title: I18n.confirmation, message: message, preferredStyle: .alert)

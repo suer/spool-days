@@ -1,3 +1,5 @@
+import Foundation
+
 class GroupData {
     class var userDefaultSuiteName: String { return "group.org.codefirst.SpoolDaysExtension" }
     class var keyOfDates: String { return "dates" }

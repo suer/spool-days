@@ -1,4 +1,6 @@
 import Foundation
+import MTDates
+
 extension Date {
     func dateIntervalFromNow() -> Int {
         return dateIntervalFromDate(Date())

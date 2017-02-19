@@ -1,3 +1,6 @@
+import Foundation
+import MagicalRecord
+
 class HistoryViewModel: NSObject {
     dynamic var logs = [Log]()
     let baseDate: BaseDate
