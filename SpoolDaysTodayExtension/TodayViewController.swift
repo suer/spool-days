@@ -1,6 +1,7 @@
 import UIKit
 import NotificationCenter
 
+@available(iOSApplicationExtension 10.0, *)
 class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDelegate, UITableViewDataSource {
 
     let cellHeight = CGFloat(44.0)
@@ -16,13 +17,14 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.bounds.width - 100, height: view.bounds.height), style: UITableViewStyle.plain)
+        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.bounds.width - 10, height: view.bounds.height), style: UITableViewStyle.plain)
         tableView!.delegate = self
         tableView!.dataSource = self
         tableView!.layer.backgroundColor = UIColor.clear.cgColor
         view.addSubview(tableView!)
         dates = GroupData.getDates(maxCellNumber)
         preferredContentSize.height = cellHeight * CGFloat(dates.count)
+        extensionContext?.widgetLargestAvailableDisplayMode = NCWidgetDisplayMode.expanded
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -70,5 +72,13 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
 
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         completionHandler(NCUpdateResult.newData)
+    }
+
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        if activeDisplayMode == NCWidgetDisplayMode.compact {
+            self.preferredContentSize = maxSize
+        } else {
+            self.preferredContentSize.height = cellHeight * CGFloat(dates.count)
+        }
     }
 }
