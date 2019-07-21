@@ -9,7 +9,7 @@ class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
 
     init(value: String, placeHolder: String, reuserIdentifier: String) {
-        super.init(style: UITableViewCellStyle.default, reuseIdentifier: reuserIdentifier)
+        super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: reuserIdentifier)
         textField = UITextField()
         textField!.placeholder = placeHolder
         textField!.text = value
@@ -28,7 +28,7 @@ class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
         textField!.addTarget(self, action: #selector(TextFieldTableViewCell.textChanged), for: .editingChanged)
     }
 
-    func textChanged() {
+    @objc func textChanged() {
         if let delegate = valueChanged {
             delegate(getValue())
         }

@@ -4,13 +4,20 @@ import SWTableViewCell
 
 class MainViewController: UITableViewController, SWTableViewCellDelegate {
     let datesViewModel = DatesViewModel()
+    var observers = [NSKeyValueObservation]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         title = I18n.translate("Spool Days")
-        datesViewModel.addObserver(self, forKeyPath: "dates", options: .new, context: nil)
-        self.addObserver(self, forKeyPath: "editing", options: .new, context: nil)
+        observers.append(datesViewModel.observe(\.dates, options: .new) {(value, change) in
+            print(value)
+            print(change)
+            self.tableView.reloadData()
+        })
+        observers.append(self.observe(\.isEditing, options: .new) { (value, change) in
+            self.navigationItem.rightBarButtonItem?.title = self.isEditing ? I18n.finish : I18n.edit
+        })
         loadEditButton()
         loadToolbar()
         addNotificationCenterObserver()
@@ -23,25 +30,16 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
         super.viewWillAppear(animated)
     }
 
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        switch keyPath {
-        case .some("dates"):
-            self.tableView.reloadData()
-        case .some("editing"):
-            navigationItem.rightBarButtonItem?.title = isEditing ? I18n.finish : I18n.edit
-        default:
-            break
-        }
-    }
-
     deinit {
-        datesViewModel.removeObserver(self, forKeyPath: "dates")
-        self.removeObserver(self, forKeyPath: "editing")
+        for observer in observers {
+            observer.invalidate()
+        }
+        observers.removeAll()
         NotificationCenter.default.removeObserver(self)
     }
 
     fileprivate func addNotificationCenterObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(UIApplicationDelegate.applicationDidBecomeActive(_:)), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(UIApplicationDelegate.applicationDidBecomeActive(_:)), name: NSNotification.Name.NSExtensionHostDidBecomeActive, object: nil)
     }
 
     func applicationDidBecomeActive(_ notification: Notification) {
@@ -49,11 +47,13 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
     }
 
     fileprivate func reload() {
-        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high).async(execute: {
-            DispatchQueue.main.async(execute: {
-                self.datesViewModel.fetch()
-            })
-        })
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
+            DispatchQueue.main.async {
+                if let self = self {
+                    self.datesViewModel.fetch()
+                }
+            }
+        }
     }
 
     func loadEditButton() {
@@ -61,17 +61,17 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
         navigationItem.rightBarButtonItem = editButton
     }
 
-    func editButtonTapped() {
+    @objc func editButtonTapped() {
         isEditing = !isEditing
     }
 
     func loadToolbar() {
-        let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(MainViewController.addButtonTapped))
-        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(MainViewController.addButtonTapped))
+        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         toolbarItems = [spacer, addButton]
     }
 
-    func addButtonTapped() {
+    @objc func addButtonTapped() {
         let dateViewModel = DateViewModel(baseDate: nil)
         showEditView(dateViewModel)
     }
@@ -89,7 +89,7 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             deleteDate(indexPath)
         }

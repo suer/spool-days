@@ -30,7 +30,7 @@ class DateViewModel: NSObject {
         if let baseDate = baseDate {
             baseDate.update(title: title, date: date)
         } else {
-            BaseDate.createBaseDate(title, date: date)
+            _ = BaseDate.createBaseDate(title, date: date)
         }
     }
 

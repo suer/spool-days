@@ -17,7 +17,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.bounds.width - 10, height: view.bounds.height), style: UITableViewStyle.plain)
+        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.bounds.width - 10, height: view.bounds.height), style: UITableView.Style.plain)
         tableView!.delegate = self
         tableView!.dataSource = self
         tableView!.layer.backgroundColor = UIColor.clear.cgColor
@@ -45,7 +45,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: "Cell")
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: "Cell")
 
         cell.textLabel?.text = dates[(indexPath as NSIndexPath).row]["title"]
         cell.textLabel?.textColor = UIColor.white
@@ -59,7 +59,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         return cell
     }
 
-    func userDefaultsDidChange(_ notification: Notification) {
+    @objc func userDefaultsDidChange(_ notification: Notification) {
         dates = GroupData.getDates(maxCellNumber)
     }
 

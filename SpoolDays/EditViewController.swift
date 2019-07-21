@@ -69,22 +69,22 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: cancel button
 
     func loadCancelButton() {
-        let cancelButton = UIBarButtonItem(title: I18n.cancel, style: UIBarButtonItemStyle.plain, target: self, action: #selector(EditViewController.cancelButtonTapped))
+        let cancelButton = UIBarButtonItem(title: I18n.cancel, style: UIBarButtonItem.Style.plain, target: self, action: #selector(EditViewController.cancelButtonTapped))
         navigationItem.leftBarButtonItem = cancelButton
     }
 
-    func cancelButtonTapped() {
+    @objc func cancelButtonTapped() {
         dismiss(animated: true, completion: nil)
     }
 
     // MARK: save button
 
     func loadSaveButton() {
-        let saveButton = UIBarButtonItem(title: I18n.save, style: UIBarButtonItemStyle.plain, target: self, action: #selector(EditViewController.saveButtonTapped))
+        let saveButton = UIBarButtonItem(title: I18n.save, style: UIBarButtonItem.Style.plain, target: self, action: #selector(EditViewController.saveButtonTapped))
         navigationItem.rightBarButtonItem = saveButton
     }
 
-    func saveButtonTapped() {
+    @objc func saveButtonTapped() {
         dateViewModel.update(title: titleString, date: date)
         dismiss(animated: true, completion: nil)
     }
@@ -152,8 +152,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         let deleteButton = UIButton(frame: CGRect(x: 0, y: cellHeight * CGFloat(cellCount + 1), width: view.bounds.width, height: cellHeight))
         deleteButton.backgroundColor = ThemeColor.deleteColor()
-        deleteButton.setTitle(I18n.delete, for: UIControlState())
-        deleteButton.setTitleColor(UIColor.white, for: UIControlState())
+        deleteButton.setTitle(I18n.delete, for: UIControl.State())
+        deleteButton.setTitleColor(UIColor.white, for: UIControl.State())
         view.addSubview(deleteButton)
 
         deleteButton.translatesAutoresizingMaskIntoConstraints = false
@@ -167,7 +167,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         deleteButton.addTarget(self, action: #selector(EditViewController.deleteButtonTapped), for: .touchUpInside)
     }
 
-    func deleteButtonTapped() {
+    @objc func deleteButtonTapped() {
         PopupAlertView.confirm(self, message: I18n.translate("Are you sure you want to delete?")) {
             self.dateViewModel.deleteDate()
             self.dismiss(animated: true, completion: nil)

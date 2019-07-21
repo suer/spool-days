@@ -4,7 +4,7 @@ class HistoryTableViewCell: UITableViewCell {
     fileprivate let log: Log
     init(log: Log) {
         self.log = log
-        super.init(style: UITableViewCellStyle.value1, reuseIdentifier: "Cell")
+        super.init(style: UITableViewCell.CellStyle.value1, reuseIdentifier: "Cell")
     }
 
     required init?(coder aDecoder: NSCoder) {

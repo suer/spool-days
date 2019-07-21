@@ -1,7 +1,7 @@
 import Foundation
 
 class DatesViewModel: NSObject {
-    dynamic var dates: [BaseDate] = []
+    @objc dynamic var dates: [BaseDate] = []
 
     func fetch() {
         dates = BaseDate.mr_findAllSorted(by: "sort", ascending: true) as! [BaseDate]

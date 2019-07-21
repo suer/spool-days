@@ -51,11 +51,11 @@ class BaseDate: NSManagedObject {
         dates[fromIndex].sort = NSNumber(value: toIndex)
         if (fromIndex < toIndex) {
             for i in stride(from: (fromIndex + 1), to: toIndex, by: 1) {
-                dates[i].sort = (Int(dates[i].sort) - 1) as NSNumber
+                dates[i].sort = (Int(truncating: dates[i].sort) - 1) as NSNumber
             }
         } else {
             for i in toIndex ..< fromIndex {
-                dates[i].sort = (Int(dates[i].sort) + 1) as NSNumber
+                dates[i].sort = (Int(truncating: dates[i].sort) + 1) as NSNumber
             }
         }
         NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
@@ -64,7 +64,7 @@ class BaseDate: NSManagedObject {
     func delete() {
         if logs.count > 0 {
             for log in logs {
-                (log as AnyObject).mr_deleteEntity()
+                _ = (log as AnyObject).mr_deleteEntity()
             }
         }
         mr_deleteEntity()

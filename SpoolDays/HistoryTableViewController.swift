@@ -26,20 +26,20 @@ class HistoryTableViewController: UITableViewController {
     // MARK: cancel button
 
     func loadCancelButton() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: I18n.cancel, style: UIBarButtonItemStyle.plain, target: self, action: #selector(HistoryTableViewController.cancelButtonTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: I18n.cancel, style: UIBarButtonItem.Style.plain, target: self, action: #selector(HistoryTableViewController.cancelButtonTapped))
     }
 
-    func cancelButtonTapped() {
+    @objc func cancelButtonTapped() {
         dismiss(animated: true, completion: {self.historyViewModel.rollback()})
     }
 
     // MARK: save button
 
     func loadSaveButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: I18n.save, style: UIBarButtonItemStyle.plain, target: self, action: #selector(HistoryTableViewController.saveButtonTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: I18n.save, style: UIBarButtonItem.Style.plain, target: self, action: #selector(HistoryTableViewController.saveButtonTapped))
     }
 
-    func saveButtonTapped() {
+    @objc func saveButtonTapped() {
         historyViewModel.save()
         dismiss(animated: true, completion: nil)
     }
@@ -58,7 +58,7 @@ class HistoryTableViewController: UITableViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             deleteLog(indexPath)
         }

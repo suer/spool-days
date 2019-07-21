@@ -8,7 +8,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var onSignificantTimeChange: (() -> ())?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         MagicalRecord.setupCoreDataStack(withStoreNamed: "spooldays.sqlite3")
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.backgroundColor = UIColor.white
@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.addSubview(navigationController.view)
         window!.rootViewController = navigationController
         registerNotification(application)
-        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
         setupStyle()
         return true
     }
@@ -33,13 +33,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = ThemeColor.baseColor()
         UINavigationBar.appearance().tintColor = ThemeColor.baseTextColor()
         UINavigationBar.appearance().titleTextAttributes = [
-            NSForegroundColorAttributeName: ThemeColor.baseTextColor()
+            NSAttributedString.Key.foregroundColor: ThemeColor.baseTextColor()
         ]
         UITabBar.appearance().barTintColor = ThemeColor.baseColor()
         UITabBar.appearance().tintColor = ThemeColor.baseTextColor()
         UITabBarItem.appearance().setTitleTextAttributes([
-            NSForegroundColorAttributeName: ThemeColor.baseTextColor()
-            ], for: UIControlState.selected)
+            NSAttributedString.Key.foregroundColor: ThemeColor.baseTextColor()
+            ], for: UIControl.State.selected)
 
         UITableViewCell.appearance().separatorInset = UIEdgeInsets.zero
 
