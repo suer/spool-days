@@ -12,6 +12,12 @@ DEPENDENCIES:
   - RSDayFlow (from `https://github.com/suer/RSDayFlow.git`, commit `efb97f8`)
   - SWTableViewCell
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - MagicalRecord
+    - MTDates
+    - SWTableViewCell
+
 EXTERNAL SOURCES:
   RSDayFlow:
     :commit: efb97f8
@@ -30,4 +36,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 0a14e5fac410b1972d0e8f39e8e6c14e843a8497
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.7.5
