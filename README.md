@@ -6,8 +6,8 @@ Build
 
 ### Required
 
-* Xcode 7
-* Bundler 1.7.4
+* Xcode 10.2.1
+* Bundler 1.17.2
 
 
 
