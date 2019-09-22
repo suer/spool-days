@@ -13,3 +13,4 @@ tmp/
 org.codefirst.SpoolDays.mobileprovision
 .bundle
 /.env
+fastlane/report.xml
