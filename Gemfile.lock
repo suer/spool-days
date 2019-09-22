@@ -207,6 +207,7 @@ PLATFORMS
 
 DEPENDENCIES
   cocoapods (= 1.7.5)
+  dotenv
   fastlane (= 2.127.2)
   rake (= 12.3.2)
 
