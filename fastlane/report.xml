@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="fastlane.lanes">
+    
+    
+    
+      
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.007953">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="1: automatic_code_signing" time="0.17263">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="2: automatic_code_signing" time="0.059332">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: create_keychain" time="0.068932">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: match" time="4.60058">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="5: gym" time="69.065299">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="6: automatic_code_signing" time="0.06006">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="7: automatic_code_signing" time="0.070486">
+        
+      </testcase>
+    
+  </testsuite>
+</testsuites>
