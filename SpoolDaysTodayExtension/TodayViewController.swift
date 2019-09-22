@@ -20,7 +20,11 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.bounds.width - 10, height: view.bounds.height), style: UITableView.Style.plain)
         tableView!.delegate = self
         tableView!.dataSource = self
-        tableView!.layer.backgroundColor = UIColor.clear.cgColor
+        if #available(iOSApplicationExtension 13.0, *) {
+            tableView!.layer.backgroundColor = UIColor.systemBackground.cgColor
+        } else {
+            tableView!.layer.backgroundColor = UIColor.clear.cgColor
+        }
         view.addSubview(tableView!)
         dates = GroupData.getDates(maxCellNumber)
         preferredContentSize.height = cellHeight * CGFloat(dates.count)

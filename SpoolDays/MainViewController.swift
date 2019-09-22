@@ -11,8 +11,6 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
         view.backgroundColor = UIColor.white
         title = I18n.translate("Spool Days")
         observers.append(datesViewModel.observe(\.dates, options: .new) {(value, change) in
-            print(value)
-            print(change)
             self.tableView.reloadData()
         })
         observers.append(self.observe(\.isEditing, options: .new) { (value, change) in
@@ -22,6 +20,12 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
         loadToolbar()
         addNotificationCenterObserver()
         registerOnSignificantTimeChange()
+
+        if #available(iOS 13.0, *) {
+            tableView!.layer.backgroundColor = UIColor.systemBackground.cgColor
+        } else {
+            tableView!.layer.backgroundColor = UIColor.clear.cgColor
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
