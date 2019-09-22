@@ -12,3 +12,4 @@ build/
 tmp/
 org.codefirst.SpoolDays.mobileprovision
 .bundle
+/.env
