@@ -156,7 +156,7 @@ GEM
     os (1.0.1)
     plist (3.5.0)
     public_suffix (2.0.5)
-    rake (12.3.2)
+    rake (12.3.3)
     representable (3.0.4)
       declarative (< 0.1.0)
       declarative-option (< 0.2.0)
@@ -209,7 +209,7 @@ DEPENDENCIES
   cocoapods (= 1.7.5)
   dotenv
   fastlane (= 2.127.2)
-  rake (= 12.3.2)
+  rake (= 12.3.3)
 
 BUNDLED WITH
    1.17.2
