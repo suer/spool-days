@@ -9,6 +9,7 @@ class ModalViewController {
 
     func presentModalViewController(_ controller: UIViewController) {
         let navigationController = UINavigationController(rootViewController: controller)
+        navigationController.modalPresentationStyle = .fullScreen
         baseController.navigationController?.modalTransitionStyle = UIModalTransitionStyle.coverVertical
         baseController.present(navigationController, animated: true, completion: nil)
     }
