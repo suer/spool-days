@@ -89,7 +89,7 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let dateViewModel = DateViewModel(baseDate: datesViewModel.dates[(indexPath as NSIndexPath).row])
         let cell = DateTableViewCell(reuseIdentifier: "Cell", dateViewModel: dateViewModel)
-        cell.delegate = self
+//        cell.delegate = self
         return cell
     }
 

@@ -1,7 +1,7 @@
 import UIKit
 import SWTableViewCell
 
-class DateTableViewCell: SWTableViewCell {
+class DateTableViewCell: UITableViewCell {
     var dateViewModel: DateViewModel
 
     init(reuseIdentifier: String?, dateViewModel: DateViewModel) {
@@ -36,6 +36,6 @@ class DateTableViewCell: SWTableViewCell {
         resetButton.setTitle(I18n.reset, for: UIControl.State())
         resetButton.setTitleColor(UIColor.white, for: UIControl.State())
         resetButton.titleLabel?.adjustsFontSizeToFitWidth = true
-        leftUtilityButtons = [resetButton]
+//        leftUtilityButtons = [resetButton]
     }
 }
