@@ -11,9 +11,10 @@ class BaseDate: NSManagedObject {
     @NSManaged var logs: NSSet
 
     class func createBaseDate(_ title: String, date: Date) -> BaseDate? {
+
         let maxSort = BaseDate.mr_aggregateOperation("max:", onAttribute: "sort", with: NSPredicate(value: true))
         if let baseDate = BaseDate.mr_createEntity() {
-            baseDate.sort = ((maxSort as! Int) + 1) as NSNumber
+            baseDate.sort = ((maxSort as? Int ?? 0) + 1) as NSNumber
             baseDate.date = date
             baseDate.title = title
 
