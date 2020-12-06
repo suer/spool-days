@@ -1,8 +1,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    let datesViewModel = DatesViewModel.initWithFetched()
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List {
+                // TODO: implement BaseDate as Identifiable
+                ForEach(self.datesViewModel.dates, id: \.sort) { date in
+                    HStack {
+                        Text(date.title)
+                        Spacer()
+                        Text("\(date.dateInterval()) \(I18n.translate("Days"))")
+                            .foregroundColor(Color.gray)
+                    }
+                }
+            }
+            .listStyle(GroupedListStyle())
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitle("SpoolDays")
+            .navigationBarItems(trailing: EditButton())
+        }
     }
 }
 
