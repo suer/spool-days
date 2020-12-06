@@ -4,19 +4,16 @@ PODS:
   - MagicalRecord/Core (2.3.2)
   - MTDates (1.0.0)
   - RSDayFlow (0.8.0)
-  - SWTableViewCell (0.3.7)
 
 DEPENDENCIES:
   - MagicalRecord
   - MTDates
   - RSDayFlow (from `https://github.com/suer/RSDayFlow.git`, commit `efb97f8`)
-  - SWTableViewCell
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - MagicalRecord
     - MTDates
-    - SWTableViewCell
 
 EXTERNAL SOURCES:
   RSDayFlow:
@@ -32,8 +29,7 @@ SPEC CHECKSUMS:
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
   MTDates: 1dbf92ecda49c0fc42bfd692bda3c471069b57ba
   RSDayFlow: fb48480094f00d28fc90947051190f55478263c4
-  SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
 
-PODFILE CHECKSUM: 0a14e5fac410b1972d0e8f39e8e6c14e843a8497
+PODFILE CHECKSUM: b1a2894fed09a62f6998f6135ece7f8f0e8d5900
 
 COCOAPODS: 1.7.5

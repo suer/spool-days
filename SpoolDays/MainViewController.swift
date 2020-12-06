@@ -1,8 +1,7 @@
 import UIKit
 import MagicalRecord
-import SWTableViewCell
 
-class MainViewController: UITableViewController, SWTableViewCellDelegate {
+class MainViewController: UITableViewController {
     let datesViewModel = DatesViewModel()
     var observers = [NSKeyValueObservation]()
 
@@ -88,9 +87,7 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let dateViewModel = DateViewModel(baseDate: datesViewModel.dates[(indexPath as NSIndexPath).row])
-        let cell = DateTableViewCell(reuseIdentifier: "Cell", dateViewModel: dateViewModel)
-//        cell.delegate = self
-        return cell
+        return DateTableViewCell(reuseIdentifier: "Cell", dateViewModel: dateViewModel)
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -114,16 +111,6 @@ class MainViewController: UITableViewController, SWTableViewCellDelegate {
 
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
         datesViewModel.move(fromIndex: (fromIndexPath as NSIndexPath).row, toIndex: (toIndexPath as NSIndexPath).row)
-    }
-
-    func swipeableTableViewCell(_ cell: SWTableViewCell, didTriggerLeftUtilityButtonWith index: NSInteger) {
-        if index != 0 {
-            return
-        }
-
-        if let dateCell = cell as? DateTableViewCell {
-            resetDate(dateCell)
-        }
     }
 
     fileprivate func resetDate(_ cell: DateTableViewCell) {

@@ -6,7 +6,6 @@ use_frameworks!
 
 def my_pods
   pod 'MagicalRecord'
-  pod 'SWTableViewCell'
   pod 'RSDayFlow', :git => 'https://github.com/suer/RSDayFlow.git', :commit => 'efb97f8'
   pod "MTDates"
 end
