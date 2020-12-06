@@ -1,9 +1,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    let datesViewModel = DatesViewModel.initWithFetched()
+    var datesViewModel = DatesViewModel.initWithFetched()
 
     @State var showingActionSheet = false
+    @State var showingEditView = false
+
+    @State var selectedDate: BaseDate? = nil
 
     var body: some View {
         NavigationView {
@@ -11,7 +14,15 @@ struct ContentView: View {
                 // TODO: implement BaseDate as Identifiable
                 ForEach(self.datesViewModel.dates, id: \.sort) { date in
                     ZStack {
-                        Button("") { self.showingActionSheet = true }
+                        Button("") {
+                            self.selectedDate = date
+                            self.showingActionSheet = true
+                        }
+                        .sheet(isPresented: self.$showingEditView, onDismiss: {
+                            self.selectedDate.map { $0.save() }
+                        }) {
+                            self.selectedDate.map { EditDateView(baseDate: $0) }
+                        }
                         HStack {
                             Text(date.title)
                             Spacer()
@@ -25,7 +36,7 @@ struct ContentView: View {
                 ActionSheet(title: Text("Action"),
                             buttons: [
                                 .default(Text(I18n.edit)) {
-
+                                    self.showingEditView = true
                                 },
                                 .default(Text(I18n.reset)) {
 

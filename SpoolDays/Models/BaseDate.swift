@@ -95,4 +95,8 @@ class BaseDate: NSManagedObject {
     func dateInterval(_ from: Date) -> Int {
         return date.dateIntervalFromDate(from)
     }
+
+    func save() {
+        NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
+    }
 }

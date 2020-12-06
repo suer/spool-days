@@ -28,6 +28,7 @@
 		8022260019FB058F00330227 /* SpoolDaysTodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 802225F419FB058F00330227 /* SpoolDaysTodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		80290256257CB16D0061CDBC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80290255257CB16D0061CDBC /* SceneDelegate.swift */; };
 		8029025C257CB2000061CDBC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8029025B257CB2000061CDBC /* ContentView.swift */; };
+		8029027C257CC2FD0061CDBC /* EditDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8029027B257CC2FD0061CDBC /* EditDateView.swift */; };
 		80404BDD1A0BA76A00FD835F /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80404BDC1A0BA76A00FD835F /* NSDateExtension.swift */; };
 		804A869E1ADA68CE0024E2E4 /* PopupAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A869D1ADA68CE0024E2E4 /* PopupAlertView.swift */; };
 		804E607419F31D5D005BA669 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E607319F31D5D005BA669 /* EditViewController.swift */; };
@@ -109,6 +110,7 @@
 		8022260619FB3AE600330227 /* SpoolDays.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SpoolDays.entitlements; sourceTree = "<group>"; };
 		80290255257CB16D0061CDBC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8029025B257CB2000061CDBC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8029027B257CC2FD0061CDBC /* EditDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDateView.swift; sourceTree = "<group>"; };
 		80404BDC1A0BA76A00FD835F /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		804A869D1ADA68CE0024E2E4 /* PopupAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupAlertView.swift; sourceTree = "<group>"; };
 		804E607319F31D5D005BA669 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				8029025B257CB2000061CDBC /* ContentView.swift */,
+				8029027B257CC2FD0061CDBC /* EditDateView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -624,6 +627,7 @@
 				8075F9DC19FE01DD00443983 /* ThemeColor.swift in Sources */,
 				80AF1CEC1A50449600A84EAA /* ModalViewController.swift in Sources */,
 				80A574B919EFDF4100C06CBB /* AppDelegate.swift in Sources */,
+				8029027C257CC2FD0061CDBC /* EditDateView.swift in Sources */,
 				800E8B841A731FE100CB1D6D /* I18n.swift in Sources */,
 				807DC5381A39BFED00F197AF /* HistoryTableViewCell.swift in Sources */,
 				80A7D33219EFEE00007BB993 /* DateTableViewCell.swift in Sources */,
