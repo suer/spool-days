@@ -13,6 +13,7 @@ struct ContentView: View {
     enum ModalPresentation: View, Hashable, Identifiable {
         case editDateView(baseDate: BaseDate)
         case resetDateView(date: Binding<Date>)
+        case historyView(baseDate: BaseDate)
 
         var body: some View {
             switch self {
@@ -20,6 +21,10 @@ struct ContentView: View {
                 return AnyView(EditDateView(baseDate: baseDate))
             case .resetDateView(let date):
                 return AnyView(RSDayFlowDatePicker(date: date))
+            case .historyView(let baseDate):
+                let historyViewModel = HistoryViewModel(baseDate: baseDate)
+                historyViewModel.fetch()
+                return AnyView(HistoryView(historyViewModel: historyViewModel))
             }
         }
 
@@ -31,6 +36,7 @@ struct ContentView: View {
             switch self {
             case .editDateView(_): hasher.combine(1)
             case .resetDateView(_): hasher.combine(2)
+            case .historyView(_): hasher.combine(3)
             }
         }
 
@@ -57,6 +63,8 @@ struct ContentView: View {
                                 baseDate.save()
                             case .resetDateView(let date):
                                 self.selectedDate?.reset(date.wrappedValue)
+                            case .historyView(_):
+                                print("history view finished")
                             case .none:
                                 print("none")
                             }
@@ -100,7 +108,11 @@ struct ContentView: View {
                                     self.lastModalPresentation = modalPresentation
                                 },
                                 .default(Text(I18n.history)) {
-
+                                    if let baseDate = selectedDate {
+                                        let modalPresentation: ModalPresentation = .historyView(baseDate: baseDate)
+                                        self.modalPresentation = modalPresentation
+                                        self.lastModalPresentation = modalPresentation
+                                    }
                                 },
                                 .cancel(Text(I18n.cancel))
                             ]
