@@ -49,7 +49,7 @@
 		80B1486D1AA0B31400E60131 /* GroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B1486B1AA0B30D00E60131 /* GroupData.swift */; };
 		80DFB0F719F3D2A100BCF3B1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB0F519F3D2A100BCF3B1 /* Model.xcdatamodeld */; };
 		80DFB11F19F5427200BCF3B1 /* DatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */; };
-		9F3086AF200E0D71D1621672 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (Weak, ); }; };
+		9F3086AF200E0D71D1621672 /* (null) in Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (Weak, ); }; };
 		ABDA9C44EA6DAAD6D3AF61A3 /* Pods_SpoolDaysTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77808DDFDF84AB84317A7BA6 /* Pods_SpoolDaysTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -142,7 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				802225F619FB058F00330227 /* NotificationCenter.framework in Frameworks */,
-				9F3086AF200E0D71D1621672 /* BuildFile in Frameworks */,
+				9F3086AF200E0D71D1621672 /* (null) in Frameworks */,
 				66E7E347C77F2A1CA138EAF3 /* Pods_SpoolDaysTodayExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

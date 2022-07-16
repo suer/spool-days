@@ -11,7 +11,7 @@ DEPENDENCIES:
   - RSDayFlow (from `https://github.com/suer/RSDayFlow.git`, commit `efb97f8`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - MagicalRecord
     - MTDates
 
@@ -32,4 +32,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: b1a2894fed09a62f6998f6135ece7f8f0e8d5900
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.11.3

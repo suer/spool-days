@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.backgroundColor = UIColor.white
         window!.makeKeyAndVisible()
         let navigationController = UINavigationController(rootViewController: MainViewController())
+        navigationController.setupStyle()
         window!.addSubview(navigationController.view)
         window!.rootViewController = navigationController
         registerNotification(application)
