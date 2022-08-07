@@ -1,0 +1,47 @@
+name: Build
+
+on:
+ pull_request:
+ push:
+   branches: [ master ]
+
+env:
+  DEVELOPER_DIR: /Applications/Xcode_13.2.1.app/Contents/Developer
+
+jobs:
+ build:
+
+   runs-on: macos-11
+
+   steps:
+   - uses: actions/checkout@v3
+
+   - name: Show Xcode version
+     run: xcodebuild -version
+
+   - name: Cache Gems
+     uses: actions/cache@v3
+     with:
+       path: vendor/bundle
+       key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+       restore-keys: |
+         ${{ runner.os }}-gems-
+
+   - name: Install Bundled Gems
+     run: |
+       bundle config path vendor/bundle
+       bundle install --jobs 4 --retry 3
+
+   - name: Cache Pods
+     uses: actions/cache@v3
+     with:
+       path: Pods
+       key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+       restore-keys: |
+         ${{ runner.os }}-pods-
+
+   - name: Install Pods
+     run: bundle exec pod install
+
+   - name: Build
+     run: bundle exec fastlane ios archive_for_simulator

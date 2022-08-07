@@ -26,6 +26,11 @@ build ipa
 fastlane ios publish_to_deploygate
 ```
 publish to deploygate
+### ios archive_for_simulator
+```
+fastlane ios archive_for_simulator
+```
+archive for simulator
 
 ----
 
