@@ -63,4 +63,15 @@ platform :ios do
       message: "Build #{lane_context[SharedValues::BUILD_NUMBER]}"
     )
   end
+
+  desc 'archive for simulator'
+  lane :archive_for_simulator do
+    xcodebuild(
+      scheme: "SpoolDays",
+      workspace: "SpoolDays.xcworkspace",
+      configuration: "Debug",
+      sdk: "iphonesimulator",
+      derivedDataPath: "build"
+    )
+  end
 end
