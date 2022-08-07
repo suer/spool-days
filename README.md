@@ -6,7 +6,7 @@ Build
 
 ### Required
 
-* Xcode 10.2.1
+* Xcode 13.2.1
 * Bundler 1.17.2
 
 
