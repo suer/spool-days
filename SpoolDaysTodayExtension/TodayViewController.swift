@@ -17,7 +17,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.bounds.width - 10, height: view.bounds.height), style: UITableView.Style.plain)
+        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.bounds.width - 50, height: view.bounds.height), style: UITableView.Style.plain)
         tableView!.delegate = self
         tableView!.dataSource = self
         if #available(iOSApplicationExtension 13.0, *) {
