@@ -122,8 +122,7 @@ class MainViewController: UITableViewController {
 
     fileprivate func resetWithDate(_ cell: DateTableViewCell) {
         let datePicker = DatePickerViewController(initialDate: Date())
-        datePicker.onSelected = {
-            date in
+        datePicker.onSelected = { date in
             PopupAlertView.confirm(self, message: I18n.translateWithFormat("Are you sure you want to reset date with %@?", args: date.dateString())) {
                 cell.resetDate(date)
                 self.reload()
@@ -135,7 +134,7 @@ class MainViewController: UITableViewController {
     let cellActions = [
         DateTableViewCellAction(name: I18n.edit, action: { controller, cell in controller.showEditView(cell.dateViewModel) }),
         DateTableViewCellAction(name: I18n.reset, action: { controller, cell in controller.resetDate(cell) }),
-        DateTableViewCellAction(name: I18n.reset_with_date, action: { controller, cell in controller.resetWithDate(cell) }),
+        DateTableViewCellAction(name: I18n.resetWithDate, action: { controller, cell in controller.resetWithDate(cell) }),
         DateTableViewCellAction(name: I18n.history, action: { controller, cell in controller.showHistoryView(cell.dateViewModel) })
     ]
 

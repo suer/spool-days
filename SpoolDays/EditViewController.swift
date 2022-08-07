@@ -99,10 +99,38 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         tableView!.translatesAutoresizingMaskIntoConstraints = false
         view!.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        let topConstraint = NSLayoutConstraint(item: tableView!, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 0.0)
-        let bottomConstraint = NSLayoutConstraint(item: tableView!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: cellHeight * CGFloat(cellCount))
-        let leftConstraint = NSLayoutConstraint(item: tableView!, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant: 0.0)
-        let rightConstraint = NSLayoutConstraint(item: tableView!, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant: 0.0)
+        let topConstraint = NSLayoutConstraint(item: tableView!,
+                                               attribute: .top,
+                                               relatedBy: .equal,
+                                               toItem: view,
+                                               attribute: .top,
+                                               multiplier: 1.0,
+                                               constant: 0.0
+        )
+        let bottomConstraint = NSLayoutConstraint(item: tableView!,
+                                                  attribute: .bottom,
+                                                  relatedBy: .equal,
+                                                  toItem: view,
+                                                  attribute: .top,
+                                                  multiplier: 1.0,
+                                                  constant: cellHeight * CGFloat(cellCount)
+        )
+        let leftConstraint = NSLayoutConstraint(item: tableView!,
+                                                attribute: .left,
+                                                relatedBy: .equal,
+                                                toItem: view,
+                                                attribute: .left,
+                                                multiplier: 1.0,
+                                                constant: 0.0
+        )
+        let rightConstraint = NSLayoutConstraint(item: tableView!,
+                                                 attribute: .right,
+                                                 relatedBy: .equal,
+                                                 toItem: view,
+                                                 attribute: .right,
+                                                 multiplier: 1.0,
+                                                 constant: 0.0
+        )
         view!.addConstraints([topConstraint, bottomConstraint, leftConstraint, rightConstraint])
 
     }
@@ -158,10 +186,38 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         deleteButton.translatesAutoresizingMaskIntoConstraints = false
         view!.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        let topConstraint = NSLayoutConstraint(item: deleteButton, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: cellHeight * CGFloat(cellCount + 1))
-        let bottomConstraint = NSLayoutConstraint(item: deleteButton, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: cellHeight * CGFloat(cellCount + 2))
-        let leftConstraint = NSLayoutConstraint(item: deleteButton, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant: 0.0)
-        let rightConstraint = NSLayoutConstraint(item: deleteButton, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant: 0.0)
+        let topConstraint = NSLayoutConstraint(item: deleteButton,
+                                               attribute: .top,
+                                               relatedBy: .equal,
+                                               toItem: view,
+                                               attribute: .top,
+                                               multiplier: 1.0,
+                                               constant: cellHeight * CGFloat(cellCount + 1)
+        )
+        let bottomConstraint = NSLayoutConstraint(item: deleteButton,
+                                                  attribute: .bottom,
+                                                  relatedBy: .equal,
+                                                  toItem: view,
+                                                  attribute: .top,
+                                                  multiplier: 1.0,
+                                                  constant: cellHeight * CGFloat(cellCount + 2)
+        )
+        let leftConstraint = NSLayoutConstraint(item: deleteButton,
+                                                attribute: .left,
+                                                relatedBy: .equal,
+                                                toItem: view,
+                                                attribute: .left,
+                                                multiplier: 1.0,
+                                                constant: 0.0
+        )
+        let rightConstraint = NSLayoutConstraint(item: deleteButton,
+                                                 attribute: .right,
+                                                 relatedBy: .equal,
+                                                 toItem: view,
+                                                 attribute: .right,
+                                                 multiplier: 1.0,
+                                                 constant: 0.0
+        )
         view!.addConstraints([topConstraint, bottomConstraint, leftConstraint, rightConstraint])
 
         deleteButton.addTarget(self, action: #selector(EditViewController.deleteButtonTapped), for: .touchUpInside)

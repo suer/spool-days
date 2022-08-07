@@ -25,7 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     fileprivate func registerNotification(_ application: UIApplication) {
         if application.responds(to: #selector(UIApplication.registerUserNotificationSettings(_:))) {
-            application.registerUserNotificationSettings(UIUserNotificationSettings(types: ([UIUserNotificationType.sound, UIUserNotificationType.alert, UIUserNotificationType.badge]), categories: nil))
+            application.registerUserNotificationSettings(UIUserNotificationSettings(
+                types: ([UIUserNotificationType.sound, UIUserNotificationType.alert, UIUserNotificationType.badge]),
+                categories: nil)
+            )
             application.registerForRemoteNotifications()
         }
     }
