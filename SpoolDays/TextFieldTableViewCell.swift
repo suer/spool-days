@@ -3,7 +3,7 @@ import UIKit
 class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     var textField: UITextField?
-    var valueChanged: ((String) -> ())?
+    var valueChanged: ((String) -> Void)?
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

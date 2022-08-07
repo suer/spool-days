@@ -23,7 +23,7 @@ class Log: NSManagedObject {
     }
 
     func eventString() -> String {
-        switch(event) {
+        switch event {
         case "create":
             return I18n.create
         case "reset":

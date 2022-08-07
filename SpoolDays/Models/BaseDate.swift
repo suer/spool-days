@@ -50,7 +50,7 @@ class BaseDate: NSManagedObject {
     class func move(fromIndex: Int, toIndex: Int) {
         let dates = BaseDate.mr_findAllSorted(by: "sort", ascending: true) as! [BaseDate]
         dates[fromIndex].sort = NSNumber(value: toIndex)
-        if (fromIndex < toIndex) {
+        if fromIndex < toIndex {
             for i in stride(from: (fromIndex + 1), to: toIndex, by: 1) {
                 dates[i].sort = (Int(truncating: dates[i].sort) - 1) as NSNumber
             }

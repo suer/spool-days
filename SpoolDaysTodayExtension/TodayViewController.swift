@@ -7,7 +7,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     let cellHeight = CGFloat(44.0)
     let maxCellNumber = 5
     var tableView: UITableView?
-    var dates: [Dictionary<String, String>] = []
+    var dates: [[String: String]] = []
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

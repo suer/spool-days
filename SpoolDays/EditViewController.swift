@@ -111,7 +111,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cellHeight
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int  {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
 

@@ -6,7 +6,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    var onSignificantTimeChange: (() -> ())?
+    var onSignificantTimeChange: (() -> Void)?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         MagicalRecord.setupCoreDataStack(withStoreNamed: "spooldays.sqlite3")
@@ -83,4 +83,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         onSignificantTimeChange?()
     }
 }
-

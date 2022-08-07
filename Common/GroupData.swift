@@ -8,7 +8,7 @@ class GroupData {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let list = dates.map {
-            (baseDate) -> Dictionary<String, AnyObject> in
+            (baseDate) -> [String: AnyObject] in
             return ["title": baseDate.title as AnyObject, "date": dateFormatter.string(from: baseDate.date as Date) as AnyObject]
         }
         let sharedDefaults = UserDefaults(suiteName: userDefaultSuiteName)
@@ -16,9 +16,9 @@ class GroupData {
         sharedDefaults?.synchronize()
     }
 
-    class func getDates(_ count: Int) -> [Dictionary<String, String>] {
+    class func getDates(_ count: Int) -> [[String: String]] {
         let sharedDefaults = UserDefaults(suiteName: userDefaultSuiteName)
-        var dates = sharedDefaults?.object(forKey: keyOfDates) as? [Dictionary<String, String>] ?? []
+        var dates = sharedDefaults?.object(forKey: keyOfDates) as? [[String: String]] ?? []
         if dates.count > count {
             dates = Array(dates[0..<count])
         }

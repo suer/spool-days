@@ -9,10 +9,10 @@ class MainViewController: UITableViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         title = I18n.translate("Spool Days")
-        observers.append(datesViewModel.observe(\.dates, options: .new) {(value, change) in
+        observers.append(datesViewModel.observe(\.dates, options: .new) {(_, _) in
             self.tableView.reloadData()
         })
-        observers.append(self.observe(\.isEditing, options: .new) { (value, change) in
+        observers.append(self.observe(\.isEditing, options: .new) { (_, _) in
             self.navigationItem.rightBarButtonItem?.title = self.isEditing ? I18n.finish : I18n.edit
         })
         loadEditButton()
