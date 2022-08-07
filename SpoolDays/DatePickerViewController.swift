@@ -4,13 +4,13 @@ import RSDayFlow
 class DatePickerViewController: UIViewController, RSDFDatePickerViewDelegate {
     var datePicker: RSDFDatePickerView?
     var initialDate: Date
-    var onSelected: ((Date) -> ())?
+    var onSelected: ((Date) -> Void)?
 
     init(initialDate: Date) {
         self.initialDate = initialDate
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -25,7 +25,7 @@ class I18n {
 
     class var reset: String { return I18n.translate("Reset") }
 
-    class var reset_with_date: String { return I18n.translate("Reset with Date") }
+    class var resetWithDate: String { return I18n.translate("Reset with Date") }
 
     class var create: String { return I18n.translate("Create") }
 

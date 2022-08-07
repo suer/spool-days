@@ -6,7 +6,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    var onSignificantTimeChange: (() -> ())?
+    var onSignificantTimeChange: (() -> Void)?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         MagicalRecord.setupCoreDataStack(withStoreNamed: "spooldays.sqlite3")
@@ -25,7 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     fileprivate func registerNotification(_ application: UIApplication) {
         if application.responds(to: #selector(UIApplication.registerUserNotificationSettings(_:))) {
-            application.registerUserNotificationSettings(UIUserNotificationSettings(types: ([UIUserNotificationType.sound, UIUserNotificationType.alert, UIUserNotificationType.badge]), categories: nil))
+            application.registerUserNotificationSettings(UIUserNotificationSettings(
+                types: ([UIUserNotificationType.sound, UIUserNotificationType.alert, UIUserNotificationType.badge]),
+                categories: nil)
+            )
             application.registerForRemoteNotifications()
         }
     }
@@ -83,4 +86,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         onSignificantTimeChange?()
     }
 }
-
