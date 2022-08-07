@@ -4,6 +4,7 @@ excluded:
 
 disabled_rules:
   - force_cast
+  - block_based_kvo
 
 line_length:
   warning: 200
