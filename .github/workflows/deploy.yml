@@ -1,0 +1,65 @@
+name: Deploy
+
+on:
+ push:
+   branches: [ master ]
+
+env:
+  DEVELOPER_DIR: /Applications/Xcode_13.4.1.app/Contents/Developer
+
+jobs:
+ build:
+
+   runs-on: macos-12
+
+   steps:
+   - uses: actions/checkout@v3
+
+   - name: Show Xcode version
+     run: xcodebuild -version
+
+   - name: Setup p12 certificate file
+     run: |
+       echo "${{ secrets.CERTIFICATE }}" > distribution.p12.txt
+       base64 --decode distribution.p12.txt > distribution.p12
+
+   - name: Setup provisioning profile
+     run: |
+       echo "${{ secrets.PROVISIONING_PROFILE }}" > distribution.mobileprovision.txt
+       base64 --decode distribution.mobileprovision.txt > distribution.mobileprovision
+       echo "${{ secrets.PROVISIONING_PROFILE_FOR_EXTENSION }}" > distribution_extension.mobileprovision.txt
+       base64 --decode distribution_extension.mobileprovision.txt > distribution_extension.mobileprovision
+
+   - name: Cache Gems
+     uses: actions/cache@v3
+     with:
+       path: vendor/bundle
+       key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+       restore-keys: |
+         ${{ runner.os }}-gems-
+
+   - name: Install Bundled Gems
+     run: |
+       bundle config path vendor/bundle
+       bundle install --jobs 4 --retry 3
+
+   - name: Cache Pods
+     uses: actions/cache@v3
+     with:
+       path: Pods
+       key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+       restore-keys: |
+         ${{ runner.os }}-pods-
+
+   - name: Install Pods
+     run: bundle exec pod install
+
+   - name: Build and deploy to DeployGate
+     env:
+       TEAM_ID: ${{ secrets.TEAM_ID }}
+       DEPLOYGATE_API_KEY: ${{ secrets.DEPLOYGATE_API_KEY }}
+       DEPLOYGATE_USER: ${{ secrets.DEPLOYGATE_USER }}
+       KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+       CERTIFICATE_PASSWORD: ${{ secrets.CERTIFICATE_PASSWORD }}
+       DEPLOYGATE_MESSAGE: ${{ github.sha }}
+     run: bundle exec fastlane dg

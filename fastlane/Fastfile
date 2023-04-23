@@ -1,78 +1,49 @@
 default_platform(:ios)
 
 platform :ios do
-  desc 'build ipa'
-  lane :beta do
-    automatic_code_signing(
-      targets: 'SpoolDays',
-      code_sign_identity: ENV['CODE_SIGN_IDENTITY'],
-      profile_name: ENV['CODE_SIGN_PROFILE_NAME'],
-      use_automatic_signing: false
-    )
-    automatic_code_signing(
-      targets: 'SpoolDaysTodayExtension',
-      code_sign_identity: ENV['CODE_SIGN_IDENTITY'],
-      profile_name: ENV['CODE_SIGN_PROFILE_NAME'] + '.SpoolDaysTodayExtension',
-      use_automatic_signing: false
-    )
+
+  private_lane :import_certificates_and_provisioning_profile do
     create_keychain(
-      name: ENV["MATCH_KEYCHAIN_NAME"],
-      password: ENV["MATCH_KEYCHAIN_PASSWORD"],
-      timeout: 1800
+        name: "ios_app_keychain",
+        password: ENV["KEYCHAIN_PASSWORD"],
+        timeout: 1800
     )
-    match(
-      type: 'adhoc',
-      keychain_name: ENV["MATCH_KEYCHAIN_NAME"],
-      keychain_password: ENV["MATCH_KEYCHAIN_PASSWORD"],
-      readonly: true
+    import_certificate(
+        certificate_path: "distribution.p12",
+        certificate_password: ENV["CERTIFICATE_PASSWORD"],
+        keychain_name: "ios_app_keychain",
+        keychain_password: ENV["KEYCHAIN_PASSWORD"]
     )
-    gym(
-      configuration: "Release",
-      scheme: "SpoolDays",
-      export_method: "ad-hoc",
-      output_directory: "./build/ipa/",
-      output_name: "SpoolDays.ipa",
-      include_bitcode: false,
-      export_options: {
-        compileBitcode: false,
-        uploadBitcode: false
-      }
-    )
-    automatic_code_signing(
-      targets: 'SpoolDays',
-      code_sign_identity: 'iPhone Developer',
-      profile_name: '',
-      team_id: '',
-      use_automatic_signing: true
-    )
-    automatic_code_signing(
-      targets: 'SpoolDaysTodayExtension',
-      code_sign_identity: 'iPhone Developer',
-      profile_name: '',
-      team_id: '',
-      use_automatic_signing: true
-    )
+    install_provisioning_profile(path: "distribution.mobileprovision")
+    install_provisioning_profile(path: "distribution_extension.mobileprovision")
   end
 
-  desc 'publish to deploygate'
-  lane :publish_to_deploygate do
-    beta
+  desc "Submit a new Beta Build to DeployGate"
+  lane :dg do
+    import_certificates_and_provisioning_profile
+    update_code_signing_settings(
+      use_automatic_signing: false,
+      path: "SpoolDays.xcodeproj",
+      code_sign_identity: "Apple Distribution",
+      bundle_identifier: "org.codefirst.SpoolDays",
+      profile_name: "SpoolDays Deploygate Adhoc deployment"
+    )
+    update_project_team(
+      path: 'SpoolDays.xcodeproj',
+      teamid: ENV['TEAM_ID'])
+    build_app(
+      scheme: 'SpoolDays',
+      export_options: {
+        method: 'ad-hoc'
+      }
+    )
     deploygate(
       api_token: ENV['DEPLOYGATE_API_KEY'],
       user: ENV['DEPLOYGATE_USER'],
-      message: "Build #{lane_context[SharedValues::BUILD_NUMBER]}"
-    )
-  end
-
-  desc 'archive for simulator'
-  lane :archive_for_simulator do
-    xcodebuild(
-      scheme: "SpoolDays",
-      workspace: "SpoolDays.xcworkspace",
-      configuration: "Debug",
-      sdk: "iphonesimulator",
-      derivedDataPath: "build"
-    )
+      message: ENV['DEPLOYGATE_MESSAGE'] || 'Build')
+    update_project_team(
+      path: 'SpoolDays.xcodeproj',
+      teamid: '')
   end
 
   desc "Build for simulator"
