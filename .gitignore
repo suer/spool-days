@@ -14,3 +14,4 @@ org.codefirst.SpoolDays.mobileprovision
 .bundle
 /.env
 fastlane/report.xml
+fastlane/test_output/

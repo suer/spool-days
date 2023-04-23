@@ -55,4 +55,9 @@ platform :ios do
       xcargs: "-sdk iphonesimulator"
     )
   end
+
+  desc "Runt tests"
+  lane :test do
+    run_tests(scheme: "SpoolDays")
+  end
 end
