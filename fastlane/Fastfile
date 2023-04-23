@@ -74,4 +74,14 @@ platform :ios do
       derivedDataPath: "build"
     )
   end
+
+  desc "Build for simulator"
+  lane :build_for_simulator do
+    xcbuild(
+      workspace: "SpoolDays.xcworkspace",
+      scheme: "SpoolDays",
+      configuration: "Debug",
+      xcargs: "-sdk iphonesimulator"
+    )
+  end
 end

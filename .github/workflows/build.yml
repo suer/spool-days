@@ -1,9 +1,6 @@
 name: Build
 
-on:
- pull_request:
- push:
-   branches: [ master ]
+on: pull_request
 
 env:
   DEVELOPER_DIR: /Applications/Xcode_13.4.1.app/Contents/Developer
@@ -44,4 +41,4 @@ jobs:
      run: bundle exec pod install
 
    - name: Build
-     run: bundle exec fastlane ios archive_for_simulator
+     run: bundle exec fastlane build_for_simulator
