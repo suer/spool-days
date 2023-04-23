@@ -15,29 +15,13 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios beta
+### ios dg
 
 ```sh
-[bundle exec] fastlane ios beta
+[bundle exec] fastlane ios dg
 ```
 
-build ipa
-
-### ios publish_to_deploygate
-
-```sh
-[bundle exec] fastlane ios publish_to_deploygate
-```
-
-publish to deploygate
-
-### ios archive_for_simulator
-
-```sh
-[bundle exec] fastlane ios archive_for_simulator
-```
-
-archive for simulator
+Submit a new Beta Build to DeployGate
 
 ### ios build_for_simulator
 
