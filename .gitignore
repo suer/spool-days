@@ -2,12 +2,9 @@ project.xcworkspace
 xcuserdata
 *xcworkspace/
 Pods/
-preference.plist
 *.ipa
 *.app.dSYM.zip
 certs/
-SpoolDays/preference.plist
-mint.plist
 build/
 tmp/
 org.codefirst.SpoolDays.mobileprovision
