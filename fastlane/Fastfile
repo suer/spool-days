@@ -33,8 +33,12 @@ platform :ios do
       teamid: ENV['TEAM_ID'])
     build_app(
       scheme: 'SpoolDays',
+      export_method: 'ad-hoc',
       export_options: {
-        method: 'ad-hoc'
+        provisioningProfiles: {
+          "org.codefirst.SpoolDays" => "SpoolDays Deploygate Adhoc deployment",
+          "org.codefirst.SpoolDays.SpoolDaysTodayExtension" => "SpoolDays Extension Deploygate Adhoc deployment"
+        }
       }
     )
     deploygate(
