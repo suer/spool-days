@@ -7,29 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		54CFCA36C12272E31A0E59C8 /* Pods_SpoolDaysTodayExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 950CCD4FA9763A19AE4FA230 /* Pods_SpoolDaysTodayExtension.framework */; };
 		8002868419EFE1EE00089835 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002868319EFE1EE00089835 /* MainViewController.swift */; };
 		8009360A1AA74ACB00F87B83 /* BaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800936091AA74ACB00F87B83 /* BaseDate.swift */; };
 		8009360C1AA74ACC00F87B83 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8009360B1AA74ACC00F87B83 /* Log.swift */; };
-		8009360D1AA74B6900F87B83 /* BaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800936091AA74ACB00F87B83 /* BaseDate.swift */; };
-		8009360E1AA74D8100F87B83 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8009360B1AA74ACC00F87B83 /* Log.swift */; };
 		8009360F1AA74D8200F87B83 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8009360B1AA74ACC00F87B83 /* Log.swift */; };
-		800936111AA74D9900F87B83 /* I18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E8B831A731FE100CB1D6D /* I18n.swift */; };
 		800936121AA74DBD00F87B83 /* BaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800936091AA74ACB00F87B83 /* BaseDate.swift */; };
 		800D5FF61A455F9800F86EC5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 800D5FF51A455F9800F86EC5 /* Settings.bundle */; };
 		800E8B841A731FE100CB1D6D /* I18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E8B831A731FE100CB1D6D /* I18n.swift */; };
 		800E8B861A73ECCB00CB1D6D /* DateTableViewCellAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E8B851A73ECCB00CB1D6D /* DateTableViewCellAction.swift */; };
 		801A6B111A8F5278006F4B7D /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80404BDC1A0BA76A00FD835F /* NSDateExtension.swift */; };
 		801A6B141A8F5C13006F4B7D /* I18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E8B831A731FE100CB1D6D /* I18n.swift */; };
-		802225F619FB058F00330227 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 802225F519FB058F00330227 /* NotificationCenter.framework */; };
-		802225FB19FB058F00330227 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802225FA19FB058F00330227 /* TodayViewController.swift */; };
-		802225FD19FB058F00330227 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 802225FC19FB058F00330227 /* MainInterface.storyboard */; };
-		8022260019FB058F00330227 /* SpoolDaysTodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 802225F419FB058F00330227 /* SpoolDaysTodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		80404BDD1A0BA76A00FD835F /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80404BDC1A0BA76A00FD835F /* NSDateExtension.swift */; };
 		804A869E1ADA68CE0024E2E4 /* PopupAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A869D1ADA68CE0024E2E4 /* PopupAlertView.swift */; };
 		804E607419F31D5D005BA669 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E607319F31D5D005BA669 /* EditViewController.swift */; };
 		8057D9E919FBEB8A00AB18DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8057D9EB19FBEB8A00AB18DF /* Localizable.strings */; };
-		8057D9EE19FBEDCB00AB18DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8057D9EB19FBEB8A00AB18DF /* Localizable.strings */; };
 		8059A9001A02925D00A9958B /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059A8FF1A02925D00A9958B /* HistoryViewModel.swift */; };
 		8059A9021A03C11F00A9958B /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059A9011A03C11F00A9958B /* HistoryTableViewController.swift */; };
 		8075F9DC19FE01DD00443983 /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8075F9DB19FE01DD00443983 /* ThemeColor.swift */; };
@@ -43,24 +34,14 @@
 		80A7D33419F012EA007BB993 /* DateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7D33319F012EA007BB993 /* DateViewModel.swift */; };
 		80AF1CEC1A50449600A84EAA /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF1CEB1A50449600A84EAA /* ModalViewController.swift */; };
 		80B069531A94D5BD00848701 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B069521A94D5BD00848701 /* TextFieldTableViewCell.swift */; };
-		80B1486A1A9F457F00E60131 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80404BDC1A0BA76A00FD835F /* NSDateExtension.swift */; };
 		80B1486C1AA0B30D00E60131 /* GroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B1486B1AA0B30D00E60131 /* GroupData.swift */; };
-		80B1486D1AA0B31400E60131 /* GroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B1486B1AA0B30D00E60131 /* GroupData.swift */; };
 		80DFB0F719F3D2A100BCF3B1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB0F519F3D2A100BCF3B1 /* Model.xcdatamodeld */; };
 		80DFB11F19F5427200BCF3B1 /* DatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */; };
-		9F3086AF200E0D71D1621672 /* (null) in Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (Weak, ); }; };
 		B2FDE5D77C2F64623D3A8AAF /* Pods_SpoolDaysTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6466F150224C7F27AC74DA /* Pods_SpoolDaysTests.framework */; };
 		ED037686A8E049093FC9F55C /* Pods_SpoolDays.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5695EBDC48B6EA66326902 /* Pods_SpoolDays.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		802225FE19FB058F00330227 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 80A574AB19EFDF4100C06CBB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 802225F319FB058F00330227;
-			remoteInfo = SpoolDaysTodayExtension;
-		};
 		80A574C919EFDF4100C06CBB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 80A574AB19EFDF4100C06CBB /* Project object */;
@@ -77,7 +58,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				8022260019FB058F00330227 /* SpoolDaysTodayExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,12 +74,7 @@
 		800E8B831A731FE100CB1D6D /* I18n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = I18n.swift; sourceTree = "<group>"; };
 		800E8B851A73ECCB00CB1D6D /* DateTableViewCellAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTableViewCellAction.swift; sourceTree = "<group>"; };
 		801A6B131A8F534E006F4B7D /* SpoolDays-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SpoolDays-Bridging-Header.h"; path = "Common/SpoolDays-Bridging-Header.h"; sourceTree = "<group>"; };
-		802225F419FB058F00330227 /* SpoolDaysTodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SpoolDaysTodayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		802225F519FB058F00330227 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		802225F919FB058F00330227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		802225FA19FB058F00330227 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		802225FC19FB058F00330227 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
-		8022260519FB086900330227 /* SpoolDaysTodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SpoolDaysTodayExtension.entitlements; sourceTree = "<group>"; };
 		8022260619FB3AE600330227 /* SpoolDays.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SpoolDays.entitlements; sourceTree = "<group>"; };
 		80404BDC1A0BA76A00FD835F /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		804A869D1ADA68CE0024E2E4 /* PopupAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupAlertView.swift; sourceTree = "<group>"; };
@@ -137,16 +112,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		802225F119FB058F00330227 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				802225F619FB058F00330227 /* NotificationCenter.framework in Frameworks */,
-				9F3086AF200E0D71D1621672 /* (null) in Frameworks */,
-				54CFCA36C12272E31A0E59C8 /* Pods_SpoolDaysTodayExtension.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		80A574B019EFDF4100C06CBB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -175,32 +140,12 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
-		802225F719FB058F00330227 /* SpoolDaysTodayExtension */ = {
-			isa = PBXGroup;
-			children = (
-				8022260519FB086900330227 /* SpoolDaysTodayExtension.entitlements */,
-				802225FA19FB058F00330227 /* TodayViewController.swift */,
-				802225FC19FB058F00330227 /* MainInterface.storyboard */,
-				802225F819FB058F00330227 /* Supporting Files */,
-			);
-			path = SpoolDaysTodayExtension;
-			sourceTree = "<group>";
-		};
-		802225F819FB058F00330227 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				802225F919FB058F00330227 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		80A574AA19EFDF4100C06CBB = {
 			isa = PBXGroup;
 			children = (
 				801A6B121A8F52F3006F4B7D /* Common */,
 				80A574B519EFDF4100C06CBB /* SpoolDays */,
 				80A574CB19EFDF4100C06CBB /* SpoolDaysTests */,
-				802225F719FB058F00330227 /* SpoolDaysTodayExtension */,
 				80A574B419EFDF4100C06CBB /* Products */,
 				C9DD4CF9193C1C7BCB6EC7B2 /* Frameworks */,
 				E1904D8318F0FB19403B323C /* Pods */,
@@ -212,7 +157,6 @@
 			children = (
 				80A574B319EFDF4100C06CBB /* SpoolDays.app */,
 				80A574C819EFDF4100C06CBB /* SpoolDaysTests.xctest */,
-				802225F419FB058F00330227 /* SpoolDaysTodayExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -311,25 +255,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		802225F319FB058F00330227 /* SpoolDaysTodayExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8022260119FB058F00330227 /* Build configuration list for PBXNativeTarget "SpoolDaysTodayExtension" */;
-			buildPhases = (
-				23B3ACA7F4A527F12AAD8ACC /* [CP] Check Pods Manifest.lock */,
-				802225F019FB058F00330227 /* Sources */,
-				802225F119FB058F00330227 /* Frameworks */,
-				802225F219FB058F00330227 /* Resources */,
-				196598F3289FEC97007AE8F9 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SpoolDaysTodayExtension;
-			productName = SpoolDaysTodayExtension;
-			productReference = 802225F419FB058F00330227 /* SpoolDaysTodayExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		80A574B219EFDF4100C06CBB /* SpoolDays */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 80A574D219EFDF4100C06CBB /* Build configuration list for PBXNativeTarget "SpoolDays" */;
@@ -345,7 +270,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				802225FF19FB058F00330227 /* PBXTargetDependency */,
 			);
 			name = SpoolDays;
 			productName = SpoolDays;
@@ -382,16 +306,6 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = codefirst.org;
 				TargetAttributes = {
-					802225F319FB058F00330227 = {
-						CreatedOnToolsVersion = 6.1;
-						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
-							};
-						};
-					};
 					80A574B219EFDF4100C06CBB = {
 						CreatedOnToolsVersion = 6.0.1;
 						LastSwiftMigration = 0800;
@@ -429,21 +343,11 @@
 			targets = (
 				80A574B219EFDF4100C06CBB /* SpoolDays */,
 				80A574C719EFDF4100C06CBB /* SpoolDaysTests */,
-				802225F319FB058F00330227 /* SpoolDaysTodayExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		802225F219FB058F00330227 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				802225FD19FB058F00330227 /* MainInterface.storyboard in Resources */,
-				8057D9EE19FBEDCB00AB18DF /* Localizable.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		80A574B119EFDF4100C06CBB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -509,45 +413,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		196598F3289FEC97007AE8F9 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		23B3ACA7F4A527F12AAD8ACC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SpoolDaysTodayExtension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		800D5FF71A45616A00F86EC5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -586,19 +451,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		802225F019FB058F00330227 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				802225FB19FB058F00330227 /* TodayViewController.swift in Sources */,
-				80B1486D1AA0B31400E60131 /* GroupData.swift in Sources */,
-				8009360E1AA74D8100F87B83 /* Log.swift in Sources */,
-				800936111AA74D9900F87B83 /* I18n.swift in Sources */,
-				8009360D1AA74B6900F87B83 /* BaseDate.swift in Sources */,
-				80B1486A1A9F457F00E60131 /* NSDateExtension.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		80A574AF19EFDF4100C06CBB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -642,11 +494,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		802225FF19FB058F00330227 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 802225F319FB058F00330227 /* SpoolDaysTodayExtension */;
-			targetProxy = 802225FE19FB058F00330227 /* PBXContainerItemProxy */;
-		};
 		80A574CA19EFDF4100C06CBB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 80A574B219EFDF4100C06CBB /* SpoolDays */;
@@ -675,114 +522,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		8022260219FB058F00330227 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 858ED7853FA043FFEAC733C0 /* Pods-SpoolDaysTodayExtension.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = SpoolDaysTodayExtension/SpoolDaysTodayExtension.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				EXCLUDED_ARCHS = "";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-					RSDF_APP_EXTENSION,
-				);
-				INFOPLIST_FILE = SpoolDaysTodayExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					"-isystem",
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"-isystem",
-					"\"${PODS_ROOT}/Headers/Public/MTDates\"",
-					"-isystem",
-					"\"${PODS_ROOT}/Headers/Public/MagicalRecord\"",
-					"-isystem",
-					"\"${PODS_ROOT}/Headers/Public/RMUniversalAlert\"",
-					"-isystem",
-					"\"${PODS_ROOT}/Headers/Public/RSDayFlow\"",
-					"-isystem",
-					"\"${PODS_ROOT}/Headers/Public/SWTableViewCell\"",
-					"-isystem",
-					"\"${PODS_ROOT}/Headers/Public/UIActionSheet+Blocks\"",
-					"-isystem",
-					"\"${PODS_ROOT}/Headers/Public/UIAlertController+Blocks\"",
-					"-isystem",
-					"\"${PODS_ROOT}/Headers/Public/UIAlertView+Blocks\"",
-					"-DRSDF_APP_EXTENSION",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"$(OTHER_CFLAGS)",
-					"-DRSDF_APP_EXTENSION",
-				);
-				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.codefirst.SpoolDays.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Common/SpoolDays-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		8022260319FB058F00330227 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 556A00DB62E161F5356FC917 /* Pods-SpoolDaysTodayExtension.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = SpoolDaysTodayExtension/SpoolDaysTodayExtension.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				EXCLUDED_ARCHS = "";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"COCOAPODS=1",
-					RSDF_APP_EXTENSION,
-				);
-				INFOPLIST_FILE = SpoolDaysTodayExtension/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				OTHER_CFLAGS = (
-					"$(inherited)",
-					"-isystem",
-					"\"${PODS_ROOT}/Headers/Public\"",
-					"-isystem",
-					"\"${PODS_ROOT}/Headers/Public/MTDates\"",
-					"-isystem",
-					"\"${PODS_ROOT}/Headers/Public/MagicalRecord\"",
-					"-isystem",
-					"\"${PODS_ROOT}/Headers/Public/RMUniversalAlert\"",
-					"-isystem",
-					"\"${PODS_ROOT}/Headers/Public/RSDayFlow\"",
-					"-isystem",
-					"\"${PODS_ROOT}/Headers/Public/SWTableViewCell\"",
-					"-isystem",
-					"\"${PODS_ROOT}/Headers/Public/UIActionSheet+Blocks\"",
-					"-isystem",
-					"\"${PODS_ROOT}/Headers/Public/UIAlertController+Blocks\"",
-					"-isystem",
-					"\"${PODS_ROOT}/Headers/Public/UIAlertView+Blocks\"",
-					"-DRSDF_APP_EXTENSION",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"$(OTHER_CFLAGS)",
-					"-DRSDF_APP_EXTENSION",
-				);
-				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.codefirst.SpoolDays.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Common/SpoolDays-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 		80A574D019EFDF4100C06CBB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -997,15 +736,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8022260119FB058F00330227 /* Build configuration list for PBXNativeTarget "SpoolDaysTodayExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8022260219FB058F00330227 /* Debug */,
-				8022260319FB058F00330227 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		80A574AE19EFDF4100C06CBB /* Build configuration list for PBXProject "SpoolDays" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
