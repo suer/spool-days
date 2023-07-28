@@ -28,8 +28,6 @@ jobs:
      run: |
        echo "${{ secrets.PROVISIONING_PROFILE }}" > distribution.mobileprovision.txt
        base64 --decode distribution.mobileprovision.txt > distribution.mobileprovision
-       echo "${{ secrets.PROVISIONING_PROFILE_FOR_EXTENSION }}" > distribution_extension.mobileprovision.txt
-       base64 --decode distribution_extension.mobileprovision.txt > distribution_extension.mobileprovision
 
    - name: Cache Gems
      uses: actions/cache@v3

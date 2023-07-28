@@ -15,7 +15,6 @@ platform :ios do
         keychain_password: ENV["KEYCHAIN_PASSWORD"]
     )
     install_provisioning_profile(path: "distribution.mobileprovision")
-    install_provisioning_profile(path: "distribution_extension.mobileprovision")
   end
 
   desc "Submit a new Beta Build to DeployGate"
@@ -37,7 +36,6 @@ platform :ios do
       export_options: {
         provisioningProfiles: {
           "org.codefirst.SpoolDays" => "SpoolDays Deploygate Adhoc deployment",
-          "org.codefirst.SpoolDays.SpoolDaysTodayExtension" => "SpoolDays Extension Deploygate Adhoc deployment"
         }
       }
     )
