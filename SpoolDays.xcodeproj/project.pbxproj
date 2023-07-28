@@ -65,7 +65,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		556A00DB62E161F5356FC917 /* Pods-SpoolDaysTodayExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpoolDaysTodayExtension.release.xcconfig"; path = "Target Support Files/Pods-SpoolDaysTodayExtension/Pods-SpoolDaysTodayExtension.release.xcconfig"; sourceTree = "<group>"; };
 		72F7D29FE67F2DA9E7946D9A /* Pods-SpoolDaysTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpoolDaysTests.debug.xcconfig"; path = "Target Support Files/Pods-SpoolDaysTests/Pods-SpoolDaysTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8002868319EFE1EE00089835 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		800936091AA74ACB00F87B83 /* BaseDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseDate.swift; path = Models/BaseDate.swift; sourceTree = "<group>"; };
@@ -103,8 +102,6 @@
 		80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesViewModel.swift; sourceTree = "<group>"; };
 		80EE03821AB087310009CE05 /* libPods-SpoolDays-RSDayFlow.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SpoolDays-RSDayFlow.a"; path = "Pods/../build/Debug-iphoneos/libPods-SpoolDays-RSDayFlow.a"; sourceTree = "<group>"; };
 		8569C3C3CB9BF32A4499F2DD /* Pods-SpoolDays.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpoolDays.release.xcconfig"; path = "Target Support Files/Pods-SpoolDays/Pods-SpoolDays.release.xcconfig"; sourceTree = "<group>"; };
-		858ED7853FA043FFEAC733C0 /* Pods-SpoolDaysTodayExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpoolDaysTodayExtension.debug.xcconfig"; path = "Target Support Files/Pods-SpoolDaysTodayExtension/Pods-SpoolDaysTodayExtension.debug.xcconfig"; sourceTree = "<group>"; };
-		950CCD4FA9763A19AE4FA230 /* Pods_SpoolDaysTodayExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpoolDaysTodayExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A213BC18E4CC71A416C5B370 /* Pods-SpoolDays.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpoolDays.debug.xcconfig"; path = "Target Support Files/Pods-SpoolDays/Pods-SpoolDays.debug.xcconfig"; sourceTree = "<group>"; };
 		ADB03DFF7EC6CAC8A1D3EE4C /* Pods-SpoolDaysTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpoolDaysTests.release.xcconfig"; path = "Target Support Files/Pods-SpoolDaysTests/Pods-SpoolDaysTests.release.xcconfig"; sourceTree = "<group>"; };
 		CC5695EBDC48B6EA66326902 /* Pods_SpoolDays.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpoolDays.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,7 +231,6 @@
 				802225F519FB058F00330227 /* NotificationCenter.framework */,
 				CC5695EBDC48B6EA66326902 /* Pods_SpoolDays.framework */,
 				CF6466F150224C7F27AC74DA /* Pods_SpoolDaysTests.framework */,
-				950CCD4FA9763A19AE4FA230 /* Pods_SpoolDaysTodayExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -246,8 +242,6 @@
 				8569C3C3CB9BF32A4499F2DD /* Pods-SpoolDays.release.xcconfig */,
 				72F7D29FE67F2DA9E7946D9A /* Pods-SpoolDaysTests.debug.xcconfig */,
 				ADB03DFF7EC6CAC8A1D3EE4C /* Pods-SpoolDaysTests.release.xcconfig */,
-				858ED7853FA043FFEAC733C0 /* Pods-SpoolDaysTodayExtension.debug.xcconfig */,
-				556A00DB62E161F5356FC917 /* Pods-SpoolDaysTodayExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -424,7 +418,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "VERSION_NUMBER=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\n/usr/libexec/PlistBuddy ${TARGET_BUILD_DIR}/${FULL_PRODUCT_NAME}/Settings.bundle/Root.plist -c \"set PreferenceSpecifiers:0:DefaultValue $VERSION_NUMBER\"\n\nBUILD_NUMBER=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n/usr/libexec/PlistBuddy ${TARGET_BUILD_DIR}/${FULL_PRODUCT_NAME}/Settings.bundle/Root.plist -c \"Set :PreferenceSpecifiers:1:DefaultValue $BUILD_NUMBER\"";
+			shellScript = "VERSION_NUMBER=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"$INFOPLIST_FILE\")\n/usr/libexec/PlistBuddy ${TARGET_BUILD_DIR}/${FULL_PRODUCT_NAME}/Settings.bundle/Root.plist -c \"set PreferenceSpecifiers:0:DefaultValue $VERSION_NUMBER\"\n\nBUILD_NUMBER=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n/usr/libexec/PlistBuddy ${TARGET_BUILD_DIR}/${FULL_PRODUCT_NAME}/Settings.bundle/Root.plist -c \"Set :PreferenceSpecifiers:1:DefaultValue $BUILD_NUMBER\"\n";
 		};
 		D5F5B2FEE0C27DEAED6986F5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
