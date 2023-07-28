@@ -15,11 +15,6 @@ target 'SpoolDays' do
     # Pods for testing
   end
 
-  target 'SpoolDaysTodayExtension' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
   post_install do |installer|
     t = installer.pods_project.targets.find {|target| target.name == 'RSDayFlow'}
     t.build_configurations.each do |config|
@@ -30,6 +25,15 @@ target 'SpoolDays' do
 
     installer.pods_project.build_configurations.each do |config|
       config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+    end
+
+    # https://stackoverflow.com/a/75729977
+    installer.generated_projects.each do |project|
+      project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+        end
+      end
     end
   end
 end
