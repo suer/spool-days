@@ -20,11 +20,7 @@ class MainViewController: UITableViewController {
         addNotificationCenterObserver()
         registerOnSignificantTimeChange()
 
-        if #available(iOS 13.0, *) {
-            tableView!.layer.backgroundColor = UIColor.systemBackground.cgColor
-        } else {
-            tableView!.layer.backgroundColor = UIColor.clear.cgColor
-        }
+        tableView!.layer.backgroundColor = UIColor.systemBackground.cgColor
     }
 
     override func viewWillAppear(_ animated: Bool) {
