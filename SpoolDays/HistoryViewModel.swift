@@ -1,5 +1,4 @@
 import Foundation
-import MagicalRecord
 
 class HistoryViewModel: NSObject {
     dynamic var logs = [Log]()
@@ -13,7 +12,7 @@ class HistoryViewModel: NSObject {
     }
 
     func save() {
-        NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
+        CoreDataManager.shared.saveAndWait()
     }
 
     func deleteLog(_ index: Int) {
@@ -22,6 +21,6 @@ class HistoryViewModel: NSObject {
     }
 
     func rollback() {
-        NSManagedObjectContext.mr_default().rollback()
+        CoreDataManager.shared.rollback()
     }
 }
