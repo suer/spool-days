@@ -54,8 +54,12 @@ class DatePickerViewController: UIViewController {
         return CalendarViewContent(
             calendar: calendar,
             visibleDateRange: startDate...endDate,
-            monthsLayout: .vertical(options: VerticalMonthsLayoutOptions())
+            monthsLayout: .vertical(options: VerticalMonthsLayoutOptions(
+                pinDaysOfWeekToTop: false,
+                alwaysShowCompleteBoundaryMonths: false
+            ))
         )
+        .interMonthSpacing(48)
         .dayItemProvider { [weak self] day in
             var invariantViewProperties = DayView.InvariantViewProperties.baseInteractive
             
