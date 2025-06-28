@@ -1,5 +1,4 @@
 import UIKit
-import MagicalRecord
 
 class MainViewController: UITableViewController {
     let datesViewModel = DatesViewModel()

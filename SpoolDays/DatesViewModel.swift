@@ -1,10 +1,11 @@
 import Foundation
+import CoreData
 
 class DatesViewModel: NSObject {
     @objc dynamic var dates: [BaseDate] = []
 
     func fetch() {
-        dates = BaseDate.mr_findAllSorted(by: "sort", ascending: true) as! [BaseDate]
+        dates = CoreDataManager.shared.fetchBaseDates()
         GroupData.setDates(dates)
     }
 

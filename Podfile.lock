@@ -1,18 +1,13 @@
 PODS:
-  - MagicalRecord (2.3.2):
-    - MagicalRecord/Core (= 2.3.2)
-  - MagicalRecord/Core (2.3.2)
-  - MTDates (1.0.0)
+  - MTDates (1.0.3)
   - RSDayFlow (0.8.0)
 
 DEPENDENCIES:
-  - MagicalRecord
   - MTDates
   - RSDayFlow (from `https://github.com/suer/RSDayFlow.git`, commit `efb97f8`)
 
 SPEC REPOS:
   trunk:
-    - MagicalRecord
     - MTDates
 
 EXTERNAL SOURCES:
@@ -26,10 +21,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/suer/RSDayFlow.git
 
 SPEC CHECKSUMS:
-  MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
-  MTDates: 1dbf92ecda49c0fc42bfd692bda3c471069b57ba
+  MTDates: c65affdfb7b34001c5c9e3fe0beac4b1b8334a58
   RSDayFlow: fb48480094f00d28fc90947051190f55478263c4
 
-PODFILE CHECKSUM: 3a8b35a2616cf76fa8ec16e952f4097a5f455171
+PODFILE CHECKSUM: 917085f7dd91af8e616d5d9fdae27295b178602f
 
 COCOAPODS: 1.16.2

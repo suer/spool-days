@@ -10,8 +10,14 @@ class Log: NSManagedObject {
     @NSManaged var baseDate: BaseDate
 
     class func findResetLogsByBaseDate(_ baseDate: BaseDate) -> [Log] {
+        let context = CoreDataManager.shared.context
+        let fetchRequest: NSFetchRequest<Log> = NSFetchRequest<Log>(entityName: "Log")
         let predicate = NSPredicate(format: "baseDate = %@ and event in %@", baseDate, ["create", "reset"])
-        return Log.mr_findAllSorted(by: "_pk", ascending: false, with: predicate) as! [Log]
+        fetchRequest.predicate = predicate
+        let sortDescriptor = NSSortDescriptor(key: "objectID", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+
+        return (try? context.fetch(fetchRequest)) ?? []
     }
 
     func dateString() -> String {
@@ -19,7 +25,8 @@ class Log: NSManagedObject {
     }
 
     func delete() {
-        mr_deleteEntity()
+        let context = CoreDataManager.shared.context
+        context.delete(self)
     }
 
     func eventString() -> String {

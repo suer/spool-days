@@ -1,5 +1,4 @@
 import UIKit
-import MagicalRecord
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -9,7 +8,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var onSignificantTimeChange: (() -> Void)?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        MagicalRecord.setupCoreDataStack(withStoreNamed: "spooldays.sqlite3")
+        _ = CoreDataManager.shared
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.backgroundColor = UIColor.white
         window!.makeKeyAndVisible()
@@ -79,7 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        MagicalRecord.cleanUp()
+        CoreDataManager.shared.save()
     }
 
     func applicationSignificantTimeChange(_ application: UIApplication) {

@@ -6,7 +6,6 @@ target 'SpoolDays' do
   use_frameworks!
 
   # Pods for SpoolDays
-  pod 'MagicalRecord'
   pod 'RSDayFlow', :git => 'https://github.com/suer/RSDayFlow.git', :commit => 'efb97f8'
   pod "MTDates"
 

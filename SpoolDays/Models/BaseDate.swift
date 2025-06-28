@@ -1,6 +1,5 @@
 import Foundation
 import CoreData
-import MagicalRecord
 
 @objc(BaseDate)
 class BaseDate: NSManagedObject {
@@ -11,81 +10,107 @@ class BaseDate: NSManagedObject {
     @NSManaged var logs: NSSet
 
     class func createBaseDate(_ title: String, date: Date) -> BaseDate? {
+        let context = CoreDataManager.shared.context
 
-        let maxSort = BaseDate.mr_aggregateOperation("max:", onAttribute: "sort", with: NSPredicate(value: true))
-        if let baseDate = BaseDate.mr_createEntity() {
-            baseDate.sort = ((maxSort as? Int ?? 0) + 1) as NSNumber
-            baseDate.date = date
-            baseDate.title = title
+        let fetchRequest: NSFetchRequest<BaseDate> = NSFetchRequest<BaseDate>(entityName: "BaseDate")
+        let sortDescriptor = NSSortDescriptor(key: "sort", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchRequest.fetchLimit = 1
 
-            if let log = Log.mr_createEntity() {
-                log.date = date
-                log.duration = 0
-                log.baseDate = baseDate
-                log.event = "create"
-            }
-
-            NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
-            return baseDate
+        let maxSort: Int
+        if let lastBaseDate = try? context.fetch(fetchRequest).first {
+            maxSort = lastBaseDate.sort.intValue
+        } else {
+            maxSort = 0
         }
-        return nil
+
+        let baseDate = BaseDate(context: context)
+        baseDate.sort = NSNumber(value: maxSort + 1)
+        baseDate.date = date
+        baseDate.title = title
+
+        let log = Log(context: context)
+        log.date = date
+        log.duration = 0
+        log.baseDate = baseDate
+        log.event = "create"
+
+        CoreDataManager.shared.saveAndWait()
+        return baseDate
     }
 
     func update(title: String, date: Date) {
+        let context = CoreDataManager.shared.context
+
         if self.date == date {
-            if let log = Log.mr_createEntity() {
-                log.date = date
-                log.duration = NSNumber(value: dateInterval())
-                log.baseDate = self
-                log.event = "edit"
-            }
+            let log = Log(context: context)
+            log.date = date
+            log.duration = NSNumber(value: dateInterval())
+            log.baseDate = self
+            log.event = "edit"
         }
 
         self.title = title
         self.date = date
 
-        NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
+        CoreDataManager.shared.saveAndWait()
     }
 
     class func move(fromIndex: Int, toIndex: Int) {
-        let dates = BaseDate.mr_findAllSorted(by: "sort", ascending: true) as! [BaseDate]
+        let context = CoreDataManager.shared.context
+
+        let fetchRequest: NSFetchRequest<BaseDate> = NSFetchRequest<BaseDate>(entityName: "BaseDate")
+        let sortDescriptor = NSSortDescriptor(key: "sort", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+
+        guard let dates = try? context.fetch(fetchRequest) else { return }
+
         dates[fromIndex].sort = NSNumber(value: toIndex)
         if fromIndex < toIndex {
             for i in stride(from: (fromIndex + 1), to: toIndex, by: 1) {
-                dates[i].sort = (Int(truncating: dates[i].sort) - 1) as NSNumber
+                dates[i].sort = NSNumber(value: dates[i].sort.intValue - 1)
             }
         } else {
             for i in toIndex ..< fromIndex {
-                dates[i].sort = (Int(truncating: dates[i].sort) + 1) as NSNumber
+                dates[i].sort = NSNumber(value: dates[i].sort.intValue + 1)
             }
         }
-        NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
+        CoreDataManager.shared.saveAndWait()
     }
 
     func delete() {
+        let context = CoreDataManager.shared.context
+
         if logs.count > 0 {
             for log in logs {
-                _ = (log as AnyObject).mr_deleteEntity()
+                context.delete(log as! NSManagedObject)
             }
         }
-        mr_deleteEntity()
-        NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
+        context.delete(self)
+        CoreDataManager.shared.saveAndWait()
     }
 
     func reset(_ date: Date) {
-        if let log = Log.mr_createEntity() {
-            log.date = date
-            log.duration = NSNumber(value: dateInterval(date))
-            log.baseDate = self
-            log.event = "reset"
-        }
+        let context = CoreDataManager.shared.context
+
+        let log = Log(context: context)
+        log.date = date
+        log.duration = NSNumber(value: dateInterval(date))
+        log.baseDate = self
+        log.event = "reset"
 
         self.date = date
-        NSManagedObjectContext.mr_default().mr_saveToPersistentStoreAndWait()
+        CoreDataManager.shared.saveAndWait()
     }
 
     class func first() -> BaseDate? {
-        return BaseDate.mr_findFirstOrdered(byAttribute: "sort", ascending: true)
+        let context = CoreDataManager.shared.context
+        let fetchRequest: NSFetchRequest<BaseDate> = NSFetchRequest<BaseDate>(entityName: "BaseDate")
+        let sortDescriptor = NSSortDescriptor(key: "sort", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchRequest.fetchLimit = 1
+
+        return try? context.fetch(fetchRequest).first
     }
 
     func dateInterval() -> Int {
