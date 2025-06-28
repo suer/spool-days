@@ -12,7 +12,6 @@ class BaseDate: NSManagedObject {
     class func createBaseDate(_ title: String, date: Date) -> BaseDate? {
         let context = CoreDataManager.shared.context
 
-        // Get max sort value
         let fetchRequest: NSFetchRequest<BaseDate> = NSFetchRequest<BaseDate>(entityName: "BaseDate")
         let sortDescriptor = NSSortDescriptor(key: "sort", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]

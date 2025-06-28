@@ -8,10 +8,8 @@ class CoreDataManager {
     lazy var applicationDocumentsDirectory: URL = {
         let urls = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)
         let applicationSupportURL = urls[urls.count-1]
-        // Get application name from bundle (same as MagicalRecord)
         let applicationName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String ?? "SpoolDays"
         let appDirectoryURL = applicationSupportURL.appendingPathComponent(applicationName)
-        // Create application directory if it doesn't exist
         if !FileManager.default.fileExists(atPath: appDirectoryURL.path) {
             try? FileManager.default.createDirectory(at: appDirectoryURL, withIntermediateDirectories: true, attributes: nil)
         }
@@ -20,7 +18,6 @@ class CoreDataManager {
 
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Model")
-        // Configure the persistent store to use spooldays.sqlite3
         let storeURL = self.applicationDocumentsDirectory.appendingPathComponent("spooldays.sqlite3")
         let description = NSPersistentStoreDescription(url: storeURL)
         description.type = NSSQLiteStoreType
