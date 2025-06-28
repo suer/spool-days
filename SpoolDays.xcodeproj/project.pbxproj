@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		629B8CF7A27F4591BA212F91AC74C5FC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59084B2672E46108E9BABF2 /* CoreDataManager.swift */; };
 		8002868419EFE1EE00089835 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002868319EFE1EE00089835 /* MainViewController.swift */; };
 		8009360A1AA74ACB00F87B83 /* BaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800936091AA74ACB00F87B83 /* BaseDate.swift */; };
 		8009360C1AA74ACC00F87B83 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8009360B1AA74ACC00F87B83 /* Log.swift */; };
@@ -38,7 +39,6 @@
 		80DFB0F719F3D2A100BCF3B1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB0F519F3D2A100BCF3B1 /* Model.xcdatamodeld */; };
 		80DFB11F19F5427200BCF3B1 /* DatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */; };
 		99E5E5E909374B34947D1AF2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59084B2672E46108E9BABF2 /* CoreDataManager.swift */; };
-		629B8CF7A27F4591BA212F91AC74C5FC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59084B2672E46108E9BABF2 /* CoreDataManager.swift */; };
 		B2FDE5D77C2F64623D3A8AAF /* Pods_SpoolDaysTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6466F150224C7F27AC74DA /* Pods_SpoolDaysTests.framework */; };
 		ED037686A8E049093FC9F55C /* Pods_SpoolDays.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5695EBDC48B6EA66326902 /* Pods_SpoolDays.framework */; };
 /* End PBXBuildFile section */
@@ -102,12 +102,12 @@
 		80DFB0F619F3D2A100BCF3B1 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesViewModel.swift; sourceTree = "<group>"; };
 		80EE03821AB087310009CE05 /* libPods-SpoolDays-RSDayFlow.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SpoolDays-RSDayFlow.a"; path = "Pods/../build/Debug-iphoneos/libPods-SpoolDays-RSDayFlow.a"; sourceTree = "<group>"; };
-		F59084B2672E46108E9BABF2 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		8569C3C3CB9BF32A4499F2DD /* Pods-SpoolDays.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpoolDays.release.xcconfig"; path = "Target Support Files/Pods-SpoolDays/Pods-SpoolDays.release.xcconfig"; sourceTree = "<group>"; };
 		A213BC18E4CC71A416C5B370 /* Pods-SpoolDays.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpoolDays.debug.xcconfig"; path = "Target Support Files/Pods-SpoolDays/Pods-SpoolDays.debug.xcconfig"; sourceTree = "<group>"; };
 		ADB03DFF7EC6CAC8A1D3EE4C /* Pods-SpoolDaysTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpoolDaysTests.release.xcconfig"; path = "Target Support Files/Pods-SpoolDaysTests/Pods-SpoolDaysTests.release.xcconfig"; sourceTree = "<group>"; };
 		CC5695EBDC48B6EA66326902 /* Pods_SpoolDays.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpoolDays.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6466F150224C7F27AC74DA /* Pods_SpoolDaysTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpoolDaysTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F59084B2672E46108E9BABF2 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -364,13 +364,13 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SpoolDays/Pods-SpoolDays-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/HorizonCalendar/HorizonCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/MTDates/MTDates.framework",
-				"${BUILT_PRODUCTS_DIR}/RSDayFlow/RSDayFlow.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HorizonCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MTDates.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSDayFlow.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
