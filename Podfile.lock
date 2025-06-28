@@ -1,20 +1,16 @@
 PODS:
   - HorizonCalendar (2.0.0)
-  - MTDates (1.0.3)
 
 DEPENDENCIES:
   - HorizonCalendar
-  - MTDates
 
 SPEC REPOS:
   trunk:
     - HorizonCalendar
-    - MTDates
 
 SPEC CHECKSUMS:
   HorizonCalendar: 21e600058a8f4d407c79ef7848beda692c53a484
-  MTDates: c65affdfb7b34001c5c9e3fe0beac4b1b8334a58
 
-PODFILE CHECKSUM: fdebba49860cbe85b5ef871e55d092565f16c7b7
+PODFILE CHECKSUM: cae1a34d3022f55b19a7ecdac25c47de500f329c
 
 COCOAPODS: 1.16.2

@@ -1,5 +1,4 @@
 import Foundation
-import MTDates
 
 extension Date {
     func dateIntervalFromNow() -> Int {
@@ -7,7 +6,9 @@ extension Date {
     }
 
     func dateIntervalFromDate(_ from: Date) -> Int {
-        return (self as NSDate).mt_days(until: from)
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.day], from: self, to: from)
+        return components.day ?? 0
     }
 
     func dateString() -> String {

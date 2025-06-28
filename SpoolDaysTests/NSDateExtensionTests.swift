@@ -17,11 +17,12 @@ class CalendarTests: XCTestCase {
     }
 
     func testFromString() {
-        let str = "2014-08-04"
-        let date = Date.fromString(str)
-        XCTAssertEqual((date! as NSDate).mt_year(), 2014)
-        XCTAssertEqual((date! as NSDate).mt_monthOfYear(), 8)
-        XCTAssertEqual((date! as NSDate).mt_dayOfMonth(), 4)
+        let date = Date.fromString("2014-08-04")
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day], from: date!)
+        XCTAssertEqual(components.year, 2014)
+        XCTAssertEqual(components.month, 8)
+        XCTAssertEqual(components.day, 4)
     }
 
     func testFromStringFail() {
