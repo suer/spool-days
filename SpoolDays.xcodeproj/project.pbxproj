@@ -38,6 +38,7 @@
 		80DFB0F719F3D2A100BCF3B1 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB0F519F3D2A100BCF3B1 /* Model.xcdatamodeld */; };
 		80DFB11F19F5427200BCF3B1 /* DatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */; };
 		99E5E5E909374B34947D1AF2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59084B2672E46108E9BABF2 /* CoreDataManager.swift */; };
+		629B8CF7A27F4591BA212F91AC74C5FC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59084B2672E46108E9BABF2 /* CoreDataManager.swift */; };
 		B2FDE5D77C2F64623D3A8AAF /* Pods_SpoolDaysTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF6466F150224C7F27AC74DA /* Pods_SpoolDaysTests.framework */; };
 		ED037686A8E049093FC9F55C /* Pods_SpoolDays.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5695EBDC48B6EA66326902 /* Pods_SpoolDays.framework */; };
 /* End PBXBuildFile section */
@@ -474,7 +475,7 @@
 				8009360F1AA74D8200F87B83 /* Log.swift in Sources */,
 				801A6B111A8F5278006F4B7D /* NSDateExtension.swift in Sources */,
 				801A6B141A8F5C13006F4B7D /* I18n.swift in Sources */,
-				99E5E5E909374B34947D1AF2 /* CoreDataManager.swift in Sources */,
+				629B8CF7A27F4591BA212F91AC74C5FC /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
