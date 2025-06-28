@@ -60,9 +60,16 @@ class DatePickerViewController: UIViewController {
             var invariantViewProperties = DayView.InvariantViewProperties.baseInteractive
             
             let selectedDay = calendar.dateComponents([.year, .month, .day], from: self?.initialDate ?? Date())
-            if day.components.year == selectedDay.year && 
-               day.components.month == selectedDay.month && 
-               day.components.day == selectedDay.day {
+            let isSelected = day.components.year == selectedDay.year && 
+                           day.components.month == selectedDay.month && 
+                           day.components.day == selectedDay.day
+            
+            // Check if it's weekend (Saturday = 7, Sunday = 1)
+            let date = calendar.date(from: day.components)!
+            let weekday = calendar.component(.weekday, from: date)
+            let isWeekend = weekday == 1 || weekday == 7  // Sunday = 1, Saturday = 7
+            
+            if isSelected {
                 invariantViewProperties.backgroundShapeDrawingConfig = DrawingConfig(
                     fillColor: .systemBlue,
                     borderColor: .clear
@@ -70,7 +77,11 @@ class DatePickerViewController: UIViewController {
                 invariantViewProperties.textColor = .white
             } else {
                 invariantViewProperties.backgroundShapeDrawingConfig = DrawingConfig.transparent
-                invariantViewProperties.textColor = .label
+                if isWeekend {
+                    invariantViewProperties.textColor = .systemGray
+                } else {
+                    invariantViewProperties.textColor = .label
+                }
             }
             
             return DayView.calendarItemModel(
