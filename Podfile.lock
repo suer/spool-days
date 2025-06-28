@@ -1,29 +1,20 @@
 PODS:
+  - HorizonCalendar (2.0.0)
   - MTDates (1.0.3)
-  - RSDayFlow (0.8.0)
 
 DEPENDENCIES:
+  - HorizonCalendar
   - MTDates
-  - RSDayFlow (from `https://github.com/suer/RSDayFlow.git`, commit `efb97f8`)
 
 SPEC REPOS:
   trunk:
+    - HorizonCalendar
     - MTDates
 
-EXTERNAL SOURCES:
-  RSDayFlow:
-    :commit: efb97f8
-    :git: https://github.com/suer/RSDayFlow.git
-
-CHECKOUT OPTIONS:
-  RSDayFlow:
-    :commit: efb97f8
-    :git: https://github.com/suer/RSDayFlow.git
-
 SPEC CHECKSUMS:
+  HorizonCalendar: 21e600058a8f4d407c79ef7848beda692c53a484
   MTDates: c65affdfb7b34001c5c9e3fe0beac4b1b8334a58
-  RSDayFlow: fb48480094f00d28fc90947051190f55478263c4
 
-PODFILE CHECKSUM: 917085f7dd91af8e616d5d9fdae27295b178602f
+PODFILE CHECKSUM: fdebba49860cbe85b5ef871e55d092565f16c7b7
 
 COCOAPODS: 1.16.2
