@@ -7,7 +7,6 @@ target 'SpoolDays' do
 
   # Pods for SpoolDays
   pod 'HorizonCalendar'
-  pod "MTDates"
 
   target 'SpoolDaysTests' do
     inherit! :search_paths
