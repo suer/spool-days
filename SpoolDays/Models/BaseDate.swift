@@ -11,38 +11,38 @@ class BaseDate: NSManagedObject {
 
     class func createBaseDate(_ title: String, date: Date) -> BaseDate? {
         let context = CoreDataManager.shared.context
-        
+
         // Get max sort value
         let fetchRequest: NSFetchRequest<BaseDate> = NSFetchRequest<BaseDate>(entityName: "BaseDate")
         let sortDescriptor = NSSortDescriptor(key: "sort", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         fetchRequest.fetchLimit = 1
-        
+
         let maxSort: Int
         if let lastBaseDate = try? context.fetch(fetchRequest).first {
             maxSort = lastBaseDate.sort.intValue
         } else {
             maxSort = 0
         }
-        
+
         let baseDate = BaseDate(context: context)
         baseDate.sort = NSNumber(value: maxSort + 1)
         baseDate.date = date
         baseDate.title = title
-        
+
         let log = Log(context: context)
         log.date = date
         log.duration = 0
         log.baseDate = baseDate
         log.event = "create"
-        
+
         CoreDataManager.shared.saveAndWait()
         return baseDate
     }
 
     func update(title: String, date: Date) {
         let context = CoreDataManager.shared.context
-        
+
         if self.date == date {
             let log = Log(context: context)
             log.date = date
@@ -50,22 +50,22 @@ class BaseDate: NSManagedObject {
             log.baseDate = self
             log.event = "edit"
         }
-        
+
         self.title = title
         self.date = date
-        
+
         CoreDataManager.shared.saveAndWait()
     }
 
     class func move(fromIndex: Int, toIndex: Int) {
         let context = CoreDataManager.shared.context
-        
+
         let fetchRequest: NSFetchRequest<BaseDate> = NSFetchRequest<BaseDate>(entityName: "BaseDate")
         let sortDescriptor = NSSortDescriptor(key: "sort", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
-        
+
         guard let dates = try? context.fetch(fetchRequest) else { return }
-        
+
         dates[fromIndex].sort = NSNumber(value: toIndex)
         if fromIndex < toIndex {
             for i in stride(from: (fromIndex + 1), to: toIndex, by: 1) {
@@ -81,7 +81,7 @@ class BaseDate: NSManagedObject {
 
     func delete() {
         let context = CoreDataManager.shared.context
-        
+
         if logs.count > 0 {
             for log in logs {
                 context.delete(log as! NSManagedObject)
@@ -93,13 +93,13 @@ class BaseDate: NSManagedObject {
 
     func reset(_ date: Date) {
         let context = CoreDataManager.shared.context
-        
+
         let log = Log(context: context)
         log.date = date
         log.duration = NSNumber(value: dateInterval(date))
         log.baseDate = self
         log.event = "reset"
-        
+
         self.date = date
         CoreDataManager.shared.saveAndWait()
     }
@@ -110,7 +110,7 @@ class BaseDate: NSManagedObject {
         let sortDescriptor = NSSortDescriptor(key: "sort", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         fetchRequest.fetchLimit = 1
-        
+
         return try? context.fetch(fetchRequest).first
     }
 

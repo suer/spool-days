@@ -16,7 +16,7 @@ class Log: NSManagedObject {
         fetchRequest.predicate = predicate
         let sortDescriptor = NSSortDescriptor(key: "objectID", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
-        
+
         return (try? context.fetch(fetchRequest)) ?? []
     }
 
