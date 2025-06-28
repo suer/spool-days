@@ -28,7 +28,6 @@ class DatePickerViewController: UIViewController {
         let calendar = Calendar.current
         let startDate = calendar.date(byAdding: .year, value: -10, to: Date())!
         let endDate = calendar.date(byAdding: .year, value: 10, to: Date())!
-        
         calendarView = CalendarView(initialContent: makeContent(startDate: startDate, endDate: endDate))
         calendarView.daySelectionHandler = { [weak self] day in
             let selectedDate = calendar.date(from: day.components)!
@@ -36,7 +35,6 @@ class DatePickerViewController: UIViewController {
                 self?.onSelected?(selectedDate)
             }
         }
-        
         view.addSubview(calendarView)
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -45,10 +43,8 @@ class DatePickerViewController: UIViewController {
             calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             calendarView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
-        
         calendarView.scroll(toMonthContaining: initialDate, scrollPosition: .centered, animated: false)
     }
-    
     private func makeContent(startDate: Date, endDate: Date) -> CalendarViewContent {
         let calendar = Calendar.current
         return CalendarViewContent(
@@ -62,17 +58,14 @@ class DatePickerViewController: UIViewController {
         .interMonthSpacing(48)
         .dayItemProvider { [weak self] day in
             var invariantViewProperties = DayView.InvariantViewProperties.baseInteractive
-            
             let selectedDay = calendar.dateComponents([.year, .month, .day], from: self?.initialDate ?? Date())
-            let isSelected = day.components.year == selectedDay.year && 
-                           day.components.month == selectedDay.month && 
+            let isSelected = day.components.year == selectedDay.year &&
+                           day.components.month == selectedDay.month &&
                            day.components.day == selectedDay.day
-            
             // Check if it's weekend (Saturday = 7, Sunday = 1)
             let date = calendar.date(from: day.components)!
             let weekday = calendar.component(.weekday, from: date)
             let isWeekend = weekday == 1 || weekday == 7  // Sunday = 1, Saturday = 7
-            
             if isSelected {
                 invariantViewProperties.backgroundShapeDrawingConfig = DrawingConfig(
                     fillColor: .systemBlue,
@@ -87,7 +80,6 @@ class DatePickerViewController: UIViewController {
                     invariantViewProperties.textColor = .label
                 }
             }
-            
             return DayView.calendarItemModel(
                 invariantViewProperties: invariantViewProperties,
                 content: .init(dayText: "\(day.day)", accessibilityLabel: nil, accessibilityHint: nil)
