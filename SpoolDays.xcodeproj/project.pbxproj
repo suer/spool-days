@@ -474,6 +474,7 @@
 				8009360F1AA74D8200F87B83 /* Log.swift in Sources */,
 				801A6B111A8F5278006F4B7D /* NSDateExtension.swift in Sources */,
 				801A6B141A8F5C13006F4B7D /* I18n.swift in Sources */,
+				99E5E5E909374B34947D1AF2 /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
