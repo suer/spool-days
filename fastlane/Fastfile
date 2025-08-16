@@ -50,11 +50,14 @@ platform :ios do
 
   desc "Build for simulator"
   lane :build_for_simulator do
-    xcbuild(
+    gym(
       workspace: "SpoolDays.xcworkspace",
       scheme: "SpoolDays",
-      configuration: "Debug",
-      xcargs: "-sdk iphonesimulator"
+      sdk: "iphonesimulator",
+      archive_path: "./SpoolDays.xcarchive",
+      skip_package_ipa: true,
+      skip_codesigning: true,
+      destination: "generic/platform=iOS Simulator"
     )
   end
 
