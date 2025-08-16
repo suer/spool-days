@@ -1,0 +1,19 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@wdio/types": "^9.19.1",
+    "appium": "^2.19.0",
+    "appium-xcuitest-driver": "^9.10.4",
+    "tsx": "^4.20.4",
+    "webdriverio": "^9.19.1"
+  }
+}
