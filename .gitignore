@@ -1,6 +1,7 @@
 project.xcworkspace
 xcuserdata
 *xcworkspace/
+*.xcarchive/
 Pods/
 *.ipa
 *.app.dSYM.zip
