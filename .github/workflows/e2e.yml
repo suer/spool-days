@@ -1,0 +1,76 @@
+name: E2E Tests
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  e2e:
+    runs-on: macos-15
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@2a7b30092b0caf9c046252510f9273b4875f3db9 # v1.254.0
+        with:
+          bundler-cache: true
+
+      - name: Install Bundled Gems
+        run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+
+      - name: Build for Simulator
+        run: |
+          bundle exec fastlane build_for_simulator
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ./.node-version
+
+      - name: Cache npm
+        uses: actions/cache@v4
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.OS }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.OS }}-npm-
+
+      - name: Run npm install
+        run: npm ci
+        shell: bash
+        working-directory: ./e2e
+
+      - name: Run Appium server
+        run: |
+          npx appium --base-path / &>/dev/null &
+        shell: bash
+
+      - name: Boot simulator
+        run: |
+          xcrun simctl boot "iPhone 16"
+        shell: bash
+
+      - name: Install app
+        run: |
+          xcrun simctl install booted "SpoolDays.xcarchive/Products/Applications/SpoolDays.app"
+        shell: bash
+
+      - name: Run on simulator
+        id: appium
+        run: |
+          npx tsx spool-days.spec.ts
+        shell: bash
+        working-directory: e2e/specs
+        env:
+          IOS_DEVICE_NAME: "iPhone 16"
+          IOS_PLATFORM_VERSION: "18.6"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: images
+          path: e2e/specs/images
