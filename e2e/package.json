@@ -12,7 +12,7 @@
   "devDependencies": {
     "@wdio/types": "^9.19.1",
     "appium": "^2.19.0",
-    "appium-xcuitest-driver": "^9.10.4",
+    "appium-xcuitest-driver": "^10.0.0",
     "tsx": "^4.20.4",
     "webdriverio": "^9.19.1"
   }
