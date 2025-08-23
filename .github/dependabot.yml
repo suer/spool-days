@@ -18,3 +18,7 @@ updates:
     schedule:
       interval: "weekly"
       day: "friday"
+    groups:
+      appium:
+        patterns:
+          - "appium*"
