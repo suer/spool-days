@@ -64,8 +64,16 @@ jobs:
 
       - name: Boot simulator
         run: |
-          xcrun simctl boot "iPhone 16"
+          xcrun simctl list devices
+          RUNTIME_OS_VERSION=$(echo "${PLATFORM_VERSION}" | tr '.' '-')
+          RUNTIME_ID="com.apple.CoreSimulator.SimRuntime.iOS-${RUNTIME_OS_VERSION}"
+          UDID=$(xcrun simctl list devices -j | jq -r --arg DNAME "${DEVICE_NAME}" --arg RTID "${RUNTIME_ID}" '.devices[$RTID][] | select(.name == $DNAME) | .udid')
+          xcrun simctl boot "$UDID"
+          xcrun simctl list devices
         shell: bash
+        env:
+          DEVICE_NAME: "iPhone 16"
+          PLATFORM_VERSION: "18.2"
 
       - name: Install app
         run: |
