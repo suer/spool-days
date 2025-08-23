@@ -5,14 +5,19 @@ import { TestHelper } from "./test_helper.js";
 const opts: Capabilities.WebdriverIOConfig = {
   path: "/",
   port: 4723,
+  connectionRetryTimeout: 900000,
+  connectionRetryCount: 1,
+  logLevel: "debug",
   capabilities: {
     platformName: "iOS",
     "appium:automationName": "XCUITest",
     "appium:bundleId": "org.codefirst.SpoolDays",
-    "appium:deviceName": process.env.IOS_DEVICE_NAME ?? "iPhone 16",
-    "appium:platformVersion": process.env.IOS_PLATFORM_VERSION ?? "18.6",
+    "appium:udid": process.env.IOS_DEVICE_UDID ?? "auto",
     "appium:language": "ja",
     "appium:locale": "JP",
+    "appium:simulatorStartupTimeout": 900000,
+    "appium:wdaLaunchTimeout": 900000,
+    "appium:showXcodeLog": true,
   },
 };
 

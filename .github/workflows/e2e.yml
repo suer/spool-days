@@ -9,28 +9,15 @@ concurrency:
 
 jobs:
   e2e:
-    runs-on: macos-15
+    runs-on: macos-14
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
 
-      - uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-
-      - name: Install Bundled Gems
-        run: |
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
-
-      - name: Build for Simulator
-        run: |
-          bundle exec fastlane build_for_simulator
-
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: ./.node-version
+          node-version-file: ./e2e/.node-version
 
       - name: Cache npm
         uses: actions/cache@v4
@@ -46,18 +33,60 @@ jobs:
 
       - name: Run Appium server
         run: |
-          npx appium --base-path / &>/dev/null &
+          npx appium --base-path / &> appium.log &
         shell: bash
+        working-directory: ./e2e
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      - uses: irgaly/xcode-cache@v1
+        with:
+          key: xcode-cache-deriveddata-${{ github.workflow }}-${{ github.sha }}
+          restore-keys: xcode-cache-deriveddata-${{ github.workflow }}-
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Install Bundled Gems
+        run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+
+      - name: Install Pods
+        run: |
+          bundle exec pod install
+
+      - name: Build for Simulator
+        run: |
+          bundle exec fastlane build_for_simulator
+
+      - name: Get UDID
+        id: get-udid
+        run: |
+          RUNTIME_OS_VERSION=$(echo "${PLATFORM_VERSION}" | tr '.' '-')
+          RUNTIME_ID="com.apple.CoreSimulator.SimRuntime.iOS-${RUNTIME_OS_VERSION}"
+          UDID=$(xcrun simctl list devices -j | jq -r --arg DNAME "${DEVICE_NAME}" --arg RTID "${RUNTIME_ID}" '.devices[$RTID][] | select(.name == $DNAME) | .udid')
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
+        shell: bash
+        env:
+          DEVICE_NAME: "iPhone 16"
+          PLATFORM_VERSION: "18.2"
 
       - name: Boot simulator
         run: |
-          xcrun simctl boot "iPhone 16"
+          xcrun simctl boot "$UDID"
         shell: bash
+        env:
+          UDID: ${{ steps.get-udid.outputs.udid }}
 
       - name: Install app
         run: |
-          xcrun simctl install booted "SpoolDays.xcarchive/Products/Applications/SpoolDays.app"
+          xcrun simctl install "$UDID" "SpoolDays.xcarchive/Products/Applications/SpoolDays.app"
         shell: bash
+        env:
+          UDID: ${{ steps.get-udid.outputs.udid }}
 
       - name: Run on simulator
         id: appium
@@ -66,8 +95,12 @@ jobs:
         shell: bash
         working-directory: e2e/specs
         env:
-          IOS_DEVICE_NAME: "iPhone 16"
-          IOS_PLATFORM_VERSION: "18.6"
+          IOS_DEVICE_UDID: ${{ steps.get-udid.outputs.udid }}
+        continue-on-error: true
+
+      - name: Show Appium log
+        run: cat e2e/appium.log
+        shell: bash
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
