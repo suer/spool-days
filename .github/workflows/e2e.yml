@@ -62,23 +62,31 @@ jobs:
         shell: bash
         working-directory: ./e2e
 
-      - name: Boot simulator
+      - name: Get UDID
+        id: get-udid
         run: |
-          xcrun simctl list devices
           RUNTIME_OS_VERSION=$(echo "${PLATFORM_VERSION}" | tr '.' '-')
           RUNTIME_ID="com.apple.CoreSimulator.SimRuntime.iOS-${RUNTIME_OS_VERSION}"
           UDID=$(xcrun simctl list devices -j | jq -r --arg DNAME "${DEVICE_NAME}" --arg RTID "${RUNTIME_ID}" '.devices[$RTID][] | select(.name == $DNAME) | .udid')
-          xcrun simctl boot "$UDID"
-          xcrun simctl list devices
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
         shell: bash
         env:
           DEVICE_NAME: "iPhone 16"
           PLATFORM_VERSION: "18.2"
 
+      - name: Boot simulator
+        run: |
+          xcrun simctl boot "$UDID"
+        shell: bash
+        env:
+          UDID: ${{ steps.get-udid.outputs.udid }}
+
       - name: Install app
         run: |
-          xcrun simctl install booted "SpoolDays.xcarchive/Products/Applications/SpoolDays.app"
+          xcrun simctl install "$UDID" "SpoolDays.xcarchive/Products/Applications/SpoolDays.app"
         shell: bash
+        env:
+          UDID: ${{ steps.get-udid.outputs.udid }}
 
       - name: Run on simulator
         id: appium
@@ -87,8 +95,7 @@ jobs:
         shell: bash
         working-directory: e2e/specs
         env:
-          IOS_DEVICE_NAME: "iPhone 16"
-          IOS_PLATFORM_VERSION: "18.2"
+          IOS_DEVICE_UDID: ${{ steps.get-udid.outputs.udid }}
         continue-on-error: true
 
       - name: Show Appium log
