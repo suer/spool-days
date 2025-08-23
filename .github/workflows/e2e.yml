@@ -17,6 +17,11 @@ jobs:
       - name: Show Xcode version
         run: xcodebuild -version
 
+      - uses: irgaly/xcode-cache@v1
+        with:
+          key: xcode-cache-deriveddata-${{ github.workflow }}-${{ github.sha }}
+          restore-keys: xcode-cache-deriveddata-${{ github.workflow }}-
+
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
