@@ -17,10 +17,6 @@ target 'SpoolDays' do
     require 'fileutils'
     FileUtils.cp_r('Pods/Target Support Files/Pods-SpoolDays/Pods-SpoolDays-acknowledgements.plist', 'SpoolDays/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
 
-    installer.pods_project.build_configurations.each do |config|
-      config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
-    end
-
     # https://stackoverflow.com/a/75729977
     installer.generated_projects.each do |project|
       project.targets.each do |target|
