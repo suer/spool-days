@@ -22,3 +22,7 @@ updates:
       appium:
         patterns:
           - "appium*"
+      webdriverio:
+        patterns:
+          - "webdriverio"
+          - "@wdio/types"
