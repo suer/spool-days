@@ -9,7 +9,7 @@ concurrency:
 
 jobs:
   e2e:
-    runs-on: macos-14
+    runs-on: macos-15
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
@@ -36,6 +36,9 @@ jobs:
           npx appium --base-path / &> appium.log &
         shell: bash
         working-directory: ./e2e
+
+      - name: Set Xcode version
+        run: sudo xcode-select -s /Applications/Xcode_16.4.app
 
       - name: Show Xcode version
         run: xcodebuild -version
@@ -72,7 +75,7 @@ jobs:
         shell: bash
         env:
           DEVICE_NAME: "iPhone 16"
-          PLATFORM_VERSION: "18.2"
+          PLATFORM_VERSION: "18.5"
 
       - name: Boot simulator
         run: |
