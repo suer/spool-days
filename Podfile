@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '15.0'
+platform :ios, '18.0'
 
 target 'SpoolDays' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -21,7 +21,7 @@ target 'SpoolDays' do
     installer.generated_projects.each do |project|
       project.targets.each do |target|
         target.build_configurations.each do |config|
-            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '18.0'
         end
       end
     end
