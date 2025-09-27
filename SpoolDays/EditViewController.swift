@@ -36,7 +36,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = .systemBackground
         edgesForExtendedLayout = UIRectEdge()
         automaticallyAdjustsScrollViewInsets = false
 
