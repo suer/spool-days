@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   e2e:
-    runs-on: macos-15
+    runs-on: macos-26
     timeout-minutes: 20
     steps:
       - name: Checkout code
@@ -43,7 +43,7 @@ jobs:
         working-directory: ./e2e
 
       - name: Set Xcode version
-        run: sudo xcode-select -s /Applications/Xcode_16.4.app
+        run: sudo xcode-select -s /Applications/Xcode_26.0.app
 
       - name: Show Xcode version
         run: xcodebuild -version
@@ -79,8 +79,8 @@ jobs:
           echo "udid=$UDID" >> "$GITHUB_OUTPUT"
         shell: bash
         env:
-          DEVICE_NAME: "iPhone 16"
-          PLATFORM_VERSION: "18.5"
+          DEVICE_NAME: "iPhone 17"
+          PLATFORM_VERSION: "26.0"
 
       - name: Boot simulator
         run: |
