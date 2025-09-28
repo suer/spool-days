@@ -14,17 +14,4 @@ class GroupData {
         sharedDefaults?.set(list, forKey: keyOfDates)
         sharedDefaults?.synchronize()
     }
-
-    class func getDates(_ count: Int) -> [[String: String]] {
-        let sharedDefaults = UserDefaults(suiteName: userDefaultSuiteName)
-        var dates = sharedDefaults?.object(forKey: keyOfDates) as? [[String: String]] ?? []
-        if dates.count > count {
-            dates = Array(dates[0..<count])
-        }
-        return dates
-    }
-
-    class var appURL: URL? {
-        return URL(string: "spooldays://")
-    }
 }
