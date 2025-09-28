@@ -10,7 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         _ = CoreDataManager.shared
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.backgroundColor = UIColor.white
+        window!.backgroundColor = .systemBackground
         window!.makeKeyAndVisible()
         let navigationController = UINavigationController(rootViewController: MainViewController())
         navigationController.setupStyle()

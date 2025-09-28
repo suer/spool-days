@@ -6,7 +6,7 @@ class MainViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = .systemBackground
         title = I18n.translate("Spool Days")
         observers.append(datesViewModel.observe(\.dates, options: .new) {(_, _) in
             self.tableView.reloadData()
