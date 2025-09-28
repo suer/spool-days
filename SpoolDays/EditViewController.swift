@@ -17,7 +17,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     let cellHeight = CGFloat(50.0)
-    let showLogButtonHeight = CGFloat(50.0)
 
     convenience init (dateViewModel: DateViewModel) {
         self.init(nibName: nil, bundle: nil, dateViewModel: dateViewModel)

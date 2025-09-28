@@ -12,10 +12,6 @@ class DateViewModel: NSObject {
         return baseDate?.title
     }
 
-    func getDate() -> Date? {
-        return baseDate?.date as Date?
-    }
-
     func resetDate() {
         resetDate(Date())
     }

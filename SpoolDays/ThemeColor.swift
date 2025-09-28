@@ -10,10 +10,6 @@ class ThemeColor: NSObject {
         return colorByRGB(red: 238, green: 238, blue: 238, alpha: 255)
     }
 
-    class func linkColor() -> UIColor {
-        return colorByRGB(red: 38, green: 108, blue: 232, alpha: 255)
-    }
-
     class func resetColor() -> UIColor {
         return colorByRGB(red: 18, green: 191, blue: 41, alpha: 255)
     }
