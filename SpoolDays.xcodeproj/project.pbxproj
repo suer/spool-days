@@ -615,7 +615,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A213BC18E4CC71A416C5B370 /* Pods-SpoolDays.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SpoolDays/SpoolDays.entitlements;
@@ -643,7 +642,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8569C3C3CB9BF32A4499F2DD /* Pods-SpoolDays.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SpoolDays/SpoolDays.entitlements;
