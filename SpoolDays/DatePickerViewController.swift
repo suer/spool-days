@@ -19,7 +19,7 @@ class DatePickerViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         edgesForExtendedLayout = UIRectEdge()
-        automaticallyAdjustsScrollViewInsets = false
+
         loadDatePicker()
         loadCancelButton()
     }

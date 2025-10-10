@@ -37,7 +37,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         edgesForExtendedLayout = UIRectEdge()
-        automaticallyAdjustsScrollViewInsets = false
 
         loadCancelButton()
         loadSaveButton()
