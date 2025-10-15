@@ -1,4 +1,5 @@
 import UIKit
+import UserNotifications
 import BackgroundTasks
 
 @UIApplicationMain
@@ -79,13 +80,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITableViewCell.appearance().separatorInset = UIEdgeInsets.zero
     }
 
-    fileprivate func updateBadge(_ completionHandler: (UIBackgroundFetchResult) -> Void) {
+    fileprivate func updateBadge(_ completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         if let baseDate = BaseDate.first() {
-            UIApplication.shared.applicationIconBadgeNumber = abs(baseDate.dateInterval())
-            completionHandler(UIBackgroundFetchResult.newData)
+            let badgeNumber = abs(baseDate.dateInterval())
+            UNUserNotificationCenter.current().setBadgeCount(badgeNumber) { error in
+                if error == nil {
+                    completionHandler(.newData)
+                } else {
+                    completionHandler(.failed)
+                }
+            }
         } else {
-            UIApplication.shared.applicationIconBadgeNumber = 0
-            completionHandler(UIBackgroundFetchResult.failed)
+            UNUserNotificationCenter.current().setBadgeCount(0) { _ in
+                completionHandler(.failed)
+            }
         }
     }
 
@@ -93,6 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
+        updateBadge({_ in return})
         scheduleAppRefresh()
     }
 
