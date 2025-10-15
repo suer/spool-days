@@ -77,8 +77,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ], for: UIControl.State.selected)
 
         UITableViewCell.appearance().separatorInset = UIEdgeInsets.zero
-
-        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: false)
     }
 
     fileprivate func updateBadge(_ completionHandler: (UIBackgroundFetchResult) -> Void) {
