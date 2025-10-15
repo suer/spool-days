@@ -56,12 +56,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     fileprivate func registerNotification(_ application: UIApplication) {
-        if application.responds(to: #selector(UIApplication.registerUserNotificationSettings(_:))) {
-            application.registerUserNotificationSettings(UIUserNotificationSettings(
-                types: ([UIUserNotificationType.sound, UIUserNotificationType.alert, UIUserNotificationType.badge]),
-                categories: nil)
-            )
-            application.registerForRemoteNotifications()
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if let error = error {
+                print("Error requesting notification authorization: \(error.localizedDescription)")
+                return
+            }
+            if granted {
+                DispatchQueue.main.async {
+                    application.registerForRemoteNotifications()
+                }
+            }
         }
     }
 
