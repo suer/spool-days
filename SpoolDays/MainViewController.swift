@@ -126,7 +126,7 @@ class MainViewController: UITableViewController {
         DateTableViewCellAction(name: I18n.edit, action: { controller, cell in controller.showEditView(cell.dateViewModel) }),
         DateTableViewCellAction(name: I18n.reset, action: { controller, cell in controller.resetDate(cell) }),
         DateTableViewCellAction(name: I18n.resetWithDate, action: { controller, cell in controller.resetWithDate(cell) }),
-        DateTableViewCellAction(name: I18n.history, action: { controller, cell in controller.showHistoryView(cell.dateViewModel) })
+        DateTableViewCellAction(name: I18n.history, action: { controller, cell in controller.showHistoryView(cell.dateViewModel) }),
     ]
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
