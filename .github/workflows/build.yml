@@ -65,4 +65,7 @@ jobs:
      run: bundle exec fastlane build_for_simulator
 
    - name: Test
-     run: bundle exec fastlane test
+     run: |
+       sudo systemsetup -settimezone "Asia/Tokyo"
+       bundle exec fastlane test
+
