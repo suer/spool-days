@@ -13,7 +13,7 @@ class CalendarTests: XCTestCase {
     func testDateString() {
         let cal = NSCalendar.current
         let date = (cal as NSCalendar).date(era: 1, year: 1981, month: 8, day: 4, hour: 20, minute: 0, second: 0, nanosecond: 0)!
-        XCTAssertEqual("8/4/81", date.dateString())
+        XCTAssertEqual("1981/08/04", date.dateString())
     }
 
     func testFromString() {
