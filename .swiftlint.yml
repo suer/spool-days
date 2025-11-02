@@ -14,6 +14,3 @@ identifier_name:
   min_length:
     warning: 1
 
-trailing_comma:
-  mandatory_comma: true
-
