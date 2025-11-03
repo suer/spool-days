@@ -1,5 +1,5 @@
-import Foundation
 import CoreData
+import Foundation
 
 class DatesViewModel: NSObject {
     @objc dynamic var dates: [BaseDate] = []

@@ -1,5 +1,5 @@
-import Foundation
 import CoreData
+import Foundation
 
 class CoreDataManager {
     static let shared = CoreDataManager()
@@ -7,7 +7,7 @@ class CoreDataManager {
     private init() {}
     lazy var applicationDocumentsDirectory: URL = {
         let urls = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)
-        let applicationSupportURL = urls[urls.count-1]
+        let applicationSupportURL = urls[urls.count - 1]
         let applicationName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String ?? "SpoolDays"
         let appDirectoryURL = applicationSupportURL.appendingPathComponent(applicationName)
         if !FileManager.default.fileExists(atPath: appDirectoryURL.path) {

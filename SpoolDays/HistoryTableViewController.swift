@@ -30,7 +30,7 @@ class HistoryTableViewController: UITableViewController {
     }
 
     @objc func cancelButtonTapped() {
-        dismiss(animated: true, completion: {self.historyViewModel.rollback()})
+        dismiss(animated: true, completion: { self.historyViewModel.rollback() })
     }
 
     // MARK: save button

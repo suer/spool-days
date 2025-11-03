@@ -8,12 +8,14 @@ class MainViewController: UITableViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = I18n.translate("Spool Days")
-        observers.append(datesViewModel.observe(\.dates, options: .new) {(_, _) in
-            self.tableView.reloadData()
-        })
-        observers.append(self.observe(\.isEditing, options: .new) { (_, _) in
-            self.navigationItem.rightBarButtonItem?.title = self.isEditing ? I18n.finish : I18n.edit
-        })
+        observers.append(
+            datesViewModel.observe(\.dates, options: .new) { (_, _) in
+                self.tableView.reloadData()
+            })
+        observers.append(
+            self.observe(\.isEditing, options: .new) { (_, _) in
+                self.navigationItem.rightBarButtonItem?.title = self.isEditing ? I18n.finish : I18n.edit
+            })
         loadEditButton()
         loadToolbar()
         addNotificationCenterObserver()
@@ -126,7 +128,7 @@ class MainViewController: UITableViewController {
         DateTableViewCellAction(name: I18n.edit, action: { controller, cell in controller.showEditView(cell.dateViewModel) }),
         DateTableViewCellAction(name: I18n.reset, action: { controller, cell in controller.resetDate(cell) }),
         DateTableViewCellAction(name: I18n.resetWithDate, action: { controller, cell in controller.resetWithDate(cell) }),
-        DateTableViewCellAction(name: I18n.history, action: { controller, cell in controller.showHistoryView(cell.dateViewModel) })
+        DateTableViewCellAction(name: I18n.history, action: { controller, cell in controller.showHistoryView(cell.dateViewModel) }),
     ]
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -137,9 +139,12 @@ class MainViewController: UITableViewController {
         let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: I18n.cancel, style: .cancel, handler: nil))
         for cellAction in cellActions {
-            ac.addAction(UIAlertAction(title: cellAction.name, style: .default, handler: { _ in
-                cellAction.action(self, cell)
-            }))
+            ac.addAction(
+                UIAlertAction(
+                    title: cellAction.name, style: .default,
+                    handler: { _ in
+                        cellAction.action(self, cell)
+                    }))
         }
         present(ac, animated: true, completion: nil)
     }
