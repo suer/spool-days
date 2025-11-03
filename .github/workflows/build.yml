@@ -61,6 +61,10 @@ jobs:
    - name: Install Pods
      run: bundle exec pod install
 
+   - name: Run swift-format
+     run: |
+       swift format lint --parallel --recursive --strict $(find . -maxdepth 1 -type d -name 'SpoolDays*' ! -name '*.xcodeproj')
+
    - name: Build
      run: bundle exec fastlane build_for_simulator
 
