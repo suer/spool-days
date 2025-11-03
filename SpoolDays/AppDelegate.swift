@@ -1,6 +1,6 @@
+import BackgroundTasks
 import UIKit
 import UserNotifications
-import BackgroundTasks
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -77,8 +77,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ]
         UITabBar.appearance().barTintColor = ThemeColor.baseColor()
         UITabBar.appearance().tintColor = ThemeColor.baseTextColor()
-        UITabBarItem.appearance().setTitleTextAttributes([
-            NSAttributedString.Key.foregroundColor: ThemeColor.baseTextColor()
+        UITabBarItem.appearance().setTitleTextAttributes(
+            [
+                NSAttributedString.Key.foregroundColor: ThemeColor.baseTextColor()
             ], for: UIControl.State.selected)
 
         UITableViewCell.appearance().separatorInset = UIEdgeInsets.zero
@@ -105,7 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        updateBadge({_ in return})
+        updateBadge({ _ in return })
         scheduleAppRefresh()
     }
 
@@ -113,7 +114,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        updateBadge({_ in return})
+        updateBadge({ _ in return })
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

@@ -1,5 +1,5 @@
-import Foundation
 import CoreData
+import Foundation
 
 @objc(BaseDate)
 class BaseDate: NSManagedObject {
@@ -71,7 +71,7 @@ class BaseDate: NSManagedObject {
                 dates[i].sort = NSNumber(value: dates[i].sort.intValue - 1)
             }
         } else {
-            for i in toIndex ..< fromIndex {
+            for i in toIndex..<fromIndex {
                 dates[i].sort = NSNumber(value: dates[i].sort.intValue + 1)
             }
         }
