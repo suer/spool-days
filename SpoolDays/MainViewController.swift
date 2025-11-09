@@ -121,7 +121,7 @@ class MainViewController: UITableViewController {
                 self.reload()
             }
         }
-        ModalViewController(baseController: self).presentModalViewController(datePicker)
+        ModalViewController(baseController: self).presentModalViewController(datePicker, .large)
     }
 
     let cellActions = [
@@ -154,7 +154,7 @@ class MainViewController: UITableViewController {
     }
 
     fileprivate func showHistoryView(_ dateViewModel: DateViewModel) {
-        ModalViewController(baseController: self).presentModalViewController(HistoryTableViewController(dateViewModel: dateViewModel))
+        ModalViewController(baseController: self).presentModalViewController(HistoryTableViewController(dateViewModel: dateViewModel), .large)
     }
 
     fileprivate func registerOnSignificantTimeChange() {
