@@ -80,7 +80,7 @@ class HistoryTableViewController: UITableViewController {
                 cell.date = $0
                 self.tableView.reloadData()
             }
-            ModalViewController(baseController: self).presentModalViewController(controller)
+            ModalViewController(baseController: self).presentModalViewController(controller, .large)
         }
     }
 }
