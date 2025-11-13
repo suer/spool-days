@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.backgroundColor = .systemBackground
         window!.makeKeyAndVisible()
         let navigationController = UINavigationController(rootViewController: MainViewController())
-        navigationController.setupStyle()
         window!.addSubview(navigationController.view)
         window!.rootViewController = navigationController
         registerNotification(application)
@@ -70,17 +69,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     fileprivate func setupStyle() {
-        UINavigationBar.appearance().barTintColor = ThemeColor.baseColor()
-        UINavigationBar.appearance().tintColor = ThemeColor.baseTextColor()
-        UINavigationBar.appearance().titleTextAttributes = [
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.configureWithOpaqueBackground()
+        navigationBarAppearance.backgroundColor = ThemeColor.baseColor()
+        navigationBarAppearance.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: ThemeColor.baseTextColor()
         ]
-        UITabBar.appearance().barTintColor = ThemeColor.baseColor()
-        UITabBar.appearance().tintColor = ThemeColor.baseTextColor()
-        UITabBarItem.appearance().setTitleTextAttributes(
-            [
-                NSAttributedString.Key.foregroundColor: ThemeColor.baseTextColor()
-            ], for: UIControl.State.selected)
+        UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
 
         UITableViewCell.appearance().separatorInset = UIEdgeInsets.zero
     }
