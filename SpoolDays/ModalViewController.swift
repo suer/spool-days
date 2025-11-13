@@ -9,7 +9,6 @@ class ModalViewController {
 
     func presentModalViewController(_ controller: UIViewController, _ initialDetent: UISheetPresentationController.Detent.Identifier = .medium) {
         let navigationController = UINavigationController(rootViewController: controller)
-        navigationController.setupStyle()
         navigationController.modalPresentationStyle = .pageSheet
         if let sheet = navigationController.sheetPresentationController {
             sheet.detents = [.medium(), .large()]
