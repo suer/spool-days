@@ -40,9 +40,10 @@ class MainViewController: UITableViewController {
 
     fileprivate func addNotificationCenterObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(UIApplicationDelegate.applicationDidBecomeActive(_:)), name: NSNotification.Name.NSExtensionHostDidBecomeActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .didSaveOrDeleteDate, object: nil)
     }
 
-    fileprivate func reload() {
+    @objc fileprivate func reload() {
         DispatchQueue.global(qos: .userInteractive).async { [weak self] in
             DispatchQueue.main.async {
                 if let self = self {
