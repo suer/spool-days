@@ -69,11 +69,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     fileprivate func setupStyle() {
-        UINavigationBar.appearance().barTintColor = ThemeColor.baseColor()
-        UINavigationBar.appearance().tintColor = ThemeColor.baseTextColor()
-        UINavigationBar.appearance().titleTextAttributes = [
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.configureWithOpaqueBackground()
+        navigationBarAppearance.backgroundColor = ThemeColor.baseColor()
+        navigationBarAppearance.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: ThemeColor.baseTextColor()
         ]
+        UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
 
         UITableViewCell.appearance().separatorInset = UIEdgeInsets.zero
     }
