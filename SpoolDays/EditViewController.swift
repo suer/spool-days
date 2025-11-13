@@ -84,6 +84,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @objc func saveButtonTapped() {
         dateViewModel.update(title: titleString, date: date)
+        NotificationCenter.default.post(name: .didSaveOrDeleteDate, object: nil)
         dismiss(animated: true, completion: nil)
     }
 
@@ -232,6 +233,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     @objc func deleteButtonTapped() {
         PopupAlertView.confirm(self, message: I18n.translate("Are you sure you want to delete?")) {
             self.dateViewModel.deleteDate()
+            NotificationCenter.default.post(name: .didSaveOrDeleteDate, object: nil)
             self.dismiss(animated: true, completion: nil)
         }
     }

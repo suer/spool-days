@@ -125,3 +125,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         onSignificantTimeChange?()
     }
 }
+
+extension Notification.Name {
+    static let didSaveOrDeleteDate = Notification.Name("didSaveOrDeleteDate")
+}
