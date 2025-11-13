@@ -75,12 +75,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: ThemeColor.baseTextColor()
         ]
-        UITabBar.appearance().barTintColor = ThemeColor.baseColor()
-        UITabBar.appearance().tintColor = ThemeColor.baseTextColor()
-        UITabBarItem.appearance().setTitleTextAttributes(
-            [
-                NSAttributedString.Key.foregroundColor: ThemeColor.baseTextColor()
-            ], for: UIControl.State.selected)
 
         UITableViewCell.appearance().separatorInset = UIEdgeInsets.zero
     }
