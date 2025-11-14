@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19A2AC022EC61E6300BC7AED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A2AC012EC61E6300BC7AED /* SceneDelegate.swift */; };
 		629B8CF7A27F4591BA212F91AC74C5FC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59084B2672E46108E9BABF2 /* CoreDataManager.swift */; };
 		8002868419EFE1EE00089835 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002868319EFE1EE00089835 /* MainViewController.swift */; };
 		8009360A1AA74ACB00F87B83 /* BaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800936091AA74ACB00F87B83 /* BaseDate.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		19A2AC012EC61E6300BC7AED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		72F7D29FE67F2DA9E7946D9A /* Pods-SpoolDaysTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpoolDaysTests.debug.xcconfig"; path = "Target Support Files/Pods-SpoolDaysTests/Pods-SpoolDaysTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8002868319EFE1EE00089835 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		800936091AA74ACB00F87B83 /* BaseDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseDate.swift; path = Models/BaseDate.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				8022260619FB3AE600330227 /* SpoolDays.entitlements */,
 				80DFB0F419F3D27B00BCF3B1 /* Models */,
 				80A574B819EFDF4100C06CBB /* AppDelegate.swift */,
+				19A2AC012EC61E6300BC7AED /* SceneDelegate.swift */,
 				F59084B2672E46108E9BABF2 /* CoreDataManager.swift */,
 				80A574BF19EFDF4100C06CBB /* Images.xcassets */,
 				80A574C119EFDF4100C06CBB /* LaunchScreen.xib */,
@@ -448,6 +451,7 @@
 				80404BDD1A0BA76A00FD835F /* NSDateExtension.swift in Sources */,
 				804E607419F31D5D005BA669 /* EditViewController.swift in Sources */,
 				8009360A1AA74ACB00F87B83 /* BaseDate.swift in Sources */,
+				19A2AC022EC61E6300BC7AED /* SceneDelegate.swift in Sources */,
 				80B069531A94D5BD00848701 /* TextFieldTableViewCell.swift in Sources */,
 				80A7D33419F012EA007BB993 /* DateViewModel.swift in Sources */,
 				8075F9DC19FE01DD00443983 /* ThemeColor.swift in Sources */,

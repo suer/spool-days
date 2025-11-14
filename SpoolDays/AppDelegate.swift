@@ -4,19 +4,10 @@ import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-
     var onSignificantTimeChange: (() -> Void)?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         _ = CoreDataManager.shared
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window!.backgroundColor = .systemBackground
-        window!.makeKeyAndVisible()
-        let navigationController = UINavigationController(rootViewController: MainViewController())
-        window!.addSubview(navigationController.view)
-        window!.rootViewController = navigationController
         registerNotification(application)
         setupStyle()
 
@@ -25,6 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         return true
+    }
+
+    // MARK: UISceneSession Lifecycle
+
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    }
+
+    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
     }
 
     func handleAppRefresh(task: BGAppRefreshTask) {
@@ -81,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITableViewCell.appearance().separatorInset = UIEdgeInsets.zero
     }
 
-    fileprivate func updateBadge(_ completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    func updateBadge(_ completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         if let baseDate = BaseDate.first() {
             let badgeNumber = abs(baseDate.dateInterval())
             UNUserNotificationCenter.current().setBadgeCount(badgeNumber) { error in
@@ -102,15 +102,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        updateBadge({ _ in return })
-        scheduleAppRefresh()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        updateBadge({ _ in return })
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
