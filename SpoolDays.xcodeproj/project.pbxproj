@@ -30,7 +30,6 @@
 		807DC53A1A39C13C00F197AF /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807DC5391A39C13C00F197AF /* DatePickerViewController.swift */; };
 		80A574B919EFDF4100C06CBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A574B819EFDF4100C06CBB /* AppDelegate.swift */; };
 		80A574C019EFDF4100C06CBB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80A574BF19EFDF4100C06CBB /* Images.xcassets */; };
-		80A574C319EFDF4100C06CBB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80A574C119EFDF4100C06CBB /* LaunchScreen.xib */; };
 		80A574CF19EFDF4100C06CBB /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A574CE19EFDF4100C06CBB /* DateExtensionTests.swift */; };
 		80A7D33219EFEE00007BB993 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7D33119EFEE00007BB993 /* DateTableViewCell.swift */; };
 		80A7D33419F012EA007BB993 /* DateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7D33319F012EA007BB993 /* DateViewModel.swift */; };
@@ -92,7 +91,6 @@
 		80A574B719EFDF4100C06CBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80A574B819EFDF4100C06CBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80A574BF19EFDF4100C06CBB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		80A574C219EFDF4100C06CBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		80A574C819EFDF4100C06CBB /* SpoolDaysTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpoolDaysTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		80A574CD19EFDF4100C06CBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80A574CE19EFDF4100C06CBB /* DateExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTests.swift; sourceTree = "<group>"; };
@@ -161,7 +159,6 @@
 				19A2AC012EC61E6300BC7AED /* SceneDelegate.swift */,
 				F59084B2672E46108E9BABF2 /* CoreDataManager.swift */,
 				80A574BF19EFDF4100C06CBB /* Images.xcassets */,
-				80A574C119EFDF4100C06CBB /* LaunchScreen.xib */,
 				80A574B619EFDF4100C06CBB /* Supporting Files */,
 				8002868319EFE1EE00089835 /* MainViewController.swift */,
 				80A7D33119EFEE00007BB993 /* DateTableViewCell.swift */,
@@ -345,7 +342,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				800D5FF61A455F9800F86EC5 /* Settings.bundle in Resources */,
-				80A574C319EFDF4100C06CBB /* LaunchScreen.xib in Resources */,
 				8057D9E919FBEB8A00AB18DF /* Localizable.strings in Resources */,
 				80A574C019EFDF4100C06CBB /* Images.xcassets in Resources */,
 			);
@@ -502,14 +498,6 @@
 				8057D9EC19FBEBB400AB18DF /* ja */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		80A574C119EFDF4100C06CBB /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				80A574C219EFDF4100C06CBB /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
