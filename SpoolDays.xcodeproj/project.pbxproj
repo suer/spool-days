@@ -153,32 +153,32 @@
 		80A574B519EFDF4100C06CBB /* SpoolDays */ = {
 			isa = PBXGroup;
 			children = (
-				8022260619FB3AE600330227 /* SpoolDays.entitlements */,
-				80DFB0F419F3D27B00BCF3B1 /* Models */,
 				80A574B819EFDF4100C06CBB /* AppDelegate.swift */,
-				19A2AC012EC61E6300BC7AED /* SceneDelegate.swift */,
 				F59084B2672E46108E9BABF2 /* CoreDataManager.swift */,
-				80A574BF19EFDF4100C06CBB /* Images.xcassets */,
-				80A574B619EFDF4100C06CBB /* Supporting Files */,
-				8002868319EFE1EE00089835 /* MainViewController.swift */,
-				80A7D33119EFEE00007BB993 /* DateTableViewCell.swift */,
+				80404BDC1A0BA76A00FD835F /* DateExtension.swift */,
+				807DC5391A39C13C00F197AF /* DatePickerViewController.swift */,
 				80DFB11E19F5427200BCF3B1 /* DatesViewModel.swift */,
+				80A7D33119EFEE00007BB993 /* DateTableViewCell.swift */,
+				800E8B851A73ECCB00CB1D6D /* DateTableViewCellAction.swift */,
 				80A7D33319F012EA007BB993 /* DateViewModel.swift */,
 				804E607319F31D5D005BA669 /* EditViewController.swift */,
 				80B1486B1AA0B30D00E60131 /* GroupData.swift */,
+				807DC5371A39BFED00F197AF /* HistoryTableViewCell.swift */,
 				8059A9011A03C11F00A9958B /* HistoryTableViewController.swift */,
 				8059A8FF1A02925D00A9958B /* HistoryViewModel.swift */,
-				807DC5371A39BFED00F197AF /* HistoryTableViewCell.swift */,
-				8057D9EB19FBEB8A00AB18DF /* Localizable.strings */,
-				8075F9DB19FE01DD00443983 /* ThemeColor.swift */,
-				80404BDC1A0BA76A00FD835F /* DateExtension.swift */,
-				807DC5391A39C13C00F197AF /* DatePickerViewController.swift */,
-				800D5FF51A455F9800F86EC5 /* Settings.bundle */,
-				80AF1CEB1A50449600A84EAA /* ModalViewController.swift */,
 				800E8B831A731FE100CB1D6D /* I18n.swift */,
-				800E8B851A73ECCB00CB1D6D /* DateTableViewCellAction.swift */,
-				80B069521A94D5BD00848701 /* TextFieldTableViewCell.swift */,
+				80A574BF19EFDF4100C06CBB /* Images.xcassets */,
+				8057D9EB19FBEB8A00AB18DF /* Localizable.strings */,
+				8002868319EFE1EE00089835 /* MainViewController.swift */,
+				80AF1CEB1A50449600A84EAA /* ModalViewController.swift */,
+				80DFB0F419F3D27B00BCF3B1 /* Models */,
 				804A869D1ADA68CE0024E2E4 /* PopupAlertView.swift */,
+				19A2AC012EC61E6300BC7AED /* SceneDelegate.swift */,
+				800D5FF51A455F9800F86EC5 /* Settings.bundle */,
+				8022260619FB3AE600330227 /* SpoolDays.entitlements */,
+				80A574B619EFDF4100C06CBB /* Supporting Files */,
+				80B069521A94D5BD00848701 /* TextFieldTableViewCell.swift */,
+				8075F9DB19FE01DD00443983 /* ThemeColor.swift */,
 			);
 			path = SpoolDays;
 			sourceTree = "<group>";
@@ -211,9 +211,9 @@
 		80DFB0F419F3D27B00BCF3B1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				80DFB0F519F3D2A100BCF3B1 /* Model.xcdatamodeld */,
 				800936091AA74ACB00F87B83 /* BaseDate.swift */,
 				8009360B1AA74ACC00F87B83 /* Log.swift */,
+				80DFB0F519F3D2A100BCF3B1 /* Model.xcdatamodeld */,
 			);
 			name = Models;
 			sourceTree = "<group>";
