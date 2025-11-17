@@ -11,11 +11,11 @@ extension Date {
         return components.day ?? 0
     }
 
-    func dateString() -> String {
+    func dateString(locale: Locale = .current) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .none
         dateFormatter.dateStyle = .short
-        dateFormatter.locale = Locale.current
+        dateFormatter.locale = locale
         return dateFormatter.string(from: self)
     }
 
