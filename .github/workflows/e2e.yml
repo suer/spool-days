@@ -46,12 +46,15 @@ jobs:
         run: sudo xcode-select -s /Applications/Xcode_26.1.app
 
       - name: Show Xcode version
-        run: xcodebuild -version
+        id: xcode_version
+        run: |
+          xcodebuild -version
+          echo "VERSION=$(xcodebuild -version | head -n 1 | sed 's/ /-/g')" >> $GITHUB_OUTPUT
 
       - uses: irgaly/xcode-cache@v1
         with:
-          key: xcode-cache-deriveddata-${{ github.workflow }}-${{ github.sha }}
-          restore-keys: xcode-cache-deriveddata-${{ github.workflow }}-
+          key: xcode-cache-deriveddata-${{ steps.xcode_version.outputs.VERSION }}-${{ github.workflow }}-${{ github.sha }}
+          restore-keys: xcode-cache-deriveddata-${{ steps.xcode_version.outputs.VERSION }}-${{ github.workflow }}-
 
       - uses: ruby/setup-ruby@v1
         with:
