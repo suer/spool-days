@@ -28,7 +28,7 @@ jobs:
 
   swiftformat:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 2
 
     steps:
       - uses: actions/checkout@v6
@@ -159,7 +159,7 @@ jobs:
             | select(.name | startswith("iPhone"))
             | .udid
           ' | head -n 1)
-          echo "device_id=$DEVICE_ID" >> "$GITHUB_OUTPUT" # outputsに設定
+          echo "device_id=$DEVICE_ID" >> "$GITHUB_OUTPUT"
           echo "--------------------------------"
           echo "👀 Updating dyld_shared_cache:"
           xcrun simctl runtime dyld_shared_cache update --all
