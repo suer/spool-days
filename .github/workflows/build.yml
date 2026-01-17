@@ -141,6 +141,11 @@ jobs:
         run: |
           bundle exec pod install
 
+      # https://github.com/actions/runner-images/issues/12777
+      - name: Workaround for hanging simulator
+        run: |
+          xcrun simctl runtime dyld_shared_cache update --all
+
       - name: Test
         run: |
           bundle exec fastlane test
