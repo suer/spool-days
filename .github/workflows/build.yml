@@ -14,7 +14,19 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  lint:
+  swiftlint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: GitHub Action for SwiftLint with --strict
+        uses: norio-nomura/action-swiftlint@3.2.1
+        with:
+          args: --strict
+
+  swiftformat:
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -29,7 +41,7 @@ jobs:
           swift format lint --parallel --recursive --strict $(find . -maxdepth 1 -type d -name 'SpoolDays*' ! -name '*.xcodeproj')
 
   build:
-    needs: lint
+    needs: [swiftlint, swiftformat]
     runs-on: macos-26
     timeout-minutes: 20
 
@@ -81,7 +93,7 @@ jobs:
           bundle exec fastlane build_for_simulator
 
   test:
-    needs: lint
+    needs: [swiftlint, swiftformat]
     runs-on: macos-26
     timeout-minutes: 20
 
