@@ -67,8 +67,7 @@ platform :ios do
   desc "Runt tests"
   lane :test do
     run_tests(
-      scheme: "SpoolDays",
-      prelaunch_simulator: true
+      scheme: "SpoolDays"
     )
   end
 end
