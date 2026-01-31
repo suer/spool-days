@@ -49,7 +49,7 @@ jobs:
         id: xcode_version
         run: |
           xcodebuild -version
-          echo "VERSION=$(xcodebuild -version | head -n 1 | sed 's/ /-/g')" >> $GITHUB_OUTPUT
+          echo "VERSION=$(xcodebuild -version | head -n 1 | sed 's/ /-/g')" >> "$GITHUB_OUTPUT"
 
       - uses: irgaly/xcode-cache@v1
         with:
