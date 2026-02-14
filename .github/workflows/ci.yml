@@ -196,3 +196,5 @@ jobs:
       - name: Test
         run: |
           bundle exec fastlane scan --destination "id=${{ steps.boot_simulator.outputs.device_id }}"
+        env:
+          FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: 120
