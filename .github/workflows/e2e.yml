@@ -76,6 +76,7 @@ jobs:
       - name: Get UDID
         id: get-udid
         run: |
+          xcrun simctl list devices
           RUNTIME_OS_VERSION=$(echo "${PLATFORM_VERSION}" | tr '.' '-')
           RUNTIME_ID="com.apple.CoreSimulator.SimRuntime.iOS-${RUNTIME_OS_VERSION}"
           UDID=$(xcrun simctl list devices -j | jq -r --arg DNAME "${DEVICE_NAME}" --arg RTID "${RUNTIME_ID}" '.devices[$RTID][] | select(.name == $DNAME) | .udid')
