@@ -10,6 +10,7 @@ build/
 tmp/
 org.codefirst.SpoolDays.mobileprovision
 .bundle
+vendor/bundle
 /.env
 fastlane/report.xml
 fastlane/test_output/
