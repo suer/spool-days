@@ -11,7 +11,7 @@ Build
 
 ### Build
 
-    $ bundle install --path .bundle
+    $ BUNDLE_PATH=vendor/bundle bundle install
     $ bundle exec pod install
 
 open SpoolDays.xcworkspace with Xcode, and build.
