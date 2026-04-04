@@ -60,11 +60,6 @@ jobs:
         with:
           bundler-cache: true
 
-      - name: Install Bundled Gems
-        run: |
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
-
       - name: Install Pods
         run: |
           bundle exec pod install
