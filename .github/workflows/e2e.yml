@@ -73,7 +73,7 @@ jobs:
         shell: bash
         env:
           DEVICE_NAME: "iPhone 17"
-          PLATFORM_VERSION: "26.0"
+          PLATFORM_VERSION: "26.4"
 
       - name: Boot simulator
         run: |
