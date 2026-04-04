@@ -33,13 +33,17 @@ jobs:
 
    - name: Setup p12 certificate file
      run: |
-       echo "${{ secrets.CERTIFICATE }}" > distribution.p12.txt
+       echo "$CERTIFICATE" > distribution.p12.txt
        base64 --decode < distribution.p12.txt > distribution.p12
+     env:
+       CERTIFICATE: ${{ secrets.CERTIFICATE }}
 
    - name: Setup provisioning profile
      run: |
-       echo "${{ secrets.PROVISIONING_PROFILE }}" > distribution.mobileprovision.txt
+       echo "$PROVISIONING_PROFILE" > distribution.mobileprovision.txt
        base64 --decode < distribution.mobileprovision.txt > distribution.mobileprovision
+     env:
+       PROVISIONING_PROFILE: ${{ secrets.PROVISIONING_PROFILE }}
 
    - name: Cache Pods
      uses: actions/cache@v5
