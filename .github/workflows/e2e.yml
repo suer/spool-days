@@ -45,15 +45,10 @@ jobs:
       - name: Set Xcode version
         uses: ./.github/actions/setup-xcode
 
-      - name: Get Xcode version for cache key
-        id: xcode_version
-        run: |
-          echo "VERSION=$(xcodebuild -version | head -n 1 | sed 's/ /-/g')" >> "$GITHUB_OUTPUT"
-
       - uses: irgaly/xcode-cache@v1
         with:
-          key: xcode-cache-deriveddata-${{ steps.xcode_version.outputs.VERSION }}-${{ github.workflow }}-${{ github.sha }}
-          restore-keys: xcode-cache-deriveddata-${{ steps.xcode_version.outputs.VERSION }}-${{ github.workflow }}-
+          key: xcode-cache-deriveddata-${{ github.job }}-${{ github.workflow }}-${{ github.sha }}
+          restore-keys: xcode-cache-deriveddata-${{ github.job }}-${{ github.workflow }}-
 
       - uses: ruby/setup-ruby@v1
         with:
