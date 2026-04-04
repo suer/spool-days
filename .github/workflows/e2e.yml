@@ -43,18 +43,12 @@ jobs:
         working-directory: ./e2e
 
       - name: Set Xcode version
-        run: sudo xcode-select -s /Applications/Xcode_26.1.app
-
-      - name: Show Xcode version
-        id: xcode_version
-        run: |
-          xcodebuild -version
-          echo "VERSION=$(xcodebuild -version | head -n 1 | sed 's/ /-/g')" >> "$GITHUB_OUTPUT"
+        uses: ./.github/actions/setup-xcode
 
       - uses: irgaly/xcode-cache@v1
         with:
-          key: xcode-cache-deriveddata-${{ steps.xcode_version.outputs.VERSION }}-${{ github.workflow }}-${{ github.sha }}
-          restore-keys: xcode-cache-deriveddata-${{ steps.xcode_version.outputs.VERSION }}-${{ github.workflow }}-
+          key: xcode-cache-deriveddata-${{ github.job }}-${{ github.workflow }}-${{ github.sha }}
+          restore-keys: xcode-cache-deriveddata-${{ github.job }}-${{ github.workflow }}-
 
       - uses: ruby/setup-ruby@v1
         with:
@@ -79,7 +73,7 @@ jobs:
         shell: bash
         env:
           DEVICE_NAME: "iPhone 17"
-          PLATFORM_VERSION: "26.0"
+          PLATFORM_VERSION: "26.4"
 
       - name: Boot simulator
         run: |
