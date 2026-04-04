@@ -41,18 +41,6 @@ jobs:
        echo "${{ secrets.PROVISIONING_PROFILE }}" > distribution.mobileprovision.txt
        base64 --decode < distribution.mobileprovision.txt > distribution.mobileprovision
 
-   - name: Cache Gems
-     uses: actions/cache@v5
-     with:
-       path: vendor/bundle
-       key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-       restore-keys: |
-         ${{ runner.os }}-gems-
-
-   - name: Install Bundled Gems
-     run: bundle install --jobs 4 --retry 3
-     env:
-       BUNDLE_PATH: vendor/bundle
    - name: Cache Pods
      uses: actions/cache@v5
      with:
