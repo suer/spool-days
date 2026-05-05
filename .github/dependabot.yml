@@ -6,12 +6,16 @@ updates:
     schedule:
       interval: "weekly"
       day: "friday"
+    cooldown:
+      default-days: 1
 
   - package-ecosystem: "bundler"
     directory: "/"
     schedule:
       interval: "weekly"
       day: "friday"
+    cooldown:
+      default-days: 1
 
   - package-ecosystem: "npm"
     directory: "/e2e/"
@@ -26,3 +30,5 @@ updates:
         patterns:
           - "webdriverio"
           - "@wdio/types"
+    cooldown:
+      default-days: 1
