@@ -81,17 +81,6 @@ jobs:
           swiftpm-cache-key: xcode-cache-sourcepackages-${{ github.job }}-${{ github.workflow }}-${{ github.sha }}
           swiftpm-cache-restore-keys: xcode-cache-sourcepackages-${{ github.job }}-${{ github.workflow }}-
 
-      - name: Cache Pods
-        uses: actions/cache@v5
-        with:
-          path: Pods
-          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-pods-
-
-      - name: Install Pods
-        run: bundle exec pod install
-
       - name: Build
         run: |
           mise run build
@@ -127,18 +116,6 @@ jobs:
           restore-keys: xcode-cache-deriveddata-${{ github.job }}-${{ github.workflow }}-
           swiftpm-cache-key: xcode-cache-sourcepackages-${{ github.job }}-${{ github.workflow }}-${{ github.sha }}
           swiftpm-cache-restore-keys: xcode-cache-sourcepackages-${{ github.job }}-${{ github.workflow }}-
-
-      - name: Cache Pods
-        uses: actions/cache@v5
-        with:
-          path: Pods
-          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-pods-
-
-      - name: Install Pods
-        run: |
-          bundle exec pod install
 
       # https://github.com/actions/runner-images/issues/12777
       - name: Workaround for hanging simulator

@@ -128,7 +128,6 @@
 				80A574CB19EFDF4100C06CBB /* SpoolDaysTests */,
 				80A574B419EFDF4100C06CBB /* Products */,
 				C9DD4CF9193C1C7BCB6EC7B2 /* Frameworks */,
-				E1904D8318F0FB19403B323C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -215,13 +214,6 @@
 				802225F519FB058F00330227 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E1904D8318F0FB19403B323C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
