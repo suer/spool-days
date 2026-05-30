@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		19A2AC022EC61E6300BC7AED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A2AC012EC61E6300BC7AED /* SceneDelegate.swift */; };
+		19D816822FCB075400B82323 /* SpoolDaysDependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 19D816812FCB075400B82323 /* SpoolDaysDependencies */; };
 		629B8CF7A27F4591BA212F91AC74C5FC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59084B2672E46108E9BABF2 /* CoreDataManager.swift */; };
 		8002868419EFE1EE00089835 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002868319EFE1EE00089835 /* MainViewController.swift */; };
 		8009360A1AA74ACB00F87B83 /* BaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800936091AA74ACB00F87B83 /* BaseDate.swift */; };
@@ -114,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19D816822FCB075400B82323 /* SpoolDaysDependencies in Frameworks */,
 				ED037686A8E049093FC9F55C /* Pods_SpoolDays.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -736,6 +738,14 @@
 			relativePath = SpoolDaysDependencies;
 		};
 /* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		19D816812FCB075400B82323 /* SpoolDaysDependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 191158362FCB03F5008CAB37 /* XCLocalSwiftPackageReference "SpoolDaysDependencies" */;
+			productName = SpoolDaysDependencies;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		80DFB0F519F3D2A100BCF3B1 /* Model.xcdatamodeld */ = {
