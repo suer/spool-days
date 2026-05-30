@@ -12,3 +12,6 @@ vendor/bundle
 /.env
 fastlane/report.xml
 fastlane/test_output/
+com.mono0926.LicensePlist/
+com.mono0926.LicensePlist.plist
+com.mono0926.LicensePlist.latest_result.txt

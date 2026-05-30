@@ -225,6 +225,7 @@
 			buildPhases = (
 				80A574AF19EFDF4100C06CBB /* Sources */,
 				80A574B019EFDF4100C06CBB /* Frameworks */,
+				1998898E2FCB0D1E00EDB391 /* Run Script (LicensePlist) */,
 				80A574B119EFDF4100C06CBB /* Resources */,
 				8022260419FB058F00330227 /* Embed Foundation Extensions */,
 				800D5FF71A45616A00F86EC5 /* Run Script (Update Settings.bundle) */,
@@ -333,6 +334,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1998898E2FCB0D1E00EDB391 /* Run Script (LicensePlist) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script (LicensePlist)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "xcrun --sdk macosx swift run -c release --package-path SpoolDaysTools license-plist\n";
+		};
 		800D5FF71A45616A00F86EC5 /* Run Script (Update Settings.bundle) */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
