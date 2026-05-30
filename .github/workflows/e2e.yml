@@ -51,6 +51,16 @@ jobs:
           key: xcode-cache-deriveddata-${{ github.job }}-${{ github.workflow }}-${{ github.sha }}
           restore-keys: xcode-cache-deriveddata-${{ github.job }}-${{ github.workflow }}-
 
+      - name: Cache SwiftPM packages
+        uses: actions/cache@v5
+        with:
+          path: |
+            SpoolDaysDependencies/.build
+            SpoolDaysTools/.build
+          key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-spm-
+
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
