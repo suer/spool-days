@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -323,6 +323,9 @@
 				ja,
 			);
 			mainGroup = 80A574AA19EFDF4100C06CBB;
+			packageReferences = (
+				191158362FCB03F5008CAB37 /* XCLocalSwiftPackageReference "SpoolDaysDependencies" */,
+			);
 			productRefGroup = 80A574B419EFDF4100C06CBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -726,6 +729,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		191158362FCB03F5008CAB37 /* XCLocalSwiftPackageReference "SpoolDaysDependencies" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = SpoolDaysDependencies;
+		};
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCVersionGroup section */
 		80DFB0F519F3D2A100BCF3B1 /* Model.xcdatamodeld */ = {
