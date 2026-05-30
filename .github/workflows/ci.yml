@@ -97,6 +97,7 @@ jobs:
         env:
           FASTLANE_SKIP_UPDATE_CHECK: true
           MISE_DISABLE_TOOLS: ruby
+          LICENSE_PLIST_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   test:
     needs: [swiftlint, swiftformat]
@@ -193,3 +194,4 @@ jobs:
           FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: 120
           FASTLANE_SKIP_UPDATE_CHECK: true
           MISE_DISABLE_TOOLS: ruby
+          LICENSE_PLIST_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
