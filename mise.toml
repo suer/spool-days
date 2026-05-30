@@ -1,0 +1,42 @@
+[settings]
+idiomatic_version_file_enable_tools = ["ruby"]
+ruby.compile=false
+
+[tasks.format]
+description = "Format Swift source files in-place"
+run = "swift format --in-place --parallel --recursive SpoolDays SpoolDaysTests"
+
+[tasks.lint]
+description = "Lint Swift source files with strict mode"
+run = "swift format lint --strict --parallel --recursive SpoolDays SpoolDaysTests"
+
+[tasks.swiftlint]
+description = "Run SwiftLint with strict mode"
+run = "swiftlint --strict"
+
+[tasks.bundle-install]
+description = "Install Ruby dependencies"
+run = "bundle install"
+
+[tasks.build]
+description = "Build the app for iOS Simulator"
+depends = ["bundle-install"]
+run = "bundle exec fastlane build_for_simulator"
+
+[tasks.test]
+description = "Run unit tests (optionally specify --destination to target a specific simulator)"
+depends = ["bundle-install"]
+run = """
+#!/usr/bin/env bash
+dest='{{option(name="destination", default="")}}'
+if [ -n "$dest" ]; then
+  bundle exec fastlane scan --scheme SpoolDays --destination "$dest"
+else
+  bundle exec fastlane test
+fi
+"""
+
+[tasks.deploy]
+description = "Build and distribute the app to DeployGate"
+depends = ["bundle-install"]
+run = "bundle exec fastlane dg"
