@@ -54,7 +54,6 @@ platform :ios do
   desc "Build for simulator"
   lane :build_for_simulator do
     gym(
-      workspace: "SpoolDays.xcworkspace",
       scheme: "SpoolDays",
       sdk: "iphonesimulator",
       archive_path: "./SpoolDays.xcarchive",

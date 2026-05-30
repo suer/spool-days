@@ -1,6 +1,5 @@
 project.xcworkspace
 xcuserdata
-*xcworkspace/
 *.xcarchive/
 *.ipa
 *.app.dSYM.zip
