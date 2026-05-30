@@ -58,4 +58,5 @@ jobs:
        DEPLOYGATE_MESSAGE: ${{ github.sha }}
        FASTLANE_SKIP_UPDATE_CHECK: true
        MISE_DISABLE_TOOLS: ruby
+       LICENSE_PLIST_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
      run: mise run deploy
