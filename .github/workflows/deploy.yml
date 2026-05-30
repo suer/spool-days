@@ -47,17 +47,6 @@ jobs:
      env:
        PROVISIONING_PROFILE: ${{ secrets.PROVISIONING_PROFILE }}
 
-   - name: Cache Pods
-     uses: actions/cache@v5
-     with:
-       path: Pods
-       key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
-       restore-keys: |
-         ${{ runner.os }}-pods-
-
-   - name: Install Pods
-     run: bundle exec pod install
-
    - name: Build and deploy to DeployGate
      env:
        BUILD_NUMBER: ${{ github.run_number }}
