@@ -17,6 +17,15 @@ updates:
     cooldown:
       default-days: 1
 
+  - package-ecosystem: "swift"
+    directories:
+      - "/SpoolDaysDependencies"
+      - "/SpoolDaysTools"
+    schedule:
+      interval: "weekly"
+      day: "friday"
+      timezone: "Asia/Tokyo"
+
   - package-ecosystem: "npm"
     directory: "/e2e/"
     schedule:
