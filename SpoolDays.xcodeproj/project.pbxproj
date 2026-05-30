@@ -251,7 +251,6 @@
 				80A574B119EFDF4100C06CBB /* Resources */,
 				8022260419FB058F00330227 /* Embed Foundation Extensions */,
 				800D5FF71A45616A00F86EC5 /* Run Script (Update Settings.bundle) */,
-				06AA9F6201C52530BCDF7A41 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -355,24 +354,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		06AA9F6201C52530BCDF7A41 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SpoolDays/Pods-SpoolDays-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/HorizonCalendar/HorizonCalendar.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HorizonCalendar.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpoolDays/Pods-SpoolDays-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		1498E7945BDA65C32CCA844D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

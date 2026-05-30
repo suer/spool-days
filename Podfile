@@ -6,7 +6,6 @@ target 'SpoolDays' do
   use_frameworks!
 
   # Pods for SpoolDays
-  pod 'HorizonCalendar'
 
   target 'SpoolDaysTests' do
     inherit! :search_paths
