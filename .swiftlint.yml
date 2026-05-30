@@ -1,5 +1,6 @@
 excluded:
   - vendor
+  - "**/.build"
 
 disabled_rules:
   - force_cast

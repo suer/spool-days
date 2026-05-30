@@ -4,11 +4,11 @@ ruby.compile=false
 
 [tasks.format]
 description = "Format Swift source files in-place"
-run = "swift format --in-place --parallel --recursive SpoolDays SpoolDaysTests"
+run = "swift format --in-place --parallel --recursive SpoolDays SpoolDaysDependencies SpoolDaysTools SpoolDaysTests"
 
 [tasks.lint]
 description = "Lint Swift source files with strict mode"
-run = "swift format lint --strict --parallel --recursive SpoolDays SpoolDaysTests"
+run = "swift format lint --strict --parallel --recursive SpoolDays SpoolDaysDependencies SpoolDaysTools SpoolDaysTests"
 
 [tasks.swiftlint]
 description = "Run SwiftLint with strict mode"
