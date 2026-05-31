@@ -156,7 +156,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             return cell
         } else {
             let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
-            cell.textLabel?.text = I18n.translate("Date")
+            cell.textLabel?.text = I18n.date
             cell.detailTextLabel?.text = (dateViewModel.baseDate?.date ?? Date()).dateString()
             return cell
         }
@@ -234,7 +234,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     @objc func deleteButtonTapped() {
-        PopupAlertView.confirm(self, message: I18n.translate("Are you sure you want to delete?")) {
+        PopupAlertView.confirm(self, message: I18n.areYouSureYouWantToDelete) {
             self.dateViewModel.deleteDate()
             NotificationCenter.default.post(name: .didSaveOrDeleteDate, object: nil)
             self.dismiss(animated: true, completion: nil)
