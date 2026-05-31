@@ -148,7 +148,10 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath as NSIndexPath).row == 0 {
-            let cell = TextFieldTableViewCell(value: dateViewModel.baseDate?.title ?? "", placeHolder: "Title", reuserIdentifier: "Cell")
+            let cell = TextFieldTableViewCell(
+                value: dateViewModel.baseDate?.title ?? "",
+                placeHolder: I18n.title,
+                reuserIdentifier: "Cell")
             cell.valueChanged = { self.titleString = $0 }
             return cell
         } else {
