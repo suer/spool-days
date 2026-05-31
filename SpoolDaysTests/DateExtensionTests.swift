@@ -1,33 +1,31 @@
-import XCTest
+import Foundation
+import Testing
 
-class CalendarTests: XCTestCase {
-    func testDateIntervalFromDate() {
+struct CalendarTests {
+    @Test func dateIntervalFromDate() {
         let cal = NSCalendar.current
         let date = (cal as NSCalendar).date(era: 1, year: 1981, month: 8, day: 4, hour: 20, minute: 0, second: 0, nanosecond: 0)!
-
         let from = (cal as NSCalendar).date(era: 1, year: 1981, month: 9, day: 10, hour: 21, minute: 0, second: 0, nanosecond: 0)!
-
-        XCTAssertEqual(37, date.dateIntervalFromDate(from))
+        #expect(date.dateIntervalFromDate(from) == 37)
     }
 
-    func testDateString() {
+    @Test func dateString() {
         let cal = NSCalendar.current
         let date = (cal as NSCalendar).date(era: 1, year: 1981, month: 8, day: 4, hour: 20, minute: 0, second: 0, nanosecond: 0)!
-        XCTAssertEqual("8/4/81", date.dateString(locale: Locale(identifier: "en_US_POSIX")))
+        #expect(date.dateString(locale: Locale(identifier: "en_US_POSIX")) == "8/4/81")
     }
 
-    func testFromString() {
+    @Test func fromString() {
         let date = Date.fromString("2014-08-04")
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month, .day], from: date!)
-        XCTAssertEqual(components.year, 2014)
-        XCTAssertEqual(components.month, 8)
-        XCTAssertEqual(components.day, 4)
+        #expect(components.year == 2014)
+        #expect(components.month == 8)
+        #expect(components.day == 4)
     }
 
-    func testFromStringFail() {
-        let str = "2014-08-04-"
-        let date = Date.fromString(str)
-        XCTAssertNil(date)
+    @Test func fromStringFail() {
+        let date = Date.fromString("2014-08-04-")
+        #expect(date == nil)
     }
 }
