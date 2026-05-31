@@ -1,37 +1,40 @@
 import Foundation
 
 class I18n {
-    class func translate(_ key: String) -> String {
-        return NSLocalizedString(key, comment: "")
-    }
+    class var spoolDays: String { return String(localized: .spoolDays) }
 
-    class func translateWithFormat(_ key: String, args: CVarArg...) -> String {
-        return String(format: I18n.translate(key), arguments: args)
-    }
+    class var yes: String { return String(localized: .yes) }
 
-    class var yes: String { return I18n.translate("Yes") }
+    class var no: String { return String(localized: .no) }
 
-    class var no: String { return I18n.translate("No") }
+    class var save: String { return String(localized: .save) }
 
-    class var save: String { return I18n.translate("Save") }
+    class var cancel: String { return String(localized: .cancel) }
 
-    class var cancel: String { return I18n.translate("Cancel") }
+    class var delete: String { return String(localized: .delete) }
 
-    class var delete: String { return I18n.translate("Delete") }
+    class var finish: String { return String(localized: .finish) }
 
-    class var finish: String { return I18n.translate("Finish") }
+    class var edit: String { return String(localized: .edit) }
 
-    class var edit: String { return I18n.translate("Edit") }
+    class var reset: String { return String(localized: .reset) }
 
-    class var reset: String { return I18n.translate("Reset") }
+    class var resetWithDate: String { return String(localized: .resetWithDate) }
 
-    class var resetWithDate: String { return I18n.translate("Reset with Date") }
+    class var create: String { return String(localized: .create) }
 
-    class var create: String { return I18n.translate("Create") }
+    class var history: String { return String(localized: .history) }
 
-    class var history: String { return I18n.translate("History") }
+    class var confirmation: String { return String(localized: .confirmation) }
 
-    class var confirmation: String { return I18n.translate("Confirmation") }
+    class var title: String { return String(localized: .title) }
 
-    class var title: String { return I18n.translate("Title") }
+    class var days: String { return String(localized: .days) }
+
+    class var date: String { return String(localized: .date) }
+
+    class var areYouSureYouWantToDelete: String { return String(localized: .areYouSureYouWantToDelete) }
+
+    class var areYouSureYouWantToResetDate: String { return String(localized: .areYouSureYouWantToResetDate) }
+
 }

@@ -7,7 +7,7 @@ class MainViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        title = I18n.translate("Spool Days")
+        title = I18n.spoolDays
         observers.append(
             datesViewModel.observe(\.dates, options: .new) { (_, _) in
                 self.tableView.reloadData()
@@ -99,7 +99,7 @@ class MainViewController: UITableViewController {
     }
 
     fileprivate func deleteDate(_ indexPath: IndexPath) {
-        PopupAlertView.confirm(self, message: I18n.translate("Are you sure you want to delete?")) {
+        PopupAlertView.confirm(self, message: I18n.areYouSureYouWantToDelete) {
             self.tableView.beginUpdates()
             self.datesViewModel.deleteDate(indexPath)
             self.tableView.deleteRows(at: [indexPath], with: .fade)
@@ -116,7 +116,7 @@ class MainViewController: UITableViewController {
     }
 
     fileprivate func resetDate(_ cell: DateTableViewCell) {
-        PopupAlertView.confirm(self, message: I18n.translate("Are you sure you want to reset date?")) {
+        PopupAlertView.confirm(self, message: I18n.areYouSureYouWantToResetDate) {
             cell.resetDate()
             self.reload()
         }
@@ -125,7 +125,7 @@ class MainViewController: UITableViewController {
     fileprivate func resetWithDate(_ cell: DateTableViewCell) {
         let datePicker = DatePickerViewController(initialDate: Date())
         datePicker.onSelected = { date in
-            PopupAlertView.confirm(self, message: I18n.translateWithFormat("Are you sure you want to reset date with %@?", args: date.dateString())) {
+            PopupAlertView.confirm(self, message: String(localized: .areYouSureYouWantToResetDateWith(date.dateString()))) {
                 cell.resetDate(date)
                 self.reload()
             }

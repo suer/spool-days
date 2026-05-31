@@ -25,7 +25,7 @@ class DateTableViewCell: UITableViewCell {
     fileprivate func updateLabels() {
         if let baseDate = dateViewModel.baseDate {
             textLabel?.text = baseDate.title
-            detailTextLabel?.text = "\(baseDate.dateInterval()) " + I18n.translate("Days")
+            detailTextLabel?.text = "\(baseDate.dateInterval()) " + I18n.days
         }
     }
 
