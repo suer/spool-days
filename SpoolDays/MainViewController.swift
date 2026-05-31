@@ -63,7 +63,15 @@ class MainViewController: UITableViewController {
     }
 
     func loadToolbar() {
-        let addButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(MainViewController.addButtonTapped))
+        var config = UIButton.Configuration.filled()
+        config.image = UIImage(systemName: "plus")
+        config.baseBackgroundColor = ThemeColor.baseColor()
+        config.baseForegroundColor = ThemeColor.baseTextColor()
+        config.cornerStyle = .capsule
+        config.buttonSize = .large
+        let button = UIButton(configuration: config)
+        button.addTarget(self, action: #selector(MainViewController.addButtonTapped), for: .touchUpInside)
+        let addButton = UIBarButtonItem(customView: button)
         let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         toolbarItems = [spacer, addButton]
     }
