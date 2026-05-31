@@ -32,4 +32,6 @@ class I18n {
     class var history: String { return I18n.translate("History") }
 
     class var confirmation: String { return I18n.translate("Confirmation") }
+
+    class var title: String { return I18n.translate("Title") }
 }
