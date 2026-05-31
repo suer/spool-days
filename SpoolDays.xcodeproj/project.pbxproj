@@ -10,7 +10,7 @@
 		19A2AC022EC61E6300BC7AED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A2AC012EC61E6300BC7AED /* SceneDelegate.swift */; };
 		19D816822FCB075400B82323 /* SpoolDaysDependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 19D816812FCB075400B82323 /* SpoolDaysDependencies */; };
 		19F6DE842FCBB7A80010F23A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 19F6DE832FCBB7A80010F23A /* Localizable.xcstrings */; };
-		19F6DE852FCBB7A80010F23A /* Localizable.xcstrings in Resources (Tests) */ = {isa = PBXBuildFile; fileRef = 19F6DE832FCBB7A80010F23A /* Localizable.xcstrings */; };
+		19F6DE852FCBB7A80010F23A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 19F6DE832FCBB7A80010F23A /* Localizable.xcstrings */; };
 		629B8CF7A27F4591BA212F91AC74C5FC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59084B2672E46108E9BABF2 /* CoreDataManager.swift */; };
 		8002868419EFE1EE00089835 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002868319EFE1EE00089835 /* MainViewController.swift */; };
 		8009360A1AA74ACB00F87B83 /* BaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800936091AA74ACB00F87B83 /* BaseDate.swift */; };
@@ -328,7 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19F6DE852FCBB7A80010F23A /* Localizable.xcstrings in Resources (Tests) */,
+				19F6DE852FCBB7A80010F23A /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +337,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		1998898E2FCB0D1E00EDB391 /* Run Script (LicensePlist) */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
