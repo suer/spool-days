@@ -67,6 +67,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		197293052FCC5C5200901236 /* SpoolDaysTools */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SpoolDaysTools; sourceTree = "<group>"; };
+		197293072FCC5CB600901236 /* SpoolDaysDependencies */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SpoolDaysDependencies; sourceTree = "<group>"; };
 		19A2AC012EC61E6300BC7AED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		19F6DE832FCBB7A80010F23A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		8002868319EFE1EE00089835 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,8 @@
 				80A574CB19EFDF4100C06CBB /* SpoolDaysTests */,
 				80A574B419EFDF4100C06CBB /* Products */,
 				C9DD4CF9193C1C7BCB6EC7B2 /* Frameworks */,
+				197293072FCC5CB600901236 /* SpoolDaysDependencies */,
+				197293052FCC5C5200901236 /* SpoolDaysTools */,
 			);
 			sourceTree = "<group>";
 		};
