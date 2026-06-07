@@ -47,13 +47,13 @@ jobs:
      env:
        PROVISIONING_PROFILE: ${{ secrets.PROVISIONING_PROFILE }}
 
-   - name: Setup provisioning profile
+   - name: Setup GoogleService-Info.plist
      run: |
        echo "$GOOGLE_SERVICE_INFO_PLIST" > SpoolDays/GoogleService-Info.plist
      env:
        GOOGLE_SERVICE_INFO_PLIST: ${{ secrets.GOOGLE_SERVICE_INFO_PLIST }}
 
-   - name: Setup provisioning profile
+   - name: Setup Service Account Private Key
      run: |
        echo "$GOOGLE_APPLICATION_CREDENTIALS" > service_account_private_key.json
      env:
