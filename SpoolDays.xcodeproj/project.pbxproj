@@ -22,6 +22,7 @@
 		800E8B861A73ECCB00CB1D6D /* DateTableViewCellAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E8B851A73ECCB00CB1D6D /* DateTableViewCellAction.swift */; };
 		801A6B111A8F5278006F4B7D /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80404BDC1A0BA76A00FD835F /* DateExtension.swift */; };
 		801A6B141A8F5C13006F4B7D /* I18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E8B831A731FE100CB1D6D /* I18n.swift */; };
+		8024D2EC2FD4E90A008207A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8024D2EB2FD4E90A008207A6 /* GoogleService-Info.plist */; };
 		80404BDD1A0BA76A00FD835F /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80404BDC1A0BA76A00FD835F /* DateExtension.swift */; };
 		804A869E1ADA68CE0024E2E4 /* PopupAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A869D1ADA68CE0024E2E4 /* PopupAlertView.swift */; };
 		804E607419F31D5D005BA669 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E607319F31D5D005BA669 /* EditViewController.swift */; };
@@ -79,6 +80,7 @@
 		800E8B851A73ECCB00CB1D6D /* DateTableViewCellAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTableViewCellAction.swift; sourceTree = "<group>"; };
 		802225F519FB058F00330227 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		8022260619FB3AE600330227 /* SpoolDays.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SpoolDays.entitlements; sourceTree = "<group>"; };
+		8024D2EB2FD4E90A008207A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		80404BDC1A0BA76A00FD835F /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		804A869D1ADA68CE0024E2E4 /* PopupAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupAlertView.swift; sourceTree = "<group>"; };
 		804E607319F31D5D005BA669 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		80A574B519EFDF4100C06CBB /* SpoolDays */ = {
 			isa = PBXGroup;
 			children = (
+				8024D2EB2FD4E90A008207A6 /* GoogleService-Info.plist */,
 				80A574B819EFDF4100C06CBB /* AppDelegate.swift */,
 				F59084B2672E46108E9BABF2 /* CoreDataManager.swift */,
 				80404BDC1A0BA76A00FD835F /* DateExtension.swift */,
@@ -323,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				800D5FF61A455F9800F86EC5 /* Settings.bundle in Resources */,
+				8024D2EC2FD4E90A008207A6 /* GoogleService-Info.plist in Resources */,
 				19F6DE842FCBB7A80010F23A /* Localizable.xcstrings in Resources */,
 				80A574C019EFDF4100C06CBB /* Images.xcassets in Resources */,
 			);
