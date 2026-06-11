@@ -18,6 +18,7 @@ const opts: Capabilities.WebdriverIOConfig = {
     "appium:simulatorStartupTimeout": 900000,
     "appium:wdaLaunchTimeout": 900000,
     "appium:showXcodeLog": true,
+    "appium:autoAcceptAlerts": true,
   },
 };
 
