@@ -1,5 +1,6 @@
 import UIKit
 
+@MainActor
 class ModalViewController {
     fileprivate let baseController: UIViewController
 

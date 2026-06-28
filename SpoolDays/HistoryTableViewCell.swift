@@ -12,7 +12,8 @@ class HistoryTableViewCell: UITableViewCell {
     }
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
-        if change?[.newKey] is Date {
+        guard change?[.newKey] is Date else { return }
+        MainActor.assumeIsolated {
             textLabel?.text = log.date.dateString()
         }
     }
