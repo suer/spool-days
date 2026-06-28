@@ -29,18 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func handleAppRefresh(task: BGAppRefreshTask) {
         scheduleAppRefresh()
-
-        let operation = BlockOperation {
-            self.updateBadge { result in
-                task.setTaskCompleted(success: result == .newData)
-            }
-        }
-
         task.expirationHandler = {
-            operation.cancel()
+            task.setTaskCompleted(success: false)
         }
-
-        operation.start()
+        updateBadge { result in
+            task.setTaskCompleted(success: result == .newData)
+        }
     }
 
     func scheduleAppRefresh() {
@@ -81,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITableViewCell.appearance().separatorInset = UIEdgeInsets.zero
     }
 
-    func updateBadge(_ completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    func updateBadge(_ completionHandler: @escaping @Sendable (UIBackgroundFetchResult) -> Void) {
         if let baseDate = BaseDate.first() {
             let badgeNumber = abs(baseDate.dateInterval())
             UNUserNotificationCenter.current().setBadgeCount(badgeNumber) { error in

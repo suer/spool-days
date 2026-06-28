@@ -10,11 +10,15 @@ class MainViewController: UITableViewController {
         title = I18n.spoolDays
         observers.append(
             datesViewModel.observe(\.dates, options: .new) { (_, _) in
-                self.tableView.reloadData()
+                MainActor.assumeIsolated {
+                    self.tableView.reloadData()
+                }
             })
         observers.append(
             self.observe(\.isEditing, options: .new) { (_, _) in
-                self.navigationItem.rightBarButtonItem?.title = self.isEditing ? I18n.finish : I18n.edit
+                MainActor.assumeIsolated {
+                    self.navigationItem.rightBarButtonItem?.title = self.isEditing ? I18n.finish : I18n.edit
+                }
             })
         loadEditButton()
         loadToolbar()
