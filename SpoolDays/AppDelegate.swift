@@ -1,8 +1,8 @@
-import BackgroundTasks
+@preconcurrency import BackgroundTasks
 import UIKit
 import UserNotifications
 
-@UIApplicationMain
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var onSignificantTimeChange: (() -> Void)?
 

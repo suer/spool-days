@@ -2,7 +2,7 @@ import CoreData
 import Foundation
 
 class CoreDataManager {
-    static let shared = CoreDataManager()
+    nonisolated(unsafe) static let shared = CoreDataManager()
 
     private init() {}
     lazy var applicationDocumentsDirectory: URL = {
