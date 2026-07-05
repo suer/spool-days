@@ -12,6 +12,5 @@ class GroupData {
         }
         let sharedDefaults = UserDefaults(suiteName: userDefaultSuiteName)
         sharedDefaults?.set(list, forKey: keyOfDates)
-        sharedDefaults?.synchronize()
     }
 }
