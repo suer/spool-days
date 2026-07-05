@@ -39,22 +39,18 @@ class MainViewController: UITableViewController {
             observer.invalidate()
         }
         observers.removeAll()
-        NotificationCenter.default.removeObserver(self)
     }
 
     fileprivate func addNotificationCenterObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(UIApplicationDelegate.applicationDidBecomeActive(_:)), name: NSNotification.Name.NSExtensionHostDidBecomeActive, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: .didSaveOrDeleteDate, object: nil)
-    }
-
-    @objc fileprivate func reload() {
-        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
-            DispatchQueue.main.async {
-                if let self = self {
-                    self.datesViewModel.fetch()
-                }
+        NotificationCenter.default.addObserver(forName: .didSaveOrDeleteDate, object: nil, queue: .main) { [weak self] _ in
+            MainActor.assumeIsolated {
+                self?.reload()
             }
         }
+    }
+
+    fileprivate func reload() {
+        datesViewModel.fetch()
     }
 
     func loadEditButton() {
