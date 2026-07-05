@@ -7,8 +7,8 @@ class GroupData {
     class func setDates(_ dates: [BaseDate]) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        let list = dates.map { baseDate -> [String: AnyObject] in
-            return ["title": baseDate.title as AnyObject, "date": dateFormatter.string(from: baseDate.date as Date) as AnyObject]
+        let list = dates.map { baseDate -> [String: Any] in
+            return ["title": baseDate.title, "date": dateFormatter.string(from: baseDate.date)]
         }
         let sharedDefaults = UserDefaults(suiteName: userDefaultSuiteName)
         sharedDefaults?.set(list, forKey: keyOfDates)
