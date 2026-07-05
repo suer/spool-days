@@ -1,7 +1,7 @@
 import Foundation
 
 class HistoryViewModel: NSObject {
-    dynamic var logs = [Log]()
+    private(set) dynamic var logs = [Log]()
     let baseDate: BaseDate
     init(baseDate: BaseDate) {
         self.baseDate = baseDate
