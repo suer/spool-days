@@ -46,18 +46,6 @@ class CoreDataManager {
         }
     }
 
-    func saveAndWait() {
-        let context = persistentContainer.viewContext
-
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                print("Save error: \(error)")
-            }
-        }
-    }
-
     func rollback() {
         context.rollback()
     }
