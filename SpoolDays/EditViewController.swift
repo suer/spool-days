@@ -148,7 +148,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (indexPath as NSIndexPath).row == 0 {
+        if indexPath.row == 0 {
             let cell = TextFieldTableViewCell(
                 value: dateViewModel.baseDate?.title ?? "",
                 placeHolder: I18n.title,
@@ -165,7 +165,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if (indexPath as NSIndexPath).row == 0 {
+        if indexPath.row == 0 {
             focusOnTextField()
         } else {
             blurOnTextField()

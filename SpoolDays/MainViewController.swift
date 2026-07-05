@@ -92,7 +92,7 @@ class MainViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let dateViewModel = DateViewModel(baseDate: datesViewModel.dates[(indexPath as NSIndexPath).row])
+        let dateViewModel = DateViewModel(baseDate: datesViewModel.dates[indexPath.row])
         return DateTableViewCell(reuseIdentifier: "Cell", dateViewModel: dateViewModel)
     }
 
@@ -116,7 +116,7 @@ class MainViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
-        datesViewModel.move(fromIndex: (fromIndexPath as NSIndexPath).row, toIndex: (toIndexPath as NSIndexPath).row)
+        datesViewModel.move(fromIndex: fromIndexPath.row, toIndex: toIndexPath.row)
     }
 
     fileprivate func resetDate(_ cell: DateTableViewCell) {

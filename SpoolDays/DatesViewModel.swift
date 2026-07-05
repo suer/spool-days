@@ -10,7 +10,7 @@ class DatesViewModel: NSObject {
     }
 
     func deleteDate(_ indexPath: IndexPath) {
-        dates[(indexPath as NSIndexPath).row].delete()
+        dates[indexPath.row].delete()
         fetch()
     }
 

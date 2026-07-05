@@ -51,7 +51,7 @@ class HistoryTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let log = historyViewModel.logs[(indexPath as NSIndexPath).row]
+        let log = historyViewModel.logs[indexPath.row]
         let cell = HistoryTableViewCell(log: log)
         cell.textLabel?.text = log.dateString()
         cell.detailTextLabel?.text = log.eventString()
@@ -67,7 +67,7 @@ class HistoryTableViewController: UITableViewController {
     fileprivate func deleteLog(_ indexPath: IndexPath) {
         if tableView.cellForRow(at: indexPath) is HistoryTableViewCell {
             PopupAlertView.confirm(self, message: I18n.areYouSureYouWantToDelete) {
-                self.historyViewModel.deleteLog((indexPath as NSIndexPath).row)
+                self.historyViewModel.deleteLog(indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .fade)
             }
         }
