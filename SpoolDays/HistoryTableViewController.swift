@@ -26,7 +26,7 @@ class HistoryTableViewController: UITableViewController {
     // MARK: cancel button
 
     func loadCancelButton() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: I18n.cancel, style: .plain, target: self, action: #selector(HistoryTableViewController.cancelButtonTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: String(localized: .cancel), style: .plain, target: self, action: #selector(HistoryTableViewController.cancelButtonTapped))
     }
 
     @objc func cancelButtonTapped() {
@@ -36,7 +36,7 @@ class HistoryTableViewController: UITableViewController {
     // MARK: save button
 
     func loadSaveButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: I18n.save, style: .plain, target: self, action: #selector(HistoryTableViewController.saveButtonTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(localized: .save), style: .plain, target: self, action: #selector(HistoryTableViewController.saveButtonTapped))
     }
 
     @objc func saveButtonTapped() {
@@ -66,7 +66,7 @@ class HistoryTableViewController: UITableViewController {
 
     fileprivate func deleteLog(_ indexPath: IndexPath) {
         if tableView.cellForRow(at: indexPath) is HistoryTableViewCell {
-            PopupAlertView.confirm(self, message: I18n.areYouSureYouWantToDelete) {
+            PopupAlertView.confirm(self, message: String(localized: .areYouSureYouWantToDelete)) {
                 self.historyViewModel.deleteLog(indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .fade)
             }

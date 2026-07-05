@@ -7,7 +7,7 @@ class MainViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        title = I18n.spoolDays
+        title = String(localized: .spoolDays)
         observers.append(
             datesViewModel.observe(\.dates, options: .new) { (_, _) in
                 MainActor.assumeIsolated {
@@ -17,7 +17,7 @@ class MainViewController: UITableViewController {
         observers.append(
             self.observe(\.isEditing, options: .new) { (_, _) in
                 MainActor.assumeIsolated {
-                    self.navigationItem.rightBarButtonItem?.title = self.isEditing ? I18n.finish : I18n.edit
+                    self.navigationItem.rightBarButtonItem?.title = self.isEditing ? String(localized: .finish) : String(localized: .edit)
                 }
             })
         loadEditButton()
@@ -54,7 +54,7 @@ class MainViewController: UITableViewController {
     }
 
     func loadEditButton() {
-        let editButton = UIBarButtonItem(title: I18n.edit, style: .plain, target: self, action: #selector(MainViewController.editButtonTapped))
+        let editButton = UIBarButtonItem(title: String(localized: .edit), style: .plain, target: self, action: #selector(MainViewController.editButtonTapped))
         navigationItem.rightBarButtonItem = editButton
     }
 
@@ -99,7 +99,7 @@ class MainViewController: UITableViewController {
     }
 
     fileprivate func deleteDate(_ indexPath: IndexPath) {
-        PopupAlertView.confirm(self, message: I18n.areYouSureYouWantToDelete) {
+        PopupAlertView.confirm(self, message: String(localized: .areYouSureYouWantToDelete)) {
             self.tableView.beginUpdates()
             self.datesViewModel.deleteDate(indexPath)
             self.tableView.deleteRows(at: [indexPath], with: .fade)
@@ -116,7 +116,7 @@ class MainViewController: UITableViewController {
     }
 
     fileprivate func resetDate(_ cell: DateTableViewCell) {
-        PopupAlertView.confirm(self, message: I18n.areYouSureYouWantToResetDate) {
+        PopupAlertView.confirm(self, message: String(localized: .areYouSureYouWantToResetDate)) {
             cell.resetDate()
             self.reload()
         }
@@ -134,10 +134,10 @@ class MainViewController: UITableViewController {
     }
 
     let cellActions = [
-        DateTableViewCellAction(name: I18n.edit, action: { controller, cell in controller.showEditView(cell.dateViewModel) }),
-        DateTableViewCellAction(name: I18n.reset, action: { controller, cell in controller.resetDate(cell) }),
-        DateTableViewCellAction(name: I18n.resetWithDate, action: { controller, cell in controller.resetWithDate(cell) }),
-        DateTableViewCellAction(name: I18n.history, action: { controller, cell in controller.showHistoryView(cell.dateViewModel) }),
+        DateTableViewCellAction(name: String(localized: .edit), action: { controller, cell in controller.showEditView(cell.dateViewModel) }),
+        DateTableViewCellAction(name: String(localized: .reset), action: { controller, cell in controller.resetDate(cell) }),
+        DateTableViewCellAction(name: String(localized: .resetWithDate), action: { controller, cell in controller.resetWithDate(cell) }),
+        DateTableViewCellAction(name: String(localized: .history), action: { controller, cell in controller.showHistoryView(cell.dateViewModel) }),
     ]
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -146,7 +146,7 @@ class MainViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
 
         let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        ac.addAction(UIAlertAction(title: I18n.cancel, style: .cancel, handler: nil))
+        ac.addAction(UIAlertAction(title: String(localized: .cancel), style: .cancel, handler: nil))
         for cellAction in cellActions {
             ac.addAction(
                 UIAlertAction(

@@ -87,7 +87,7 @@ class DatePickerViewController: UIViewController {
     }
 
     func loadCancelButton() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: I18n.cancel, style: .plain, target: self, action: #selector(cancelButtonTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: String(localized: .cancel), style: .plain, target: self, action: #selector(cancelButtonTapped))
     }
 
     @objc func cancelButtonTapped() {
