@@ -45,6 +45,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         focusOnTextField()
     }
 
