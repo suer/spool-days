@@ -72,7 +72,7 @@ class MainViewController: UITableViewController {
         let button = UIButton(configuration: config)
         button.addTarget(self, action: #selector(MainViewController.addButtonTapped), for: .touchUpInside)
         let addButton = UIBarButtonItem(customView: button)
-        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         toolbarItems = [spacer, addButton]
     }
 

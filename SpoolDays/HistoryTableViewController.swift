@@ -26,7 +26,7 @@ class HistoryTableViewController: UITableViewController {
     // MARK: cancel button
 
     func loadCancelButton() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: I18n.cancel, style: UIBarButtonItem.Style.plain, target: self, action: #selector(HistoryTableViewController.cancelButtonTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: I18n.cancel, style: .plain, target: self, action: #selector(HistoryTableViewController.cancelButtonTapped))
     }
 
     @objc func cancelButtonTapped() {
@@ -36,7 +36,7 @@ class HistoryTableViewController: UITableViewController {
     // MARK: save button
 
     func loadSaveButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: I18n.save, style: UIBarButtonItem.Style.plain, target: self, action: #selector(HistoryTableViewController.saveButtonTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: I18n.save, style: .plain, target: self, action: #selector(HistoryTableViewController.saveButtonTapped))
     }
 
     @objc func saveButtonTapped() {

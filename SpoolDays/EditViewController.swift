@@ -68,7 +68,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: cancel button
 
     func loadCancelButton() {
-        let cancelButton = UIBarButtonItem(title: I18n.cancel, style: UIBarButtonItem.Style.plain, target: self, action: #selector(EditViewController.cancelButtonTapped))
+        let cancelButton = UIBarButtonItem(title: I18n.cancel, style: .plain, target: self, action: #selector(EditViewController.cancelButtonTapped))
         navigationItem.leftBarButtonItem = cancelButton
     }
 
@@ -79,7 +79,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: save button
 
     func loadSaveButton() {
-        let saveButton = UIBarButtonItem(title: I18n.save, style: UIBarButtonItem.Style.plain, target: self, action: #selector(EditViewController.saveButtonTapped))
+        let saveButton = UIBarButtonItem(title: I18n.save, style: .plain, target: self, action: #selector(EditViewController.saveButtonTapped))
         navigationItem.rightBarButtonItem = saveButton
     }
 
