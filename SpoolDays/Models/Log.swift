@@ -32,9 +32,9 @@ class Log: NSManagedObject {
     func eventString() -> String {
         switch event {
         case "create":
-            return I18n.create
+            return String(localized: .create)
         case "reset":
-            return I18n.reset
+            return String(localized: .reset)
         default:
             return ""
         }

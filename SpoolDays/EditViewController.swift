@@ -73,7 +73,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: cancel button
 
     func loadCancelButton() {
-        let cancelButton = UIBarButtonItem(title: I18n.cancel, style: .plain, target: self, action: #selector(EditViewController.cancelButtonTapped))
+        let cancelButton = UIBarButtonItem(title: String(localized: .cancel), style: .plain, target: self, action: #selector(EditViewController.cancelButtonTapped))
         navigationItem.leftBarButtonItem = cancelButton
     }
 
@@ -84,7 +84,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: save button
 
     func loadSaveButton() {
-        let saveButton = UIBarButtonItem(title: I18n.save, style: .plain, target: self, action: #selector(EditViewController.saveButtonTapped))
+        let saveButton = UIBarButtonItem(title: String(localized: .save), style: .plain, target: self, action: #selector(EditViewController.saveButtonTapped))
         navigationItem.rightBarButtonItem = saveButton
     }
 
@@ -153,13 +153,13 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         if indexPath.row == 0 {
             let cell = TextFieldTableViewCell(
                 value: dateViewModel.baseDate?.title ?? "",
-                placeHolder: I18n.title,
+                placeHolder: String(localized: .title),
                 reuserIdentifier: "Cell")
             cell.valueChanged = { self.titleString = $0 }
             return cell
         } else {
             let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
-            cell.textLabel?.text = I18n.date
+            cell.textLabel?.text = String(localized: .date)
             cell.detailTextLabel?.text = (dateViewModel.baseDate?.date ?? Date()).dateString()
             return cell
         }
@@ -189,7 +189,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         let deleteButton = UIButton(frame: CGRect(x: 0, y: cellHeight * CGFloat(cellCount + 1), width: view.bounds.width, height: cellHeight))
         deleteButton.backgroundColor = ThemeColor.deleteColor()
-        deleteButton.setTitle(I18n.delete, for: .normal)
+        deleteButton.setTitle(String(localized: .delete), for: .normal)
         deleteButton.setTitleColor(.white, for: .normal)
         view.addSubview(deleteButton)
 
@@ -237,7 +237,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     @objc func deleteButtonTapped() {
-        PopupAlertView.confirm(self, message: I18n.areYouSureYouWantToDelete) {
+        PopupAlertView.confirm(self, message: String(localized: .areYouSureYouWantToDelete)) {
             self.dateViewModel.deleteDate()
             NotificationCenter.default.post(name: .didSaveOrDeleteDate, object: nil)
             self.dismiss(animated: true, completion: nil)

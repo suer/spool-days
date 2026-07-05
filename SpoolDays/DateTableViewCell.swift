@@ -25,14 +25,14 @@ class DateTableViewCell: UITableViewCell {
     fileprivate func updateLabels() {
         if let baseDate = dateViewModel.baseDate {
             textLabel?.text = baseDate.title
-            detailTextLabel?.text = "\(baseDate.dateInterval()) " + I18n.days
+            detailTextLabel?.text = "\(baseDate.dateInterval()) " + String(localized: .days)
         }
     }
 
     fileprivate func loadButtons() {
         let resetButton = UIButton(type: .custom)
         resetButton.backgroundColor = ThemeColor.resetColor()
-        resetButton.setTitle(I18n.reset, for: .normal)
+        resetButton.setTitle(String(localized: .reset), for: .normal)
         resetButton.setTitleColor(.white, for: .normal)
         resetButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
