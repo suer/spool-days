@@ -12,7 +12,7 @@ class HistoryViewModel: NSObject {
     }
 
     func save() {
-        CoreDataManager.shared.saveAndWait()
+        CoreDataManager.shared.save()
     }
 
     func deleteLog(_ index: Int) {

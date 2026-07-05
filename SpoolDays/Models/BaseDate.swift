@@ -35,7 +35,7 @@ class BaseDate: NSManagedObject {
         log.baseDate = baseDate
         log.event = "create"
 
-        CoreDataManager.shared.saveAndWait()
+        CoreDataManager.shared.save()
         return baseDate
     }
 
@@ -53,7 +53,7 @@ class BaseDate: NSManagedObject {
         self.title = title
         self.date = date
 
-        CoreDataManager.shared.saveAndWait()
+        CoreDataManager.shared.save()
     }
 
     class func move(fromIndex: Int, toIndex: Int) {
@@ -75,7 +75,7 @@ class BaseDate: NSManagedObject {
                 dates[i].sort = NSNumber(value: dates[i].sort.intValue + 1)
             }
         }
-        CoreDataManager.shared.saveAndWait()
+        CoreDataManager.shared.save()
     }
 
     func delete() {
@@ -87,7 +87,7 @@ class BaseDate: NSManagedObject {
             }
         }
         context.delete(self)
-        CoreDataManager.shared.saveAndWait()
+        CoreDataManager.shared.save()
     }
 
     func reset(_ date: Date) {
@@ -100,7 +100,7 @@ class BaseDate: NSManagedObject {
         log.event = "reset"
 
         self.date = date
-        CoreDataManager.shared.saveAndWait()
+        CoreDataManager.shared.save()
     }
 
     class func first() -> BaseDate? {
