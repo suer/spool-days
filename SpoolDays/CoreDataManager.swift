@@ -5,7 +5,7 @@ class CoreDataManager {
     nonisolated(unsafe) static let shared = CoreDataManager()
 
     private init() {}
-    lazy var applicationDocumentsDirectory: URL = {
+    private lazy var applicationDocumentsDirectory: URL = {
         let urls = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)
         let applicationSupportURL = urls[urls.count - 1]
         let applicationName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String ?? "SpoolDays"
@@ -16,7 +16,7 @@ class CoreDataManager {
         return appDirectoryURL
     }()
 
-    lazy var persistentContainer: NSPersistentContainer = {
+    private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Model")
         let storeURL = self.applicationDocumentsDirectory.appendingPathComponent("spooldays.sqlite3")
         let description = NSPersistentStoreDescription(url: storeURL)

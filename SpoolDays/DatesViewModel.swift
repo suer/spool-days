@@ -2,7 +2,7 @@ import CoreData
 import Foundation
 
 class DatesViewModel: NSObject {
-    @objc dynamic var dates: [BaseDate] = []
+    @objc private(set) dynamic var dates: [BaseDate] = []
 
     func fetch() {
         dates = CoreDataManager.shared.fetchBaseDates()
