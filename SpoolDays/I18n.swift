@@ -1,40 +1,40 @@
 import Foundation
 
-class I18n {
-    class var spoolDays: String { return String(localized: .spoolDays) }
+enum I18n {
+    static var spoolDays: String { String(localized: .spoolDays) }
 
-    class var yes: String { return String(localized: .yes) }
+    static var yes: String { String(localized: .yes) }
 
-    class var no: String { return String(localized: .no) }
+    static var no: String { String(localized: .no) }
 
-    class var save: String { return String(localized: .save) }
+    static var save: String { String(localized: .save) }
 
-    class var cancel: String { return String(localized: .cancel) }
+    static var cancel: String { String(localized: .cancel) }
 
-    class var delete: String { return String(localized: .delete) }
+    static var delete: String { String(localized: .delete) }
 
-    class var finish: String { return String(localized: .finish) }
+    static var finish: String { String(localized: .finish) }
 
-    class var edit: String { return String(localized: .edit) }
+    static var edit: String { String(localized: .edit) }
 
-    class var reset: String { return String(localized: .reset) }
+    static var reset: String { String(localized: .reset) }
 
-    class var resetWithDate: String { return String(localized: .resetWithDate) }
+    static var resetWithDate: String { String(localized: .resetWithDate) }
 
-    class var create: String { return String(localized: .create) }
+    static var create: String { String(localized: .create) }
 
-    class var history: String { return String(localized: .history) }
+    static var history: String { String(localized: .history) }
 
-    class var confirmation: String { return String(localized: .confirmation) }
+    static var confirmation: String { String(localized: .confirmation) }
 
-    class var title: String { return String(localized: .title) }
+    static var title: String { String(localized: .title) }
 
-    class var days: String { return String(localized: .days) }
+    static var days: String { String(localized: .days) }
 
-    class var date: String { return String(localized: .date) }
+    static var date: String { String(localized: .date) }
 
-    class var areYouSureYouWantToDelete: String { return String(localized: .areYouSureYouWantToDelete) }
+    static var areYouSureYouWantToDelete: String { String(localized: .areYouSureYouWantToDelete) }
 
-    class var areYouSureYouWantToResetDate: String { return String(localized: .areYouSureYouWantToResetDate) }
+    static var areYouSureYouWantToResetDate: String { String(localized: .areYouSureYouWantToResetDate) }
 
 }
