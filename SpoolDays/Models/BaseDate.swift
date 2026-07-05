@@ -5,9 +5,9 @@ import Foundation
 class BaseDate: NSManagedObject {
 
     @NSManaged var date: Date
-    @NSManaged var sort: NSNumber
+    @NSManaged var sort: Int16
     @NSManaged var title: String
-    @NSManaged var logs: NSSet
+    @NSManaged var logs: Set<Log>
 
     class func createBaseDate(_ title: String, date: Date) -> BaseDate? {
         let context = CoreDataManager.shared.context
@@ -19,13 +19,13 @@ class BaseDate: NSManagedObject {
 
         let maxSort: Int
         if let lastBaseDate = try? context.fetch(fetchRequest).first {
-            maxSort = lastBaseDate.sort.intValue
+            maxSort = Int(lastBaseDate.sort)
         } else {
             maxSort = 0
         }
 
         let baseDate = BaseDate(context: context)
-        baseDate.sort = NSNumber(value: maxSort + 1)
+        baseDate.sort = Int16(maxSort + 1)
         baseDate.date = date
         baseDate.title = title
 
@@ -45,7 +45,7 @@ class BaseDate: NSManagedObject {
         if self.date == date {
             let log = Log(context: context)
             log.date = date
-            log.duration = NSNumber(value: dateInterval())
+            log.duration = Int16(dateInterval())
             log.baseDate = self
             log.event = "edit"
         }
@@ -65,14 +65,14 @@ class BaseDate: NSManagedObject {
 
         guard let dates = try? context.fetch(fetchRequest) else { return }
 
-        dates[fromIndex].sort = NSNumber(value: toIndex)
+        dates[fromIndex].sort = Int16(toIndex)
         if fromIndex < toIndex {
             for i in stride(from: (fromIndex + 1), to: toIndex, by: 1) {
-                dates[i].sort = NSNumber(value: dates[i].sort.intValue - 1)
+                dates[i].sort -= 1
             }
         } else {
             for i in toIndex..<fromIndex {
-                dates[i].sort = NSNumber(value: dates[i].sort.intValue + 1)
+                dates[i].sort += 1
             }
         }
         CoreDataManager.shared.save()
@@ -83,7 +83,7 @@ class BaseDate: NSManagedObject {
 
         if logs.count > 0 {
             for log in logs {
-                context.delete(log as! NSManagedObject)
+                context.delete(log)
             }
         }
         context.delete(self)
@@ -95,7 +95,7 @@ class BaseDate: NSManagedObject {
 
         let log = Log(context: context)
         log.date = date
-        log.duration = NSNumber(value: dateInterval(date))
+        log.duration = Int16(dateInterval(date))
         log.baseDate = self
         log.event = "reset"
 

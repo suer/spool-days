@@ -5,7 +5,7 @@ import Foundation
 class Log: NSManagedObject {
 
     @NSManaged var date: Date
-    @NSManaged var duration: NSNumber
+    @NSManaged var duration: Int16
     @NSManaged var event: String
     @NSManaged var baseDate: BaseDate
 
