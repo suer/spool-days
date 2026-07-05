@@ -187,8 +187,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         let deleteButton = UIButton(frame: CGRect(x: 0, y: cellHeight * CGFloat(cellCount + 1), width: view.bounds.width, height: cellHeight))
         deleteButton.backgroundColor = ThemeColor.deleteColor()
-        deleteButton.setTitle(I18n.delete, for: UIControl.State())
-        deleteButton.setTitleColor(UIColor.white, for: UIControl.State())
+        deleteButton.setTitle(I18n.delete, for: .normal)
+        deleteButton.setTitleColor(.white, for: .normal)
         view.addSubview(deleteButton)
 
         deleteButton.translatesAutoresizingMaskIntoConstraints = false

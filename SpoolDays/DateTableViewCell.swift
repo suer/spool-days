@@ -32,8 +32,8 @@ class DateTableViewCell: UITableViewCell {
     fileprivate func loadButtons() {
         let resetButton = UIButton(type: .custom)
         resetButton.backgroundColor = ThemeColor.resetColor()
-        resetButton.setTitle(I18n.reset, for: UIControl.State())
-        resetButton.setTitleColor(UIColor.white, for: UIControl.State())
+        resetButton.setTitle(I18n.reset, for: .normal)
+        resetButton.setTitleColor(.white, for: .normal)
         resetButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
 }
