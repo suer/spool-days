@@ -5,12 +5,17 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     let cellCount = 2
 
     let dateViewModel: DateViewModel
-    var tableView: UITableView?
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        return tableView
+    }()
 
     var titleString: String
     var date: Date {
         didSet {
-            if let cell = tableView?.cellForRow(at: IndexPath(row: 1, section: 0)) {
+            if let cell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) {
                 cell.detailTextLabel?.text = date.dateString()
             }
         }
@@ -54,13 +59,13 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     fileprivate func focusOnTextField() {
-        if let cell = tableView?.cellForRow(at: IndexPath(row: 0, section: 0)) as? TextFieldTableViewCell {
+        if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TextFieldTableViewCell {
             cell.focusOnTextField()
         }
     }
 
     fileprivate func blurOnTextField() {
-        if let cell = tableView?.cellForRow(at: IndexPath(row: 0, section: 0)) as? TextFieldTableViewCell {
+        if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TextFieldTableViewCell {
             cell.blurOnTextField()
         }
     }
@@ -92,15 +97,12 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: table view
 
     func loadTableView() {
-        tableView = UITableView()
-        tableView!.delegate = self
-        tableView!.dataSource = self
-        view.addSubview(tableView!)
+        view.addSubview(tableView)
 
-        tableView!.translatesAutoresizingMaskIntoConstraints = false
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         view!.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         let topConstraint = NSLayoutConstraint(
-            item: tableView!,
+            item: tableView,
             attribute: .top,
             relatedBy: .equal,
             toItem: view,
@@ -109,7 +111,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             constant: 0.0
         )
         let bottomConstraint = NSLayoutConstraint(
-            item: tableView!,
+            item: tableView,
             attribute: .bottom,
             relatedBy: .equal,
             toItem: view,
@@ -118,7 +120,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             constant: cellHeight * CGFloat(cellCount)
         )
         let leftConstraint = NSLayoutConstraint(
-            item: tableView!,
+            item: tableView,
             attribute: .left,
             relatedBy: .equal,
             toItem: view,
@@ -127,7 +129,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             constant: 0.0
         )
         let rightConstraint = NSLayoutConstraint(
-            item: tableView!,
+            item: tableView,
             attribute: .right,
             relatedBy: .equal,
             toItem: view,
