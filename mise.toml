@@ -2,17 +2,24 @@
 idiomatic_version_file_enable_tools = ["ruby"]
 ruby.compile=false
 
+[tools]
+license-plist = "latest"
+
 [tasks.format]
 description = "Format Swift source files in-place"
-run = "swift format --in-place --parallel --recursive SpoolDays SpoolDaysDependencies SpoolDaysTools SpoolDaysTests"
+run = "swift format --in-place --parallel --recursive SpoolDays SpoolDaysDependencies SpoolDaysTests"
 
 [tasks.lint]
 description = "Lint Swift source files with strict mode"
-run = "swift format lint --strict --parallel --recursive SpoolDays SpoolDaysDependencies SpoolDaysTools SpoolDaysTests"
+run = "swift format lint --strict --parallel --recursive SpoolDays SpoolDaysDependencies SpoolDaysTests"
 
 [tasks.swiftlint]
 description = "Run SwiftLint with strict mode"
 run = "swiftlint --strict"
+
+[tasks.license-plist]
+description = "Generate OSS license list with LicensePlist"
+run = "license-plist"
 
 [tasks.bundle-install]
 description = "Install Ruby dependencies"

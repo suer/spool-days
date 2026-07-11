@@ -86,7 +86,6 @@ jobs:
         with:
           path: |
             SpoolDaysDependencies/.build
-            SpoolDaysTools/.build
           key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
           restore-keys: |
             ${{ runner.os }}-spm-
@@ -132,7 +131,6 @@ jobs:
         with:
           path: |
             SpoolDaysDependencies/.build
-            SpoolDaysTools/.build
           key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
           restore-keys: |
             ${{ runner.os }}-spm-
