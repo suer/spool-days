@@ -20,7 +20,6 @@ updates:
   - package-ecosystem: "swift"
     directories:
       - "/SpoolDaysDependencies"
-      - "/SpoolDaysTools"
     schedule:
       interval: "weekly"
       day: "friday"

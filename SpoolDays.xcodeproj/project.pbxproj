@@ -66,7 +66,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		197293052FCC5C5200901236 /* SpoolDaysTools */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SpoolDaysTools; sourceTree = "<group>"; };
 		197293072FCC5CB600901236 /* SpoolDaysDependencies */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SpoolDaysDependencies; sourceTree = "<group>"; };
 		19A2AC012EC61E6300BC7AED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		19F6DE832FCBB7A80010F23A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -130,7 +129,6 @@
 				80A574B419EFDF4100C06CBB /* Products */,
 				C9DD4CF9193C1C7BCB6EC7B2 /* Frameworks */,
 				197293072FCC5CB600901236 /* SpoolDaysDependencies */,
-				197293052FCC5C5200901236 /* SpoolDaysTools */,
 			);
 			sourceTree = "<group>";
 		};
@@ -356,7 +354,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "xcrun --sdk macosx swift run -c release --package-path SpoolDaysTools license-plist\n";
+			shellScript = "MISE_BIN=\"\"\nif command -v mise >/dev/null 2>&1; then\n  MISE_BIN=\"$(command -v mise)\"\nelse\n  for candidate in \"$HOME/.local/bin/mise\" \"/opt/homebrew/bin/mise\" \"/usr/local/bin/mise\"; do\n    if [ -x \"$candidate\" ]; then\n      MISE_BIN=\"$candidate\"\n      break\n    fi\n  done\nfi\n\nif [ -z \"$MISE_BIN\" ]; then\n  echo \"error: mise command not found. Install mise (https://mise.jdx.dev/installing-mise.html) and try again.\" >&2\n  exit 1\nfi\n\ncd \"$SRCROOT\"\n\"$MISE_BIN\" run license-plist\n";
 		};
 		800D5FF71A45616A00F86EC5 /* Run Script (Update Settings.bundle) */ = {
 			isa = PBXShellScriptBuildPhase;
