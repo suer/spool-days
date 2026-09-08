@@ -11,12 +11,14 @@ class MainViewController: UITableViewController {
         datesObserver = datesViewModel.observe(\.dates, options: .new) { [weak self] _, _ in
             MainActor.assumeIsolated {
                 self?.tableView.reloadData()
+                self?.updateEmptyState()
             }
         }
         navigationItem.rightBarButtonItem = editButtonItem
         loadToolbar()
         addNotificationCenterObserver()
         registerOnSignificantTimeChange()
+        updateEmptyState()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +49,32 @@ class MainViewController: UITableViewController {
     @objc func addButtonTapped() {
         let dateViewModel = DateViewModel(baseDate: nil)
         showEditView(dateViewModel)
+    }
+
+    // MARK: empty state
+
+    fileprivate func updateEmptyState() {
+        guard datesViewModel.dates.isEmpty else {
+            tableView.backgroundView = nil
+            return
+        }
+        var config = UIContentUnavailableConfiguration.empty()
+        config.image = UIImage(systemName: "calendar.badge.plus")
+        config.imageProperties.tintColor = ThemeColor.baseColor()
+        config.text = String(localized: .noDatesYet)
+        config.secondaryText = String(localized: .addADateToStartCounting)
+
+        var button = UIButton.Configuration.borderedProminent()
+        button.title = String(localized: .addDate)
+        button.image = UIImage(systemName: "plus")
+        button.imagePadding = 6
+        button.cornerStyle = .capsule
+        config.button = button
+        config.buttonProperties.primaryAction = UIAction { [weak self] _ in
+            self?.addButtonTapped()
+        }
+
+        tableView.backgroundView = UIContentUnavailableView(configuration: config)
     }
 
     // MARK: table view
