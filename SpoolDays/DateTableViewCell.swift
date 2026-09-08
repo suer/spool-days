@@ -23,7 +23,33 @@ class DateTableViewCell: UITableViewCell {
 
     fileprivate func configure() {
         guard let baseDate = dateViewModel.baseDate else { return }
-        setValueContent(text: baseDate.title, secondaryText: "\(baseDate.dateInterval()) " + String(localized: .days))
+        var content = UIListContentConfiguration.valueCell()
+        content.text = baseDate.title
+        content.secondaryAttributedText = Self.dayCountText(days: baseDate.dateInterval())
+        contentConfiguration = content
+    }
+
+    private static func dayCountText(days: Int) -> NSAttributedString {
+        let text = NSMutableAttributedString(
+            string: "\(days)",
+            attributes: [
+                .font: roundedFont(ofSize: 24, weight: .semibold),
+                .foregroundColor: ThemeColor.baseColor(),
+            ])
+        text.append(
+            NSAttributedString(
+                string: " " + String(localized: .days),
+                attributes: [
+                    .font: UIFont.preferredFont(forTextStyle: .footnote),
+                    .foregroundColor: ThemeColor.baseColor(),
+                ]))
+        return text
+    }
+
+    private static func roundedFont(ofSize size: CGFloat, weight: UIFont.Weight) -> UIFont {
+        let base = UIFont.systemFont(ofSize: size, weight: weight)
+        guard let descriptor = base.fontDescriptor.withDesign(.rounded) else { return base }
+        return UIFont(descriptor: descriptor, size: size)
     }
 }
 
