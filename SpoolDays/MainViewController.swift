@@ -99,7 +99,7 @@ class MainViewController: UITableViewController {
     }
 
     fileprivate func deleteDate(_ indexPath: IndexPath) {
-        PopupAlertView.confirm(self, message: String(localized: .areYouSureYouWantToDelete)) {
+        PopupAlertView.confirm(self, message: String(localized: .areYouSureYouWantToDelete), style: .destructive) {
             self.tableView.beginUpdates()
             self.datesViewModel.deleteDate(indexPath)
             self.tableView.deleteRows(at: [indexPath], with: .fade)
