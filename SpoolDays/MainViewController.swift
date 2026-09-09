@@ -48,10 +48,14 @@ class MainViewController: UITableViewController {
     }
 
     func loadBrandedTitle() {
-        let symbolConfig = UIImage.SymbolConfiguration(textStyle: .headline)
-        let icon = UIImageView(image: UIImage(systemName: "calendar", withConfiguration: symbolConfig))
+        let icon = UIImageView(image: UIImage(named: "BrandMark"))
         icon.tintColor = ThemeColor.baseColor()
-        icon.setContentHuggingPriority(.required, for: .horizontal)
+        icon.contentMode = .scaleAspectFit
+        icon.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            icon.heightAnchor.constraint(equalToConstant: 20),
+            icon.widthAnchor.constraint(equalTo: icon.heightAnchor, multiplier: 100.0 / 86.0),
+        ])
 
         let label = UILabel()
         label.text = String(localized: .spoolDays)
