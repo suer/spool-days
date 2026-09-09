@@ -237,7 +237,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     @objc func deleteButtonTapped() {
-        PopupAlertView.confirm(self, message: String(localized: .areYouSureYouWantToDelete)) {
+        PopupAlertView.confirm(self, message: String(localized: .areYouSureYouWantToDelete), style: .destructive) {
             self.dateViewModel.deleteDate()
             NotificationCenter.default.post(name: .didSaveOrDeleteDate, object: nil)
             self.dismiss(animated: true, completion: nil)
