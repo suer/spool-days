@@ -3,7 +3,6 @@ import UIKit
 class MainViewController: UITableViewController {
     let datesViewModel = DatesViewModel()
     private var datesObserver: NSKeyValueObservation?
-    private var isEditingObserver: NSKeyValueObservation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,13 +13,7 @@ class MainViewController: UITableViewController {
                 self?.tableView.reloadData()
             }
         }
-        isEditingObserver = observe(\.isEditing, options: .new) { [weak self] _, _ in
-            MainActor.assumeIsolated {
-                guard let self else { return }
-                self.navigationItem.rightBarButtonItem?.title = self.isEditing ? String(localized: .finish) : String(localized: .edit)
-            }
-        }
-        loadEditButton()
+        navigationItem.rightBarButtonItem = editButtonItem
         loadToolbar()
         addNotificationCenterObserver()
         registerOnSignificantTimeChange()
@@ -42,15 +35,6 @@ class MainViewController: UITableViewController {
 
     fileprivate func reload() {
         datesViewModel.fetch()
-    }
-
-    func loadEditButton() {
-        let editButton = UIBarButtonItem(title: String(localized: .edit), style: .plain, target: self, action: #selector(MainViewController.editButtonTapped))
-        navigationItem.rightBarButtonItem = editButton
-    }
-
-    @objc func editButtonTapped() {
-        isEditing = !isEditing
     }
 
     func loadToolbar() {
