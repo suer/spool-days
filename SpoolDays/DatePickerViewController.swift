@@ -67,7 +67,7 @@ class DatePickerViewController: UIViewController {
             let isWeekend = weekday == 1 || weekday == 7  // Sunday = 1, Saturday = 7
             if isSelected {
                 invariantViewProperties.backgroundShapeDrawingConfig = DrawingConfig(
-                    fillColor: .systemBlue,
+                    fillColor: ThemeColor.baseColor(),
                     borderColor: .clear
                 )
                 invariantViewProperties.textColor = .white
