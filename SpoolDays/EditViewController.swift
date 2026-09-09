@@ -23,15 +23,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     let cellHeight = CGFloat(50.0)
 
-    convenience init(dateViewModel: DateViewModel) {
-        self.init(nibName: nil, bundle: nil, dateViewModel: dateViewModel)
-    }
-
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, dateViewModel: DateViewModel) {
+    init(dateViewModel: DateViewModel) {
         self.dateViewModel = dateViewModel
         self.titleString = dateViewModel.baseDate?.title ?? ""
         self.date = dateViewModel.baseDate?.date as Date? ?? Date()
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
