@@ -24,8 +24,6 @@ class MainViewController: UITableViewController {
         loadToolbar()
         addNotificationCenterObserver()
         registerOnSignificantTimeChange()
-
-        tableView!.layer.backgroundColor = UIColor.systemBackground.cgColor
     }
 
     override func viewWillAppear(_ animated: Bool) {
