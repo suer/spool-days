@@ -4,12 +4,13 @@ class TextFieldTableViewCell: UITableViewCell {
 
     private let textField = UITextField()
     var valueChanged: ((String) -> Void)?
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     init(value: String, placeHolder: String, reuserIdentifier: String) {
-        super.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: reuserIdentifier)
+        super.init(style: .default, reuseIdentifier: reuserIdentifier)
         textField.placeholder = placeHolder
         textField.text = value
         textField.autocapitalizationType = .none
@@ -27,9 +28,7 @@ class TextFieldTableViewCell: UITableViewCell {
     }
 
     @objc func textChanged() {
-        if let delegate = valueChanged {
-            delegate(getValue())
-        }
+        valueChanged?(getValue())
     }
 
     func focusOnTextField() {
