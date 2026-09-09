@@ -12,7 +12,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     let dateViewModel: DateViewModel
     lazy var tableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.delegate = self
         tableView.dataSource = self
         return tableView

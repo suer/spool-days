@@ -7,7 +7,7 @@ class HistoryTableViewController: UITableViewController {
     init(dateViewModel: DateViewModel) {
         self.dateViewModel = dateViewModel
         self.historyViewModel = HistoryViewModel(baseDate: dateViewModel.baseDate!)
-        super.init(nibName: nil, bundle: nil)
+        super.init(style: .insetGrouped)
     }
 
     required init(coder aDecoder: NSCoder) {
