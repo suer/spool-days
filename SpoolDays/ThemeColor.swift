@@ -9,10 +9,6 @@ enum ThemeColor {
         return UIColor(resource: .baseText)
     }
 
-    static func resetColor() -> UIColor {
-        return UIColor(resource: .reset)
-    }
-
     static func deleteColor() -> UIColor {
         return UIColor(resource: .delete)
     }
