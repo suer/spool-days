@@ -18,7 +18,6 @@ class DatePickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        edgesForExtendedLayout = UIRectEdge()
 
         loadDatePicker()
         loadCancelButton()
