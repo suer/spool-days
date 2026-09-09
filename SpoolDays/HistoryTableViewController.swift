@@ -52,10 +52,7 @@ class HistoryTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let log = historyViewModel.logs[indexPath.row]
-        let cell = HistoryTableViewCell(log: log)
-        cell.textLabel?.text = log.dateString()
-        cell.detailTextLabel?.text = log.eventString()
-        return cell
+        return HistoryTableViewCell(log: log)
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

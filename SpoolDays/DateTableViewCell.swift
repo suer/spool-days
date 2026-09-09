@@ -5,9 +5,8 @@ class DateTableViewCell: UITableViewCell {
 
     init(reuseIdentifier: String?, dateViewModel: DateViewModel) {
         self.dateViewModel = dateViewModel
-        super.init(style: UITableViewCell.CellStyle.value1, reuseIdentifier: reuseIdentifier)
-        loadButtons()
-        updateLabels()
+        super.init(style: .default, reuseIdentifier: reuseIdentifier)
+        configure()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -22,18 +21,17 @@ class DateTableViewCell: UITableViewCell {
         dateViewModel.resetDate(date)
     }
 
-    fileprivate func updateLabels() {
-        if let baseDate = dateViewModel.baseDate {
-            textLabel?.text = baseDate.title
-            detailTextLabel?.text = "\(baseDate.dateInterval()) " + String(localized: .days)
-        }
+    fileprivate func configure() {
+        guard let baseDate = dateViewModel.baseDate else { return }
+        setValueContent(text: baseDate.title, secondaryText: "\(baseDate.dateInterval()) " + String(localized: .days))
     }
+}
 
-    fileprivate func loadButtons() {
-        let resetButton = UIButton(type: .custom)
-        resetButton.backgroundColor = ThemeColor.resetColor()
-        resetButton.setTitle(String(localized: .reset), for: .normal)
-        resetButton.setTitleColor(.white, for: .normal)
-        resetButton.titleLabel?.adjustsFontSizeToFitWidth = true
+extension UITableViewCell {
+    func setValueContent(text: String?, secondaryText: String?) {
+        var content = UIListContentConfiguration.valueCell()
+        content.text = text
+        content.secondaryText = secondaryText
+        contentConfiguration = content
     }
 }
