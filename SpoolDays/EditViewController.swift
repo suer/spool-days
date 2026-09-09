@@ -15,9 +15,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var titleString: String
     var date: Date {
         didSet {
-            if let cell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) {
-                cell.detailTextLabel?.text = date.dateString()
-            }
+            tableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .none)
         }
     }
 
@@ -154,9 +152,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.valueChanged = { self.titleString = $0 }
             return cell
         } else {
-            let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
-            cell.textLabel?.text = String(localized: .date)
-            cell.detailTextLabel?.text = (dateViewModel.baseDate?.date ?? Date()).dateString()
+            let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
+            cell.setValueContent(text: String(localized: .date), secondaryText: date.dateString())
             return cell
         }
     }
