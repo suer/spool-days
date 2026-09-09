@@ -2,6 +2,12 @@ import UIKit
 
 class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    private enum Row {
+        case title, date
+    }
+
+    private let rows: [Row] = [.title, .date]
+
     let cellCount = 2
 
     let dateViewModel: DateViewModel
@@ -140,18 +146,19 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return rows.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+        switch rows[indexPath.row] {
+        case .title:
             let cell = TextFieldTableViewCell(
                 value: dateViewModel.baseDate?.title ?? "",
                 placeHolder: String(localized: .title),
                 reuserIdentifier: "Cell")
             cell.valueChanged = { self.titleString = $0 }
             return cell
-        } else {
+        case .date:
             let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
             cell.setValueContent(text: String(localized: .date), secondaryText: date.dateString())
             return cell
@@ -160,9 +167,10 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.row == 0 {
+        switch rows[indexPath.row] {
+        case .title:
             focusOnTextField()
-        } else {
+        case .date:
             blurOnTextField()
             popupDatePicker()
         }
