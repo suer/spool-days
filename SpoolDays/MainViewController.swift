@@ -2,24 +2,24 @@ import UIKit
 
 class MainViewController: UITableViewController {
     let datesViewModel = DatesViewModel()
-    var observers = [NSKeyValueObservation]()
+    private var datesObserver: NSKeyValueObservation?
+    private var isEditingObserver: NSKeyValueObservation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = String(localized: .spoolDays)
-        observers.append(
-            datesViewModel.observe(\.dates, options: .new) { (_, _) in
-                MainActor.assumeIsolated {
-                    self.tableView.reloadData()
-                }
-            })
-        observers.append(
-            self.observe(\.isEditing, options: .new) { (_, _) in
-                MainActor.assumeIsolated {
-                    self.navigationItem.rightBarButtonItem?.title = self.isEditing ? String(localized: .finish) : String(localized: .edit)
-                }
-            })
+        datesObserver = datesViewModel.observe(\.dates, options: .new) { [weak self] _, _ in
+            MainActor.assumeIsolated {
+                self?.tableView.reloadData()
+            }
+        }
+        isEditingObserver = observe(\.isEditing, options: .new) { [weak self] _, _ in
+            MainActor.assumeIsolated {
+                guard let self else { return }
+                self.navigationItem.rightBarButtonItem?.title = self.isEditing ? String(localized: .finish) : String(localized: .edit)
+            }
+        }
         loadEditButton()
         loadToolbar()
         addNotificationCenterObserver()
@@ -30,13 +30,6 @@ class MainViewController: UITableViewController {
         reload()
         navigationController?.isToolbarHidden = false
         super.viewWillAppear(animated)
-    }
-
-    deinit {
-        for observer in observers {
-            observer.invalidate()
-        }
-        observers.removeAll()
     }
 
     fileprivate func addNotificationCenterObserver() {
