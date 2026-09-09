@@ -1,6 +1,6 @@
 import UIKit
 
-class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let cellCount = 2
 
