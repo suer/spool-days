@@ -4,18 +4,16 @@ class HistoryTableViewCell: UITableViewCell {
     fileprivate let log: Log
     init(log: Log) {
         self.log = log
-        super.init(style: UITableViewCell.CellStyle.value1, reuseIdentifier: "Cell")
+        super.init(style: .default, reuseIdentifier: "Cell")
+        configure()
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
-        guard change?[.newKey] is Date else { return }
-        MainActor.assumeIsolated {
-            textLabel?.text = log.date.dateString()
-        }
+    fileprivate func configure() {
+        setValueContent(text: log.dateString(), secondaryText: log.eventString())
     }
 
     var date: Date {
@@ -24,6 +22,7 @@ class HistoryTableViewCell: UITableViewCell {
         }
         set {
             log.date = newValue
+            configure()
         }
     }
 }
