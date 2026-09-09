@@ -36,7 +36,7 @@ class HistoryTableViewController: UITableViewController {
     // MARK: save button
 
     func loadSaveButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(localized: .save), style: .plain, target: self, action: #selector(HistoryTableViewController.saveButtonTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(localized: .save), style: .prominent, target: self, action: #selector(HistoryTableViewController.saveButtonTapped))
     }
 
     @objc func saveButtonTapped() {

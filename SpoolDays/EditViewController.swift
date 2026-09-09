@@ -84,7 +84,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: save button
 
     func loadSaveButton() {
-        let saveButton = UIBarButtonItem(title: String(localized: .save), style: .plain, target: self, action: #selector(EditViewController.saveButtonTapped))
+        let saveButton = UIBarButtonItem(title: String(localized: .save), style: .prominent, target: self, action: #selector(EditViewController.saveButtonTapped))
         navigationItem.rightBarButtonItem = saveButton
     }
 
