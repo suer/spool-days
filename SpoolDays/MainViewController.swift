@@ -40,7 +40,7 @@ class MainViewController: UITableViewController {
 
     func loadToolbar() {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(MainViewController.addButtonTapped))
-        addButton.style = .done
+        addButton.style = .prominent
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         toolbarItems = [spacer, addButton]
     }
