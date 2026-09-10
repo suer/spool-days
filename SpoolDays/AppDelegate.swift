@@ -9,7 +9,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         _ = CoreDataManager.shared
         registerNotification(application)
-        setupStyle()
 
         BGTaskScheduler.shared.register(forTaskWithIdentifier: "org.codefirst.SpoolDays.app-refresh", using: nil) { task in
             self.handleAppRefresh(task: task as! BGAppRefreshTask)
@@ -60,19 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-    }
-
-    fileprivate func setupStyle() {
-        let navigationBarAppearance = UINavigationBarAppearance()
-        navigationBarAppearance.configureWithOpaqueBackground()
-        navigationBarAppearance.backgroundColor = ThemeColor.baseColor()
-        navigationBarAppearance.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: ThemeColor.baseTextColor()
-        ]
-        UINavigationBar.appearance().standardAppearance = navigationBarAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
-
-        UITableViewCell.appearance().separatorInset = UIEdgeInsets.zero
     }
 
     func updateBadge(_ completionHandler: @escaping @Sendable (UIBackgroundFetchResult) -> Void) {

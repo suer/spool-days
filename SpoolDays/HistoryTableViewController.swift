@@ -7,7 +7,7 @@ class HistoryTableViewController: UITableViewController {
     init(dateViewModel: DateViewModel) {
         self.dateViewModel = dateViewModel
         self.historyViewModel = HistoryViewModel(baseDate: dateViewModel.baseDate!)
-        super.init(nibName: nil, bundle: nil)
+        super.init(style: .insetGrouped)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -36,7 +36,7 @@ class HistoryTableViewController: UITableViewController {
     // MARK: save button
 
     func loadSaveButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(localized: .save), style: .plain, target: self, action: #selector(HistoryTableViewController.saveButtonTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: String(localized: .save), style: .prominent, target: self, action: #selector(HistoryTableViewController.saveButtonTapped))
     }
 
     @objc func saveButtonTapped() {

@@ -14,15 +14,16 @@ class TextFieldTableViewCell: UITableViewCell {
         textField.placeholder = placeHolder
         textField.text = value
         textField.autocapitalizationType = .none
+        textField.font = .preferredFont(forTextStyle: .body)
         contentView.addSubview(textField)
 
         textField.translatesAutoresizingMaskIntoConstraints = false
-        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        let topConstraint = NSLayoutConstraint(item: textField, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1.0, constant: 0.0)
-        let bottomConstraint = NSLayoutConstraint(item: textField, attribute: .bottom, relatedBy: .equal, toItem: contentView, attribute: .bottom, multiplier: 1.0, constant: 0.0)
-        let leftConstraint = NSLayoutConstraint(item: textField, attribute: .left, relatedBy: .equal, toItem: contentView, attribute: .left, multiplier: 1.0, constant: 15.0)
-        let rightConstraint = NSLayoutConstraint(item: textField, attribute: .right, relatedBy: .equal, toItem: contentView, attribute: .right, multiplier: 1.0, constant: -20.0)
-        contentView.addConstraints([topConstraint, bottomConstraint, leftConstraint, rightConstraint])
+        NSLayoutConstraint.activate([
+            textField.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 11),
+            textField.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -11),
+            textField.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+            textField.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
+        ])
 
         textField.addTarget(self, action: #selector(TextFieldTableViewCell.textChanged), for: .editingChanged)
     }

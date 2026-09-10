@@ -3,16 +3,12 @@ import UIKit
 class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     private enum Row {
-        case title, date
+        case title, date, delete
     }
-
-    private let rows: [Row] = [.title, .date]
-
-    let cellCount = 2
 
     let dateViewModel: DateViewModel
     lazy var tableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.delegate = self
         tableView.dataSource = self
         return tableView
@@ -24,8 +20,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             tableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .none)
         }
     }
-
-    let cellHeight = CGFloat(50.0)
 
     init(dateViewModel: DateViewModel) {
         self.dateViewModel = dateViewModel
@@ -41,12 +35,10 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        edgesForExtendedLayout = UIRectEdge()
 
         loadCancelButton()
         loadSaveButton()
         loadTableView()
-        loadDeleteButon()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -84,7 +76,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: save button
 
     func loadSaveButton() {
-        let saveButton = UIBarButtonItem(title: String(localized: .save), style: .plain, target: self, action: #selector(EditViewController.saveButtonTapped))
+        let saveButton = UIBarButtonItem(title: String(localized: .save), style: .prominent, target: self, action: #selector(EditViewController.saveButtonTapped))
         navigationItem.rightBarButtonItem = saveButton
     }
 
@@ -98,59 +90,33 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func loadTableView() {
         view.addSubview(tableView)
-
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        view!.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        let topConstraint = NSLayoutConstraint(
-            item: tableView,
-            attribute: .top,
-            relatedBy: .equal,
-            toItem: view,
-            attribute: .top,
-            multiplier: 1.0,
-            constant: 0.0
-        )
-        let bottomConstraint = NSLayoutConstraint(
-            item: tableView,
-            attribute: .bottom,
-            relatedBy: .equal,
-            toItem: view,
-            attribute: .top,
-            multiplier: 1.0,
-            constant: cellHeight * CGFloat(cellCount)
-        )
-        let leftConstraint = NSLayoutConstraint(
-            item: tableView,
-            attribute: .left,
-            relatedBy: .equal,
-            toItem: view,
-            attribute: .left,
-            multiplier: 1.0,
-            constant: 0.0
-        )
-        let rightConstraint = NSLayoutConstraint(
-            item: tableView,
-            attribute: .right,
-            relatedBy: .equal,
-            toItem: view,
-            attribute: .right,
-            multiplier: 1.0,
-            constant: 0.0
-        )
-        view!.addConstraints([topConstraint, bottomConstraint, leftConstraint, rightConstraint])
-
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
     }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return cellHeight
+    private var sections: [[Row]] {
+        return dateViewModel.baseDate == nil ? [[.title, .date]] : [[.title, .date], [.delete]]
+    }
+
+    private func row(at indexPath: IndexPath) -> Row {
+        return sections[indexPath.section][indexPath.row]
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rows.count
+        return sections[section].count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch rows[indexPath.row] {
+        switch row(at: indexPath) {
         case .title:
             let cell = TextFieldTableViewCell(
                 value: dateViewModel.baseDate?.title ?? "",
@@ -162,17 +128,31 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
             cell.setValueContent(text: String(localized: .date), secondaryText: date.dateString())
             return cell
+        case .delete:
+            return makeDeleteCell()
         }
+    }
+
+    fileprivate func makeDeleteCell() -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "DeleteCell")
+        var content = UIListContentConfiguration.cell()
+        content.text = String(localized: .delete)
+        content.textProperties.color = ThemeColor.deleteColor()
+        content.textProperties.alignment = .center
+        cell.contentConfiguration = content
+        return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        switch rows[indexPath.row] {
+        switch row(at: indexPath) {
         case .title:
             focusOnTextField()
         case .date:
             blurOnTextField()
             popupDatePicker()
+        case .delete:
+            confirmDelete()
         }
     }
 
@@ -182,62 +162,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         ModalViewController(baseController: self).presentModalViewController(controller)
     }
 
-    // MARK: delete button
+    // MARK: delete
 
-    func loadDeleteButon() {
-        if dateViewModel.baseDate == nil {
-            return
-        }
-        let deleteButton = UIButton(frame: CGRect(x: 0, y: cellHeight * CGFloat(cellCount + 1), width: view.bounds.width, height: cellHeight))
-        deleteButton.backgroundColor = ThemeColor.deleteColor()
-        deleteButton.setTitle(String(localized: .delete), for: .normal)
-        deleteButton.setTitleColor(.white, for: .normal)
-        view.addSubview(deleteButton)
-
-        deleteButton.translatesAutoresizingMaskIntoConstraints = false
-        view!.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        let topConstraint = NSLayoutConstraint(
-            item: deleteButton,
-            attribute: .top,
-            relatedBy: .equal,
-            toItem: view,
-            attribute: .top,
-            multiplier: 1.0,
-            constant: cellHeight * CGFloat(cellCount + 1)
-        )
-        let bottomConstraint = NSLayoutConstraint(
-            item: deleteButton,
-            attribute: .bottom,
-            relatedBy: .equal,
-            toItem: view,
-            attribute: .top,
-            multiplier: 1.0,
-            constant: cellHeight * CGFloat(cellCount + 2)
-        )
-        let leftConstraint = NSLayoutConstraint(
-            item: deleteButton,
-            attribute: .left,
-            relatedBy: .equal,
-            toItem: view,
-            attribute: .left,
-            multiplier: 1.0,
-            constant: 0.0
-        )
-        let rightConstraint = NSLayoutConstraint(
-            item: deleteButton,
-            attribute: .right,
-            relatedBy: .equal,
-            toItem: view,
-            attribute: .right,
-            multiplier: 1.0,
-            constant: 0.0
-        )
-        view!.addConstraints([topConstraint, bottomConstraint, leftConstraint, rightConstraint])
-
-        deleteButton.addTarget(self, action: #selector(EditViewController.deleteButtonTapped), for: .touchUpInside)
-    }
-
-    @objc func deleteButtonTapped() {
+    fileprivate func confirmDelete() {
         PopupAlertView.confirm(self, message: String(localized: .areYouSureYouWantToDelete), style: .destructive) {
             self.dateViewModel.deleteDate()
             NotificationCenter.default.post(name: .didSaveOrDeleteDate, object: nil)
