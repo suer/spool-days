@@ -14,7 +14,6 @@ class MainViewController: UITableViewController {
                 self?.updateEmptyState()
             }
         }
-        navigationItem.rightBarButtonItem = editButtonItem
         loadToolbar()
         addNotificationCenterObserver()
         registerOnSignificantTimeChange()
@@ -54,7 +53,10 @@ class MainViewController: UITableViewController {
     // MARK: empty state
 
     fileprivate func updateEmptyState() {
-        guard datesViewModel.dates.isEmpty else {
+        let isEmpty = datesViewModel.dates.isEmpty
+        navigationItem.rightBarButtonItem = isEmpty ? nil : editButtonItem
+
+        guard isEmpty else {
             tableView.backgroundView = nil
             return
         }
@@ -100,6 +102,9 @@ class MainViewController: UITableViewController {
             self.datesViewModel.deleteDate(indexPath)
             self.tableView.deleteRows(at: [indexPath], with: .fade)
             self.tableView.endUpdates()
+            if self.datesViewModel.dates.isEmpty {
+                self.setEditing(false, animated: true)
+            }
         }
     }
 
