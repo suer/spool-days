@@ -16,6 +16,7 @@ class MainViewController: UITableViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = String(localized: .spoolDays)
+        loadBrandedTitle()
         datesObserver = datesViewModel.observe(\.dates, options: .new) { [weak self] _, _ in
             MainActor.assumeIsolated {
                 self?.tableView.reloadData()
@@ -44,6 +45,32 @@ class MainViewController: UITableViewController {
 
     fileprivate func reload() {
         datesViewModel.fetch()
+    }
+
+    func loadBrandedTitle() {
+        let icon = UIImageView(image: UIImage(named: "BrandMark"))
+        icon.tintColor = ThemeColor.baseColor()
+        icon.contentMode = .scaleAspectFit
+        icon.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            icon.heightAnchor.constraint(equalToConstant: 20),
+            icon.widthAnchor.constraint(equalTo: icon.heightAnchor, multiplier: 100.0 / 86.0),
+        ])
+
+        let label = UILabel()
+        label.text = String(localized: .spoolDays)
+        label.font = .preferredFont(forTextStyle: .headline)
+        label.textColor = .label
+
+        let stack = UIStackView(arrangedSubviews: [icon, label])
+        stack.axis = .horizontal
+        stack.spacing = 6
+        stack.alignment = .center
+        stack.isAccessibilityElement = true
+        stack.accessibilityLabel = String(localized: .spoolDays)
+        stack.accessibilityTraits = .header
+
+        navigationItem.titleView = stack
     }
 
     func loadToolbar() {
