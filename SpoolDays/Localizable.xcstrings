@@ -1,6 +1,40 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Add Date" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Date"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日付を追加"
+          }
+        }
+      }
+    },
+    "Add a date to start counting." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add a date to start counting."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日付を追加して日数を数え始めましょう"
+          }
+        }
+      }
+    },
     "Are you sure you want to delete?" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -201,6 +235,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "いいえ"
+          }
+        }
+      }
+    },
+    "No dates yet" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No dates yet"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "まだ日付がありません"
           }
         }
       }
