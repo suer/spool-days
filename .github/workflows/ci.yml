@@ -14,7 +14,7 @@ permissions: {}
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
 
 jobs:
   swiftlint:
@@ -78,8 +78,8 @@ jobs:
         with:
           key: xcode-cache-deriveddata-${{ github.job }}-${{ github.workflow }}-${{ github.sha }}
           restore-keys: xcode-cache-deriveddata-${{ github.job }}-${{ github.workflow }}-
-          swiftpm-cache-key: xcode-cache-sourcepackages-${{ github.job }}-${{ github.workflow }}-${{ github.sha }}
-          swiftpm-cache-restore-keys: xcode-cache-sourcepackages-${{ github.job }}-${{ github.workflow }}-
+          swiftpm-cache-key: xcode-cache-sourcepackages-${{ github.workflow }}-${{ github.sha }}
+          swiftpm-cache-restore-keys: xcode-cache-sourcepackages-${{ github.workflow }}-
 
       - name: Build
         run: |
@@ -114,8 +114,8 @@ jobs:
         with:
           key: xcode-cache-deriveddata-${{ github.job }}-${{ github.workflow }}-${{ github.sha }}
           restore-keys: xcode-cache-deriveddata-${{ github.job }}-${{ github.workflow }}-
-          swiftpm-cache-key: xcode-cache-sourcepackages-${{ github.job }}-${{ github.workflow }}-${{ github.sha }}
-          swiftpm-cache-restore-keys: xcode-cache-sourcepackages-${{ github.job }}-${{ github.workflow }}-
+          swiftpm-cache-key: xcode-cache-sourcepackages-${{ github.workflow }}-${{ github.sha }}
+          swiftpm-cache-restore-keys: xcode-cache-sourcepackages-${{ github.workflow }}-
 
       # https://github.com/actions/runner-images/issues/12777
       - name: Workaround for hanging simulator
