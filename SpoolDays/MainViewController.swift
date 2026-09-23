@@ -155,6 +155,7 @@ class MainViewController: UITableViewController {
         PopupAlertView.confirm(self, message: String(localized: .areYouSureYouWantToResetDate)) {
             cell.resetDate()
             self.reload()
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
         }
     }
 
@@ -164,6 +165,7 @@ class MainViewController: UITableViewController {
             PopupAlertView.confirm(self, message: String(localized: .areYouSureYouWantToResetDateWith(date.dateString()))) {
                 cell.resetDate(date)
                 self.reload()
+                UINotificationFeedbackGenerator().notificationOccurred(.success)
             }
         }
         ModalViewController(baseController: self).presentModalViewController(datePicker, .large)
