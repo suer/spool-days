@@ -153,8 +153,9 @@ class MainViewController: UITableViewController {
 
     fileprivate func resetDate(_ cell: DateTableViewCell) {
         PopupAlertView.confirm(self, message: String(localized: .areYouSureYouWantToResetDate)) {
-            cell.resetDate()
-            self.reload()
+            cell.resetDate {
+                self.reload()
+            }
             UINotificationFeedbackGenerator().notificationOccurred(.success)
         }
     }
@@ -163,8 +164,9 @@ class MainViewController: UITableViewController {
         let datePicker = DatePickerViewController(initialDate: Date())
         datePicker.onSelected = { date in
             PopupAlertView.confirm(self, message: String(localized: .areYouSureYouWantToResetDateWith(date.dateString()))) {
-                cell.resetDate(date)
-                self.reload()
+                cell.resetDate(date) {
+                    self.reload()
+                }
                 UINotificationFeedbackGenerator().notificationOccurred(.success)
             }
         }
