@@ -1,8 +1,10 @@
 import CoreData
 import Foundation
+import Observation
 
-class DatesViewModel: NSObject {
-    @objc private(set) dynamic var dates: [BaseDate] = []
+@Observable
+class DatesViewModel {
+    private(set) var dates: [BaseDate] = []
 
     func fetch() {
         dates = CoreDataManager.shared.fetchBaseDates()

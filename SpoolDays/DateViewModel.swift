@@ -1,11 +1,12 @@
 import Foundation
+import Observation
 
-class DateViewModel: NSObject {
-    dynamic var baseDate: BaseDate?
+@Observable
+class DateViewModel {
+    var baseDate: BaseDate?
 
     init(baseDate: BaseDate?) {
         self.baseDate = baseDate
-        super.init()
     }
 
     func getTitle() -> String? {
