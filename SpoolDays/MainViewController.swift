@@ -1,8 +1,8 @@
+import Observation
 import UIKit
 
 class MainViewController: UITableViewController {
     let datesViewModel = DatesViewModel()
-    private var datesObserver: NSKeyValueObservation?
 
     init() {
         super.init(style: .insetGrouped)
@@ -17,12 +17,7 @@ class MainViewController: UITableViewController {
         view.backgroundColor = .systemBackground
         title = String(localized: .spoolDays)
         loadBrandedTitle()
-        datesObserver = datesViewModel.observe(\.dates, options: .new) { [weak self] _, _ in
-            MainActor.assumeIsolated {
-                self?.tableView.reloadData()
-                self?.updateEmptyState()
-            }
-        }
+        observeDates()
         loadToolbar()
         addNotificationCenterObserver()
         registerOnSignificantTimeChange()
@@ -39,6 +34,20 @@ class MainViewController: UITableViewController {
         NotificationCenter.default.addObserver(forName: .didSaveOrDeleteDate, object: nil, queue: .main) { [weak self] _ in
             MainActor.assumeIsolated {
                 self?.reload()
+            }
+        }
+    }
+
+    // onChange is called before the value changes, so hop to the next main actor turn to read the new one
+    fileprivate func observeDates() {
+        withObservationTracking {
+            _ = datesViewModel.dates
+        } onChange: { [weak self] in
+            Task { @MainActor in
+                guard let self else { return }
+                self.tableView.reloadData()
+                self.updateEmptyState()
+                self.observeDates()
             }
         }
     }
