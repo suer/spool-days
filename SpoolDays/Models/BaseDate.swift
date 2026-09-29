@@ -33,7 +33,7 @@ class BaseDate: NSManagedObject {
         log.date = date
         log.duration = 0
         log.baseDate = baseDate
-        log.event = "create"
+        log.eventType = .create
 
         CoreDataManager.shared.save()
         return baseDate
@@ -47,7 +47,7 @@ class BaseDate: NSManagedObject {
             log.date = date
             log.duration = Int16(dateInterval())
             log.baseDate = self
-            log.event = "edit"
+            log.eventType = .edit
         }
 
         self.title = title
@@ -97,7 +97,7 @@ class BaseDate: NSManagedObject {
         log.date = date
         log.duration = Int16(dateInterval(date))
         log.baseDate = self
-        log.event = "reset"
+        log.eventType = .reset
 
         self.date = date
         CoreDataManager.shared.save()
