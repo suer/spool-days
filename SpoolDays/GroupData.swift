@@ -1,8 +1,8 @@
 import Foundation
 
-class GroupData {
-    class var userDefaultSuiteName: String { return "group.org.codefirst.SpoolDaysExtension" }
-    class var keyOfDates: String { return "dates" }
+enum GroupData {
+    static let userDefaultSuiteName = "group.org.codefirst.SpoolDaysExtension"
+    static let keyOfDates = "dates"
 
     private static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -10,7 +10,7 @@ class GroupData {
         return formatter
     }()
 
-    class func setDates(_ dates: [BaseDate]) {
+    static func setDates(_ dates: [BaseDate]) {
         let list = dates.map { baseDate -> [String: Any] in
             return ["title": baseDate.title, "date": dateFormatter.string(from: baseDate.date)]
         }
