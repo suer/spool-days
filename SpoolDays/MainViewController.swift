@@ -141,7 +141,7 @@ class MainViewController: UITableViewController {
     }
 
     fileprivate func deleteDate(_ indexPath: IndexPath) {
-        PopupAlertView.confirm(self, message: String(localized: .areYouSureYouWantToDelete), style: .destructive) {
+        presentConfirmation(message: String(localized: .areYouSureYouWantToDelete), style: .destructive) {
             self.tableView.beginUpdates()
             self.datesViewModel.deleteDate(indexPath)
             self.tableView.deleteRows(at: [indexPath], with: .fade)
@@ -161,7 +161,7 @@ class MainViewController: UITableViewController {
     }
 
     fileprivate func resetDate(_ cell: DateTableViewCell) {
-        PopupAlertView.confirm(self, message: String(localized: .areYouSureYouWantToResetDate)) {
+        presentConfirmation(message: String(localized: .areYouSureYouWantToResetDate)) {
             cell.resetDate {
                 self.reload()
             }
@@ -172,7 +172,7 @@ class MainViewController: UITableViewController {
     fileprivate func resetWithDate(_ cell: DateTableViewCell) {
         let datePicker = DatePickerViewController(initialDate: Date())
         datePicker.onSelected = { date in
-            PopupAlertView.confirm(self, message: String(localized: .areYouSureYouWantToResetDateWith(date.dateString()))) {
+            self.presentConfirmation(message: String(localized: .areYouSureYouWantToResetDateWith(date.dateString()))) {
                 cell.resetDate(date) {
                     self.reload()
                 }

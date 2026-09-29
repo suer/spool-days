@@ -165,7 +165,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: delete
 
     fileprivate func confirmDelete() {
-        PopupAlertView.confirm(self, message: String(localized: .areYouSureYouWantToDelete), style: .destructive) {
+        presentConfirmation(message: String(localized: .areYouSureYouWantToDelete), style: .destructive) {
             self.dateViewModel.deleteDate()
             NotificationCenter.default.post(name: .didSaveOrDeleteDate, object: nil)
             self.dismiss(animated: true, completion: nil)

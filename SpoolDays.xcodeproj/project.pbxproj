@@ -22,7 +22,7 @@
 		801A6B111A8F5278006F4B7D /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80404BDC1A0BA76A00FD835F /* DateExtension.swift */; };
 		8024D2EC2FD4E90A008207A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8024D2EB2FD4E90A008207A6 /* GoogleService-Info.plist */; };
 		80404BDD1A0BA76A00FD835F /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80404BDC1A0BA76A00FD835F /* DateExtension.swift */; };
-		804A869E1ADA68CE0024E2E4 /* PopupAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A869D1ADA68CE0024E2E4 /* PopupAlertView.swift */; };
+		804A869E1ADA68CE0024E2E4 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A869D1ADA68CE0024E2E4 /* UIViewControllerExtension.swift */; };
 		804E607419F31D5D005BA669 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E607319F31D5D005BA669 /* EditViewController.swift */; };
 		8059A9001A02925D00A9958B /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059A8FF1A02925D00A9958B /* HistoryViewModel.swift */; };
 		8059A9021A03C11F00A9958B /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059A9011A03C11F00A9958B /* HistoryTableViewController.swift */; };
@@ -78,7 +78,7 @@
 		8022260619FB3AE600330227 /* SpoolDays.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SpoolDays.entitlements; sourceTree = "<group>"; };
 		8024D2EB2FD4E90A008207A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		80404BDC1A0BA76A00FD835F /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
-		804A869D1ADA68CE0024E2E4 /* PopupAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupAlertView.swift; sourceTree = "<group>"; };
+		804A869D1ADA68CE0024E2E4 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		804E607319F31D5D005BA669 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		8059A8FF1A02925D00A9958B /* HistoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		8059A9011A03C11F00A9958B /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
@@ -163,7 +163,7 @@
 				8002868319EFE1EE00089835 /* MainViewController.swift */,
 				80AF1CEB1A50449600A84EAA /* ModalViewController.swift */,
 				80DFB0F419F3D27B00BCF3B1 /* Models */,
-				804A869D1ADA68CE0024E2E4 /* PopupAlertView.swift */,
+				804A869D1ADA68CE0024E2E4 /* UIViewControllerExtension.swift */,
 				19A2AC012EC61E6300BC7AED /* SceneDelegate.swift */,
 				800D5FF51A455F9800F86EC5 /* Settings.bundle */,
 				8022260619FB3AE600330227 /* SpoolDays.entitlements */,
@@ -380,7 +380,7 @@
 			files = (
 				80DFB11F19F5427200BCF3B1 /* DatesViewModel.swift in Sources */,
 				8009360C1AA74ACC00F87B83 /* Log.swift in Sources */,
-				804A869E1ADA68CE0024E2E4 /* PopupAlertView.swift in Sources */,
+				804A869E1ADA68CE0024E2E4 /* UIViewControllerExtension.swift in Sources */,
 				80404BDD1A0BA76A00FD835F /* DateExtension.swift in Sources */,
 				804E607419F31D5D005BA669 /* EditViewController.swift in Sources */,
 				8009360A1AA74ACB00F87B83 /* BaseDate.swift in Sources */,
