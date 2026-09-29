@@ -9,10 +9,6 @@ class DateViewModel {
         self.baseDate = baseDate
     }
 
-    func getTitle() -> String? {
-        return baseDate?.title
-    }
-
     func resetDate() {
         resetDate(Date())
     }
