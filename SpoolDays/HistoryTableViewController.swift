@@ -2,11 +2,9 @@ import UIKit
 
 class HistoryTableViewController: UITableViewController {
     let historyViewModel: HistoryViewModel
-    let dateViewModel: DateViewModel
 
-    init(dateViewModel: DateViewModel) {
-        self.dateViewModel = dateViewModel
-        self.historyViewModel = HistoryViewModel(baseDate: dateViewModel.baseDate!)
+    init(baseDate: BaseDate) {
+        self.historyViewModel = HistoryViewModel(baseDate: baseDate)
         super.init(style: .insetGrouped)
     }
 
@@ -16,7 +14,7 @@ class HistoryTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = dateViewModel.getTitle()
+        title = historyViewModel.baseDate.title
         historyViewModel.fetch()
         tableView.reloadData()
         loadCancelButton()

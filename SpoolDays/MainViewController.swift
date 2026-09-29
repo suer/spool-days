@@ -190,9 +190,9 @@ class MainViewController: UITableViewController {
     ]
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! DateTableViewCell
-
         tableView.deselectRow(at: indexPath, animated: true)
+
+        guard let cell = tableView.cellForRow(at: indexPath) as? DateTableViewCell else { return }
 
         let ac = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: String(localized: .cancel), style: .cancel, handler: nil))
@@ -212,7 +212,8 @@ class MainViewController: UITableViewController {
     }
 
     fileprivate func showHistoryView(_ dateViewModel: DateViewModel) {
-        ModalViewController(baseController: self).presentModalViewController(HistoryTableViewController(dateViewModel: dateViewModel), .large)
+        guard let baseDate = dateViewModel.baseDate else { return }
+        ModalViewController(baseController: self).presentModalViewController(HistoryTableViewController(baseDate: baseDate), .large)
     }
 
     fileprivate func registerOnSignificantTimeChange() {
