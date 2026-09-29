@@ -20,7 +20,7 @@ class Log: NSManagedObject {
         set { event = newValue?.rawValue ?? "" }
     }
 
-    class func findResetLogsByBaseDate(_ baseDate: BaseDate) -> [Log] {
+    static func findResetLogsByBaseDate(_ baseDate: BaseDate) -> [Log] {
         let context = CoreDataManager.shared.context
         let fetchRequest: NSFetchRequest<Log> = NSFetchRequest<Log>(entityName: "Log")
         let predicate = NSPredicate(format: "baseDate = %@ and event in %@", baseDate, [EventType.create.rawValue, EventType.reset.rawValue])
