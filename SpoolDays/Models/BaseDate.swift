@@ -9,7 +9,7 @@ class BaseDate: NSManagedObject {
     @NSManaged var title: String
     @NSManaged var logs: Set<Log>
 
-    class func createBaseDate(_ title: String, date: Date) -> BaseDate? {
+    static func createBaseDate(_ title: String, date: Date) -> BaseDate? {
         let context = CoreDataManager.shared.context
 
         let fetchRequest: NSFetchRequest<BaseDate> = NSFetchRequest<BaseDate>(entityName: "BaseDate")
@@ -56,7 +56,7 @@ class BaseDate: NSManagedObject {
         CoreDataManager.shared.save()
     }
 
-    class func move(fromIndex: Int, toIndex: Int) {
+    static func move(fromIndex: Int, toIndex: Int) {
         let context = CoreDataManager.shared.context
 
         let fetchRequest: NSFetchRequest<BaseDate> = NSFetchRequest<BaseDate>(entityName: "BaseDate")
@@ -103,7 +103,7 @@ class BaseDate: NSManagedObject {
         CoreDataManager.shared.save()
     }
 
-    class func first() -> BaseDate? {
+    static func first() -> BaseDate? {
         let context = CoreDataManager.shared.context
         let fetchRequest: NSFetchRequest<BaseDate> = NSFetchRequest<BaseDate>(entityName: "BaseDate")
         let sortDescriptor = NSSortDescriptor(key: "sort", ascending: true)
