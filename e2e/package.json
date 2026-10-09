@@ -10,10 +10,10 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@wdio/types": "^9.19.1",
+    "@wdio/types": "^10.0.1",
     "appium": "^3.0.1",
     "appium-xcuitest-driver": "^12.0.0",
     "tsx": "^4.20.4",
-    "webdriverio": "^9.19.1"
+    "webdriverio": "^10.0.1"
   }
 }
