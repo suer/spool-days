@@ -94,11 +94,31 @@ class MainViewController: UITableViewController {
         showEditView(dateViewModel)
     }
 
+    fileprivate lazy var editIconButton: UIBarButtonItem = {
+        let item = UIBarButtonItem(image: nil, style: .plain, target: self, action: #selector(editButtonTapped))
+        updateEditIconButton(item)
+        return item
+    }()
+
+    @objc func editButtonTapped() {
+        setEditing(!isEditing, animated: true)
+    }
+
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        updateEditIconButton(editIconButton)
+    }
+
+    fileprivate func updateEditIconButton(_ item: UIBarButtonItem) {
+        item.image = UIImage(systemName: isEditing ? "checkmark" : "list.bullet")
+        item.accessibilityLabel = String(localized: isEditing ? .done : .edit)
+    }
+
     // MARK: empty state
 
     fileprivate func updateEmptyState() {
         let isEmpty = datesViewModel.dates.isEmpty
-        navigationItem.rightBarButtonItem = isEmpty ? nil : editButtonItem
+        navigationItem.rightBarButtonItem = isEmpty ? nil : editIconButton
 
         guard isEmpty else {
             tableView.backgroundView = nil
