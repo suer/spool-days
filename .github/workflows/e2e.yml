@@ -20,7 +20,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v7
 
-      - uses: jdx/mise-action@v5.2.2
+      - uses: jdx/mise-action@v5.2.4
         env:
           MISE_DISABLE_TOOLS: ruby
 
