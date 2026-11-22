@@ -80,6 +80,8 @@ jobs:
           restore-keys: xcode-cache-deriveddata-${{ github.job }}-${{ github.workflow }}-
           swiftpm-cache-key: xcode-cache-sourcepackages-${{ github.workflow }}-${{ github.sha }}
           swiftpm-cache-restore-keys: xcode-cache-sourcepackages-${{ github.workflow }}-
+          # Save only on master so that pull requests do not evict the master cache
+          cache-read-only: ${{ github.ref != 'refs/heads/master' }}
 
       - name: Build
         run: |
@@ -116,6 +118,8 @@ jobs:
           restore-keys: xcode-cache-deriveddata-${{ github.job }}-${{ github.workflow }}-
           swiftpm-cache-key: xcode-cache-sourcepackages-${{ github.workflow }}-${{ github.sha }}
           swiftpm-cache-restore-keys: xcode-cache-sourcepackages-${{ github.workflow }}-
+          # Save only on master so that pull requests do not evict the master cache
+          cache-read-only: ${{ github.ref != 'refs/heads/master' }}
 
       - name: Select simulator
         id: select_simulator
